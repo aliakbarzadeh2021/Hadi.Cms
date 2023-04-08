@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Hadi.Cms.Language.Resources;
+
+namespace Hadi.Cms.ApplicationService.CommandModels
+{
+    /// <summary>
+    /// فرمان ثبت رویداد
+    /// </summary>
+    public class EventCreateCommand
+    {
+        /// <summary>
+        /// عنوان
+        /// </summary>
+        [Required(AllowEmptyStrings = false , ErrorMessageResourceType = typeof(Strings),ErrorMessageResourceName = "Required")]
+        public string Title { get; set; }
+        /// <summary>
+        /// لینک
+        /// </summary>
+        [Required(AllowEmptyStrings = false, ErrorMessageResourceType = typeof(Strings), ErrorMessageResourceName = "Required")]
+        public string Link { get; set; }
+        /// <summary>
+        /// شناسه تصویر
+        /// </summary>
+        public Guid? AttachmentImageId { get; set; }
+        /// <summary>
+        /// وضعیت فعال بودن
+        /// </summary>
+        public bool IsActive { get; set; }
+    }
+}

@@ -1,0 +1,394 @@
+#career main .container-fluid {
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.hide-image {
+    display: none !important;
+}
+.resume-sent {
+    background: var(--color-stromboli);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    line-height: 2;
+    border-radius: 3px;
+}
+#career .success-banner {
+    display: none;
+}
+#career .show-banner {
+    display: block !important;
+}
+#career main .recruitment-header {
+    background-color: var(--color-persian-green);
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 92px 100px 80px;
+}
+
+#career main .recruitment-header .recruitment-title {
+    padding-top: 50px;
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0%;
+}
+
+#career main .recruitment-header .recruitment-title .noraml-title {
+    border-bottom: 1px solid var(--color-white);
+    color: var(--color-emperor);
+    width: 65%;
+    padding-bottom: 20px;
+}
+
+#career main .recruitment-header .recruitment-title .bold-title {
+    padding-top: 20px;
+    line-height: 2;
+    font-family: Anjoman;
+    font-size: 40px;
+    color: var(--color-white);
+}
+
+#career main .recruitment-header .recruitment-images-container {
+    display: flex;
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    justify-content: space-between;
+}
+
+#career main .recruitment-header .recruitment-pattern-image {
+    width: 240px;
+    height: 190px;
+    padding-top: 50px;
+}
+
+#career main .recruitment-header .recruitment-lamp-image {
+    width: 240px;
+    height: 250px;
+}
+
+#career main .recruitment-header .recruitment-pattern-image img {
+    width: 100%;
+    height: 100%;
+}
+
+#career main .recruitment-header .recruitment-lamp-image img {
+    width: 100%;
+    height: 100%;
+}
+
+#career main .recruitment-main {
+    display: flex;
+    margin-top: -1px;
+}
+
+#career main .recruitment-main .recruitment-main-right {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    text-align: center;
+    color: var(--color-emperor);
+    margin-top: 68px;
+    margin-bottom: 28px;
+    padding: 0px 12vw 0px 0vw;
+    margin-left: 5vw;
+}
+
+#career main .recruitment-main .recruitment-main-right .right-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#career main .recruitment-main .recruitment-main-right .right-links {
+    font-size: 18px;
+    display: inline-flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--color-shady-lady);
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+#career .nav-link.active {
+    color: #c8b34c;
+    font-weight: bold;
+}
+#career main .recruitment-main .recruitment-main-right .right-links .link:hover .active-bar,
+#career main .recruitment-main .recruitment-main-right .right-links .nav-link.active .active-bar {
+    width: 70%;
+}
+
+#career main .recruitment-main .recruitment-main-right .right-links .link {
+    padding-right: 32px;
+    padding-left: 32px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+#career main .recruitment-main .recruitment-main-right .right-links .link a {
+    color: black;
+}
+#career main .recruitment-main .recruitment-main-right .right-links .link a.active {
+    color: #c8b34c;
+}
+
+#career main .recruitment-main .recruitment-main-right .right-links .link .title {
+    margin: 0px 0px 10px 0px;
+}
+
+#career main .recruitment-main .recruitment-main-right .right-links .link .active-bar {
+    position: absolute;
+    width: 0;
+    bottom: -2px;
+    height: 3.5px;
+    right: 23px;
+    background: #c8b34c;
+}
+#career main .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: none !important;
+    font-weight: bold;
+    color: #c8b34c;
+}
+#career main .nav-pills .nav-link.active .active-bar {
+    background-color: #c8b34c;
+    width: 70px;
+}
+
+#career main .recruitment-main .recruitment-main-right .right-links .link:hover .title,
+#career main .recruitment-main .recruitment-main-right .right-links .link.active .title {
+    color: #c8b34c;
+    font-weight: bold;
+}
+
+#career main .recruitment-main .recruitment-main-right .right-links .link:hover .active-bar,
+#career main .recruitment-main .recruitment-main-right .right-links .link.active .active-bar {
+    width: 70%;
+}
+
+#career main .recruitment-main .recruitment-main-right .right-links .link + .link {
+    border-right: 1px solid var(--color-shady-lady);
+}
+
+#career main .recruitment-main .recruitment-main-left {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    line-height: 2;
+    font-size: 18px;
+    background: var(--color-persian-green);
+    color: var(--color-white);
+    padding: 0px 15vw 0px 10vw;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 0, 100% 30%, 90% 30%, 90% 60%, 80% 60%, 80% 90%, 0 90%, 0% 35%, 0 0);
+}
+
+#career main .recruitment-main .recruitment-main-left .one {
+    background: linear-gradient(to right, #00a99d 0%, #00a99d 100%);
+    height: 100%;
+}
+
+#career main .recruitment-main .recruitment-main-left .two {
+    background: linear-gradient(to right, #00a99d 0%, #00a99d 90%, #ffffff 90%, #ffffff 100%);
+    height: 100%;
+}
+
+#career main .recruitment-main .recruitment-main-left .three {
+    background: linear-gradient(to right, #00a99d 0%, #00a99d 80%, #ffffff 80%, #ffffff 100%);
+    height: 100%;
+}
+
+#career main .recruitment-footer {
+    margin-bottom: 100px;
+}
+/*#career main .recruitment-footer.fade {
+ display:none;
+}
+    #career main .recruitment-footer.active {
+        display: block !important;
+    }*/
+
+#career main .recruitment-footer .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+
+#career main .recruitment-footer .header-container .title {
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 16px;
+    color: var(--color-emperor);
+}
+
+#career main .recruitment-footer .header-container .line {
+    height: 1px;
+    background-color: var(--color-shady-lady);
+    width: 80%;
+}
+
+#career main .recruitment-footer .card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#career main .recruitment-footer .card-container .main-container {
+    margin-bottom: 15px;
+    background-color: var(--color-bi-Sand);
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(100% / 3 - 16px);
+    margin-left: 16px;
+    border: 1px solid var(--color-persian-green);
+    border-radius: 4px;
+    padding: 32px 16px;
+    max-height: 352px;
+    position: relative;
+}
+
+#career main .recruitment-footer .card-container .main-container:hover .hover-information {
+    opacity: 1;
+}
+
+#career main .recruitment-footer .card-container .main-container .hover-information {
+    transition: 0.2.5s ease-in-out;
+    opacity: 0;
+    background: var(--color-stromboli);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    line-height: 2;
+    border-radius: 3px;
+}
+
+#career main .recruitment-footer .card-container .main-container .hover-information .description {
+    color: var(--color-white);
+    font-size: 14px;
+    text-align: center;
+}
+
+/* #career main .recruitment-footer .card-container .main-container .hover-information .btn-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+} */
+
+
+#career main .recruitment-footer .card-container .main-container .hover-information .btn-container .btn-custom {
+    margin-top: 16px;
+    width: auto;
+    height: 37px;
+    color: var(--color-stromboli);
+    cursor: pointer;
+    background-color: var(--color-Turmeric);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 16px 5px 16px;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+#career main .recruitment-footer .card-container .main-container .hover-information .btn-container .btn-custom img {
+    width: 15px;
+    height: 17px;
+}
+
+#career main .recruitment-footer .card-container .main-container .title {
+    color: var(--color-persian-green);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+#career main .recruitment-footer .card-container .main-container .description {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--color-emperor);
+    line-height: 20px;
+}
+
+#career main .recruitment-footer .card-container .main-container .description .image-container {
+    flex: 0 0 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#career main .recruitment-footer .card-container .main-container .description .image-container img {
+    width: 93px;
+    height: 93px;
+    object-fit: contain;
+}
+#career main .recruitment-footer .card-container .main-container .description .description-text{
+    flex: 0 0 70%;
+} 
+/*
+320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more — Extra large screens, TV
+*/
+
+@media only screen and (max-width: 750px) {
+    #career main .recruitment-header .recruitment-images-container {
+        display: none;
+    }
+
+    #career main .recruitment-main {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #career main .recruitment-main .recruitment-main-left {
+        clip-path: none;
+        padding: 0px 10vw 50px 10vw;
+    }
+
+    #career main .recruitment-main .recruitment-main-right {
+        padding: 20px 0vw 0px 0vw;
+        margin-left: 0vw;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+    #career main .recruitment-footer .header-container .line {
+        display: none;
+    }
+
+    #career main .recruitment-footer .card-container .main-container {
+        flex: 0 0 calc(100%);
+    }
+
+    #career main .recruitment-header .recruitment-title .noraml-title {
+        width: 100%;
+        border-bottom: 0;
+    }
+
+    #career main .recruitment-header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

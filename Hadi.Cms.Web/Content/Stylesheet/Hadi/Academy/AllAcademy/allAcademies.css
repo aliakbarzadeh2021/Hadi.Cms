@@ -1,0 +1,592 @@
+
+#all-academies main {
+    padding-bottom: 100px;
+}
+#all-academies main .all-academies-header {
+    /* background-color: var(--color-persian-green); */
+    background-image: url(/Content/Images/Hadi/Academy/AllAcademies/first_slide.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-right: 8vw;
+    padding-left: 8vw;
+    padding-top: 90px;
+    padding-bottom: 80px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    #all-academies main .all-academies-header .header-info-container {
+        flex-grow: 1;
+        flex-shrink: 1;
+        /* flex-basis: 40%; */
+    }
+
+        #all-academies main .all-academies-header .header-info-container .info-title-image {
+            width: 134px;
+            height: 51px;
+        }
+
+        #all-academies main .all-academies-header .header-info-container .info-description {
+            color: var(--color-white);
+            font-size: 36px;
+            font-size: 2.8vw;
+            font-family: Anjoman;
+            font-weight: bold;
+        }
+
+    #all-academies main .all-academies-header .background-pattern {
+        background: url("/Content/Images/Hadi/Academy/AllAcademies/pattern.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        /* flex-grow: 1;
+    flex-shrink: 1; */
+        flex-basis: 8%;
+        margin-left: 10%;
+        margin-right: 5%;
+        height: 170px;
+        align-self: center;
+    }
+
+    #all-academies main .all-academies-header .event-container {
+        /* flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 50%; */
+    }
+
+        #all-academies main .all-academies-header .event-container .event-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+            #all-academies main .all-academies-header .event-container .event-title-container .event-title {
+                font-size: 18px;
+            }
+
+            #all-academies main .all-academies-header .event-container .event-title-container .event-line {
+                background: white;
+                height: 1px;
+                width: 60%;
+            }
+
+        #all-academies main .all-academies-header .event-container .event-image-container {
+        }
+
+            #all-academies main .all-academies-header .event-container .event-image-container img {
+                width: 378px;
+                height: 119px;
+            }
+
+#all-academies main .academy-course {
+    margin-top: 115px;
+    padding-right: 8vw;
+    padding-left: 8vw;
+}
+
+    #all-academies main .academy-course .academy-course-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        #all-academies main .academy-course .academy-course-header .title {
+            font-weight: bold;
+            font-size: 36px;
+            font-family: Anjoman;
+            color: var(--color-emperor);
+        }
+
+        #all-academies main .academy-course .academy-course-header .challenge-line-custom {
+            height: 1px;
+            background: var(--color-emperor);
+            width: 50%;
+        }
+
+    #all-academies main .academy-course .course-image-container {
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 2;
+    }
+
+        #all-academies main .academy-course .course-image-container .course-image {
+            flex: 0 0 calc(100% / 4 - 16px);
+            margin-left: 16px;
+            border-bottom: 1px solid var(--color-shady-lady);
+            min-width: 240px;
+            margin-top: 20px;
+            transition: 0.3s all ease;
+        }
+            #all-academies main .academy-course .course-image-container .course-image:hover {
+                border-bottom: 2px solid var(--color-shady-lady);
+            }
+
+            #all-academies main .academy-course .course-image-container .course-image .btn-custom {
+                background-color: var(--color-persian-green);
+            }
+
+                #all-academies main .academy-course .course-image-container .course-image .btn-custom img {
+                    width: 20px;
+                }
+
+            #all-academies main .academy-course .course-image-container .course-image .image-custom {
+                width: 100%;
+                object-fit: cover;
+                min-height: 190px;
+                transition: 0.3s all ease;
+            }
+                #all-academies main .academy-course .course-image-container .course-image .image-custom:hover {
+                    filter: brightness(0.5);
+                }
+
+                #all-academies main .academy-course .course-image-container .course-image .image-info {
+                    font-size: 13px;
+                }
+
+#all-academies main .academy-tabs {
+    margin-top: -40px;
+}
+
+    #all-academies main .academy-tabs .nav-tabs {
+        padding-right: 100px;
+        border-bottom: none;
+    }
+
+        #all-academies main .academy-tabs .nav-tabs .nav-item {
+            margin: 0 3px 0 3px;
+        }
+
+            #all-academies main .academy-tabs .nav-tabs .nav-item .nav-link {
+                padding: 6px 50px 9px 50px;
+                background-color: white;
+                border: none;
+            }
+
+                #all-academies main .academy-tabs .nav-tabs .nav-item .nav-link.active {
+                    border-top: 8px solid #9ed8d0;
+                    margin-top: -15px;
+                    padding: 12px 50px 11px 50px;
+                }
+
+    #all-academies main .academy-tabs .tab-content {
+        padding-top: 70px;
+    }
+
+        #all-academies main .academy-tabs .tab-content .tab-pane .content {
+            padding-right: 8vw;
+            /* padding-left: 8vw; */
+        }
+
+            #all-academies main .academy-tabs .tab-content .tab-pane .content .details {
+                /* flex: 0 0 25%; */
+                width: 25%;
+            }
+
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .details .title {
+                    color: var(--color-persian-green);
+                }
+
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .details .text {
+                    text-align: justify;
+                    line-height: 2;
+                    margin-top: 30px;
+                    border-left: 1px solid var(--color-shady-lady);
+                    padding-left: 6vw;
+                }
+
+            #all-academies main .academy-tabs .tab-content .tab-pane .content .videos {
+                /* flex: 0 0 75%; */
+                direction: ltr;
+                width: 75%;
+                /* display: flex; */
+                flex-wrap: wrap;
+                padding: 0 6vw 0 0;
+                /* justify-content: center; */
+            }
+
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .filter-container {
+                    direction: rtl;
+                    width: 100%;
+                    height: 35px;
+                    display: flex;
+                    padding-left: 8vw;
+                }
+
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .filters {
+                    display: block !important;
+                    border-bottom: 1px solid var(--color-shady-lady);
+                    overflow: auto;
+                    overflow-y: hidden;
+                    white-space: nowrap;
+                }
+
+                    #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .filters::-webkit-scrollbar {
+                        background-color: var(--color-wild-sand);
+                        height: 5px;
+                    }
+
+                    #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .filters::-webkit-scrollbar-thumb {
+                        background-color: var(--color-shady-lady);
+                    }
+
+                    #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .filters .filter {
+                        border-left: 1px solid var(--color-shady-lady);
+                        color: var(--color-emperor);
+                        border-right: 1px solid transparent;
+                        border-top: 1px solid transparent;
+                        border-bottom: 1px solid transparent;
+                        padding: 0px 20px 0px 20px;
+                        cursor: pointer;
+                        transition: 0.3s ease;
+                        margin-bottom: 7px;
+                        display: inline-block;
+                    }
+
+                        #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .filters .filter.active {
+                            color: var(--color-Turmeric);
+                            font-weight: bold;
+                        }
+
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .videos-slider {
+                    flex: 0 0 100%;
+                    padding-top: 8vh;
+                }
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .videos-slider .slick-next{
+                    width: 50px;
+                    height: 50px;
+                    margin-top: 20px;
+                    margin-left: 27px;
+                    z-index: 1;
+                }
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .videos-slider .slick-prev{
+                    width: 50px;
+                    height: 50px;
+                    margin-top: 20px;
+                    margin-right: -68px;
+                }
+
+                    #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .videos-slider video {
+                        background: url(../aProject/images/fino_8.jpg);
+                        background-size: cover;
+                        width: 19vw !important;
+                        height: 10vw;
+                        margin: 5px;
+                    }
+/* #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .videos-slider video:first-child{
+    height: 200px;
+} */
+
+#all-academies main .apprentice-container {
+    margin-top: 115px;
+    padding-right: 8vw;
+    padding-left: 8vw;
+}
+
+    #all-academies main .apprentice-container .banner-image-container {
+    }
+
+        #all-academies main .apprentice-container .banner-image-container img {
+            height: 273px;
+            width: 100%;
+            object-fit: contain;
+        }
+
+#all-academies main .challenge-container {
+    margin-top: 115px;
+    padding-right: 8vw;
+    padding-left: 8vw;
+}
+
+    #all-academies main .challenge-container .challenge-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        #all-academies main .challenge-container .challenge-header .challenge-title {
+            font-weight: bold;
+            font-size: 36px;
+            font-family: Anjoman;
+            color: var(--color-emperor);
+        }
+
+        #all-academies main .challenge-container .challenge-header .challenge-line-custom {
+            height: 1px;
+            background: var(--color-emperor);
+            width: 50%;
+        }
+
+    #all-academies main .challenge-container .challenge-video-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        #all-academies main .challenge-container .challenge-video-container .challenge-video {
+            flex: 0 0 calc(100% / 4 - 16px);
+            margin-left: 16px;
+        }
+
+            #all-academies main .challenge-container .challenge-video-container .challenge-video .video-custom {
+                width: 100%;
+                min-height: 160px;
+                object-fit: cover;
+            }
+
+            #all-academies main .challenge-container .challenge-video-container .challenge-video .video-info {
+                font-size: 13px;
+            }
+
+                #all-academies main .challenge-container .challenge-video-container .challenge-video .video-info .video-info-name {
+                    color: var(--color-jungel-green);
+                }
+
+            #all-academies main .challenge-container .challenge-video-container .challenge-video .video-info-description {
+                font-size: 13px;
+            }
+
+            
+            #all-academies main .challenge-container .button .btn-custom {
+                background-color: var(--color-Turmeric);
+            }
+
+                #all-academies main .challenge-container .button .btn-custom img {
+                    width: 20px;
+                }
+#all-academies main .about-this-project {
+    margin-top: 115px;
+    margin-bottom: 115px;
+    display: flex;
+    padding-right: 8vw;
+    padding-left: 8vw;
+}
+
+    #all-academies main .about-this-project .content {
+        flex: 0 0 70%;
+        display: grid;
+        grid-template-columns: 3.5% 90%;
+        grid-template-rows: auto auto 2vw;
+    }
+
+        #all-academies main .about-this-project .content .border-bottom-custom {
+            border-bottom: 1px solid var(--color-shady-lady);
+        }
+
+        #all-academies main .about-this-project .content .border-right-custom {
+            border-right: 1px solid var(--color-shady-lady);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+            #all-academies main .about-this-project .content .border-right-custom .title-color {
+                color: var(--color-Turmeric);
+            }
+
+        #all-academies main .about-this-project .content .about-this-project-container {
+            display: flex;
+            flex-wrap: wrap;
+            border-right: 1px solid var(--color-shady-lady);
+            padding: 2vw 1.5vw 2vw 0vw;
+        }
+
+            #all-academies main .about-this-project .content .about-this-project-container .image-container {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex: 0 0 calc(100% / 5 - 16px);
+                margin-left: 16px;
+                margin-top: 48px;
+            }
+
+                #all-academies main .about-this-project .content .about-this-project-container .image-container:nth-child(5n+5) {
+                    margin-left: 0;
+                }
+
+                #all-academies main .about-this-project .content .about-this-project-container .image-container .main-image {
+                    width: 60px;
+                    height: 60px;
+                }
+
+                #all-academies main .about-this-project .content .about-this-project-container .image-container .side-image {
+                    position: absolute;
+                    width: 34px;
+                    height: 34px;
+                    top: -11%;
+                    left: 61%;
+                    border-radius: 100%;
+                    padding: 3px;
+                }
+
+                #all-academies main .about-this-project .content .about-this-project-container .image-container .caption {
+                    margin-top: 8px;
+                    font-size: 12px;
+                }
+
+    #all-academies main .about-this-project .box-container {
+        flex: 0 0 30%;
+        align-self: center;
+        background-color: var(--color-persian-green);
+        color: var(--color-white);
+        height: 290px;
+        padding: 48px 32px 48px 16px;
+        background-image: url('/Content/Images/Hadi/Academy/AllAcademies/pattern.svg');
+        background-repeat: no-repeat;
+        background-size: 25%;
+        background-position: left center;
+    }
+
+        #all-academies main .about-this-project .box-container .info-container {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 16px 16px 8px 125px;
+            border-right: 1px solid white;
+            height: 100%;
+        }
+
+        #all-academies main .about-this-project .box-container .image {
+            width: 20px;
+            height: 11px;
+        }
+
+/*
+320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more — Extra large screens, TV
+*/
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 750px) {
+    #all-academies main .all-academies-header {
+        flex-direction: column;
+    }
+
+        #all-academies main .all-academies-header .header-info-container .info-description {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        #all-academies main .all-academies-header .header-info-container .info-title {
+            width: 75% !important;
+        }
+
+        #all-academies main .all-academies-header .event-container .event-image-container img {
+            max-width: 60vw;
+            object-fit: cover;
+        }
+
+    #all-academies main .academy-tabs .nav-tabs {
+        padding-right: 0;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+        #all-academies main .academy-tabs .nav-tabs .nav-item .nav-link {
+            padding-right: 3vw;
+            padding-left: 3vw;
+            padding-top: 8px;
+        }
+
+            #all-academies main .academy-tabs .nav-tabs .nav-item .nav-link.active {
+                padding-right: 3vw;
+                padding-left: 3vw;
+            }
+
+    #all-academies main .academy-tabs .tab-content .tab-pane .content {
+        flex-direction: column-reverse;
+        padding-left: 8vw;
+    }
+
+        #all-academies main .academy-tabs .tab-content .tab-pane .content .videos {
+            width: 100%;
+            padding: 0;
+        }
+
+            #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .filter-container {
+                padding: 0;
+                height: auto;
+            }
+
+            #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .filters {
+                overflow: hidden;
+                white-space: normal;
+                display: flex !important;
+                justify-content: center;
+                border: none;
+            }
+
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .filters .filter {
+                    border: none;
+                }
+
+            #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .videos-slider video {
+                display: none;
+            }
+
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .videos .videos-slider video:nth-child(2) {
+                    display: block;
+                    width: 100%;
+                }
+
+        #all-academies main .academy-tabs .tab-content .tab-pane .content .details {
+            width: 100%;
+            margin-top: 70px;
+        }
+
+            #all-academies main .academy-tabs .tab-content .tab-pane .content .details .text {
+                border: none;
+                padding: 0;
+            }
+
+                #all-academies main .academy-tabs .tab-content .tab-pane .content .details .text img {
+                    display: none;
+                }
+
+    #all-academies main .academy-course .course-image-container {
+        justify-content: center;
+    }
+
+    #all-academies main .challenge-container .challenge-video-container .challenge-video {
+        flex: 0 0 calc(100%);
+        margin-left: 0;
+    }
+
+    #all-academies main .about-this-project {
+        display: block;
+    }
+
+        #all-academies main .about-this-project .content .border-bottom-custom {
+            border-bottom: 0;
+        }
+
+        #all-academies main .about-this-project .content .border-right-custom {
+            border-right: 0;
+        }
+
+        #all-academies main .about-this-project .content .about-this-project-container {
+            border-right: 0;
+        }
+
+            #all-academies main .about-this-project .content .about-this-project-container .image-container {
+                flex: 0 0 calc(100% / 3 - 16px);
+            }
+
+        #all-academies main .about-this-project .content .border-right-custom {
+            display: block;
+        }
+
+            #all-academies main .about-this-project .content .border-right-custom .title-color {
+                color: var(--color-Turmeric);
+                margin-top: 32px;
+            }
+
+        #all-academies main .about-this-project .content .about-this-project-container .image-container:nth-child(5n+5) {
+            margin-left: 16px;
+        }
+}
+  

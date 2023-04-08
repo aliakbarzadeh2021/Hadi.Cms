@@ -1,0 +1,228 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Web.Utilities
+
+@model IPagedList<Hadi.Cms.Model.QueryModels.NotificationModel>
+
+@{
+    ViewBag.Title = Strings.Global_NotificationList;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+    <link href="~/Content/RadaTemplate/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+}
+
+<style>
+    .float-e-margins .btn {
+        margin-left: 4px;
+    }
+
+    .ibox .fa {
+        font-size: 14px !important;
+    }
+
+    .opr table {
+        margin: 0px 0px -7px -90px;
+    }
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_NotificationManagment</h2>
+        <ol class="breadcrumb">
+            <li>
+
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<p></p>
+
+<div class="animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_NotificationList</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up">
+                            </i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-tasks">
+                            </i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="@Url.Action("Create", "Notification", new { area = "Admin" })">
+                                    @Strings.Global_NewNotification
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>@Strings.Table_RowNumber</th>
+                                    <th>@Strings.NotificationModel_Text</th>
+                                    <th>@Strings.NotificationModel_IsPublic</th>
+                                    <th>@Strings.NotificationModel_Sender</th>
+                                    <th>@Strings.NotificationModel_SendTime</th>
+                                    <th>@Strings.NotificationModel_Receiver</th>
+                                    <th>@Strings.NotificationModel_ReceiveTime</th>
+                                    <th>@Strings.NotificationModel_Status</th>
+                                    <th>@Strings.NotificationModel_NewsID</th>
+                                    <th>@Strings.Table_UserOperations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    var rowId = 0;
+                                    for (var i = 1; i < ViewBag.PageNumber; i++)
+                                    {
+                                        rowId += 5;
+                                    }
+
+                                    foreach (var item in Model)
+                                    {
+                                        <tr class="gradeX">
+                                            <td class="center">
+                                                @(rowId += 1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => item.Text)
+                                            </td>
+                                            <td class="center">
+                                                @if (item.IsPublic)
+                                                {
+                                                    <strong class="label label-default">@Strings.Global_Public</strong>
+                                                }
+                                                else
+                                                {
+                                                    <strong class="label label-default">@Strings.Global_Private</strong>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => item.Sender.FullName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => item.SendTime)
+                                            </td>
+                                            <td>
+                                                @if (item.Receiver != null)
+                                                {
+                                                    @Html.DisplayFor(m => item.Receiver.FullName)
+                                                }
+                                                else
+                                                {
+                                                    <strong class="label label-de">---</strong>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.ReceiveTime != null)
+                                                {
+                                                    var sReceiveTime = item.ReceiveTime.Value.DateTimeToString(SessionData.Current.HasRightToLeftUI);
+                                                    @Html.DisplayFor(m => sReceiveTime)
+                                                }
+                                                else
+                                                {
+                                                    <strong class="label label-de">---</strong>
+                                                }
+                                            </td>
+                                            <td class="center">
+                                                @if (item.Status)
+                                                {
+                                                    <strong class="label label-default">@Strings.Global_UnRead</strong>
+                                                }
+                                                else
+                                                {
+                                                    <strong class="label label-default">@Strings.Global_Read</strong>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => item.NewsId)
+                                            </td>
+                                            <td class="opr">
+                                                <table>
+                                                    <tr>
+                                                        <th>
+                                                            <a onclick="DeleteNotificationAlert('@item.Id');" class="btn btn-danger btn-circle" title="@Strings.Global_Delete"><i class="fa fa-remove"></i></a>
+                                                        </th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                        <div aria-label="Page navigation" class="text-center" id="myPager2">
+                            @Html.PagedListPager(Model, pageNumber => Url.Action("List", new { pageNumber }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/RadaTemplate/js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script>
+		var NotificationId = -1;
+
+		function DeleteNotificationAlert(Id) {
+			NotificationId = Id;
+
+			swal({
+				title: '@Strings.Are_You_Sure',
+				text: '@Strings.Notification_Delete_Message',
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: '@Strings.Yes',
+				cancelButtonText: '@Strings.No',
+				closeOnConfirm: false,
+				closeOnCancel: true
+			},
+			function (isConfirm) {
+				if (isConfirm) {
+					DeleteNotification(Id);
+				}
+			});
+		}
+
+		function DeleteNotification(id) {
+			var param = "@Url.Action("DeleteNotification", "Notification", null, this.Request.Url?.Scheme)";
+			var ajaxdata = "NotificationId=" + id;
+			@Html.Ajax("POST", "", "nowhere", "ReturnDeleteNotification")
+		}
+
+		function ReturnDeleteNotification(data) {
+			swal({
+				title: data.Success,
+				text: data.Message,
+				type: "success",
+				showCancelButton: false,
+				confirmButtonColor: "#23c6c8",
+				confirmButtonText: "OK",
+				closeOnConfirm: true
+			}, function () {
+				window.location.reload();
+			});
+		}
+    </script>
+}

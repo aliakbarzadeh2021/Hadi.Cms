@@ -1,0 +1,6 @@
+@model List<Hadi.Cms.Model.Mappings.Interfaces.ITechnologyDto>
+
+@foreach (var tech in Model)
+{
+    <img class="used-technology-image" src="@tech.ImageSource" alt="@tech.Name">
+}

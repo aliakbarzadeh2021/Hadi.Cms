@@ -1,0 +1,284 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.Model.QueryModels.SettingsModel
+
+@{
+    ViewBag.Title = Strings.Global_Settings;
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_Settings</h2>
+        <ol class="breadcrumb">
+            <div style="float: left; display: @(ViewBag.Success == 2 ? "none" : "block")">
+                <div class="alert alert-success alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @Strings.Setting_Update_Successful
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Index", "Settings", FormMethod.Post, new { id = "SettingForm", @class = "form-horizontal m-t-md" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_PublicSettings</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_CompanyName, new { @class = "col-sm-2 control-label" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.Application_CompanyName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                            @Html.ValidationMessageFor(model => model.Application_CompanyName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_BinaryStorage, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_BinaryStorage)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_PhysicalStorage, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_PhysicalStorage)
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_EnableIpBanned, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_EnableIpBanned)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_EnableIpRange, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_EnableIpRange)
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_License, new { @class = "col-sm-2 control-label" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.Application_License, new { htmlAttributes = new { @class = "form-control ltr-input" } })
+                            @Html.ValidationMessageFor(model => model.Application_License, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        @Html.Label(Strings.Application_Language, new { @class = "col-sm-2 control-label" })
+                        <div class="col-sm-10">
+                            <p>
+                                فارسی
+                                @Html.RadioButtonFor(model => model.Application_Language, "fa-ir")
+                            </p>
+
+                            <p>
+                                English
+                                @Html.RadioButtonFor(model => model.Application_Language, "en-us")
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="hr-line-dashed"></div>
+                </div>
+            </div>
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_DisplaySettings</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_DisplayFooterVersionText, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_DisplayFooterVersionText)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_DisplayFooterLanguageChanger, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_DisplayFooterLanguageChanger)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_DisplayNotificationTopIcon, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_DisplayNotificationTopIcon)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_DisplaySiteLeftMenuBar, new { @class = "control-label col-sm-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_DisplaySiteLeftMenuBar)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_DisplayViewLogo, new { @class = "control-label col-sm-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_DisplayViewLogo)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_DisplayLoginLogo, new { @class = "control-label col-sm-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_DisplayLoginLogo)
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_ViewLogoPath, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.Application_ViewLogoPath, new { htmlAttributes = new { @class = "form-control ltr-input" } })
+                            @Html.ValidationMessageFor(model => model.Application_ViewLogoPath, "", new { @class = "text-danger" })
+                            @if (!string.IsNullOrEmpty(Model.Application_ViewLogoPath))
+                            {
+                                <img src="@Url.Content(Model.Application_ViewLogoPath)" alt="Image" />
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_LoginLogoPath, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.Application_LoginLogoPath, new { htmlAttributes = new { @class = "form-control ltr-input" } })
+                            @Html.ValidationMessageFor(model => model.Application_LoginLogoPath, "", new { @class = "text-danger" })
+                            @if (!string.IsNullOrEmpty(Model.Application_LoginLogoPath))
+                            {
+                                <img src="@Url.Content(Model.Application_LoginLogoPath)" alt="Image" />
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_TextUnderLoginLogo, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.Application_TextUnderLoginLogo, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                            @Html.ValidationMessageFor(model => model.Application_TextUnderLoginLogo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_PanelFooterText, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.Application_PanelFooterText, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                            @Html.ValidationMessageFor(model => model.Application_PanelFooterText, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_ViewFooterText, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.Application_ViewFooterText, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                            @Html.ValidationMessageFor(model => model.Application_ViewFooterText, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_LoginFooterText, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.Application_LoginFooterText, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                            @Html.ValidationMessageFor(model => model.Application_LoginFooterText, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_LoginSetting</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_LoginWithSms, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_LoginWithSms)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_LoginWithEmail, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_LoginWithEmail)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_LoginWithCaptcha, new { @class = "control-label col-sm-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_LoginWithCaptcha)
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_FailedLoginLimitedCheck, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Application_FailedLoginLimitedCheck)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Application_FailedLoginMaximumCount, new { @class = "control-label col-sm-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Application_FailedLoginMaximumCount, new { htmlAttributes = new { @class = "form-control ltr-input" } })
+                            @Html.ValidationMessageFor(model => model.Application_FailedLoginMaximumCount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox float-e-margins hidden">
+                <div class="ibox-title">
+                    <h5></h5>
+                </div>
+                <div class="ibox-content">
+
+                </div>
+            </div>
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Application_ENamadCode</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            @Html.EditorFor(model => model.Application_ENamadCode, new { htmlAttributes = new { @class = "form-control rtl-input", rows = 8 } })
+                            @Html.ValidationMessageFor(model => model.Application_ENamadCode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+@section scripts{
+    <script>
+        $(function () {
+
+            if ($("#Application_FailedLoginLimitedCheck")[0].checked) {
+                $("#Application_FailedLoginMaximumCount").prop('disabled', false);
+            }
+            else {
+                $("#Application_FailedLoginMaximumCount").prop('disabled', true);
+            }
+
+            $("#Application_FailedLoginLimitedCheck").change(function () {
+
+                if ($("#Application_FailedLoginLimitedCheck")[0].checked) {
+                    $("#Application_FailedLoginMaximumCount").prop('disabled', false);
+                }
+                else {
+                    $("#Application_FailedLoginMaximumCount").prop('disabled', true);
+                }
+            });
+        });
+    </script>
+}

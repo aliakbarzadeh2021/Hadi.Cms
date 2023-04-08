@@ -1,0 +1,125 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+
+@model Hadi.Cms.ApplicationService.QueryModels.AnArticleDto
+
+@{
+    ViewBag.Title = $"{Strings.Global_Articles} - {Model.Title}";
+    ViewBag.IdBody = "an-article";
+}
+
+<style>
+    ul{
+        list-style: initial;
+    }
+</style>
+<div class="article">
+    <div class="container-fluid">
+        <div class="title-main">
+            @Model.Title
+        </div>
+        <div class="description-main mt-2">
+            @Model.Summary
+        </div>
+        <div class="date-main mt-1">
+            @Model.ShamsiStringDate
+        </div>
+        <div class="user-container">
+            <div class="user-information">
+                <img class="user-image" src="@Model.AuthorImageSource" alt="">
+                <div>
+                    <div>
+                        <span>
+                            نویسنده :
+                        </span>
+                        <span>
+                            @Model.AuthorName
+                        </span>
+                    </div>
+                    <div class="images-container">
+                        @if (!string.IsNullOrEmpty(Model.TelegramAddress) && Model.TelegramAddress != "#")
+                        {
+                            <a href="@Model.TelegramAddress">
+                                <img src="/Content/Images/Hadi/telegram.svg" alt="">
+                            </a>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.InstagramAddress) && Model.InstagramAddress != "#")
+                        {
+                            <a href="@Model.InstagramAddress">
+                                <img src="/Content/Images/Hadi/instagram.svg" alt="">
+                            </a>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.LinkedInAddress) && Model.LinkedInAddress != "#")
+                        {
+                            <a href="@Model.LinkedInAddress">
+                                <img src="/Content/Images/Hadi/linkdin.svg" alt="">
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="user-hashtag-contianer text-regular">
+                @foreach (var tag in Model.Tags)
+                {
+                    <div style="background-color: @tag.Color" class="user-hashtag-logo-design mr-1">
+                        @tag.Title
+                    </div>
+                }
+            </div>
+            <div class="line-hashtag">
+            </div>
+        </div>
+        <figure class="article-image">
+            <img src="@Model.ArticleImageSource" alt="">
+            <figcaption class="caption mt-1">@Model.ImageCaption</figcaption>
+        </figure>
+        <div class="article-description">
+            <img class="article-pattern" src="/Content/Images/Hadi/Elemans.svg" alt="">
+            <div>
+                @Html.Raw(Model.Source)
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="another-articles">
+    <div class="container-fluid">
+        @Html.Action("RelatedArticlesPartial", "Articles", new { Id = Model.Id })
+        @Html.Action("PopularArticlePartial", "Articles", new { currentArticleId = Model.Id })
+    </div>
+</div>
+
+@Html.Action("NlEmailPartial", "Articles")
+
+@section scripts
+{
+    <script src="/Scripts/Hadi/Articles/AnArticle/anArticle.js"></script>
+    <script>
+        $(document).ready(function(){
+    setTimeout(function () {
+          $(this).scrollTop(0);
+    }, 500);
+        var emailInput = document.getElementById("email-input");
+        function sendEmail() {
+            emailvalue = emailInput.value;
+            var param = "@Url.Action("Create", "NlEmail", null, this.Request.Url.Scheme)";
+            var ajaxdata = "Email="+ emailvalue;
+            @Html.Ajax("POST", "", "nowhere", "NlEmailReturn")
+           document.getElementById("email-input").value = "";
+        }
+
+        function NlEmailReturn(data) {
+            console.log( data.Message);
+            console.log(emailInput);
+            emailInput.nodeValue = "";
+            emailInput.placeholder = data.Message;
+            if (data.Success) {
+                emailInput.classList.toggle("success-email");
+            }
+            else {
+                  emailInput.classList.toggle("faild-email");
+            }
+
+        }
+    </script>
+}

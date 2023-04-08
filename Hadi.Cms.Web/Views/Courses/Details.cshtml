@@ -1,0 +1,259 @@
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Model.Mappings.Interfaces
+@model Hadi.Cms.Model.Mappings.Interfaces.ICourseDto
+
+@{
+    ViewBag.Title = $"{Strings.Hadi_Academy} - {Model.Title}";
+    ViewBag.IdBody = "an-academy";
+}
+
+<style>
+    .pay-button-container button {
+        border: none;
+    }
+</style>
+<div class="share-container">
+    <img class="pointer" src="/Content/Images/Hadi/Academy/anAcademy/Share.svg" data-toggle="collapse" data-target="#demo" alt="">
+    <div id="demo" class="sharetastic  collapse"></div>
+</div>
+<section class="an-academy-header">
+    <div class="header-info-container">
+        <div class="info-title mb-3">
+            آکادمی هادی
+        </div>
+        <div class="info-description mb-5">
+            @Model.Title
+        </div>
+        <div>
+        @if (ViewBag.Departments != null)
+        {
+            
+            foreach (var item in (List<IDepartmentDto>)ViewBag.Departments)
+            {
+                <span class="hashtag-programmer  ml-2" style="background: @item.Color">
+                    @item.Title
+                </span>
+           
+            }
+        }
+        </div>
+        <div class="info-detail-container mt-4">
+            <div class="info-detail">
+                <div>
+                    مدرس :
+                </div>
+                @foreach (var item in Model.CourseTeacherDto)
+                {
+                    <div>
+                        @item.TeacherDto.FullName
+                    </div>
+                }
+            </div>
+            <div class="info-detail">
+                <div>
+                    مدت زمان :
+                </div>
+                <div>
+                    @Model.PeriodOfTime
+                </div>
+            </div>
+            <div class="info-detail">
+                <div>
+                    قیمت :
+                </div>
+                <div>
+                    @Model.PriceString
+                </div>
+            </div>
+        </div>
+        <div class="buy-button-container mt-4">
+            <a class="buy-link arrow-button-intraction" href="#information-container">
+                <span>
+                    خرید این دوره
+                </span>
+                <img class="mr-1" src="/Content/Images/Hadi/arrow-left.svg" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="background-pattern"></div>
+    <div class="video-container mb-5">
+        <video loop controls poster="@Model.CoursePreviewVideoPosterImageSource" class="video-custom">
+            <source src="@Model.AttachmentCoursePreviewVideoSource" type="video/mp4">
+        </video>
+    </div>
+</section>
+<section class="an-academy-main">
+    <div class="video-container">
+        <video autoplay loop controls poster="@Model.AttachmentCoursePreviewVideoSource" class="video-custom">
+            <source src="@Model.AttachmentCoursePreviewVideoSource" type="video/mp4">
+        </video>
+    </div>
+    <div class="descrption-container">
+        <div class="description-hashtag-container">
+            @foreach (var item in Model.CourseTagDto)
+            {
+                <div style="background-color: @item.TagDto.Color" class="cisco-hashtag mr-2 mb-1">
+                    @item.TagDto.Title
+                </div>
+            }
+        </div>
+        <div class="description-title my-5">
+            توضیحات مربوط به این دوره :
+        </div>
+        @Html.Raw(Model.Description)
+    </div>
+    <div class="buy-product-container mt-5">
+        <div class="buy-product-title-container">
+            <div class="buy-product-title">
+                خرید محصول
+            </div>
+            <div class="line-custom">
+
+            </div>
+        </div>
+        <div class="buy-product-info my-5">
+            جهت دریافت لینک برای دانلود دوره ی آموزشی مورد نظر، مشخصات خود را وارد نمایید پس از پرداخت،
+            لینک
+            دانلود برای شما ارسال می گردد.
+        </div>
+        <div id="information-container" class="information-container">
+
+            <div class="buy-product-right" id="contactForm">
+
+                <div class="buy-product-form">
+                    <div>
+                        مشخصات فردی :
+                    </div>
+                    <div class="line-custom my-4">
+
+                    </div>
+                    <form class="inputs-container d-flex">
+                        <div class="input-container">
+                            <label for="">نام</label>
+                            <input type="text">
+                        </div>
+                        <div class="input-container">
+                            <label for="">نام خانوادگی</label>
+                            <input type="text">
+                        </div>
+                        <div class="input-container">
+                            <label for="">شماره تماس</label>
+                            <input type="text">
+                        </div>
+                        <div class="input-container">
+                            <label for="">ایمیل</label>
+                            <input type="text">
+                        </div>
+                    </form>
+                    <div class="pay-button-container">
+                        <button onclick="sendData()" class="pay-button arrow-button-intraction" href="">
+                            <span>
+                                پرداخت
+                            </span>
+                            <img class="ml-1" src="/Content/Images/Hadi/arrow-left.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="buy-product-left">
+                <div class="buy-product-description">
+                    <div class="buy-product-description-title">
+                        مشخصات دوره :
+                    </div>
+                    <div class="line-custom my-4">
+
+                    </div>
+                    <div class="my-3">
+                        @Model.Title
+                    </div>
+                    <div class="my-3">
+                        <span>
+                            مدت زمان :
+                        </span>
+                        <span>
+                            @Model.PeriodOfTime
+                        </span>
+                    </div>
+                    <div class="my-3">
+                        <span>
+                            قیمت :
+                        </span>
+                        <span>
+                            @Model.PriceString
+                        </span>
+                    </div>
+                    <div class="my-3">
+                        <span>
+                            مدرس :
+                        </span>
+                        @foreach (var item in Model.CourseTeacherDto)
+                        {
+                            <span class="img-style">
+                                <img src="@item.TeacherDto.AttachmentImageSource" alt="">
+                                <span>
+                                    @item.TeacherDto.FullName
+                                </span>
+                            </span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function sendData(){
+      var uniqueCode = "";
+   var theForm =$('form');
+   var FormFieldValueCommand = [];
+   var formInputs = document.querySelectorAll('#contactForm input[type="tel"] ,#contactForm input[type="text"] ,#contactForm input[type="email"] , #contactForm input[type="number"]  ,#contactForm input[type="checkbox"] ,#contactForm input[type="radio"] ,  #contactForm textarea , #contactForm select');
+   var formFile = document.querySelector('#contactForm input[type="file"]');
+	var formId = document.querySelector('[data-form-builder]').value;
+   var form = new FormData();
+   for (var i = 0; i < formInputs.length; i++) {
+            FormFieldValueCommand.push({
+	         "FieldName": formInputs[i].name,
+	         "Value": formInputs[i].value
+	      });
+   }
+   /*send form fields (not file) */
+   form = theForm.serialize() + '&' + $.param ({
+       "FormFileValueItemsCommand": FormFieldValueCommand
+   })+ '&' + $.param ({
+       "FormId": formId
+   }); 
+
+   $.ajax({
+      type: "POST",
+      url: "/FormFieldValues/Create",
+      data: form,
+      success: function (result) {
+          console.log("form inputs result");
+          console.log(result);
+          thenSendFile(result.Code);
+      },
+      error: function () {
+          console.log('error');
+      }
+   });
+   
+   function thenSendFile(code){
+          /*send form File */
+   var formData = new FormData();
+        formData.append('File', formFile.files[0], formFile.files[0].name);
+        formData.append('FieldName', formFile.name);
+        formData.append('Code', code);
+        formData.append('FormId', formId );
+        var xhttp;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log('file has been sent');
+            }
+        };
+        xhttp.open("POST", "/FormFieldValues/Create", false);
+        xhttp.send(formData);
+   }
+   }
+</script>

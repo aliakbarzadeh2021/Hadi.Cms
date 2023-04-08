@@ -1,0 +1,34 @@
+<div class="about-this-project container-fluid">
+    <div class="content">
+        <div class="border-bottom-custom"></div>
+        <div class="border-right-custom border-bottom-custom font-anjoman so-display-h1 pb-2 pr-2 text-justify header-title">
+            داستان یک چالش از این پروژه
+        </div>
+        <div></div>
+        <div class="about-this-project-container">
+            <div class="title font-anjoman so-display-h3  text-justify">
+                @Model.ChallengeDto.Title
+            </div>
+            <div class="sub-title mt-2">
+                نام پروژه:
+                <span class="project-name">
+                    @ViewBag.ProjectName
+                </span>
+            </div>
+            <div class="">
+                @Html.Raw(Model.ChallengeDto.Description)
+            </div>
+            <a href="@Url.Action("Details", "Challenge", new { id = Model.ChallengeDto.Id})" class="arrow-button-intraction mt-5">
+                <span>مشاهده چالش</span>
+                <img class="button-arrow" src="/Content/Images/Hadi/arrow-left.svg" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="video d-flex justify-content-center align-items-end">
+        <video width="90%" height="75%" controls>
+            <source src="@Model.ChallengeDto.VideoSource" type="video/mp4">
+            <source src="@Model.ChallengeDto.VideoSource" type="video/ogg">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+@using Hadi.Cms.Language.Resources
+
+@{
+	ViewBag.Title = "Page Not Found !!!";
+    Layout = "~/Views/Shared/_LayoutPublicPage.cshtml";
+}
+
+<div class="middle-box text-center animated fadeInDown">
+	<h1>
+		404
+	</h1>
+	<h3 class="font-bold">
+		@Strings.Global_PageNotFound
+	</h3>
+	<div class="error-desc">
+		@*متن تستی*@
+		<div class="form-group">
+			<a class="btn btn-primary" href="/">
+				@Strings.Global_BackToHome
+			</a>
+		</div>
+	</div>
+</div>
+

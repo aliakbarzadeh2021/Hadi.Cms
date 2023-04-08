@@ -1,0 +1,148 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.Model.QueryModels.UserModel
+
+@{
+    ViewBag.Title = Strings.Global_NewUser;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_NewUser</h2>
+        <ol class="breadcrumb">
+            <li>
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Create", "Users", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewUser
+                    </a>
+                    <a href="@Url.Action("UserRoles", "Users", new { area = "Admin", userId = ViewBag.UserId })" class="btn btn-primary">
+                        @Strings.Global_UserRoles
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Create", "Users", FormMethod.Post, new { id = "CreateUserForm", @class = "form-horizontal m-t-md" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.CreateUser_PublicInformation</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.User_Metadata_Language)
+                        @Html.DropDownListFor(model => model.LanguageId, new SelectList(ViewBag.Languages, "Id", "Name"), @Strings.Global_Select, new { @class = "form-control rtl-input"})
+                        @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.UserMetadata_FirstName)
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.UserMetadata_LastName)
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label(Strings.UserMetadata_UserIsEnable)
+                        @Html.CheckBoxFor(model => model.IsEnabled)
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.CreateUser_AccountInformation</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.UserMetadata_Username)
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @name ="userName", @class = "form-control ltl-input" , @rows="3" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label(Strings.UserMetadata_Password)
+                        @Html.PasswordFor(model => model.Password, new { @name = "confirmPassword", @class = "form-control ltl-input", @rows = "3" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label(Strings.UserMetadata_ConfirmPassword)
+                        @Html.PasswordFor(model => model.RetypePassword, new  { @name = "confirmPassword", @class = "form-control ltl-input", @rows = "3" })
+                        @Html.ValidationMessageFor(model => model.RetypePassword, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#CreateUserForm').submit(function () {
+                if ($("#UserListDetail_FirstName").val() == "") {
+                    MyAlert('خطا', 'لطفا نام کاربر را وارد کنید', 4000, 'error');
+                    return false;
+                }
+                else if ($("#UserListDetail_LastName").val() === "") {
+                    MyAlert('خطا', 'لطفا نام خانوادگی کاربر را وارد کنید', 4000, 'error');
+                    return false;
+                }
+                else if ($("#UserListDetail_UserName").val() === "" || $("#UserListDetail_Password").val() === "" || $("#UserListDetail_ConfirmPassword").val() === "") {
+                    MyAlert('خطا', 'نام کاربری و کلمه عبور را بصورت کامل وارد کنید', 4000, 'error');
+                    return false;
+                }
+                else if ($("#UserListDetail_UserName").val().length < 6 || $("#UserListDetail_UserName").val().length > 30) {
+                    MyAlert('خطا', 'نام کاربری باید بین 6 تا 30 کاراکتر باشد', 4000, 'error');
+                    return false;
+                }
+                else if ($("#UserListDetail_Password").val() != $("#UserListDetail_ConfirmPassword").val()) {
+                    MyAlert('خطا', 'کلمه عبور با تکرار آن مطابقت ندارد', 4000, 'error');
+                    return false;
+                }
+                else if (usernameIsValid($("#UserListDetail_UserName").val()) == false) {
+                    MyAlert('خطا', 'نام کاربری فقط می تواند شامل حروف و اعداد انگلیسی و خط تیره باشد', 4000, 'error');
+                    return false;
+                }
+            });
+        });
+
+        function usernameIsValid(username) {
+            var validcharacters = '1234567890-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+            for (var i = 0, l = username.length; i < l; ++i) {
+                if (validcharacters.indexOf(username.substr(i, 1)) == -1) {
+                    return false;
+                }
+                return true;
+            }
+        }
+    </script>
+}

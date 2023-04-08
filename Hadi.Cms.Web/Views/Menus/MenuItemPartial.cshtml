@@ -1,0 +1,86 @@
+@using System.Activities.Statements
+@using Microsoft.Owin.Security.DataHandler.Encoder
+@using Hadi.Cms.ApplicationService.Services
+@using System.Collections.Generic;
+@using Hadi.Cms.ApplicationService.QueryModels
+@using Hadi.Cms.Model.Mappings.Interfaces
+@model Hadi.Cms.ApplicationService.QueryModels.MegaMenuDto
+
+@foreach (var item in Model.MenuItems)
+{
+    if (item.HasChild)
+    {
+        <div class="box design">
+            <div style="border-bottom: @item.Color 3px solid;" class="title">
+                @item.Title
+            </div>
+
+            @{
+                if (item.Childs.Count > 4)
+                {
+                    foreach (var menuItem in item.Childs.Select((obj, index) => new { obj, index }).ToList())
+                    {
+                        if (menuItem.index == 0 || menuItem.index % 2 == 0)
+                        {
+                            @Html.Raw("<div class='design-row mb-3'>")
+                        }
+
+                        <div>
+                            <a href="@menuItem.obj.Link">@menuItem.obj.Title</a>
+                        </div>
+
+
+                        if ((menuItem.index + 1) % 2 == 0 || menuItem.index + 1 == item.Childs.Count())
+                        {
+                            @Html.Raw("</div>");
+                        }
+                    }
+                }
+
+                else
+                {
+                    foreach (var child in item.Childs)
+                    {
+                        <div class="mb-3">
+                            <a href="@child.Link" target="@child.Target">@child.Title</a>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    }
+    else
+    {
+        <div class="box">
+            <div class="mb-3">
+                @item.Title
+            </div>
+        </div>
+    }
+}
+@if (Model.SideBarItems.Any(m => m.IsSideBar))
+{
+    <div class="box-custom">
+        @{
+            var cssClasses = "border-bottom-custom padding-x-custom";
+        }
+        @foreach (var obj in Model.SideBarItems.Select((item, index) => new { item, index }).ToList())
+        {
+
+            if (Model.SideBarItems.LastOrDefault() == obj.item)
+            {
+                cssClasses = "padding-x-custom";
+            }
+            else
+            {
+                cssClasses = "border-bottom-custom padding-x-custom";
+            }
+            <div class='@cssClasses'>
+                @obj.item.Title
+            </div>
+        }
+    </div>
+}
+
+
+

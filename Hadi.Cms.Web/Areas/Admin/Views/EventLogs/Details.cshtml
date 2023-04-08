@@ -1,0 +1,110 @@
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Web.Utilities
+
+@model Hadi.Cms.Model.Mappings.Interfaces.IEventLogDto
+
+@{
+    ViewBag.Title = Strings.Global_EventLogDetails;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+    <style>
+        .summaryText {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 0px 0 15px 0;
+            border-bottom: 1px solid #c2c2c2;
+        }
+
+        .article-title {
+            margin-bottom: 60px !important;
+        }
+
+        .img-news {
+            padding: 4px;
+            margin-bottom: 15px;
+        }
+    </style>
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>
+            @Model.EventType
+        </h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">
+                    @Model.EventCode
+                </a>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content  animated fadeInRight article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="pull-right">
+                        
+                    </div>
+                    <div class="pull-left">
+                        <span class="text-muted">
+                            <i class="fa fa-clock-o">
+                            </i>
+                            @Model.EventTime.DateTimeToString(SessionData.Current.HasRightToLeftUI)
+                        </span>
+                    </div>
+                    <div class="text-center article-title">
+                        <span class="text-muted">
+                            @Model.EventCode
+                        </span>
+                        <br />
+                        <br />
+                        @if (!string.IsNullOrEmpty(Model.EventType) && Model.EventType == "E")
+                        {
+                            <strong class="label label-danger text-muted">
+                                @Model.EventType
+                            </strong>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.EventType) && Model.EventType == "I")
+                        {
+                            <strong class="label label-info text-muted">
+                                @Model.EventType
+                            </strong>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.EventType) && Model.EventType == "W")
+                        {
+                            <strong class="label label-warning text-muted">
+                                @Model.EventType
+                            </strong>
+                        }
+                        <br />
+                        <br />
+                        <h1>
+                            @Model.IpAddress
+                        </h1>
+                    </div>
+                    <div class="summaryText">
+                        @Model.EventDescription
+                    </div>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+            $(function () {
+
+            });
+    </script>
+}

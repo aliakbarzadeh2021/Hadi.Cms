@@ -1,0 +1,135 @@
+@model List<Hadi.Cms.Model.Mappings.Interfaces.IDepartmentDto>
+
+
+@if (!ViewBag.MobileVersion)
+{
+    <div class="grid">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            if (i == 0)
+            {
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="border-left-gray"></div>
+                <div></div>
+            }
+            if ((i + 1) == Model.Count)
+            {
+
+            }
+            <div class="service border-top-right-green"
+                style="@((i+1)==Model.Count ? $"border-right: 1px solid {@Model[i].Color};border-top: 1px solid {@Model[i].Color}; border-left: 1px solid #666666b5;":$"border-right: 1px solid {@Model[i].Color};border-top: 1px solid {@Model[i].Color};")">
+                <div class="header">
+                    <div class="image-container border-bottom-left-green"
+                        style="border-bottom:1px solid @Model[i].Color;border-left: 1px solid @Model[i].Color;">
+                        <img src="@Model[i].Source" alt="">
+                    </div>
+                    <a href="@Url.Action("Details","Departments", new { id = Model[i].Id})"  class="so-subheading-h6 mr-2">
+                        @Model[i].Title
+                    </a>
+                </div>
+                <a href="@Url.Action("Details","Departments", new { id = Model[i].Id})" class="main so-button-2">
+                    @Model[i].Slogan
+                </a>
+
+
+                <a href="@Url.Action("Details","Departments",new {id = Model[i].Id})"
+                    class="footer text-green so-button-2 arrow-button-intraction">
+                    <span style="color: @Model[i].Color">
+                        ورود به دپارتمان
+                    </span>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                        y="0px" viewBox="0 0 10.61 7.11" style="enable-background:new 0 0 10.61 7.11;" xml:space="preserve">
+                        <g id="Layer_1">
+                            <g>
+                                <g>
+                                    <path style="fill: @Model[i].Color;" d="M2.65,1.53l1.1-1.1c0.09-0.09,0.09-0.22,0-0.31C3.71,0.09,3.65,0.07,3.6,0.07S3.49,0.09,3.44,0.13l-1.1,1.1
+            L2.65,1.53z" />
+
+
+
+
+
+
+
+                                    <path style="fill: @Model[i].Color;" d="M1.34,2.23L0.17,3.4c-0.09,0.09-0.09,0.22,0,0.31l3.27,3.27c0.09,0.09,0.22,0.09,0.31,0
+            c0.09-0.09,0.09-0.22,0-0.31l-2.9-2.9h9.51c0.12,0,0.22-0.1,0.22-0.22s-0.1-0.22-0.22-0.22H0.85l0.8-0.8L1.34,2.23z" />
+
+
+
+
+
+
+
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            if ((i + 1) == Model.Count)
+            {
+                <div class="border-top-gray"></div>
+            }
+        }
+        @for (var j = 0; j < Model.Count; j++)
+        {
+            <div class="border-top-gray border-right-green" style="border-right: 1px solid @Model[j].Color"></div>
+        }
+    </div>
+}
+
+else
+{
+    foreach (var item in Model)
+    {
+        <div class="service green mt-3" style="border:1px solid @item.Color">
+
+            <div class="header">
+                <div class="image-container border-bottom-left-green"
+                    style="border-bottom : 1px solid @item.Color; border-left:1px solid @item.Color;">
+                    <img src="@item.Source" alt="">
+                </div>
+                <a href="@Url.Action("Details","Departments", new { id = item.Id})" class="so-display-h3 text-medium mr-3">
+                    @item.Title
+                </a>
+            </div>
+            <a href="@Url.Action("Details","Departments", new { id = item.Id})" class="main so-display-h4 text-regular">
+                @item.Slogan
+            </a>
+            <a href="@Url.Action("Details","Departments", new { id = item.Id})" class="footer  so-display-h4 text-ultralight">
+                <span style="color : @item.Color;">
+                    ورود به دپارتمان
+                </span>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 10.61 7.11" style="enable-background:new 0 0 10.61 7.11;" xml:space="preserve">
+                    <g id="Layer_1">
+                        <g>
+                            <g>
+                                <path style="fill: @item.Color;" d="M2.65,1.53l1.1-1.1c0.09-0.09,0.09-0.22,0-0.31C3.71,0.09,3.65,0.07,3.6,0.07S3.49,0.09,3.44,0.13l-1.1,1.1
+            L2.65,1.53z" />
+
+
+
+
+
+
+
+                                <path style="fill: @item.Color;" d="M1.34,2.23L0.17,3.4c-0.09,0.09-0.09,0.22,0,0.31l3.27,3.27c0.09,0.09,0.22,0.09,0.31,0
+            c0.09-0.09,0.09-0.22,0-0.31l-2.9-2.9h9.51c0.12,0,0.22-0.1,0.22-0.22s-0.1-0.22-0.22-0.22H0.85l0.8-0.8L1.34,2.23z" />
+
+
+
+
+
+
+
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>
+    }
+}

@@ -1,0 +1,146 @@
+@font-face {
+	font-family: "IRANSansFaNum";
+	font-style: normal;
+	font-weight: bold;
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum)_Bold.eot');
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum)_Bold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+	url('/Content/Fonts/iransans/woff2/IRANSansWeb(FaNum)_Bold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+	url('/Content/Fonts/iransans/woff/IRANSansWeb(FaNum)_Bold.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	url('/Content/Fonts/iransans/ttf/IRANSansWeb(FaNum)_Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: "IRANSansFaNum";
+	font-style: normal;
+	font-weight: 500;
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum)_Medium.eot');
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum)_Medium.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+	url('/Content/Fonts/iransans/woff2/IRANSansWeb(FaNum)_Medium.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+	url('/Content/Fonts/iransans/woff/IRANSansWeb(FaNum)_Medium.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	url('/Content/Fonts/iransans/ttf/IRANSansWeb(FaNum)_Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: "IRANSansFaNum";
+	font-style: normal;
+	font-weight: 300;
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum)_Light.eot');
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum)_Light.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+	url('/Content/Fonts/iransans/woff2/IRANSansWeb(FaNum)_Light.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+	url('/Content/Fonts/iransans/woff/IRANSansWeb(FaNum)_Light.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	url('/Content/Fonts/iransans/ttf/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: "IRANSansFaNum";
+	font-style: normal;
+	font-weight: 200;
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum)_UltraLight.eot');
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum)_UltraLight.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+	url('/Content/Fonts/iransans/woff2/IRANSansWeb(FaNum)_UltraLight.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+	url('/Content/Fonts/iransans/woff/IRANSansWeb(FaNum)_UltraLight.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	url('/Content/Fonts/iransans/ttf/IRANSansWeb(FaNum)_UltraLight.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: "IRANSansFaNum";
+	font-style: normal;
+	font-weight: normal;
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum).eot');
+	src: url('/Content/Fonts/iransans/eot/IRANSansWeb(FaNum).eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+	url('/Content/Fonts/iransans/woff2/IRANSansWeb(FaNum).woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+	url('/Content/Fonts/iransans/woff/IRANSansWeb(FaNum).woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	url('/Content/Fonts/iransans/ttf/IRANSansWeb(FaNum).ttf') format('truetype');
+}
+
+@font-face {
+	font-family: "Anjoman";
+	font-style: normal;
+	font-weight: normal;
+	src: url('/Content/Fonts/anjoman/WebFonts/_eot/Anjoman-Black.eot');
+	src: url('/Content/Fonts/anjoman/WebFonts/_eot/Anjoman-Black.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+	url('/Content/Fonts/anjoman/WebFonts/_Woff2/Anjoman-Black.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+	url('/Content/Fonts/anjoman/WebFonts/_Woff/Anjoman-Black.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	url('/Content/Fonts/anjoman/TTF/Anjoman-Black.ttf') format('truetype');
+}
+
+.so-display-h1 {
+	font-size: 2.5rem !important;
+	font-weight: bold;
+}
+
+.so-display-h2 {
+	font-size: 2.25rem !important;
+	font-weight: bold;
+	font-size: 3vw !important;
+}
+
+.so-display-h3 {
+	font-size: 1.375rem !important;
+	font-weight: bold;
+}
+
+.so-display-h4 {
+	font-size: 1.25rem !important;
+	font-weight: bold;
+}
+
+.so-titr {
+	font-size: 1.125rem !important;
+	font-weight: bold;
+}
+
+.so-body-1 {
+	font-size: 1.125rem !important;
+	font-weight: normal;
+}
+
+.so-body-2 {
+	font-size: 1rem !important;
+	font-weight: normal;
+}
+
+.so-subheading-h5 {
+	font-size: 0.875rem !important;
+	font-weight: 500;
+}
+
+.so-subheading-h6 {
+	font-size: 0.75rem !important;
+	font-weight: 500;
+}
+
+.so-subheading-text {
+	font-size: 0.875rem !important;
+	font-weight: normal;
+}
+
+.so-button-2 {
+	font-size: 0.625rem !important;
+	font-weight: normal;
+}
+
+.so-caption-2 {
+	font-size: 0.5rem !important;
+	font-weight: normal;
+}
+
+.text-ultralight {
+	font-weight: 200 !important;
+}
+
+.text-light-custom {
+	font-weight: 300 !important;
+}
+
+.text-regular {
+	font-weight: normal !important;
+}
+
+.text-medium {
+	font-weight: 500 !important;
+}
+
+.text-bold {
+	font-weight: bold !important;
+}

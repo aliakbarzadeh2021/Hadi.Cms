@@ -1,0 +1,78 @@
+@model Hadi.Cms.Model.Mappings.Interfaces.ISliderDto
+
+<style>
+    .hidden {
+        visibility: hidden;
+    }
+</style>
+
+@{
+    string link = "";
+}
+
+@if (Model != null)
+{
+    if (!ViewBag.MobileVersion)
+    {
+        <div class="slider">
+            @foreach (var item in Model.SliderItemDto.OrderBy(s => s.OrderId))
+            {
+                link = string.IsNullOrEmpty(item.ButtonLink) ? "#" : item.ButtonLink;
+
+                <div class="slider-container">
+                    <div>
+                        <div class="so-display-h1 font-anjoman text-white line-height-2">
+                            @Html.Raw(@item.Title)
+                        </div>
+
+                        <div class="d-flex">
+                            <a href="@link" class="@item.ButtonCss">
+                                <span>
+                                    @item.ButtonText
+                                </span>
+                                <img class="image mr-1 " src="/Content/Images/Hadi/arrow-left.svg" alt="" srcset="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cube-green-container @(string.IsNullOrEmpty(item.AttachmentImageSource) ? "hidden" : "")">
+                        <img src="@item.AttachmentImageSource" alt="">
+                    </div>
+
+                </div>
+            }
+        </div>
+    }
+
+    else
+    {
+        <div class="mobile-slider">
+            @foreach (var item in Model.SliderItemDto.OrderBy(o => o.OrderId).ToList())
+            {
+                <div class="slider-container">
+                    <div>
+                        <div class="so-display-h1">
+                            @Html.Raw(item.Title)
+                        </div>
+
+                        @{
+                            link = string.IsNullOrEmpty(item.ButtonLink) ? "#" : item.ButtonLink;
+                        }
+
+                        <div>
+                            <a href="@link" class="@item.ButtonCss">
+                                <span>
+                                    @item.ButtonText
+                                </span>
+                                <img class="image ml-1" src="/Content/Images/Hadi/arrow-left.svg" alt="" srcset="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cube-green-container">
+                        <img src="@item.AttachmentImageSource" alt="">
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}

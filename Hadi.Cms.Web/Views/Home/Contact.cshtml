@@ -1,0 +1,141 @@
+<!--<style>
+    .send-box{
+        border: none;
+        }      
+    .not-validate{
+        border: solid 1px red;
+    }
+</style>
+<main>
+   <div class="contact-image">
+      <div class="title-image">
+         <div class="title-font mb-2">            تمـــــاس بامـــا        </div>
+         <div>            باما در تماس باشید.        </div>
+      </div>
+      <div class="pattern-image">        <img src="/Content/Images/Hadi/ContactUs/pattern.svg" alt="">    </div>
+   </div>
+   <div class="images mobile-images container-fluid">
+      <div class="images-container">
+         <img src="/Content/Images/Hadi/ContactUs/park.jpg" alt="">        
+         <div class="caption bg-color-green">            آدرس دفتر مرکزی        </div>
+      </div>
+      <div class="images-container">
+         <img src="/Content/Images/Hadi/ContactUs/zafar.jpg" alt="">        
+         <div class="caption bg-color-Turmeric">            آدرس دفتر تهران        </div>
+      </div>
+   </div>
+   <div class="info-form-container container-fluid">
+      <div class="info-container">
+         <div class="info-title mb-4">            اطلاعات تماس        </div>
+         <div class="text-container">
+            <div class="text">                <img src="/Content/Images/Hadi/telephone.svg" alt="">                <span class="text-title mr-1 ml-1">تلفن:</span>                <span class="text-description  text-regular"> 021-22905676-8 </span>            </div>
+            <div class="text">                <img src="/Content/Images/Hadi/ContactUs/fax.svg" alt="">                <span class="text-title mr-1 ml-1">فکس:</span>                <span class="text-description  text-regular"> 021-22905723 </span>            </div>
+            <div class="text">                <img src="/Content/Images/Hadi/email.svg" alt="">                <span class="text-title mr-1 ml-1">ایمیل:</span>                <span class="text-description  text-regular">info@hadi.co</span>            </div>
+            <div class="text">
+               <img src="/Content/Images/Hadi/pin.svg" alt="">                
+               <div class="text-title mr-1 ml-1">آدرس:</div>
+               <div class="text-description flex-basis-100  text-regular">                    . خیابان شریعتی، خیابان دستگردی (ظفر)، بین                    کوچه شریفی و بامداد، پلاک ٤٣ ،طبقه سوم                </div>
+               <div class="text-description flex-basis-100  text-regular">                    . تهران، کیلومتر 20 جاده دماوند، پارک فناوری هادی، کوچه نوآوری 8، پلاک 82                </div>
+            </div>
+         </div>
+         <div class="media-container mt-4">
+            <div class="media-title">                همچنین ما را در شبکه های اجتماعی دنبال کنید :            </div>
+            <div class="media-images mt-3">
+               <div>-->
+                  <!--Html.Action("SocialNetworkPartial", "SocialNetwork")-->                
+               <!--</div>
+            </div>
+         </div>
+      </div>
+      <div class="form-message">
+         <div class="images desktop-images">
+            
+         </div>
+         <div  class="container-fluid-form">
+            <div class="message-title mt-5 mb-2">                به ما پیام بفرستید            </div>
+            <div class="message-description text-regular">                اگر تصمیم بر تعیین جلسه برای شروع همکاری باما را دارید می توانید از این                طریق پیام خود را برای ما بفرستید تا همکاران ما با شما تماس بگیرند.            </div>
+            <form class="d-flex row" id="contactForm">                    [form-contact]               </form>
+            <div class="form-buttons w-100">               <button onclick="sendData()" class="send-box arrow-button-intraction">                   <span>ارسال</span>                   <img src="/Content/Images/Hadi/arrow-left.svg" alt="">                                  </button>            </div>
+         </div>
+      </div>
+   </div>
+</main>
+<script>
+    (function(){
+           $("input").prop('required',true);
+       var socialMediaContainer;
+       var socailMediaHtml;
+
+         var xhttp;
+         xhttp=new XMLHttpRequest();
+         xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+               socialMediaContainer = JSON.parse(this.response);
+               socailMediaHtml = "";
+               for(var i = 0 ; i < socialMediaContainer.SocialNetworks.length ; i++){
+                  socailMediaHtml += "<a href='"+ socialMediaContainer.SocialNetworks[i].Link +"'>";
+                  socailMediaHtml += socialMediaContainer.SocialNetworks[i].Source;
+                  socailMediaHtml += "</a>";
+               }
+         document.querySelector('.media-images').innerHTML = socailMediaHtml;
+            }
+         };
+         xhttp.open("GET", "/SocialNetwork/GetSocialNetworks", true);
+         xhttp.send();
+
+    })();
+    
+   function sendData(){
+      var uniqueCode = "";
+   var theForm =$('form');
+   var FormFieldValueCommand = [];
+   var formInputs = document.querySelectorAll('#contactForm input[type="tel"] ,#contactForm input[type="text"] ,#contactForm input[type="email"] , #contactForm input[type="number"]  ,#contactForm input[type="checkbox"] ,#contactForm input[type="radio"] ,  #contactForm textarea , #contactForm select');
+   var formFile = document.querySelector('#contactForm input[type="file"]');
+	var formId = document.querySelector('[data-form-builder]').value;
+   var form = new FormData();
+   for (var i = 0; i < formInputs.length; i++) {
+            FormFieldValueCommand.push({
+	         "FieldName": formInputs[i].name,
+	         "Value": formInputs[i].value
+	      });
+   }
+   /*send form fields (not file) */
+   form = theForm.serialize() + '&' + $.param ({
+       "FormFileValueItemsCommand": FormFieldValueCommand
+   })+ '&' + $.param ({
+       "FormId": formId
+   }); 
+
+   $.ajax({
+      type: "POST",
+      url: "/FormFieldValues/Create",
+      data: form,
+      success: function (result) {
+          console.log("form inputs result");
+          console.log(result);
+          thenSendFile(result.Code);
+      },
+      error: function () {
+          console.log('error');
+      }
+   });
+   
+   function thenSendFile(code){
+          /*send form File */
+   var formData = new FormData();
+        formData.append('File', formFile.files[0], formFile.files[0].name);
+        formData.append('FieldName', formFile.name);
+        formData.append('Code', code);
+        formData.append('FormId', formId );
+        var xhttp;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log('file has been sent');
+            }
+        };
+        xhttp.open("POST", "/FormFieldValues/Create", false);
+        xhttp.send(formData);
+   }
+   }
+</script>-->

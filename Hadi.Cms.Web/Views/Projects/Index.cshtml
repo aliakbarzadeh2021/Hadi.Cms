@@ -1,0 +1,174 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@model List<Hadi.Cms.Model.Mappings.Interfaces.IProjectDto>
+
+@{
+    ViewBag.ContainerFluid = "container-fluid";
+    ViewBag.IdBody = "all-projects";
+    ViewBag.Title = Strings.Projects;
+}
+
+<div class="projects-title">
+    <div class="text-info-custom">
+        <div class="title">
+            <span>
+                پروژه های
+            </span>
+            <span class="turmeric-color">
+                موفـــــــق
+            </span>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="~/Content/Images/Hadi/Projects/eleman-01.svg" alt="">
+    </div>
+</div>
+<div class="filter-box-container">
+    <div class="input-container">
+        @Html.Action("ServicePartial", "Services")
+    </div>
+    <div class="box"></div>
+    <div class="input-container mobile-view">
+        <a onclick="searchText()" id="searchBtn" class="pointer">
+            <img class="mr-2" src="/Content/Images/Hadi/search_icon-01.svg" alt="">
+        </a>
+        <input id="search-box" class="input-custom" type="text" placeholder="جستجو کنید...">
+    </div>
+</div>
+<div class="projects-container">
+    @foreach (var project in Model)
+    {
+        <a href="@Url.Action("Details","Projects",new {id = project.Id})" class="project-box">
+            <img src="@project.PreviewImageSource" alt="">
+            <div class="hover-project">
+                <div class="en-title">
+                    @project.ProjectType
+                </div>
+                <div class="fa-title">
+                    @project.Title
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+@if (ViewBag.ProjectsCount > 9)
+{
+    <a onclick="showMoreProjects()" class="projects-box pointer">
+        پروژه های بیشتر
+    </a>
+}
+
+@section scripts
+{
+    <script>
+        var pageIndex = 2;
+    var serviceId = null;
+    var serachText = null;
+        function showMoreProjects() {
+            $('.projects-container').html('');
+
+            getProjects(pageIndex);
+
+            pageIndex++;
+        }
+        function getProjects(id) {
+            var param = "@Url.Action("GetProjects", "Projects", null, this.Request.Url.Scheme)";
+            var ajaxdata = "id=" + id + "&serviceId=" + serviceId + "&Search=" + serachText;
+            @Html.Ajax("GET", "", "nowhere", "returnGetProjects")
+        }
+        function returnGetProjects(data) {
+            if (data.Success === true) {
+                var html = "";
+                for (var i = 0; i < data.ProjectLength; i++) {
+                    html += "<a href='" + data.Projects[i].ProjectLink + "' class='project-box'>";
+                    html += "<img src='" + data.Projects[i].Source + "' alt=''>";
+                    html += "<div class='hover-project'>";
+                    html += "<div class='en-title'>";
+                    html += data.Projects[i].ProjectType;
+                    html += "</div>";
+                    html += "<div class='fa-title'>";
+                    html += data.Projects[i].Title;
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</a>";
+                }
+
+                $('.projects-container').html(html);
+            }
+        }
+
+    function showProjectsByTags() {
+        serviceId = document.getElementById("filter-projects").value;
+
+        getProjectsByTag(serviceId);
+    }
+    function getProjectsByTag(serviceId) {
+        var param = "@Url.Action("ProjectFilter", "Projects", null, this.Request.Url.Scheme)";
+        var ajaxdata = "Id=" + serviceId + "&Search=" + serachText;
+        @Html.Ajax("GET", "", "nowhere", "returnGetProjectsByTag")
+
+    }
+    function returnGetProjectsByTag(data) {
+
+            var html = "";
+            for (var i = 0; i < data.Projects.length; i++) {
+                html += "<a href='" + data.Projects[i].ProjectLink + "' class='project-box'>";
+                html += "<img src='" + data.Projects[i].ImageSource + "' alt=''>";
+                html += "<div class='hover-project'>";
+                html += "<div class='en-title'>";
+                html += data.Projects[i].ProjectType;
+                html += "</div>";
+                html += "<div class='fa-title'>";
+                html += data.Projects[i].Title;
+                html += "</div>";
+                html += "</div>";
+                html += "</a>";
+            }
+
+            $('.projects-container').html(html);
+            }
+
+
+        function searchText() {
+            serachText = document.getElementById("search-box").value;
+            serviceId = document.getElementById("filter-projects").value;
+            getProjectsBySearch(serviceId)
+        }
+        function getProjectsBySearch(serviceId) {
+            var param = "@Url.Action("ProjectFilter", "Projects", null, this.Request.Url.Scheme)";
+            var ajaxdata = "Id=" + serviceId + "&Search=" + serachText;
+            @Html.Ajax("GET", "", "nowhere", "returnGetProjectsBySearch")
+        }
+        function returnGetProjectsBySearch(data) {
+            var html = "";
+            for (var i = 0; i < data.Projects.length; i++) {
+                html += "<a href='" + data.Projects[i].ProjectLink + "' class='project-box'>";
+                html += "<img src='" + data.Projects[i].ImageSource + "' alt=''>";
+                html += "<div class='hover-project'>";
+                html += "<div class='en-title'>";
+                html += data.Projects[i].ProjectType;
+                html += "</div>";
+                html += "<div class='fa-title'>";
+                html += data.Projects[i].Title;
+                html += "</div>";
+                html += "</div>";
+                html += "</a>";
+            }
+
+            $('.projects-container').html(html);
+            console.log(data.Projects.length);
+
+        }
+
+
+var input = document.getElementById("search-box");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("searchBtn").click();
+  }
+});
+
+    </script>
+}

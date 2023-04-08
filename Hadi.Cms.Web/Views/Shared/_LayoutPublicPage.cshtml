@@ -1,0 +1,29 @@
+@using Hadi.Cms.Configuration
+@using Hadi.Cms.Web.Utilities
+
+@{
+    bool rightToLeft = SessionData.Current.HasRightToLeftUI;
+}
+
+<!DOCTYPE html>
+
+<html lang="@(rightToLeft? "fa" : "en")" dir="@(rightToLeft?"rtl" : "ltr")" @(rightToLeft ? "" : "style=direction:ltr;")>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Settings.Application_CompanyName | @ViewBag.Title</title>
+    @Styles.Render("~/Content/Stylesheet/css-rtl")
+</head>
+<body class="gray-bg">
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+            @RenderBody()
+        </div>
+        <hr style="margin-top:20%;" />
+        <div class="row">
+
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,300 @@
+#about-us .high-light-text {
+    color: var(--color-Turmeric);
+}
+#about-us .about-us-button {
+    background-color: var(--color-jungel-green);
+    color: var(--color-white);
+    padding-left: 25px;
+}
+#about-us .about-us-button .button-text {
+ padding-left: 25px;
+}
+#about-us .about-us-button .button-image {
+   width: 20px;
+}
+#about-us main .container-fluid {
+    padding-left: 6vw;
+    padding-right: 6vw;
+}
+#about-us main .container-fluid .about-us-header-container {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+}
+#about-us main .container-fluid .about-us-header-container .header-image-container {
+    flex: 1;
+    background: url(/Content/Images/Hadi/AboutUs/pattern.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 10vw;
+}
+#about-us main .container-fluid .about-us-header-container .header-image-container img {
+    width: 75%;
+}
+
+#about-us main .container-fluid .about-us-header-container .header-text {
+    flex: 1;
+}
+#about-us main .container-fluid .about-us-header-container .header-text .title{
+    width: 42vw;
+}
+#about-us main .container-fluid .about-us-header-container .header-text .content {
+    text-align: justify;
+    line-height: 2;
+    margin-top: 2rem;
+}
+#about-us main .our-story-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+#about-us main .our-story-container .logo-container {
+    /* flex: 1; */
+    padding-right: 7vw;
+    padding-left: 7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#about-us main .our-story-container .logo-container img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+#about-us main .our-story-container .our-story-text {
+    /* flex: 6; */
+    padding: 3vw;
+    padding-left: 15vw;
+    background-color: var(--color-bi-Sand);
+    border-radius: 0px 10px 10px 0;
+}
+#about-us main .our-story-container .hadi-name {
+    grid-area: 2 / 1 / span 2 / span 2;
+    background-color: var(--color-bi-Sand);
+}
+#about-us main .our-story-container .hadi-name .content {
+    background-color: var(--color-white);
+    border-top-left-radius: 150px;
+    padding-right: 20vw;
+    display: flex;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+#about-us main .our-story-container .hadi-name .content .hadi-logo img {
+    width: 150px;
+}
+    #about-us main .our-story-container .hadi-name .content .hadi-intro {
+        border-right: 1.5px solid var(--color-shady-lady);
+        padding-right: 2vw;
+    }
+#about-us main .our-story-container .hadi-name .content .hadi-intro .detail {
+    line-height: 2;
+    padding-left: 15vw;
+}
+#about-us main .our-story-container .our-story-text .content {
+    line-height: 2;
+    margin-top: 2rem;
+}
+#about-us main .hadi-attributes .attributes {
+    display: flex;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+#about-us main .hadi-attributes .attributes .item {
+    flex: 1;
+}
+#about-us main .hadi-attributes .attributes .pattern {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+#about-us main .hadi-attributes .attributes .pattern .item-image img {
+    width: 150px !important;
+}
+#about-us main .hadi-attributes .attributes .item .item-text {
+    text-align: center;
+    padding-top: 20px;
+}
+#about-us main .hadi-attributes .attributes .item .item-image {
+    display: flex;
+    justify-content: center;
+}
+#about-us main .hadi-attributes .attributes .item .item-image img {
+    width: 50px;
+}
+#about-us main .hadi-organizational-structure {
+    display: flex;
+    background-color: var(--color-bi-Sand);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#about-us main .hadi-organizational-structure .structure-chart {
+    width: 40vw;
+}
+#about-us main .hadi-organizational-structure .content {
+    flex: 1;
+    height: 370px;
+    position: sticky;
+    top: 0;
+}
+#about-us main .hadi-organizational-structure .content .text {
+    padding-left: 30%;
+    margin-top: 3vw;
+}
+#about-us main .hadi-organizational-structure .content .pattern {
+    width: 120px;
+}
+#about-us main .services {
+    display: flex;
+    padding-bottom: 100px;
+}
+#about-us main .services .content {
+    flex: 1;
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+#about-us main .services .content .title {
+    border-bottom: 1px solid #cacaca;
+}
+#about-us main .services .services-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+#about-us main .services .services-image img {
+    width: 250px;
+}
+/*
+320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more — Extra large screens, TV
+*/
+@media only screen and (max-width: 750px) {
+    #about-us main .container-fluid .about-us-header-container .header-text .title{
+        width: 100%;
+    }
+    #about-us main .container-fluid .about-us-header-container {
+        flex-direction: column-reverse;
+    }
+    #about-us main .our-story-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #about-us main .our-story-container .logo-container {
+        order: 2;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+    }
+    #about-us main .our-story-container .our-story-text {
+        order: 1;
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+    #about-us main .our-story-container .our-story-text .title {
+        text-align: center;
+    }
+    #about-us main .our-story-container .our-story-text .content {
+        text-align: justify;
+    }
+    #about-us main .our-story-container .hadi-name {
+        order: 3;
+        background: none;
+    }
+    #about-us main .our-story-container .hadi-name .content {
+        padding: 6vw;
+        padding-top: 20vh;
+        flex-direction: column;
+        align-items: center;
+    }
+    #about-us main .our-story-container .hadi-name .content .hadi-intro {
+        padding: 0;
+    }
+    #about-us main .our-story-container .hadi-name .content .hadi-intro .title {
+        text-align: center;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
+    }
+    #about-us main .our-story-container .hadi-name .content .hadi-intro .detail {
+        text-align: center;
+        padding: 0;
+    }
+        #about-us main .our-story-container .hadi-name .content .hadi-logo img {
+            width: 150px;
+            margin-left: 2vw;
+        }
+    #about-us main .hadi-attributes .title {
+        margin-top: 15vh;
+        text-align: center;
+        font-size: 1.25rem !important;
+        font-weight: bold;
+    }
+    #about-us main .hadi-attributes .title .high-light-text {
+        font-size: 1.375rem !important;
+        font-weight: bold;
+    }
+    #about-us main .hadi-attributes .attributes .item{
+        margin-top: 40px;
+    }
+    #about-us main .hadi-attributes .attributes .pattern {
+        display: none;
+    }
+    #about-us main .hadi-attributes .attributes {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    #about-us main .hadi-organizational-structure {
+        display: flex;
+        flex-direction: column;
+    }
+    #about-us main .hadi-organizational-structure .structure-chart {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 50px;
+    }
+    #about-us main .hadi-organizational-structure .structure-chart img {
+        width: 85vw;
+    }
+    #about-us main .hadi-organizational-structure .title {
+        text-align: center;
+        font-size: 1.375rem !important;
+    font-weight: bold;
+    }
+    #about-us main .hadi-organizational-structure .content {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 237px;
+    }
+    #about-us main .hadi-organizational-structure .content .text{
+        padding: 0;
+        text-align: center;
+    }
+    #about-us main .hadi-organizational-structure .content .pattern{
+      display: none;
+    }
+    #about-us main .services{
+        flex-direction: column-reverse;
+    }
+    #about-us main .services .content{
+        padding: 6vw;
+        text-align: center;
+    }
+    #about-us main .services .content .title{
+       border: none;
+    }
+}
+@media only screen and (max-width: 480px) {
+    #about-us main .our-story-container .logo-container img{
+        width: 60px;
+        height: 60px;
+    }
+}
+

@@ -1,0 +1,53 @@
+@model List<Hadi.Cms.ApplicationService.QueryModels.FormFieldDto>
+@using Hadi.Cms.Configuration
+@using Hadi.Cms.Language.Resources
+
+@{
+    ViewBag.Title = Strings.Global_Details;
+}
+
+<style>
+    .data-container .input-name {
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    .data-container .input-data {
+        font-size: 18px;
+    }
+
+    .data-container {
+        min-width: 200px;
+        margin-top: 15px;
+    }
+
+    .ibox-content.content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+</style>
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        @*<h5>
+                Title
+            </h5>*@
+    </div>
+    <div class="ibox-content  content">
+        @foreach (var item in Model)
+        {
+            <div class="data-container">
+                <span class=" input-name ">@item.Label</span>
+                <span> : </span>
+                @if (Guid.TryParse(item.Value, out Guid value))
+                {
+                    <a href="@item.FileLink" target="_blank" class="btn btn-primary">@Strings.Global_DownloadFile</a>
+                }
+                else
+                {
+                    <span class=" input-data">@item.Value</span>
+                }
+            </div>
+        }
+    </div>
+</div>

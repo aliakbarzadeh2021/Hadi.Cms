@@ -1,0 +1,17 @@
+@import '/Content/Stylesheet/Hadi/normalize.css';
+@import '/Content/Stylesheet/Hadi/reset.css';
+@import '/Content/Stylesheet/Hadi/utility/utility.css';
+@import '/Content/Stylesheet/Hadi/Articles/AllArticles/allArticles.css';
+@import '/Content/Stylesheet/Hadi/Articles/AnArticle/anArticle.css';
+@import '/Content/Stylesheet/Hadi/ContactUs/contactUs.css';
+@import '/Content/Stylesheet/Hadi/AboutUs/aboutUs.css';
+@import '/Content/Stylesheet/Hadi/Career/career.css';
+@import '/Content/Stylesheet/Hadi/Projects/AllProjects/allProjects.css';
+@import '/Content/Stylesheet/Hadi/Projects/AProject/aProject.css';
+@import '/Content/Stylesheet/Hadi/style.css';
+@import '/Content/Stylesheet/Hadi/Departments/Department.css';
+@import '/Content/Stylesheet/Hadi/AChallenge/aChallenge.css';
+@import '/Content/Stylesheet/Hadi/Academy/AnAcademy/anAcademy.css';
+@import '/Content/Stylesheet/Hadi/Academy/AllAcademy/allAcademies.css';
+@import '/Content/Stylesheet/Hadi/Service/aService.css';
+@import '../../../Scripts/dropzone-5.7.0/dist/dropzone.css';

@@ -1,0 +1,193 @@
+@using System.Linq
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Web.Utilities
+@using Hadi.Cms.ApplicationService.Services
+@model  IPagedList<Hadi.Cms.Model.Mappings.Interfaces.IServiceReceiverDto>
+
+@{
+    ViewBag.Title = Strings.Global_ServiceReceiverManagement;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins")
+}
+
+<style>
+    .float-e-margins .btn {
+        margin-left: 4px;
+    }
+
+    .ibox .fa {
+        font-size: 14px !important;
+    }
+
+    .opr table {
+        margin: 0px 0px -7px -90px;
+    }
+
+    .dflexTD {
+        display: flex;
+        align-items: center;
+        height: 80px;
+    }
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_ServiceReceiverManagement</h2>
+        <ol class="breadcrumb">
+            <li>
+
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<p></p>
+
+<div class="animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_ServiceReceiverList</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up">
+                            </i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-tasks">
+                            </i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="@Url.Action("Create","ServiceReceivers")">
+                                    @Strings.Global_NewServiceReceiver
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <input type="text" name="search" class="form-control input-sm m-b-xs" id="filter" placeholder="@Strings.Global_SearchInTable">
+                    <div class="hr-line-dashed"></div>
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8" data-filter="#filter">
+                        <thead>
+                            <tr>
+                                <th>@Strings.Table_RowNumber</th>
+                                <th>@Strings.ServiceReceiverModel_ReceiverName</th>
+                                <th>@Strings.ServiceReceiverModel_AttachmentImage</th>
+                                <th>@Strings.Table_UserOperations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                var rowId = 0;
+                                for (var i = 1; i < ViewBag.PageNumber; i++)
+                                {
+                                    rowId += 5;
+                                }
+
+                                foreach (var item in Model)
+                                {
+                                    <tr class="gradeX">
+                                        <td class="center">
+                                            @(rowId += 1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.ReceiverName)
+                                        </td>
+                                        <td>
+                                            <img src="@item.AttachmentImageSource" alt="@item.ReceiverName" title="@item.ReceiverName" style="width:120px; height:80px;" />
+                                        </td>
+
+                                        <td class="opr">
+                                            <a href="@Url.Action("Edit","ServiceReceivers",new {id = item.Id})" class="btn btn-primary btn-circle" title="@Strings.Global_Edit"><i class="fa fa-edit"></i></a>
+                                            <a onclick="DeleteServiceReceiverAlert('@item.Id');" class="btn btn-danger btn-circle" title="@Strings.Global_Delete"><i class="fa fa-remove"></i></a>
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <ul class="pagination pull-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div aria-label="Page navigation" class="text-center" id="myPager2">
+                    @Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { pageNumber }))
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins")
+
+    <script>
+
+        $(function () {
+            $('.footable').footable();
+        });
+
+        function DeleteServiceReceiverAlert(Id) {
+            swal({
+                    title: '@Strings.Are_You_Sure',
+                    text: '@Strings.ServiceReceiver_Delete_Message',
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText:'@Strings.Yes',
+                    cancelButtonText: '@Strings.No',
+                    closeOnConfirm: false,
+                    closeOnCancel: true
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        DeleteServiceReceiver(Id);
+                    }
+                });
+        }
+
+        function DeleteServiceReceiver(id) {
+            var param = "@Url.Action("Delete", "ServiceReceivers", null, this.Request.Url.Scheme)";
+            var ajaxdata = "id=" + id;
+            @Html.Ajax("POST", "", "nowhere", "ReturnDeleteServiceReceiver")
+        }
+
+        function ReturnDeleteServiceReceiver(data) {
+            swal({
+                title: data.Success,
+                text: data.Message,
+                type: data.Type,
+                showCancelButton: false,
+                confirmButtonColor: "#23c6c8",
+                confirmButtonText: "OK",
+                closeOnConfirm: true
+            }, function () {
+                window.location.reload();
+            });
+        }
+
+
+    </script>
+}

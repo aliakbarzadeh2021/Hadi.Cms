@@ -1,0 +1,75 @@
+@using Hadi.Cms.Model.QueryModels
+@using Hadi.Cms.Model.Enums
+
+@model  EvaluationResultModel
+
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_InnerPageLayout.cshtml";
+}
+
+<section class="quick-assessment">
+    <div class="row d-flex">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10">
+            <div class="row assessment-header">
+                <div class="col-lg-7 grey-hatching"></div>
+                <div class="col-lg-5 assessment-vector text-center">
+                    <img class="img-responsive w-75" src="~/Content/Images/htdf/images/assessment-vector.png" />
+                </div>
+            </div>
+            <div class="row assessment-body pl-5 text-center">
+                <div class="col-lg-11">
+                    <div class="row assessment-topic text-right">
+                        <h2 class="assessment-title font-weight-bold text-right my-4">
+                            استــــعلام رتبه و حد اعتباری
+                        </h2>
+                    </div>
+                    <div class="row my-4">
+                        <div class="result-box col-lg-12 p-3 text-right mb-5">
+                            <div class="row d-flex flex-column">
+                                <div class="col-lg-12">
+                                    <p class="result-description text-center">
+                                        نتیجه ارزیابی سریع شرکت شما به شرح زیر میباشد. حد اعتباری زیر با در نظر گرفتن اطلاعات اعلامی از سوی کاربر میباشد و صرفا جهت اطلاع از وضعیت اعتباری و به شکل تخمینی در اختیار شما قرار گرفته است. اختصاص اعتبار واقعی منوط به طی ارزیابی‌های رسمی از شرکت میباشد.
+                                    </p>
+                                </div>
+                                <div class="col-lg-12 text-center d-flex align-items-center mt-5">
+                                    <div class="col-lg-4 d-flex justify-content-end">
+                                        <span class="rank-label">رتبه</span>
+                                    </div>
+                                    <div class="col-lg-4 text-center">
+                                        <div class="rank-box w-100">
+                                            <span class="rank-result">89</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 text-center d-flex align-items-center mt-4 mb-5">
+                                    <div class="col-lg-4 d-flex justify-content-end">
+                                        <span class="rank-label">حد اعتباری</span>
+                                    </div>
+                                    <div class="col-lg-4 text-center">
+                                        <div class="rank-box w-100">
+                                            <span class="rank-result">1000000000 ریال</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <div class="col-lg-2">
+                                        <a href="/Evaluation" class="btn btn-success btn-inquiry w-100 p-3">
+                                            چاپ
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <a href="/Evaluation" class="btn btn-warning btn-back w-100 p-3">
+                                            بازگشت
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

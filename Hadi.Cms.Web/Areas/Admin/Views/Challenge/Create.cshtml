@@ -1,0 +1,181 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.ApplicationService.CommandModels.ChallengeCreateCommand
+
+@{
+    ViewBag.Title = Strings.Global_NewChallenge;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_NewChallenge</h2>
+        <ol class="breadcrumb">
+            <li>
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Create", "Challenge", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewChallenge
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Create", "Challenge", FormMethod.Post, new { id = "CreateChallengeForm", @class = "form-horizontal m-t-md", @enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_BaseInformation</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.ChallengeModel_Title)
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ChallengeModel_Projects)
+                        @Html.DropDownListFor(model => model.ProjectsId, new SelectList(ViewBag.Projects, "Id", "Title"), "", new { @class = "form-control multiselect2" })
+                        @Html.ValidationMessageFor(model => model.ProjectsId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ChallengeModel_IsActive)
+                        @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "rtl-input i-checks" } })
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="form-group form-group-description">
+                            @Html.Label(Strings.ChallengeModel_Description)
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control rtl-input description-text", rows = 10 })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="form-group form-group-problem-description">
+                            @Html.Label(Strings.ChallengeModel_ProblemDescription)
+                            @Html.TextAreaFor(model => model.ProblemDescription, new { @class = "form-control rtl-input problem-description-text", rows = 10 })
+                            @Html.ValidationMessageFor(model => model.ProblemDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="form-group form-group-problem-solving-description">
+                            @Html.Label(Strings.ChallengeModel_ProblemSolvingDescription)
+                            @Html.TextAreaFor(model => model.ProblemSolvingDescription, new { @class = "form-control rtl-input problem-solving-description-text", rows = 10 })
+                            @Html.ValidationMessageFor(model => model.ProblemSolvingDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.Label(Strings.ChallengeModel_AttachmentImage)
+                <input type="file" name="attachmentImage" accept="image/*" id="attachmentImage" />
+            </div>
+            
+            <div class="form-group">
+                @Html.Label(Strings.ChallengeModel_AttachmentVideo)
+                <input type="file" name="attachmentVideo" accept="video/*" id="attachmentVideo" />
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+
+<script>
+        $(function () {
+            $('#CreateChallengeForm').submit(function () {
+                if ($("#Title").val() == "") {
+                    MyAlert('@Strings.Error', '@Strings.Challenge_Title_Error', 4000, 'error');
+                    return false;
+                }
+                else {
+                    $("#Description").val(persianToEnglishNumber($(".form-group-description .note-editable").html()));
+                    $("#ProblemDescription").val(persianToEnglishNumber($(".form-group-problem-description .note-editable").html()));
+                    $("#ProblemSolvingDescription").val(persianToEnglishNumber($(".form-group-problem-solving-description .note-editable").html()));
+
+                    var formData = new FormData($(this)[0]);
+                    $.ajax({
+                        url: this.action,
+                        type: this.method,
+                        data: formData,
+                        success: function (result) {
+                            alert(result);
+                        },
+                        error: function () {
+                            alert('error');
+                        }
+                    });
+                    return false;
+                }
+            });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green'
+            });
+
+            $('.description-text').summernote();
+            $('.problem-description-text').summernote();
+            $('.problem-solving-description-text').summernote();
+
+            $('.form-group-description .note-codable').css('direction', 'ltr');
+            $('.form-group-problem-description .note-codable').css('direction', 'ltr');
+            $('.form-group-problem-solving-description .note-codable').css('direction', 'ltr');
+        });
+
+        function persianToEnglishNumber(input) {
+            var inputstring = input;
+            var persian = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+            var english = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            for (var i = 0; i < 10; i++) {
+                var regex = new RegExp(persian[i], 'g');
+                inputstring = inputstring.toString().replace(regex, english[i]);
+            }
+            return inputstring;
+        }
+</script>
+}

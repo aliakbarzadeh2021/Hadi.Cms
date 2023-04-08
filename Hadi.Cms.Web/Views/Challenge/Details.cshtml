@@ -1,0 +1,114 @@
+@model Hadi.Cms.ApplicationService.QueryModels.ChallengeDetailWithProjectDto
+@{
+    ViewBag.IdBody = "a-challenge";
+}
+<div class="a-challenge-header">
+    <div class="text-part">
+        <div class="challage">
+            یک چالش
+        </div>
+        <div class="title font-anjoman so-display-h1 mt-3 mb-4 text-justify">
+            @Model.ChallengeDto.Title
+        </div>
+        <div class="sub-title font-weight-bold mb-3">
+            نام پروژه :
+            <span class="project-name">@Model.ProjectDto.Title</span>
+        </div>
+        <div class="detail">
+            @Html.Raw(Model.ChallengeDto.Description)
+        </div>
+        <div class="pattern d-flex justify-content-center mt-5">
+            <img src="./images/pattern1.svg" alt="">
+        </div>
+    </div>
+    <div class="image-part">
+        <img class="project-image" src="@Model.ChallengeDto.ImageSource" alt="">
+        <img class="maze" src="~/Content/Images/Hadi/maze-02.png" alt="">
+    </div>
+</div>
+<div class="challenge-explain">
+    <div class="header">
+        <div class="line"></div>
+        <div class="text font-anjoman so-display-h3">
+            شرح مسئله
+        </div>
+    </div>
+    <div class="content">
+        <div class="detail">
+            <div class="text">
+                @Html.Raw(Model.ChallengeDto.ProblemDescription)
+            </div>
+            <video class="video" src="@Model.ChallengeDto.VideoSource" controls></video>
+        </div>
+        <div class="pattern"></div>
+    </div>
+</div>
+<div class="challenge-solution">
+    <div class="header font-anjoman so-display-h3">
+        راه حل مسئله
+    </div>
+    <div class="content">
+        <div class="detail">
+            @Html.Raw(Model.ChallengeDto.ProblemSolvingDescription)
+        </div>
+    </div>
+</div>
+<div class="project-about-this-challenge">
+    <div class="content">
+        <img class="pattern" src="./images/pattern3.svg" alt="">
+        <div class="title so-display-h3 ">
+            پروژه مربوط به این چالش
+            <br>
+            <span class="font-anjoman so-display-h1">
+                @Model.ProjectDto.Title
+            </span>
+        </div>
+        <div class="detail">
+            چالشی که مطالعه نمودید مربوط به پروژه ی مقابل می باشد، شما
+            می توانید نهایی شده این پروژه را مشاهده نماﻳﻴد.
+        </div>
+        <a href="@Url.Action("Details","Projects",new {id = Model.ProjectDto.Id})" class="button-custom btn mt-5 arrow-button-intraction">
+            <span>
+                نمایش پروژه
+            </span>
+            <img class="image ml-1 " src="/Content/Images/Hadi/arrow-left.svg" alt="" srcset="">
+        </a>
+
+    </div>
+    <div class="image">
+        <img src="@Model.ProjectDto.Source" alt="">
+    </div>
+</div>
+
+    @if (Model.AnotherChallenges.Count > 0)
+    {
+        <div class="other-challenges">
+            <div class="title-container mb-4">
+                <div class="title so-display-h3 font-anjoman">
+                    چالش ها دیگر
+                </div>
+                <div class="line">
+
+                </div>
+            </div>
+
+            <div class="challenge-container">
+
+                @foreach (var anotherChallenge in Model.AnotherChallenges)
+                {
+                    <div class="challenge">
+                        <video controls src="@anotherChallenge.VideoSource"></video>
+                        <div class="title mt-2">
+                            نام پروژه:
+                            <span class="project-name">
+                                @anotherChallenge.ProjectName
+                            </span>
+                        </div>
+                        <div class="detail mt-1">
+                            @anotherChallenge.Title
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }

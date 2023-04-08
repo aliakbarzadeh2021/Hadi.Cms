@@ -1,0 +1,139 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Model.Mappings.Interfaces
+
+@{
+    ViewBag.Title = Strings.Global_RoleUsers;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+    <link href="~/Content/RadaTemplate/css/plugins/iCheck/custom.css" rel="stylesheet">
+}
+
+<style>
+    .bold {
+        font-weight: bold;
+    }
+
+    .icheckbox_square-green.checked.disabled {
+        background-color: green !important;
+    }
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_RoleUsers</h2>
+        <ol class="breadcrumb">
+            <li>
+
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_Role</h5>
+                </div>
+                <div class="ibox-content">
+                    @if (ViewBag.RoleId != null)
+                    {
+                        <input type="hidden" id="itemId" value="@ViewBag.RoleId" />
+                    }
+                    <ul class="todo-list m-t">
+                        @{
+                            if (ViewBag.RoleId != null)
+                            {
+                                var roleId = (Guid)ViewBag.RoleId;
+                                <li>
+                                    <input type="checkbox" value="" name="role_@roleId" id="role_@roleId" disabled="" class="i-checks check-tick" />
+                                    <span class="m-l-xs">@ViewBag.RoleName</span>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_Users</h5>
+                </div>
+                <div class="ibox-content">
+                    @if (ViewBag.RoleId != null)
+                    {
+                        var roleId = (Guid)ViewBag.RoleId;
+                        <ul class="todo-list m-t">
+                            @foreach (var item in (List<IUserDto>)ViewBag.Users)
+                            {
+                                var userIsForThisRole = item.UserRolesDto.Any(ur => ur.RoleId == roleId && ur.UserId == item.Id);
+                                <li>
+                                    <input type="checkbox" value="" name="user_@item.Id" id="user_@item.Id" disabled="" class="i-checks @(userIsForThisRole ? "check-tick" : "")" />
+                                    <a onclick="setUserToRole('@item.Id', @ViewBag.RoleId)">
+                                        <span class="m-l-xs @(userIsForThisRole ? "bold" : "")">@item.FullName</span>
+                                        <small class="label label-info">@item.UserName</small>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Content/RadaTemplate/js/plugins/iCheck/icheck.min.js"></script>
+
+    <script>
+		$(function () {
+			var itemId = $("#itemId");
+			if (itemId)
+			{
+				$(".check-tick").parent().addClass("disabled checked");
+			}
+		});
+
+		function setUserToRole(userId, roleId) {
+			var param = "@Url.Action("SetUserToRole", "Role", null, this.Request.Url.Scheme)";
+			var ajaxdata = "UserId=" + userId + "&RoleId=" + roleId;
+			@Html.Ajax("POST", "", "nowhere", "ReturnSetUserToRole")
+		}
+
+		function ReturnSetUserToRole(data) {
+			if (data.type == "add"){
+				$("#user_" + data.userId).parent().addClass("disabled checked");
+			}
+			else {
+				$("#user_" + data.userId).parent().removeClass("disabled checked");
+			}
+		}
+
+		$('.i-checks').iCheck({
+			checkboxClass: 'icheckbox_square-green',
+			radioClass: 'iradio_square-green'
+		});
+
+		$(".todo-list").sortable({
+			placeholder: "sort-highlight",
+			handle: ".handle",
+			forcePlaceholderSize: true,
+			zIndex: 999999
+		}).disableSelection();
+    </script>
+}

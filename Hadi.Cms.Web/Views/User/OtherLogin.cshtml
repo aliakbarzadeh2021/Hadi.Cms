@@ -1,0 +1,85 @@
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Configuration
+
+@{
+    ViewBag.Title = Strings.Global_Login;
+    Layout = "~/Views/Shared/_LayoutBaseLogin.cshtml";
+}
+
+<style>
+    .captcha {
+        display: none;
+    }
+
+    .loginColumns {
+        padding-top: 30px !important;
+    }
+</style>
+
+<div class="middle-box text-center animated fadeInDown">
+    <div>
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Index","Home",new { area ="" })">
+                <img src="@Settings.Application_LoginLogoPath.Replace("~", "..")" />
+            </a>
+        </div>
+        <h4 class="font-bold">@Settings.Application_CompanyName</h4>
+        <p class="alert-info">
+            @if (ViewBag.Message != null)
+            {
+                @Html.Raw((string)ViewBag.Message)
+            }
+        </p>
+        <p><br /></p>
+    </div>
+
+    <div class="ibox-content">
+        <div class="pull-right text-right">
+            @if (ViewBag.ForgetPasswordText != null)
+            {
+                <span>
+                    @ViewBag.ForgetPasswordText
+                </span>
+                <div class="hr-line-dashed"></div>
+            }
+            else
+            {
+                <h3>@Strings.Global_Register</h3>
+                <p>@Strings.Global_YourUsernameWillBeMobileOrEmail</p>
+            }
+        </div>
+
+        @using (Html.BeginForm("OtherLogin", "User", new { EnterText = ViewBag.EnterText }, FormMethod.Post, new { @class = "m-t", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <input type="text" id="loginField" name="loginField" class="form-control input" placeholder="@ViewBag.EnterText" />
+            </div>
+            <div class="form-group captcha" style="display:@((string)TempData["ShowCaptcha"])">
+                <p class="text-muted text-center">
+                    <small>
+                        @Strings.Global_SecurityCode
+                    </small>
+                </p>
+                <p>
+                    <div class="g-recaptcha" data-sitekey="6LeecCITAAAAAIAfiLl8TF2CsJVSL7RJUpNgv2ha"></div>
+                </p>
+            </div>
+            <input type="submit" value="@Strings.Global_Login" class="btn btn-primary block full-width m-b" />
+
+            @Html.ActionLink(Strings.Global_Back, "Login", "User", new { @class = "btn btn-sm btn-white btn-block" })
+        }
+        <p class="m-t">
+            <small>
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    @Html.Label("", (string)ViewBag.ErrorMessage, new { @class = "text-danger" })
+                }
+            </small>
+        </p>
+    </div>
+</div>
+@section scripts{
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+}

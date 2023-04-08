@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D4AD727-3BD2-4B48-8745-720A50E2D0E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hadi.Cms.Model</RootNamespace>
+    <AssemblyName>Hadi.Cms.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\References\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\References\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DatabaseContext.cs" />
+    <Compile Include="Entities\Article.cs" />
+    <Compile Include="Entities\ArticleTag.cs" />
+    <Compile Include="Entities\AttachmentFile.cs" />
+    <Compile Include="Entities\AttachmentFileTag.cs" />
+    <Compile Include="Entities\Author.cs" />
+    <Compile Include="Entities\BaseModel.cs" />
+    <Compile Include="Entities\CareerOpportunity.cs" />
+    <Compile Include="Entities\Challenge.cs" />
+    <Compile Include="Entities\ChallengeProject.cs" />
+    <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\ConfirmKey.cs" />
+    <Compile Include="Entities\ContactUs.cs" />
+    <Compile Include="Entities\Course.cs" />
+    <Compile Include="Entities\CourseAttachmentFile.cs" />
+    <Compile Include="Entities\CourseTag.cs" />
+    <Compile Include="Entities\CourseTeacher.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\DepartmentSelectionReason.cs" />
+    <Compile Include="Entities\DepartmentService.cs" />
+    <Compile Include="Entities\Education.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Employer.cs" />
+    <Compile Include="Entities\Event.cs" />
+    <Compile Include="Entities\EventLog.cs" />
+    <Compile Include="Entities\Feature.cs" />
+    <Compile Include="Entities\FooterCategory.cs" />
+    <Compile Include="Entities\FooterCategoryLink.cs" />
+    <Compile Include="Entities\Form.cs" />
+    <Compile Include="Entities\FormField.cs" />
+    <Compile Include="Entities\FormFieldValue.cs" />
+    <Compile Include="Entities\IpBanned.cs" />
+    <Compile Include="Entities\IpRange.cs" />
+    <Compile Include="Entities\Language.cs" />
+    <Compile Include="Entities\LoginHistory.cs" />
+    <Compile Include="Entities\Mail.cs" />
+    <Compile Include="Entities\MailAttachment.cs" />
+    <Compile Include="Entities\MailUser.cs" />
+    <Compile Include="Entities\Menu.cs" />
+    <Compile Include="Entities\Methodology.cs" />
+    <Compile Include="Entities\News.cs" />
+    <Compile Include="Entities\NewsCategory.cs" />
+    <Compile Include="Entities\NewsNewsCategory.cs" />
+    <Compile Include="Entities\NlEmail.cs" />
+    <Compile Include="Entities\NlEmailMessage.cs" />
+    <Compile Include="Entities\NlMessage.cs" />
+    <Compile Include="Entities\Notification.cs" />
+    <Compile Include="Entities\Page.cs" />
+    <Compile Include="Entities\PageStatistic.cs" />
+    <Compile Include="Entities\Partner.cs" />
+    <Compile Include="Entities\Project.cs" />
+    <Compile Include="Entities\ProjectAttachmentFile.cs" />
+    <Compile Include="Entities\ProjectTag.cs" />
+    <Compile Include="Entities\ProjectTechnology.cs" />
+    <Compile Include="Entities\Province.cs" />
+    <Compile Include="Entities\RelatedArticle.cs" />
+    <Compile Include="Entities\Resume.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\RoleFeature.cs" />
+    <Compile Include="Entities\Service.cs" />
+    <Compile Include="Entities\ServiceComment.cs" />
+    <Compile Include="Entities\ServiceReceiver.cs" />
+    <Compile Include="Entities\ServiceReceiverService.cs" />
+    <Compile Include="Entities\ServiceTag.cs" />
+    <Compile Include="Entities\Setting.cs" />
+    <Compile Include="Entities\Slider.cs" />
+    <Compile Include="Entities\SliderItem.cs" />
+    <Compile Include="Entities\SocialNetwork.cs" />
+    <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Entities\Teacher.cs" />
+    <Compile Include="Entities\Technology.cs" />
+    <Compile Include="Entities\Template.cs" />
+    <Compile Include="Entities\TemplateDetail.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserContact.cs" />
+    <Compile Include="Entities\UserProfile.cs" />
+    <Compile Include="Entities\UserRole.cs" />
+    <Compile Include="Enums\CareerOpportunityType.cs" />
+    <Compile Include="Enums\EntityHaveReviewCount.cs" />
+    <Compile Include="Mappings\Interfaces\IAuthorDto.cs" />
+    <Compile Include="Mappings\Interfaces\ICareerOpportunityDto.cs" />
+    <Compile Include="Mappings\Interfaces\ICourseTagDto.cs" />
+    <Compile Include="Mappings\Interfaces\IEventDto.cs" />
+    <Compile Include="Mappings\Interfaces\IFooterCategoryDto.cs" />
+    <Compile Include="Mappings\Interfaces\IFooterCategoryLinkDto.cs" />
+    <Compile Include="Mappings\Interfaces\IFormDto.cs" />
+    <Compile Include="Mappings\Interfaces\IFormFieldDto.cs" />
+    <Compile Include="Mappings\Interfaces\IFormFieldValueDto.cs" />
+    <Compile Include="Mappings\Interfaces\INlEmailDto.cs" />
+    <Compile Include="Mappings\Interfaces\INlMessageEmailDto.cs" />
+    <Compile Include="Mappings\Interfaces\INlMessageDto.cs" />
+    <Compile Include="Mappings\Interfaces\IPartnerDto.cs" />
+    <Compile Include="Mappings\Interfaces\IResumeDto.cs" />
+    <Compile Include="Mappings\Interfaces\IServiceCommentDto.cs" />
+    <Compile Include="Mappings\Interfaces\IServiceReceiverDto.cs" />
+    <Compile Include="Mappings\Interfaces\IServiceReceiverServiceDto.cs" />
+    <Compile Include="Mappings\Interfaces\IServiceTagDto.cs" />
+    <Compile Include="Mappings\Interfaces\ISliderDto.cs" />
+    <Compile Include="Mappings\Interfaces\ISliderItemDto.cs" />
+    <Compile Include="Mappings\Mappers\AuthorMapper.cs" />
+    <Compile Include="Mappings\Mappers\CareerOpportunityMapper.cs" />
+    <Compile Include="Mappings\Mappers\CourseAttachmentFileMapper.cs" />
+    <Compile Include="Mappings\Interfaces\ICourseAttachmentFileDto.cs" />
+    <Compile Include="Mappings\Interfaces\ICourseDto.cs" />
+    <Compile Include="Mappings\Interfaces\ICourseTeacherDto.cs" />
+    <Compile Include="Mappings\Interfaces\IDepartmentSelectionReasonDto.cs" />
+    <Compile Include="Mappings\Interfaces\IDepartmentServiceDto.cs" />
+    <Compile Include="Mappings\Interfaces\IEmployeeDto.cs" />
+    <Compile Include="Mappings\Interfaces\IMethodologyDto.cs" />
+    <Compile Include="Mappings\Interfaces\IServiceDto.cs" />
+    <Compile Include="Enums\Evaluation.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Mappings\Configuration\MapperConfig.cs" />
+    <Compile Include="Mappings\Interfaces\IArticleDto.cs" />
+    <Compile Include="Mappings\Interfaces\IArticleTagDto.cs" />
+    <Compile Include="Mappings\Interfaces\IAttachmentFileDto.cs" />
+    <Compile Include="Mappings\Interfaces\IAttachmentFileTagDto.cs" />
+    <Compile Include="Mappings\Interfaces\IBaseModelDto.cs" />
+    <Compile Include="Mappings\Interfaces\IChallengeDto.cs" />
+    <Compile Include="Mappings\Interfaces\IChallengeProjectDto.cs" />
+    <Compile Include="Mappings\Interfaces\ICityDto.cs" />
+    <Compile Include="Mappings\Interfaces\IConfirmKeyDto.cs" />
+    <Compile Include="Mappings\Interfaces\IContactUsDto.cs" />
+    <Compile Include="Mappings\Interfaces\IDepartmentDto.cs" />
+    <Compile Include="Mappings\Interfaces\IEducationDto.cs" />
+    <Compile Include="Mappings\Interfaces\IEmployerDto.cs" />
+    <Compile Include="Mappings\Interfaces\IEventLogDto.cs" />
+    <Compile Include="Mappings\Interfaces\IFeatureDto.cs" />
+    <Compile Include="Mappings\Interfaces\IIpBannedDto.cs" />
+    <Compile Include="Mappings\Interfaces\IIpRangeDto.cs" />
+    <Compile Include="Mappings\Interfaces\ILanguageDto.cs" />
+    <Compile Include="Mappings\Interfaces\ILoginHistoryDto.cs" />
+    <Compile Include="Mappings\Interfaces\IMailAttachmentDto.cs" />
+    <Compile Include="Mappings\Interfaces\IMailDto.cs" />
+    <Compile Include="Mappings\Interfaces\IMailUserDto.cs" />
+    <Compile Include="Mappings\Interfaces\IMenuDto.cs" />
+    <Compile Include="Mappings\Interfaces\INewsCategory.cs" />
+    <Compile Include="Mappings\Interfaces\INewsDto.cs" />
+    <Compile Include="Mappings\Interfaces\INewsNewsCategory.cs" />
+    <Compile Include="Mappings\Interfaces\INotificationDto.cs" />
+    <Compile Include="Mappings\Interfaces\IPageDto.cs" />
+    <Compile Include="Mappings\Interfaces\IPageStatisticDto.cs" />
+    <Compile Include="Mappings\Interfaces\IProjectAttachmentFileDto.cs" />
+    <Compile Include="Mappings\Interfaces\IProjectDto.cs" />
+    <Compile Include="Mappings\Interfaces\IProjectTagDto.cs" />
+    <Compile Include="Mappings\Interfaces\IProjectTechnologyDto.cs" />
+    <Compile Include="Mappings\Interfaces\IProvinceDto.cs" />
+    <Compile Include="Mappings\Interfaces\IRoleDto.cs" />
+    <Compile Include="Mappings\Interfaces\IRoleFeatureDto.cs" />
+    <Compile Include="Mappings\Interfaces\ISettingDto.cs" />
+    <Compile Include="Mappings\Interfaces\ISocialNetwork.cs" />
+    <Compile Include="Mappings\Interfaces\ITagDto.cs" />
+    <Compile Include="Mappings\Interfaces\ITeacherDto.cs" />
+    <Compile Include="Mappings\Interfaces\ITechnologyDto.cs" />
+    <Compile Include="Mappings\Interfaces\ITemplateDetailDto.cs" />
+    <Compile Include="Mappings\Interfaces\ITemplateDto.cs" />
+    <Compile Include="Mappings\Interfaces\IUserContactDto.cs" />
+    <Compile Include="Mappings\Interfaces\IUserDto.cs" />
+    <Compile Include="Mappings\Interfaces\IUserProfileDto.cs" />
+    <Compile Include="Mappings\Interfaces\IUserRoleDto.cs" />
+    <Compile Include="Mappings\Mappers\ArticleMapper.cs" />
+    <Compile Include="Mappings\Mappers\ArticleTagMapper.cs" />
+    <Compile Include="Mappings\Mappers\AttachmentFileMapper.cs" />
+    <Compile Include="Mappings\Mappers\AttachmentFileTagMapper.cs" />
+    <Compile Include="Mappings\Mappers\ChallengeMapper.cs" />
+    <Compile Include="Mappings\Mappers\ChallengeProjectMapper.cs" />
+    <Compile Include="Mappings\Mappers\CityMapper.cs" />
+    <Compile Include="Mappings\Mappers\ConfirmKeyMapper.cs" />
+    <Compile Include="Mappings\Mappers\ContactUsMapper.cs" />
+    <Compile Include="Mappings\Mappers\CourseMapper.cs" />
+    <Compile Include="Mappings\Mappers\CourseTagMapper.cs" />
+    <Compile Include="Mappings\Mappers\CourseTeacherMapper.cs" />
+    <Compile Include="Mappings\Mappers\DepartmentMapper.cs" />
+    <Compile Include="Mappings\Mappers\DepartmentSelectionReasonMapper.cs" />
+    <Compile Include="Mappings\Mappers\DepartmentServiceMapper.cs" />
+    <Compile Include="Mappings\Mappers\EducationMapper.cs" />
+    <Compile Include="Mappings\Mappers\EmployeeMapper.cs" />
+    <Compile Include="Mappings\Mappers\EmployerMapper.cs" />
+    <Compile Include="Mappings\Mappers\EventLogMapper.cs" />
+    <Compile Include="Mappings\Mappers\EventMapper.cs" />
+    <Compile Include="Mappings\Mappers\FeatureMapper.cs" />
+    <Compile Include="Mappings\Mappers\FooterCategoryLinkMapper.cs" />
+    <Compile Include="Mappings\Mappers\FooterCategoryMapper.cs" />
+    <Compile Include="Mappings\Mappers\FormFieldMapper.cs" />
+    <Compile Include="Mappings\Mappers\FormMapper.cs" />
+    <Compile Include="Mappings\Mappers\FormValueMapper.cs" />
+    <Compile Include="Mappings\Mappers\IpBannedMapper.cs" />
+    <Compile Include="Mappings\Mappers\IpRangeMapper.cs" />
+    <Compile Include="Mappings\Mappers\PartnerMapper.cs" />
+    <Compile Include="Mappings\Mappers\ResumeMapper.cs" />
+    <Compile Include="Mappings\Mappers\ServiceCommentMapper.cs" />
+    <Compile Include="Mappings\Mappers\ServiceReceiverServiceMapper.cs" />
+    <Compile Include="Mappings\Mappers\LanguageMapper.cs" />
+    <Compile Include="Mappings\Mappers\LoginHistoryMapper.cs" />
+    <Compile Include="Mappings\Mappers\MailAttachmentMapper.cs" />
+    <Compile Include="Mappings\Mappers\MailMapper.cs" />
+    <Compile Include="Mappings\Mappers\MailUserMapper.cs" />
+    <Compile Include="Mappings\Mappers\MenuMapper.cs" />
+    <Compile Include="Mappings\Mappers\MethodologyMapper.cs" />
+    <Compile Include="Mappings\Mappers\NewsCategoryMapper.cs" />
+    <Compile Include="Mappings\Mappers\NewsMapper.cs" />
+    <Compile Include="Mappings\Mappers\NewsNewsCategoryMapper.cs" />
+    <Compile Include="Mappings\Mappers\NlEmailMapper.cs" />
+    <Compile Include="Mappings\Mappers\NlMessageEmailMapper.cs" />
+    <Compile Include="Mappings\Mappers\NlMessageMapper.cs" />
+    <Compile Include="Mappings\Mappers\NotificationMapper.cs" />
+    <Compile Include="Mappings\Mappers\PageMapper.cs" />
+    <Compile Include="Mappings\Mappers\PageStatisticMapper.cs" />
+    <Compile Include="Mappings\Mappers\ProjectAttachmentFileMapper.cs" />
+    <Compile Include="Mappings\Mappers\ProjectMapper.cs" />
+    <Compile Include="Mappings\Mappers\ProjectTagMapper.cs" />
+    <Compile Include="Mappings\Mappers\ProjectTechnologyDto.cs" />
+    <Compile Include="Mappings\Mappers\ProvinceMapper.cs" />
+    <Compile Include="Mappings\Mappers\RoleFeatureMapper.cs" />
+    <Compile Include="Mappings\Mappers\RoleMapper.cs" />
+    <Compile Include="Mappings\Mappers\ServiceMapper.cs" />
+    <Compile Include="Mappings\Mappers\ServiceReceiverMapper.cs" />
+    <Compile Include="Mappings\Mappers\ServiceTagMapper.cs" />
+    <Compile Include="Mappings\Mappers\SettingMapper.cs" />
+    <Compile Include="Mappings\Mappers\SliderItemMapper.cs" />
+    <Compile Include="Mappings\Mappers\SliderMapper.cs" />
+    <Compile Include="Mappings\Mappers\SocialNetworkMapper.cs" />
+    <Compile Include="Mappings\Mappers\TagMapper.cs" />
+    <Compile Include="Mappings\Mappers\TeacherMapper.cs" />
+    <Compile Include="Mappings\Mappers\TechnologyMapper.cs" />
+    <Compile Include="Mappings\Mappers\TemplateDetailMapper.cs" />
+    <Compile Include="Mappings\Mappers\TemplateMapper.cs" />
+    <Compile Include="Mappings\Mappers\UserContactMapper.cs" />
+    <Compile Include="Mappings\Mappers\UserMapper.cs" />
+    <Compile Include="Mappings\Mappers\UserProfileMapper.cs" />
+    <Compile Include="Mappings\Mappers\UserRoleMapper.cs" />
+    <Compile Include="Migration\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryModels\ArticleModel.cs" />
+    <Compile Include="QueryModels\AttachmentFileModel.cs" />
+    <Compile Include="QueryModels\CaptchaResponse.cs" />
+    <Compile Include="QueryModels\ContactUsModel.cs" />
+    <Compile Include="QueryModels\EvaluationModel.cs" />
+    <Compile Include="QueryModels\EvaluationResultModel.cs" />
+    <Compile Include="QueryModels\FeatureModel.cs" />
+    <Compile Include="QueryModels\IpBannedModel.cs" />
+    <Compile Include="QueryModels\IpRangeModel.cs" />
+    <Compile Include="QueryModels\LoginViewModel.cs" />
+    <Compile Include="QueryModels\MailModel.cs" />
+    <Compile Include="QueryModels\MenuModel.cs" />
+    <Compile Include="QueryModels\NewsModel.cs" />
+    <Compile Include="QueryModels\NotificationModel.cs" />
+    <Compile Include="QueryModels\PageModel.cs" />
+    <Compile Include="QueryModels\PageStatisticModel.cs" />
+    <Compile Include="QueryModels\ProfileModel.cs" />
+    <Compile Include="QueryModels\RoleModel.cs" />
+    <Compile Include="QueryModels\SettingsModel.cs" />
+    <Compile Include="QueryModels\TagModel.cs" />
+    <Compile Include="QueryModels\TemplateDetailModel.cs" />
+    <Compile Include="QueryModels\TemplateModel.cs" />
+    <Compile Include="QueryModels\UserModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hadi.Cms.Language\Hadi.Cms.Language.csproj">
+      <Project>{c8af17f6-16fa-4f47-9201-85505f7629a5}</Project>
+      <Name>Hadi.Cms.Language</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!--<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />-->
+</Project>

@@ -1,0 +1,79 @@
+@model List<Hadi.Cms.ApplicationService.QueryModels.AttachmentFileTagDto>
+
+<div class="grid-education mb-4">
+    <div class="border-bottom-custom"></div>
+    <div class="border-right-custom border-bottom-custom"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="education-container">
+        <div class="title">
+            <div>
+                <span>
+                    مطالعه همراه با
+                </span>
+                <span class="text-persian-green">
+                    آموزش
+                </span>
+            </div>
+            <!-- <div class="lines ml-4 mr-5">
+                <img src="./images/lines.svg" alt="">
+            </div> -->
+            <div class="lamp ml-4 mr-5">
+                <img src="/Content/Images/Hadi/Articles/AllArticle/lamp.svg" alt="">
+            </div>
+        </div>
+        <div class="description text-light-custom mt-2">
+            آیا مایل هستید در خصوص حوزه ای که در آن تحقیق و پژوهش انجام می دهید آموزش کسب کنید؟
+        </div>
+        <a href="@Url.Action("Index","Courses")" class="btn-container so-button-2 text-regular mt-4 arrow-button-intraction">
+            <span>
+                ورود به آکادمی
+            </span>
+            <img class="" src="/Content/Images/Hadi/arrow-left.svg" alt="">
+        </a>
+    </div>
+
+        <div class="index-video-wrapper-margin">
+
+        </div>
+        <div class="grid-videos">
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+        </div>
+    
+    <div class="border-top-custom"></div>
+    <div class="border-right-custom border-top-custom"></div>
+    <div></div>
+    <div></div>
+</div>
+<div class="mobile-education">
+    <div class="mobile-education-container">
+        <div class="title mb-3">
+            <span>مطالعه همراه با</span>
+            <span class="color-jungel-green">آموزش</span>
+        </div>
+        <div class="description text-light-custom">
+            آیا مایل هستید در خصوص حوزه ای که در آن تحقیق و پژوهش انجام می دهید آموزش کسب کنید؟
+        </div>
+        <div class="btn-container">
+            <span>
+                ورود به آکادمی
+            </span>
+            <img class="" src="/Content/Images/Hadi/arrow-left.svg" alt="">
+        </div>
+    </div>
+    @*<div class="index-vide">
+            @foreach (var file in Model.Take(1).ToList())
+            {
+                <video autoplay loop poster="@file.Poster" class="index-video">
+                    <source src="@file.Source" type="@file.MimeType">
+                </video>
+            }
+        </div>*@
+</div>
+</div>

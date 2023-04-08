@@ -1,0 +1,29 @@
+@using Hadi.Cms.Language.Resources
+
+@{
+    Layout = "~/Views/Shared/_LayoutPublicPage.cshtml";
+}
+
+<div class="middle-box text-center animated fadeInDown">
+    <h2 class="font-bold">
+        @Strings.Global_Inaccessibility
+    </h2>
+    <h1 class="font-bold" style="color:red;">
+        <i class="fa fa-minus-circle">
+        </i>
+    </h1>
+    <div class="hr-line-dashed"></div>
+    <h3 class="font-bold">
+        @Strings.Global_YouDontHaveAccessTopage
+    </h3>
+    <div class="error-desc">
+        <form class="form-inline m-t" role="form">
+            <div class="form-group">
+
+            </div>
+            <a href="/" class="btn btn-primary">
+                @Strings.Global_Back
+            </a>
+        </form>
+    </div>
+</div>

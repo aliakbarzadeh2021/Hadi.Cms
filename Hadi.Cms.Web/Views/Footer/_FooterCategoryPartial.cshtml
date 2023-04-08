@@ -1,0 +1,62 @@
+@model List<Hadi.Cms.ApplicationService.QueryModels.FooterCategoryWithWithLinkDto>
+
+@if (!ViewBag.FooterMobile)
+{
+    for (var i = 0; i < Model.Count; i++)
+    {
+        if (Model[i].FooterLinkDto.Count > 0)
+        {
+            <div class="@(i == 0 ? "text-center part" : i == 1 || i == 2 ? "border-right-custom text-center part" : "part")">
+                <a href="@Model[i].Link" class="so-subheading-h5 pr-4 pl-4 d-block title pb-3">
+                    @Model[i].Title
+                </a>
+
+                <div class="pt-4 pr-4">
+                    @foreach (var link in Model[i].FooterLinkDto)
+                    {
+                        if (link.HasImage)
+                        {
+
+                            <div class="@(link.HasImage ? "mt-2" : "so-subheading-h6 text-regular mt-3")">
+                                @if (link.HasImage)
+                                {
+                                    <img class="pin-image m-1" src="@link.ImageAttachmentSource" alt="">
+                                }
+
+                                <a href="@link.Link" class="so-subheading-h6 text-regular">
+                                    @link.LinkText
+                                </a>
+                            </div>
+                        }
+
+                        else
+                        {
+                            <a href="@link.Link" class="so-subheading-h6 reset-padding text-regular mt-3 d-block">@link.LinkText</a>
+                        }
+                    }
+                </div>
+            </div>
+        }
+    }
+}
+
+else
+{
+    for (var i = 0; i < Model.Count; i++)
+    {
+        if (Model[i].FooterLinkDto.Count > 0)
+        {
+            <a href="@Model[i].Link" class="so-display-h3 text-medium  mt-5 mt-5 d-block">
+                @Model[i].Title
+            </a>
+            <hr>
+            for (var j = 0; j < Model[i].FooterLinkDto.Count; j++)
+            {
+                var index = j;
+                <a href="@Model[i].FooterLinkDto[j].Link" class="@(index++ == Model.Count ? "so-display-h3 text-medium  mt-5 d-block" : "so-display-h2 text-light-custom mb-2 d-block")">
+                    @Model[i].FooterLinkDto[j].LinkText
+                </a>
+            }
+        }
+    }
+}

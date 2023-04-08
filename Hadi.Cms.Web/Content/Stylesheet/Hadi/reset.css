@@ -1,0 +1,33 @@
+:root {
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    direction: rtl;
+    text-align: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+    color: black;
+}
+
+body {
+    font-family: "IRANSansFaNum" !important;
+    font-size: 16px;
+}
+
+.pointer {
+    cursor: pointer;
+}

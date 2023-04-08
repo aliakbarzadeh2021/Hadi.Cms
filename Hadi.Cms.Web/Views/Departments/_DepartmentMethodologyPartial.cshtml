@@ -1,0 +1,47 @@
+@model List<Hadi.Cms.Model.Mappings.Interfaces.IMethodologyDto>
+
+@if (Model.Count > 0)
+{
+    <section class="methodology-container">
+        <div class="methodology-header mb-5">
+            <div class="methodology-title">
+                مـــــتدولــــوژی ها
+            </div>
+            <div class="methodology-line">
+            </div>
+        </div>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                @for (var i = 0; i < Model.Count; i++)
+                {
+                    <li data-target="#myCarousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
+                }
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @foreach (var obj in Model.Select((item, index) => new { item, index }).ToList())
+                {
+                    <div class="carousel-item @(obj.index == 0? "active" : "")">
+                        <div class="content d-flex">
+                            <div class="methodology-info">
+                                <div class="info-title mb-4">
+                                    @obj.item.Title
+                                </div>
+                                <div class="info-text">
+                                    <div>
+                                        @Html.Raw(obj.item.Description)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="methodology-image">
+                                <img src="@obj.item.ImageSource" alt="">
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

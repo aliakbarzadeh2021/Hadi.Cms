@@ -1,0 +1,55 @@
+@using Hadi.Cms.Model.Mappings.Interfaces
+@using Hadi.Cms.ApplicationService.Services;
+
+@model List<Hadi.Cms.ApplicationService.QueryModels.AllArticleDto>
+
+@if (Model.Count > 0)
+{
+    <div class="similar-articles">
+        <div class="title-container mb-4">
+            <div class="title text-medium">
+                مقالات مشابه
+            </div>
+            <div class="line">
+
+            </div>
+        </div>
+        <div class="articles-container">
+            @foreach (var article in Model)
+            {
+                <a href="@Url.Action("Details","Articles",new {id = article.Id})" class="article-container mb-3">
+                    <div class="image-container">
+                        <img src="@article.ArticleImageSource" alt="" srcset="">
+                        <div class="hashtag-container mt-2">
+                            @foreach (var tag in article.Tags)
+                            {
+                                <div style="background-color: @tag.Color" class="user-experience-hashtag mb-1 ml-1">
+                                    @tag.Title
+                                </div>
+                            }
+                        </div>
+                        <div class="text-container so-subheading-text my-2 ">
+                            @article.Title
+                        </div>
+                        <div class="article-information so-button-2 text-regular">
+                            <div>
+                                <img class="ml-1" src="@article.AuthorImageSource" alt="">
+                                <span>
+                                    نویسنده :
+                                </span>
+                                <span>
+                                    @article.AuthorName
+                                </span>
+                            </div>
+                            <div class="line-verticall">
+                            </div>
+                            <div>
+                                @article.ShamsiCreatedDate
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+}

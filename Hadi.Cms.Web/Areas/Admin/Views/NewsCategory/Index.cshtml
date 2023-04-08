@@ -1,0 +1,247 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@model IPagedList<Hadi.Cms.Model.Mappings.Interfaces.INewsCategory>
+
+@section style{
+    @Styles.Render("~/Content/Stylesheet/NewsCategory", "~/Content/RadaTemplate/css/plugins/summernot", "~/Content/RadaTemplate/css/plugins")
+}
+
+@{
+    ViewBag.Title = Strings.Global_NewsCategoryList;
+    int row = 0;
+}
+
+<div>
+    <div style="float: left; display: @(ViewBag.Message == null ? "none" : "block")">
+        <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            @ViewBag.Message
+        </div>
+    </div>
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>@Strings.Global_NewsCategoryList</h2>
+            <ol class="breadcrumb">
+                <li>
+
+                </li>
+                <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                    <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        @ViewBag.Message
+                    </div>
+                </div>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+        </div>
+        <p></p>
+
+        <div class="animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div style="margin-bottom:10px;">
+                            <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#createModal">@Strings.Global_New</button>
+                        </div>
+                        <div class="ibox-title mt-5">
+                            <h5>@Strings.Global_NewsCategoryList</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up">
+                                    </i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-tasks">
+                                    </i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li>
+                                        <a href="@Url.Action("Create", "News", new { area = "Admin" })">
+                                            @Strings.Global_NewNews
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="@Strings.Global_SearchInTable">
+                            <div class="hr-line-dashed"></div>
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8" data-filter="#filter">
+                                <thead>
+                                    <tr>
+                                        <th>@Strings.Table_RowNumber</th>
+                                        <th>@Strings.Global_Title</th>
+                                        <th>@Strings.Global_EnTitle</th>
+                                        <th>@Strings.MenuModel_OrderId</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @{
+                                        for (var i = 1; i < ViewBag.PageNumber; i++)
+                                        {
+                                            row += 5;
+                                        }
+                                        foreach (var item in Model)
+                                        {
+                                            <tr class="gradeX">
+                                                <td>
+                                                    @(row++)
+                                                </td>
+                                                <td>
+                                                    @item.Title
+                                                </td>
+                                                <td>
+                                                    @item.EnTitle
+                                                </td>
+                                                <td>
+                                                    @item.OrderId
+                                                </td>
+                                                <td class="opr">
+                                                    <a onclick="editNewsCategory('@item.Id')" data-toggle="modal" data-target="#editModal" class="btn btn-primary btn-circle" title="@Strings.Global_Edit"><i class="fa fa-edit"></i></a>
+                                                    <a onclick="deleteNewsCatalert('@item.Id');" class="btn btn-danger btn-circle" title="@Strings.Global_Delete"><i class="fa fa-remove"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="5">
+                                            <ul class="pagination pull-right"></ul>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div aria-label="Page navigation" class="text-center" id="myPager2">
+                                @Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { pageNumber }))
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Create Modal -->
+    <div class="modal fade" id="createModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">@Strings.Global_CreateNew</h4>
+                </div>
+                <div class="modal-body" id="createModalBody">
+                    <script>
+                        var xmlHttp = new XMLHttpRequest();
+                        xmlHttp.open("GET", "/Admin/NewsCategory/Create", false); // false for synchronous request
+                        xmlHttp.send(null);
+                        //return xmlHttp.responseText;
+                        var createForm = document.getElementById("createModalBody").innerHTML = xmlHttp.response;
+
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">@Strings.Global_Edit</h4>
+                </div>
+                <div class="modal-body" id="editModalBody">
+                    <script>
+                        function editNewsCategory(id) {
+                            var xmlHttp = new XMLHttpRequest();
+                            xmlHttp.open("GET", "/Admin/NewsCategory/Edit?newsCategoryId=" + id, false); // false for synchronous request
+                            xmlHttp.send(null);
+                            //return xmlHttp.responseText;
+                            var editForm = document.getElementById("editModalBody").innerHTML = xmlHttp.response;
+
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins")
+
+    <script>
+
+        /**
+     * Vertically center Bootstrap 3 modals so they aren't always stuck at the top
+     */
+        $(function () {
+            function reposition() {
+                var modal = $(this),
+                    dialog = modal.find('.modal-dialog');
+                modal.css('display', 'block');
+
+                // Dividing by two centers the modal exactly, but dividing by three
+                // or four works better for larger screens.
+                dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / 2));
+            }
+            // Reposition when a modal is shown
+            $('.modal').on('show.bs.modal', reposition);
+            // Reposition when the window is resized
+            $(window).on('resize', function () {
+                $('.modal:visible').each(reposition);
+            });
+        });
+
+    $(function () {
+        $('.footable').footable();
+    });
+    //delete modal
+    function deleteNewsCatalert(id) {
+        swal({
+				title: "آیا مطمئن هستید",
+				text: "دسته ی انتخاب شده حذف خواهد شد",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: "بلی",
+				cancelButtonText: "خیر",
+				closeOnConfirm: false,
+				closeOnCancel: true
+			},
+			function (isConfirm) {
+				if (isConfirm) {
+					DeleteNewsCat(id);
+				}
+			});
+    }
+
+    		function DeleteNewsCat(id) {
+			var param = "@Url.Action("Delete", "NewsCategory", null, this.Request.Url.Scheme)";
+                var ajaxdata = "newsCategoryId=" + id;
+			@Html.Ajax("POST", "", "nowhere", "ReturnDeleteNewsCat")
+		}
+
+        function ReturnDeleteNewsCat(data) {
+            swal({
+				title: data.Success,
+				text: data.Message,
+				type: data.Type,
+				showCancelButton: false,
+				confirmButtonColor: "#23c6c8",
+				confirmButtonText: "OK",
+				closeOnConfirm: true
+			}, function () {
+				window.location.reload();
+			});
+		}
+    </script>
+}

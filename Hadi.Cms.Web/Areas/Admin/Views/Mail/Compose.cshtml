@@ -1,0 +1,198 @@
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Model.Entities
+@using Hadi.Cms.Model.Mappings.Interfaces
+
+
+@{
+    ViewBag.Title = Strings.Global_Compose;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+	<link href="~/Content/RadaTemplate/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<link href="~/Content/RadaTemplate/css/plugins/iCheck/custom.css" rel="stylesheet">
+	<link href="~/Content/RadaTemplate/css/plugins/summernote/summernote.css" rel="stylesheet">
+	<link href="~/Content/RadaTemplate/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+}
+
+<style>
+	.note-editable {
+		height: 260px;
+	}
+	.note-help {
+		display:none !important;
+	}
+	.removeBtn {
+		position: absolute;
+		margin: -22px -14px;
+	}
+	input[type=file] {
+		margin-bottom: 5px;
+	}
+</style>
+
+<div class="row">
+	<div class="col-lg-3">
+		<div class="ibox float-e-margins">
+			<div class="ibox-content mailbox-content">
+				<div class="file-manager">
+					<a class="btn btn-block btn-primary compose-mail" href="@Url.Action("Compose", "Mail")">@Strings.Global_Compose</a>
+					<div class="space-25"></div>
+					<h5></h5>
+					<ul class="folder-list m-b-md" style="padding: 0">
+						<li><a href="@Url.Action("Inbox", "Mail")"><i class="fa fa-inbox "></i> @Strings.Global_Inbox<span class="label label-warning pull-left">@ViewBag.UnreadMessageCount</span> </a></li>
+						<li><a href="@Url.Action("Outbox", "Mail")"><i class="fa fa-envelope-o"></i> @Strings.Global_SentMail</a></li>
+						<li class="hidden"><a href="#"><i class="fa fa-certificate"></i> @Strings.Global_Important</a></li>
+						<li class="hidden"><a href="#"><i class="fa fa-trash-o"></i> @Strings.Global_Trash</a></li>
+					</ul>
+					<div class="clearfix"></div>
+					<h5>@Strings.Global_MyContacts</h5>
+					<ul class="category-list" style="padding: 0">
+						@foreach (var item in (List<IUserDto>)ViewBag.onlineContact)
+						{
+							<li><a href="@Url.Action("Compose", "Mail", new { area = "Admin", ReceiverId = item.Id })"> <i class="fa fa-user text-navy"></i> @item.FullName </a></li>
+						}
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-9 animated fadeInRight">
+		<div class="mail-box-header">
+			<div class="pull-left tooltip-demo">
+				<a href="mailbox.html" class="btn btn-white btn-sm hidden" data-toggle="tooltip" data-placement="top" title="Move to draft folder"><i class="fa fa-pencil"></i> @Strings.Global_Draft</a>
+				<a href="mailbox.html" class="btn btn-danger btn-sm hidden" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> @Strings.Global_Discard</a>
+			</div>
+			<h2>
+				@Strings.Global_Compose
+			</h2>
+		</div>
+		<div class="mail-box">
+			@using (Html.BeginForm("Compose", "Mail", FormMethod.Post, new { id = "ComposeForm", @class = "form-horizontal m-t-md", @enctype = "multipart/form-data" }))
+			{
+				@Html.AntiForgeryToken()
+				<div class="mail-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">@Strings.Global_SendTo :</label>
+						<div class="col-sm-10">
+							<input id="SendTo" type="hidden" class="form-control" value="@ViewBag.ReceiverId">
+							<input id="mailTo" name="mailTo" type="text" class="form-control ltr-input" value="@ViewBag.ReceiverUserId">
+							<span class="help-block m-b-none">@Strings.Global_SeparateUsersWithChar</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">@Strings.Global_Subject :</label>
+						<div class="col-sm-10"><input id="mailSubject" name="mailSubject" type="text" class="form-control" value=""></div>
+					</div>
+				</div>
+				<div class="mail-text h-200">
+					<div id="mailTexts" class="mailTexts">
+						<br />
+					</div>
+					<input type="hidden" value="" id="mailText" name="mailText" />
+					<div class="clearfix"></div>
+				</div>
+				<div class="form-group">
+					<div class="hr-line-dashed"></div>
+					<label class="col-sm-2 control-label">@Strings.MailModel_Attachments :</label>
+					<a id="addFileUploadCtrl" onclick="addInputFile()"><i class="fa fa-plus-circle text-success" title="افزودن یک فایل دیگر"></i></a>
+					<div class="fileUploadList" style="margin: 15px 80px;">
+						<input type="file" name="files" id="fileUp1" />
+					</div>
+				</div>
+				<div class="mail-body text-left tooltip-demo">
+					<input type="submit" value="@Strings.Global_Send" class="btn btn-sm btn-primary" />
+					@*<a onclick="Compose()" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i> @Strings.Global_Send</a>*@
+					<a href="mailbox.html" class="btn btn-white btn-sm hidden" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> @Strings.Global_Discard</a>
+					<a href="mailbox.html" class="btn btn-white btn-sm hidden" data-toggle="tooltip" data-placement="top" title="Move to draft folder"><i class="fa fa-pencil"></i> @Strings.Global_Draft</a>
+				</div>
+				<div class="clearfix"></div>
+			}
+		</div>
+	</div>
+</div>
+
+@section scripts{
+	<script src="~/Content/RadaTemplate/js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="~/Content/RadaTemplate/js/plugins/iCheck/icheck.min.js"></script>
+	<script src="~/Content/RadaTemplate/js/plugins/summernote/summernote.min.js"></script>
+
+	<script>
+		var lastFileUploadNum = 1;
+
+		$(function () {
+			$('.i-checks').iCheck({
+				checkboxClass: 'icheckbox_square-green',
+				radioClass: 'iradio_square-green',
+			});
+
+			$('.mailTexts').summernote();
+
+			$('#ComposeForm').submit(function () {
+				$("#mailText").val($(".note-editable").html());
+
+				if ($("#mailTo").val() == "") {
+					MyAlert('خطا', 'لطفا نام کاربر گیرنده را وارد کنید', 4000, 'error');
+					return false;
+				} else if ($("#mailSubject").val() == "") {
+					MyAlert('خطا', 'لطفا موضوع پیام را وارد کنید', 4000, 'error');
+					return false;
+				} else if ($("#mailText").val() == "") {
+					MyAlert('خطا', 'لطفا متن پیام را وارد کنید', 4000, 'error');
+					return false;
+				}
+				else {
+					var formData = new FormData($(this)[0]);
+					$.ajax({
+						url: this.action,
+						type: this.method,
+						data: formData,
+						success: function (result) {
+							ReturnCompose(result);
+						},
+						error: function () {
+							alert('error');
+						}
+					});
+					return false;
+				}
+			});
+		});
+
+		var edit = function () {
+			$('.click2edit').summernote({ focus: true });
+		};
+		var save = function () {
+			var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
+			$('.click2edit').destroy();
+		};
+
+		function ReturnCompose(data) {
+			swal({
+				title: data.Success,
+				text: data.Message,
+				type: "success",
+				showCancelButton: false,
+				confirmButtonColor: "#23c6c8",
+				confirmButtonText: "OK",
+				closeOnConfirm: true
+			}, function () {
+				window.location.href = "@Url.Action("Inbox", "Mail",null, this.Request.Url.Scheme)";
+			});
+		}
+
+		function addInputFile() {
+			lastFileUploadNum = lastFileUploadNum + 1;
+			$('.fileUploadList').append(
+				$('<input/>').attr('type', 'file').attr('name', 'files').attr('id', 'fileUp' + lastFileUploadNum),
+				$('<a><i class="fa fa-remove text-danger" title="حذف"></i></a>').attr('onclick', 'RemoveInputFile(' + lastFileUploadNum + ');').attr('class', 'removeBtn').attr('id', 'closeBtn' + lastFileUploadNum)
+			);
+		}
+
+		function RemoveInputFile(InputNum) {
+			$("#fileUp" + InputNum).remove();
+			$("#closeBtn" + InputNum).remove();
+		}
+	</script>
+}

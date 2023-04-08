@@ -1,0 +1,18 @@
+@using Hadi.Cms.Model.Mappings.Interfaces
+
+@model IArticleDto
+
+@if (Model != null)
+{
+<div class="d-flex justify-content-between">
+    <span>@Model.Title</span>
+
+    <a class="pull-left" href="@Url.Action("Details","Articles",new { area=""  , Id = Model.Id })">
+        <img class="arrow-left" src="~/content/images/htdf/images/arrow-left.svg" />
+    </a>
+</div>
+}
+else
+{
+<span>نمایشگاه های بین المللی، هنرمندان پل و محققان محسوب می شوند</span>
+}

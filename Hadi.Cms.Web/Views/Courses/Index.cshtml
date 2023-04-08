@@ -1,0 +1,453 @@
+@using Hadi.Cms.Language.Resources;
+@using Hadi.Cms.ApplicationService.QueryModels;
+@using Hadi.Cms.Infrastructure.Helpers
+@model AllCoursesDto
+
+@{
+    ViewBag.IdBody = "all-academies";
+    ViewBag.Title = Strings.Hadi_Academy;
+}
+
+@section topScripts{
+
+
+}
+
+@section style{
+
+    <style type="text/css">
+        slick-list {
+            height: 300px;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .slider {
+            width: 50%;
+            margin: 100px auto;
+        }
+
+        .slick-slide {
+            margin: 0px 20px;
+        }
+
+            .slick-slide img {
+                width: 100%;
+            }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+
+
+        .slick-slide {
+            transition: all ease-in-out .3s;
+        }
+    </style>
+}
+<section class="all-academies-header">
+    <div class="header-info-container">
+        <div class="info-title mb-3 w-25">
+            <img class="" src="~/Content/Images/Hadi/Academy/AllAcademies/academy_logo.svg" alt="">
+        </div>
+        <div class="info-description mb-5">
+            آکادمـــی ســوران
+        </div>
+    </div>
+    <div class="background-pattern"></div>
+    @if (Model.Event != null)
+    {
+        if (!string.IsNullOrEmpty(Model.Event.AttachmentImageSource))
+        {
+            <div class="event-container">
+                <div class="event-title-container mb-2">
+                    <div class="event-title">
+                        رویداد پیش رو
+                    </div>
+                    <div class="event-line">
+
+                    </div>
+                </div>
+                <div class="event-image-container">
+                    <a href="@Model.Event.Link"><img src="@Model.Event.AttachmentImageSource" alt="@Model.Event.Title"></a>
+                </div>
+            </div>
+        }
+    }
+</section>
+<section class="academy-tabs">
+    <ul class="nav nav-tabs">
+        @foreach (var obj in Model.AllCoursePageDetails.Select((item, index) => new { item, index }).ToList())
+        {
+            <li class="nav-item">
+                <a class="nav-link  @(obj.index == 0 ? "active" : "")" data-toggle="tab" onclick="setSlider(this.id)" href="@("#this" +obj.item.Service.Id)">@obj.item.Service.Title</a>
+            </li>
+        }
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        @foreach (var obj in Model.AllCoursePageDetails.Select((item, index) => new { item, index }).ToList())
+        {
+            <div class="tab-pane @(obj.index == 0 ? "active" : "fade")" id="@("this" + obj.item.Service.Id)">
+                <div class="content d-flex">
+                    <div class="details">
+                        <div class="title so-display-h3">
+                            در یک دقیقه یاد بگیرید!
+                        </div>
+                        <div class="text">
+                            <div>
+                                برای پیدا کردن مهارت های جدید
+                                کاوش کنید و در احساسات خود
+                                عمیق شوید، خلاقیت را هم همراه
+                                خود ببرید و چیزی که پیدا می
+                                کنید، باعث الهام بخشیدن به شما
+                                می شود.
+                            </div>
+                            <img class="w-25  mt-5" src="~/Content/Images/Hadi/Academy/AllAcademies/eleman-01.svg" alt="">
+                        </div>
+                    </div>
+                    @if (obj.item.AttachmentVideos.Count > 0 && obj.item.Tags.Count > 0)
+                    {
+                        <div class="videos">
+                            <div class="filter-container">
+                                <div class="filters nav nav-pills">
+                                    @foreach (var tag in obj.item.Tags)
+                                    {
+                                        <div id="@tag.Id" onclick="getVideosByTag(this)" class="filter" data-toggle="pill">
+                                            @tag.Title
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="videos-slider">
+                                @*@foreach (var video in obj.item.AttachmentVideos)
+                                {
+                                    <video controls src="@video.VideoSource"></video>
+                                }*@
+                            </div>
+                        </div>
+                    }
+                </div>
+                @if (obj.item.Courses.Count > 0)
+                {
+                    <section class="academy-course">
+                        <div class="academy-course-header">
+                            <div class="title">
+                                دوره های آموزشی آکادمی
+                            </div>
+                            <div class="course-line-custom">
+
+                            </div>
+                        </div>
+                        <div class="course-image-container so-subheading-text mt-4">
+                            @foreach (var course in obj.item.Courses)
+                            {
+                                <div class="course-image pb-3">
+                                    <img loop controls src="@course.AttachmentImageSource" class="image-custom">
+                                    <div class="image-info so-display-h3 mt-2">
+                                        @course.Title
+                                    </div>
+                                    <div class="time">
+                                        <span>
+                                            مدت زمان :
+                                        </span>
+                                        <span class="time-content">
+                                            @course.PeriodOfTime
+                                        </span>
+                                    </div>
+                                    <div class="teacher-name">
+                                        <span class="name">
+                                            مدرس :
+                                        </span>
+                                        <span class="teacher-name-content">
+                                            <img src="" alt="">
+                                            @{
+                                                var teachers = string.Join(" - ", course.CourseTeacherDto.Select(ct => ct.TeacherDto.FullName).ToList());
+                                            }
+
+                                            @teachers
+                                        </span>
+                                    </div>
+                                    <div class="price">
+                                        <span class="price-name">
+                                            قیمت :
+                                        </span>
+                                        <span class="price-content">
+                                            @course.PriceString
+                                        </span>
+                                    </div>
+                                    <div class="button">
+                                        <button class="btn-custom btn cowork bg-green mt-4 arrow-button-intraction pointer ">
+                                            <a class="text-white" href="@Url.Action("Details", "Courses", new { id = course.Id, serviceId = obj.item.Service.Id })">
+                                                بیشتر
+                                            </a>
+                                            <img class="ml-2" src="/Content/Images/Hadi/arrow-left.svg" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </section>
+                }
+                <section class="apprentice-container">
+                    <a href="/Pages/Details?pageAlias=career" class="banner-image-container">
+                        <picture>
+                            <source media="(max-width: 750px)" srcset="~/Content/Images/Hadi/Academy/AllAcademies/banner_responsive.jpg">
+                            <img src="~/Content/Images/Hadi/Academy/AllAcademies/banner.jpg" alt="banner">
+                        </picture>
+                    </a>
+                </section>
+
+                @if (obj.item.Articles.Count > 0)
+                {
+                    <section class="container-fluid articles-information">
+                        <div class="title-container mb-3">
+                            <div class="so-display-h2  so-display-h2-mobile font-anjoman">
+                                <span class="text-Turmeric">مقـــالات</span>
+                                <span>برگــزیده</span>
+                            </div>
+                            <div class="hr-style">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="images-container">
+                            @for (var i = 0; i < obj.item.Articles.Count; i++)
+                            {
+                                <div class="box@(i + 1) bottom-layout" onclick="test()">
+                                    <img src="@obj.item.Articles[i].ArticleImageSource" alt="">
+                                    <div class="filter-black">
+
+                                    </div>
+                                    @if (obj.item.Articles[i].Tags.Count > 0)
+                                    {
+                                        <div class="hashtag-container">
+                                            @foreach (var tag in obj.item.Articles[i].Tags)
+                                            {
+                                                <div class="user-experience-hashtag" style="background-color : @tag.Color">
+                                                    @tag.Title
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                    <div class="description">
+                                        @obj.item.Articles[i].Title
+                                    </div>
+                                    <hr class="hr-style-white">
+                                    <div class="inforamtion-container">
+                                        <div class="date">
+                                            @obj.item.Articles[i].ShamsiCreatedDate
+                                        </div>
+                                        <div class="name">
+                                            <img src="@obj.item.Articles[i].AuthorImageSource" alt="">
+                                            <span>
+                                                @obj.item.Articles[i].AuthorName
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="box5  so-display-h2-mobile">
+                                <a class="w-100 h-100 text-center pt-1 text-dark" href="@Url.Action("Index", "Articles")">
+                                    همه مقالات
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                }
+
+                @if (obj.item.Challenges.Count > 0)
+                {
+                    <section class="challenge-container">
+                        <div class="challenge-header">
+                            <div class="challenge-title">
+                                یادگیری از طریق چالش
+                            </div>
+                            <div class="challenge-line-custom">
+
+                            </div>
+                        </div>
+                        <div class="challenge-video-container">
+                            @foreach (var challenge in obj.item.Challenges)
+                            {
+                                <a href="@Url.Action("Details", "Challenge", new { id = challenge.Id })" class="challenge-video">
+                                    <video loop controls poster="@challenge.ImageSource" class="video-custom">
+                                        <source src="@challenge.VideoSource" type="video/mp4">
+                                    </video>
+                                    <div class="video-info text-medium my-2">
+                                        <span class="video-info-name-holder">
+                                            نام پروژه:
+                                        </span>
+                                        <span class="video-info-name">
+                                            @challenge.ProjectName
+                                        </span>
+                                    </div>
+                                    <div class="video-info-description">
+                                        @challenge.Title
+                                    </div>
+                                </a>
+                            }
+                        </div>
+                    </section>
+                }
+
+
+                @if (obj.item.Teachers.Count > 0)
+                {
+                    <section class="about-this-project">
+                        <div class="content">
+                            <div class="border-bottom-custom"></div>
+                            <div class="border-right-custom border-bottom-custom  pb-4 pr-4">
+                                <div class="so-display-h1 font-anjoman">
+                                    مدرســــــین آکادمــی
+                                </div>
+                                <div class="title-color text-medium">
+                                    همه مدرسین
+                                </div>
+                            </div>
+                            <div></div>
+                            <div class="about-this-project-container">
+                                @foreach (var teacher in obj.item.Teachers)
+                                {
+                                    <div class="image-container">
+                                        <img class="main-image" src="@teacher.AttachmentImageSource" alt="">
+                                        <img class="side-image" src="@teacher.SocialNetworkImageSource" alt="@teacher.SocialNetworkName">
+                                        <div class="caption">
+                                            @teacher.FullName
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        @* <div class="box-container">
+                            <div class="info-container">
+                                <div>
+                                    از مــدرســــیـن
+                                    آکادمی باشید.
+                                </div>
+                                <div class="arrow-button-intraction">
+                                    <span>عضویت در آکادمی</span>
+                                    <img class="image ml-1 " src="/Content/Images/Hadi/arrow-left.svg" alt="">
+                                </div>
+                            </div>
+                        </div> *@
+                    </section>
+                }
+            </div>
+        }
+</section>
+
+@section scripts{
+            <script src="~/Scripts/slick/jquery.min.js"></script>
+        <script src="~/Scripts/slick/slick.js"></script>
+    <script>
+        (function () {
+            //active first filter 
+            document.querySelectorAll('.tab-content .active .content .videos .filter-container .filters .filter')[0].classList.add('active');
+            let firstFilter = document.querySelectorAll('.tab-content .active .content .videos .filter-container .filters .filter')[0];
+            getVideosByTag(firstFilter);
+
+        })();
+
+
+
+
+
+
+    var activeTagId = document.querySelector(".videos .filter-container .filters .active").id;
+    var videosContainer = document.querySelector(".tab-content .active .content .videos .videos-slider");
+    @*(function () {
+        console.log(activeTagId);
+        var param = "@Url.Action("GetVideosByTagId", "Courses", null, this.Request.Url.Scheme)";
+        var ajaxdata = "TagId="+ activeTagId;
+        @Html.Ajax("GET", "", "nowhere", "returnGetVideosByTagId")
+    })();*@
+
+    function GetVideos(id) {
+        var param = "@Url.Action("GetVideosByTagId", "Courses", null, this.Request.Url.Scheme)";
+        var ajaxdata = "TagId="+ id;
+        @Html.Ajax("GET", "", "nowhere", "returnGetVideosByTagId")
+
+
+    }
+    function returnGetVideosByTagId(data) {
+        console.log(data);
+        let html = "";
+        for (var i = 0; i < data.CourseVideos.length; i++) {
+            html += "<video poster='" + data.CourseVideos[i].CourseVideoPosterSource + "' controls>";
+            html += "<source src='" + data.CourseVideos[i].CourseVideoSource + "'/>";
+            html += "</video>";
+        }
+        videosContainer.innerHTML = html;
+
+        }
+/*
+        $(document).on('ready', function () {
+                if (window.innerWidth > 750) {
+                    $('.videos-slider').slick({
+                        infinite: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        prevArrow: "<img class='a-left control-c prev slick-next' src='/Content/Images/Hadi/Academy/AllAcademies/Arrow_left.svg'>",
+                        nextArrow: "<img class='a-left control-c prev slick-prev' src='/Content/Images/Hadi/Academy/AllAcademies/Arrow_right.svg'>"
+                    });
+                }
+                else {
+                    $('.videos-slider').slick({
+                          prevArrow: "<img class='a-left control-c prev slick-next' src='/Content/Images/Hadi/Academy/AllAcademies/Arrow_left.svg'>",
+                        nextArrow: "<img class='a-left control-c prev slick-prev' src='/Content/Images/Hadi/Academy/AllAcademies/Arrow_right.svg'>"
+                    });
+                }
+        });
+
+*/
+
+    function getVideosByTag(filter) {
+        var param = "@Url.Action("GetVideosByTagId", "Courses", null, this.Request.Url.Scheme)";
+        var ajaxdata = "TagId="+ filter.id;
+        @Html.Ajax("GET", "", "nowhere", "returnGetVideosByTag")
+    }
+    function returnGetVideosByTag(data) {
+        console.log(data);
+        let html = "";
+        for (var i = 0; i < data.AttachmentFiles.length; i++) {
+            html += "<video poster='" + data.AttachmentFiles[i].VideoPosterImageSource + "' controls>";
+            html += "<source src='" + data.AttachmentFiles[i].VideoSource + "'/>";
+            html += "</video>";
+        }
+        videosContainer.innerHTML = html;
+        document.querySelector('.tab-content .active .content .videos .videos-slider').classList.remove('slick-initialized');
+        document.querySelector('.tab-content .active .content .videos .videos-slider').classList.remove('slick-slider');
+
+       
+            $('.tab-content .active .content .videos .videos-slider').not('.slick-initialized').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                prevArrow: "<img class='a-left control-c prev slick-next' src='/Content/Images/Hadi/Academy/AllAcademies/Arrow_left.svg'>",
+                nextArrow: "<img class='a-left control-c prev slick-prev' src='/Content/Images/Hadi/Academy/AllAcademies/Arrow_right.svg'>"
+            });
+       
+    }
+
+    function setSlider(currentTabId){
+         setTimeout(function () {
+            let activeFilter = document.querySelector('.tab-content  .active .content .videos .filter-container .filters .active');
+            getVideosByTag(activeFilter);
+        }, 500);
+
+    }
+
+
+    </script>
+
+}
+

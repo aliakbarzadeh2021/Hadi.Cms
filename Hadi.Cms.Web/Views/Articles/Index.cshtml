@@ -1,0 +1,404 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@model Hadi.Cms.ApplicationService.QueryModels.ArticleContainerDto
+
+@{
+    ViewBag.Title = "همه مقالات";
+    ViewBag.IdBody = "all-articles";
+    ViewBag.ContainerFluid = "container-fluid";
+}
+
+<div class="articles-filter-container" id="tagContainer">
+    <div class="title">
+        مقـــالات
+    </div>
+    <div class="filters nav nav-pills">
+
+    </div>
+</div>
+<div class="filter-box-container mb-5">
+    <div class="box"></div>
+    <div class="input-container mobile-view">
+        <img onclick="searchText()" id="searchBtn" class="mr-2 pointer" src="~/Content/Images/Hadi/search_icon-01.svg" alt="">
+        <input id="articles-search" class="input-custom" type="text" placeholder="جستجو کنید...">
+    </div>
+</div>
+<div class="articles articles-top mb-5">
+ 
+</div>
+
+@Html.Action("GridEducationPartial", "Articles", new { id = Model.TagsParentId })
+
+<div class="articles articles-below mt-5">
+  
+</div>
+@if (Model.Articles.Count > 16)
+{
+    <div class="articles-box">
+        همه مقــالات
+    </div>
+}
+
+@section scripts
+{
+    <script src="/Scripts/Hadi/Articles/AllArticle/allArticles.js"></script>
+    <script>
+$(document).ready(function(){
+    setTimeout(function () {
+          $(this).scrollTop(0);
+    }, 100);
+        var tagsCount = 1;
+        var tagId = "";
+        var serachText = "";
+    (function () {
+        tagsCount = 1;
+        $('.filters').html('');
+        getTags(tagsCount);
+        tagsCount++;
+
+        serachText = "";
+        tagId = "";
+        getArticlesBySearch(tagId);
+
+        getVideosByTag();
+    })();
+        function showMoreTags() {
+            $('.filters').html('');
+
+            getTags(tagsCount);
+
+            tagsCount++;
+    }
+        function getTags(tagsCount) {
+            var param = "@Url.Action("GetMoreTags", "Tags", null, this.Request.Url.Scheme)";
+            var ajaxdata = "count=" + tagsCount + "&id="+ tagId ;
+            @Html.Ajax("GET", "", "nowhere", "returnGetTags")
+        }
+        function returnGetTags(data) {
+            console.log(data);
+            var html = "";
+            html += "<a onClick='sorthByTag(this.id); getVideos();' id='' class='filter active' data-toggle='pill' >";
+                    html += "همه";
+                    html += "</a>";
+                for (var i = 0; i < data.Tags.length; i++) {
+                    html += "<a id='" + data.Tags[i].Id + "' onClick='sorthByTag(this.id); getVideos();' class='filter' data-toggle='pill'>";
+                    html += data.Tags[i].Title;
+                    html += "</a>";
+                }
+
+                $('.filters').html(html);
+    }
+
+    function searchText() {
+        serachText = document.getElementById("articles-search").value;
+        tagId = document.querySelector(".filters .filter.active").id;
+        getArticlesBySearch(tagId);
+    }
+    function getArticlesBySearch(tagId) {
+        var param = "@Url.Action("FilterArticles", "Articles", null, this.Request.Url.Scheme)";
+        var ajaxdata = "Id=" + tagId + "&Search=" + serachText;
+        @Html.Ajax("GET", "", "nowhere", "returnGetArticleBySearch")
+    }
+    function returnGetArticleBySearch(data) {
+        console.log("this is the");
+        console.log(data);
+        var html = "";
+        var htmlBlow = "";
+            if (data.SpecialArticle != null) {
+                html += "<a href='Articles/Details/" + data.SpecialArticle.Id + "' class='article-container-active mb-3'>";
+                html += "<div class ='anim-image-container w-100 h-100'></div>"
+                html += "<img src='" + data.SpecialArticle.ArticleImageSource + "' alt='' class='article-active-image' >";
+                html += "<div class='filter-black'></div>";
+                html += "<div class='description'>";
+                html += "<div class='hashtag-container'>";
+                for (var x = 0; x < data.SpecialArticle.Tags.length; x++) {
+                    html += "<div style=' background-color:" + data.SpecialArticle.Tags[x].Color + "' class='frontend-hashtag ml-1'>";
+                    html += data.SpecialArticle.Tags[x].Title;
+                    html += "</div>";
+                }
+                html += "</div>";
+                html += "<div>";
+                html += data.SpecialArticle.Title;
+                html += "</div>";
+                html += "</div>";
+                html += "<hr class='line'>";
+                html += "<div class='article-information'>";
+                html += "<div class='date'>";
+                html += data.SpecialArticle.ShamsiCreatedDate;
+                html += "</div>";
+                html += "<div class='name'>";
+                html += "<img src='" + data.SpecialArticle.AuthorImageSource + "' class='ml-1'>";
+                html += "<span>";
+                html += "نویسنده :";
+                html += "</span>";
+                html += "<span>";
+                html += data.SpecialArticle.AuthorName;
+                html += "</span>";
+                html += "</div>";
+                html += "</div>";
+                html += "</a>";
+            }
+            for (var i = 0; i < data.TopArticles.length; i++) {     
+                html += "<a href='Articles/Details/" + data.TopArticles[i].Id + "' class='article-container mb-5'>";
+                html += "<div class='image-container'>";
+                html += "<div>";
+                html += "<div class='anim-image-container'>";
+                html += "<img src='" + data.TopArticles[i].ArticleImageSource + "' alt='' >";
+                html += "</div>";
+                html += "</div>";
+                html += "<div class='mobile-info-image-container'>";
+                html += "<div class='hashtag-container'>";
+                for (var x = 0; x < data.TopArticles[i].Tags.length; x++) {
+                    html += "<div style='background-color:"+ data.TopArticles[i].Tags[x].Color +"' class='user-experience-hashtag mb-1 ml-1'>";
+                    html += data.TopArticles[i].Tags[x].Title;
+                    html += "</div>";
+                }
+                html += "<div class='text-container so-subheading-text my-2'>";
+                html += data.TopArticles[i].Title;
+                html += "</div>";
+                html += "<div class='article-information so-button-2 text-regular'>";
+                html += "<div>";
+                html += "<img class='ml-1' src='"+ data.TopArticles[i].AuthorImageSource + "' alt='' >";
+                html += "<span>";
+                html += "نویسنده :";
+                html += "</span>";
+                html += "<span>";
+                html += data.TopArticles[i].AuthorName;
+                html += "</span>";
+                html += "</div>";
+                html += "<div class='line-verticall'></div>";
+                html += "<div>";
+                html += data.TopArticles[i].ShamsiCreatedDate;
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</a>";
+            }
+              for (var i = 0; i < data.BelowArticles.length; i++) {
+                htmlBlow += "<a href='Articles/Details/" + data.BelowArticles[i].Id + "' class='article-container mb-5'>";
+                htmlBlow += "<div class='image-container'>";
+                htmlBlow += "<div>";
+                htmlBlow += "<div class='anim-image-container'>";
+                htmlBlow += "<img src='" + data.BelowArticles[i].ArticleImageSource + "' alt='' >";
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "<div class='mobile-info-image-container'>";
+                htmlBlow += "<div class='hashtag-container'>";
+                for (var x = 0; x < data.BelowArticles[i].Tags.length; x++) {
+                    htmlBlow += "<div style='background-color:"+ data.BelowArticles[i].Tags[x].Color +"' class='user-experience-hashtag mb-1 ml-1'>";
+                    htmlBlow += data.BelowArticles[i].Tags[x].Title;
+                    htmlBlow += "</div>";
+                }
+                htmlBlow += "<div class='text-container so-subheading-text my-2'>";
+                htmlBlow += data.BelowArticles[i].Title;
+                htmlBlow += "</div>";
+                htmlBlow += "<div class='article-information so-button-2 text-regular'>";
+                htmlBlow += "<div>";
+                htmlBlow += "<img class='ml-1' src='"+ data.BelowArticles[i].AuthorImageSource + "' alt='' >";
+                htmlBlow += "<span>";
+                htmlBlow += "نویسنده :";
+                htmlBlow += "</span>";
+                htmlBlow += "<span>";
+                htmlBlow += data.BelowArticles[i].AuthorName;
+                htmlBlow += "</span>";
+                htmlBlow += "</div>";
+                htmlBlow += "<div class='line-verticall'></div>";
+                htmlBlow += "<div>";
+                htmlBlow += data.BelowArticles[i].ShamsiCreatedDate;
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "</a>";
+            }
+
+        $('.articles-top').html(html);
+        $('.articles-below').html(htmlBlow);
+
+
+    }
+
+    function sorthByTag(id) {
+        tagId = id
+        serachText = document.getElementById("articles-search").value;
+        getArticlesByTag(tagId);
+    }
+     function getArticlesByTag(tagId) {
+        var param = "@Url.Action("FilterArticles", "Articles", null, this.Request.Url.Scheme)";
+        var ajaxdata = "Id=" + tagId + "&Search=" + serachText;
+        @Html.Ajax("GET", "", "nowhere", "returnGetArticlesByTag")
+            }
+        function returnGetArticlesByTag(data) {
+             var html = "";
+        var htmlBlow = "";
+            if (data.SpecialArticle != null) {
+                html += "<a href='Articles/Details/" + data.SpecialArticle.Id + "' class='article-container-active mb-3'>";
+                html += "<div class ='anim-image-container w-100 h-100'></div>"
+                html += "<img src='" + data.SpecialArticle.ArticleImageSource + "' alt='' class='article-active-image' >";
+                html += "<div class='filter-black'></div>";
+                html += "<div class='description'>";
+                html += "<div class='hashtag-container'>";
+                for (var x = 0; x < data.SpecialArticle.Tags.length; x++) {
+                    html += "<div style=' background-color:" + data.SpecialArticle.Tags[x].Color + "' class='frontend-hashtag ml-1'>";
+                    html += data.SpecialArticle.Tags[x].Title;
+                    html += "</div>";
+                }
+                html += "</div>";
+                html += "<div>";
+                html += data.SpecialArticle.Title;
+                html += "</div>";
+                html += "</div>";
+                html += "<hr class='line'>";
+                html += "<div class='article-information'>";
+                html += "<div class='date'>";
+                html += data.SpecialArticle.ShamsiCreatedDate;
+                html += "</div>";
+                html += "<div class='name'>";
+                html += "<img src='" + data.SpecialArticle.AuthorImageSource + "' class='ml-1'>";
+                html += "<span>";
+                html += "نویسنده :";
+                html += "</span>";
+                html += "<span>";
+                html += data.SpecialArticle.AuthorName;
+                html += "</span>";
+                html += "</div>";
+                html += "</div>";
+                html += "</a>";
+            }
+            for (var i = 0; i < data.TopArticles.length; i++) {
+                html += "<a href='Articles/Details/" + data.TopArticles[i].Id + "' class='article-container mb-5'>";
+                html += "<div class='image-container'>";
+                html += "<div>";
+                html += "<div class='anim-image-container'>";
+                html += "<img src='" + data.TopArticles[i].ArticleImageSource + "' alt='' >";
+                html += "</div>";
+                html += "</div>";
+                html += "<div class='mobile-info-image-container'>";
+                html += "<div class='hashtag-container'>";
+                for (var x = 0; x < data.TopArticles[i].Tags.length; x++) {
+                    html += "<div style=' background-color:"+ data.TopArticles[i].Tags[x].Color +"' class='user-experience-hashtag mb-1 ml-1'>";
+                    html += data.TopArticles[i].Tags[x].Title;
+                    html += "</div>";
+                }
+                html += "<div class='text-container so-subheading-text my-2'>";
+                html += data.TopArticles[i].Title;
+                html += "</div>";
+                html += "<div class='article-information so-button-2 text-regular'>";
+                html += "<div>";
+                html += "<img class='ml-1' src='"+ data.TopArticles[i].AuthorImageSource + "' alt='' >";
+                html += "<span>";
+                html += "نویسنده :";
+                html += "</span>";
+                html += "<span>";
+                html += data.TopArticles[i].AuthorName;
+                html += "</span>";
+                html += "</div>";
+                html += "<div class='line-verticall'></div>";
+                html += "<div>";
+                html += data.TopArticles[i].ShamsiCreatedDate;
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</a>";
+            }
+              for (var i = 0; i < data.BelowArticles.length; i++) {
+               htmlBlow += "<a href='Articles/Details/" + data.BelowArticles[i].Id + "' class='article-container mb-5'>";
+                htmlBlow += "<div class='image-container'>";
+                htmlBlow += "<div>";
+                htmlBlow += "<div class='anim-image-container'>";
+                htmlBlow += "<img src='" + data.BelowArticles[i].ArticleImageSource + "' alt='' >";
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "<div class='mobile-info-image-container'>";
+                htmlBlow += "<div class='hashtag-container'>";
+                for (var x = 0; x < data.BelowArticles[i].Tags.length; x++) {
+                    htmlBlow += "<div style='background-color:"+ data.BelowArticles[i].Tags[x].Color +"' class='user-experience-hashtag mb-1 ml-1'>";
+                    htmlBlow += data.BelowArticles[i].Tags[x].Title;
+                    htmlBlow += "</div>";
+                }
+                htmlBlow += "<div class='text-container so-subheading-text my-2'>";
+                htmlBlow += data.BelowArticles[i].Title;
+                htmlBlow += "</div>";
+                htmlBlow += "<div class='article-information so-button-2 text-regular'>";
+                htmlBlow += "<div>";
+                htmlBlow += "<img class='ml-1' src='"+ data.BelowArticles[i].AuthorImageSource + "' alt='' >";
+                htmlBlow += "<span>";
+                htmlBlow += "نویسنده :";
+                htmlBlow += "</span>";
+                htmlBlow += "<span>";
+                htmlBlow += data.BelowArticles[i].AuthorName;
+                htmlBlow += "</span>";
+                htmlBlow += "</div>";
+                htmlBlow += "<div class='line-verticall'></div>";
+                htmlBlow += "<div>";
+                htmlBlow += data.BelowArticles[i].ShamsiCreatedDate;
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "</div>";
+                htmlBlow += "</a>";
+            }
+
+        $('.articles-top').html(html);
+        $('.articles-below').html(htmlBlow);
+
+            }
+
+    function getVideos() {
+        getVideosByTag();
+    }
+        function getVideosByTag() {
+         var param = "@Url.Action("GetTagVideosByTagId", "Tags", null, this.Request.Url.Scheme)";
+            var ajaxdata = "tagId=" + tagId;
+        @Html.Ajax("GET", "", "nowhere", "returnGetVideosByTag")
+    }
+        var indexvideohtml = "";
+        var secondaryVideosHtml = "";
+    function returnGetVideosByTag(data) {
+        indexvideohtml = "";
+        secondaryVideosHtml = "";
+        $('.index-video-wrapper-margin').html(indexvideohtml);
+        $('.grid-videos').html(secondaryVideosHtml);
+        console.log(data);
+
+        indexvideohtml += "<video poster='" + data.CourseVideos[0].CourseVideoPosterSource + "' controls class='index-video'>";
+        indexvideohtml += "<source  src='" + data.CourseVideos[0].CourseVideoSource + "' type='video/mp4'>";
+        indexvideohtml += "</video>";
+        try {
+
+            secondaryVideosHtml += "<div>";
+            secondaryVideosHtml += "<video poster='" + data.CourseVideos[1].CourseVideoPosterSource + "' controls class='index-video'>";
+            secondaryVideosHtml += "<source  src='" + data.CourseVideos[1].CourseVideoSource + "' type='video/mp4'>";
+            secondaryVideosHtml += "</video>";
+            secondaryVideosHtml += "</div>";
+            secondaryVideosHtml += "<div>";
+            secondaryVideosHtml += "<video poster='" + data.CourseVideos[2].CourseVideoPosterSource + "' controls class='index-video'>";
+            secondaryVideosHtml += "<source  src='" + data.CourseVideos[2].CourseVideoSource + "' type='video/mp4'>";
+            secondaryVideosHtml += "</video>";
+            secondaryVideosHtml += "</div>";
+
+        } catch (e) {
+
+        }
+
+        $('.index-video-wrapper-margin').html(indexvideohtml);
+        $('.grid-videos').html(secondaryVideosHtml);
+
+
+
+    }
+
+    var input = document.getElementById("articles-search");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("searchBtn").click();
+  }
+});
+    </script>
+}   

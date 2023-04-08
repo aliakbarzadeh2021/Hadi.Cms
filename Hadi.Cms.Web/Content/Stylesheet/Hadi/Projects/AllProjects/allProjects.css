@@ -1,0 +1,177 @@
+#all-projects main.container-fluid {
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-bottom:110px;
+}
+
+#all-projects main .projects-title {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+    #all-projects main .projects-title .text-info-custom {
+        line-height: 2.5;
+        flex: 1 1 45%;
+    }
+
+        #all-projects main .projects-title .text-info-custom .title {
+        }
+
+        #all-projects main .projects-title .text-info-custom .title {
+            font-size: 40px;
+            font-family: Anjoman;
+            margin-bottom: 32px;
+        }
+
+            #all-projects main .projects-title .text-info-custom .title .turmeric-color {
+                color: var(--color-Turmeric);
+            }
+
+        #all-projects main .projects-title .text-info-custom .info {
+        }
+
+    #all-projects main .projects-title .image-container {
+        flex: 1 1 55%;
+        display: flex;
+        justify-content: center;
+    }
+
+        #all-projects main .projects-title .image-container img {
+            width: 169px;
+            height: 160px;
+        }
+
+#all-projects main .filter-box-container {
+    display: grid;
+    grid-template-rows: 35px;
+    grid-template-columns: 20% 59% 20%;
+}
+
+    #all-projects main .filter-box-container .box {
+        border-bottom: 1px solid var(--color-shady-lady);
+    }
+
+    #all-projects main .filter-box-container .input-container {
+        border-bottom: 1px solid var(--color-shady-lady);
+        border-left: 1px solid var(--color-shady-lady);
+        border-right: 1px solid var(--color-shady-lady);
+    }
+
+        #all-projects main .filter-box-container .input-container img {
+            width: 15px;
+            height: 15px;
+        }
+
+        #all-projects main .filter-box-container .input-container .select-custom {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #all-projects main .filter-box-container .input-container .input-custom {
+            height: 100%;
+            border: none;
+            outline: none;
+            width: 80%;
+        }
+
+#all-projects main .projects-container {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    #all-projects main .projects-container .project-box {
+        margin-bottom: 15px;
+        background-color: var(--color-bi-Sand);
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 calc(100% / 3 - 16px);
+        margin-left: 16px;
+        position: relative;
+        min-height: 434px;
+    }
+
+        #all-projects main .projects-container .project-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #all-projects main .projects-container .project-box .hover-project {
+            opacity: 0;
+            visibility: hidden;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 80px;
+            align-items: center;
+            background-color: #0000004f;
+            color: var(--color-white);
+            transition: 0.5s ease-in-out;
+        }
+
+            #all-projects main .projects-container .project-box .hover-project .en-title {
+                font-size: 16px;
+                margin-bottom: 1vw;
+            }
+
+            #all-projects main .projects-container .project-box .hover-project .fa-title {
+                font-size: 22px;
+                font-weight: bold;
+            }
+
+        #all-projects main .projects-container .project-box:hover .hover-project {
+            opacity: 1;
+            visibility: visible;
+        }
+
+#all-projects main .projects-box {
+    color: var(--color-emperor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px 15px 0px;
+    margin-top: 16px;
+    background-image: url("../../../../Images/Hadi/allarticle_button.svg");
+    background-size: cover;
+}
+
+@media only screen and (max-width: 750px) {
+    #all-projects main .projects-title .text-info-custom {
+        text-align: center;
+    }
+
+    #all-projects main .projects-title .image-container {
+        display: none;
+    }
+
+    #all-projects main .filter-box-container {
+        grid-template-columns: 98% 0% 0%;
+    }
+
+        #all-projects main .filter-box-container .box {
+            display: none;
+        }
+
+        #all-projects main .filter-box-container .input-container.mobile-view {
+            display: none;
+        }
+
+    #all-projects main .projects-container .project-box {
+        margin-bottom: 15px;
+        background-color: var(--color-bi-Sand);
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 calc(100% - 16px);
+        margin-left: 16px;
+        position: relative;
+        min-height: 434px;
+    }
+}

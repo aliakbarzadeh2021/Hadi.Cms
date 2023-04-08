@@ -1,0 +1,260 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Model.Mappings.Interfaces
+@using Hadi.Cms.Web.Utilities
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Model.Enums
+
+@model IUserProfileDto
+
+@{
+    ViewBag.Title = Strings.Global_Profile;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>@Strings.Global_Profile : @ViewBag.FullName</h2>
+        <ol class="breadcrumb">
+            <li>
+
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-4">
+        <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+            <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                @ViewBag.Message
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_ProfileDetail</h5>
+                </div>
+                <div>
+                    <div class="ibox-content no-padding border-left-right">
+                        @{
+                            string imgSrc = new AttachmentFileService().GetAttachmentSourceValue(Model.ImageAttachmentGuid);
+                        }
+                        <img alt="user image" class="img-responsive" src="@imgSrc" />
+                    </div>
+                    <div class="ibox-content profile-content">
+                        <h4>
+                            <strong>
+                                @ViewBag.FullName
+                            </strong>
+                        </h4>
+                        <p>
+                            <i class="fa fa-map-marker">
+                            </i>
+                            @if (!string.IsNullOrEmpty((string)ViewBag.CityName))
+                            {
+                                @(ViewBag.ProvinceName + " , " + ViewBag.CityName)
+                            }
+                        </p>
+                        <p></p>
+                        <div class="row m-t-lg hidden">
+                            <div class="col-md-4">
+                                <span class="bar">
+                                    5,3,9,6,5,9,7,3,5,2
+                                </span>
+                                <h5>
+                                    <strong>
+                                        169
+                                    </strong>
+                                    پست
+                                </h5>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="line">
+                                    5,3,9,6,5,9,7,3,5,2
+                                </span>
+                                <h5>
+                                    <strong>
+                                        28
+                                    </strong>
+                                    دیدن
+                                </h5>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="bar">
+                                    5,3,2,-1,-3,-2,2,3,5,2
+                                </span>
+                                <h5>
+                                    <strong>
+                                        240
+                                    </strong>
+                                    دیده شده
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="user-button">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @if ((bool)ViewBag.CanView)
+                                    {
+                                        <a href="@Url.Action("Edit", "Profile", new { userId = ViewBag.UserId })" class="btn btn-primary btn-sm btn-block">
+                                            <i class="fa fa-pencil">
+                                            </i>
+                                            @Strings.Global_EditProfile
+                                        </a>
+                                    }
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="@Url.Action("ChangePassword", "Users", new { area = "Admin", userId = ViewBag.UserId })" class="btn btn-warning btn-sm btn-block">
+                                        <i class="fa fa-lock">
+                                        </i>
+                                        @Strings.Global_ChangePassword
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="inline"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @if (!Model.MobileNumberIsValid)
+                                    {
+                                        <a href="@Url.Action("VerificationMobileNumber", "Profile", new { mobileNumber = Model.MobileNumber })" class="btn btn-danger btn-sm btn-block">
+                                            <i class="fa fa-check">
+                                            </i>
+                                            @Strings.Global_ForVerificationMobileNumberPleaseClickHere
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_Properties</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row well">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 font-bold">
+                                    @Strings.ProfileModel_Gender
+                                </div>
+                                <div class="col-md-6">
+                                    @if ((int)Model.Gender == (int)Gender.Male)
+                                    {
+                                        @Strings.Global_Male
+                                        <i class="fa fa-male"></i>
+                                    }
+                                    else if ((int)Model.Gender == (int)Gender.Female)
+                                    {
+                                        @Strings.Global_Female
+                                        <i class="fa fa-female"></i>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 font-bold">
+                                    @Strings.ProfileModel_BirthDate
+                                </div>
+                                <div class="col-md-6">
+                                    @(Model.BirthDate != null ? Convert.ToDateTime(Model.BirthDate).DateTimeToString(SessionData.Current.HasRightToLeftUI).Substring(6, 10) : "")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row well">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 font-bold">
+                                    @Strings.ProfileModel_NationalCode
+                                </div>
+                                <div class="col-md-6">
+                                    @Model.NationalCode
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 font-bold">
+                                    @Strings.ProfileModel_EducationId
+                                </div>
+                                <div class="col-md-6">
+                                    @ViewBag.EducationName
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row well">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 font-bold">
+                                    @Strings.ProfileModel_MobileNumber
+                                </div>
+                                <div class="col-md-6">
+                                    @Model.MobileNumber
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 font-bold">
+                                    @Strings.ProfileModel_PhoneNumber
+                                </div>
+                                <div class="col-md-6">
+                                    @Model.PhoneNumber
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row well">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 font-bold">
+                                    @Strings.ProfileModel_EmailAddress
+                                </div>
+                                <div class="col-md-6">
+                                    @Model.EmailAddress
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 font-bold">
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+
+    <script>
+        $(function () {
+
+        });
+    </script>
+}

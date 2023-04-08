@@ -1,0 +1,21 @@
+@model List<Hadi.Cms.Model.Mappings.Interfaces.IServiceDto>
+
+<select onchange="showProjectsByTags()" class="select-custom" name="" id="filter-projects">
+    <option value="">
+        همه خدمات
+    </option>
+
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id">
+            @{
+                item.Title = @item.Title.Replace("<br/>", " ");
+            }
+            @item.Title
+
+        </option>
+}
+</select>
+<script>
+
+</script>

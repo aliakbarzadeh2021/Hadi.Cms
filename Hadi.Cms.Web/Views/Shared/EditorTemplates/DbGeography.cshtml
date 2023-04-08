@@ -1,0 +1,47 @@
+@using System.Globalization
+@model System.Data.Entity.Spatial.DbGeography
+
+<style>
+	#pac-input {
+		display:none;
+	}
+</style>
+
+<div class="input-group" id="@(Html.NameForModel())">
+	
+	<input type="hidden" name="@Html.NameFor(m => m.Latitude)"	 value="@(Model != null && Model.Latitude.HasValue ? Convert.ToString(Model.Latitude, new CultureInfo("en-us")) : "")" />
+	<input type="hidden" name="@Html.NameFor(m => m.Longitude)" value="@(Model != null && Model.Longitude.HasValue ? Convert.ToString(Model.Longitude, new CultureInfo("en-us")) : "")" />
+
+	<input type="text" class="form-control" />
+	<span class="input-group-btn">
+		<button class="btn btn-danger" type="button" onclick="@(Html.NameForModel())_btnMapDialogClick();"><i class="fa fa-map-marker"></i></button>
+	</span>
+</div>
+
+<script src="~/Scripts/Namespace.js"></script>
+<script src="~/Scripts/Custom/custom.locationPicker.js"></script>
+<script>
+	function @(Html.NameForModel())_btnMapDialogClick() {
+
+		var selectedPlace = null;
+
+		if($('input[name="@Html.NameFor(m => m.Latitude)"]').val() && $('input[name="@Html.NameFor(m => m.Latitude)"]').val())
+		{
+			selectedPlace = {
+				position: {
+					lat: $('input[name="@Html.NameFor(m => m.Latitude)"]').val(),
+					lng: $('input[name="@Html.NameFor(m => m.Longitude)"]').val()
+				}
+			};
+		}
+
+		custom.ui.placePicker.showPlacePicker(selectedPlace, function (place) {
+
+			$('input[name="@Html.NameFor(m => m.Latitude)"]').val(place.position.lat);
+			$('input[name="@Html.NameFor(m => m.Longitude)"]').val(place.position.lng);
+
+			$('#@(Html.NameForModel()) input[type="text"]').val(place.address);
+		});
+	}
+
+</script>

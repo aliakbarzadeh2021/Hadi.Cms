@@ -1,0 +1,10 @@
+@model List<Hadi.Cms.ApplicationService.QueryModels.SliderImagePartialDto>
+
+
+@foreach (var item in Model)
+{
+    <div class="small-image">
+        <img class="w-100 h-100" src="@item.ImageSource" alt="">
+    </div>
+}
+

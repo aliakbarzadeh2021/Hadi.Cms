@@ -1,0 +1,54 @@
+
+@{
+	ViewBag.Title = "عدم دسترسی";
+	Layout = "~/Views/Shared/_LayoutPublicPage.cshtml";
+}
+
+<style>
+	.content p {
+		text-align: center;
+	}
+
+	.content {
+		margin: 70px auto;
+		text-align: center;
+		display: inline-table;
+		width: 100%;
+		direction: rtl;
+		color: white;
+	}
+
+	.box {
+		border: 1px solid #757575;
+		width: 55%;
+		border-radius: 6px;
+		margin: 0 auto;
+		padding: 50px;
+		background-color: #ff0b05;
+	}
+</style>
+
+<div class="content">
+	<div class="box">
+		<i class="fa fa-database fa-5x"></i>
+		<h2>عدم دسترسی به سایت</h2>
+		<p>
+			لطفا با مدیر سایت تماس بگیرید
+		</p>
+	</div>
+	@if (!string.IsNullOrEmpty((string)ViewBag.Message))
+	{
+		<p></p>
+		<div class="box">
+			<h2>جزییات خطا</h2>
+			@for (int i = 0; i < ((string)ViewBag.Message).Split('|').Length; i++)
+			{
+				<text>
+					<p style="text-align: left;direction: ltr;">
+						@(((string)ViewBag.Message).Split('|')[i])
+					</p>
+				</text>
+			}
+		</div>
+	}
+</div>

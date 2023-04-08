@@ -1,0 +1,97 @@
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Configuration
+@model Hadi.Cms.Model.QueryModels.LoginViewModel
+@{
+    ViewBag.Title = Strings.Global_Login;
+    Layout = "~/Views/Shared/_LayoutBaseLogin.cshtml";
+}
+
+<style>
+    .captcha {
+        display: none;
+    }
+</style>
+
+<div class="col-md-6">
+    @if (!string.IsNullOrEmpty(Settings.Application_LoginLogoPath))
+    {
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Index","Home",new { area ="" })">
+                <img src="@Settings.Application_LoginLogoPath.Replace("~", "..")" />
+            </a>
+        </div>
+    }
+    <h4 class="font-bold">@Settings.Application_CompanyName | @Strings.Global_DesignBy</h4>
+    <hr />
+    @{
+        var notifications = new NotificationService().GetTop_N_Notifications(4);
+        foreach (var item in notifications)
+        {
+            <p>
+                <i class="fa fa-bell-o fa-fw"></i>
+                @Html.Raw(item)
+            </p>
+        }
+    }
+</div>
+<div class="col-md-6">
+    <div class="ibox-content">
+        @using (Html.BeginForm("Login", "User", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "m-t", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control", @placeholder = Strings.UserMetadata_Username })
+                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = Strings.UserMetadata_Password })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group captcha" style="display:@((string)TempData["ShowCaptcha"])">
+                <p class="text-muted text-center">
+                    <small>
+                        @Strings.Global_SecurityCode
+                    </small>
+                </p>
+                <p>
+                    <div class="g-recaptcha" data-sitekey="6LeecCITAAAAAIAfiLl8TF2CsJVSL7RJUpNgv2ha"></div>
+                </p>
+            </div>
+            <input type="submit" value="@Strings.Global_Login" class="btn btn-primary block full-width m-b" />
+
+            if (Settings.Application_LoginWithEmail || Settings.Application_LoginWithSms)
+            {
+                <p class="text-muted text-center">
+                    @if (Settings.Application_LoginWithEmail && Settings.Application_LoginWithSms)
+                    {
+                        @Html.ActionLink(Strings.Global_Goto_SmsAndEmailLogin, "OtherLogin", "User", new { @class = "btn btn-sm btn-white btn-block" })
+                    }
+                    else if (Settings.Application_LoginWithEmail && !Settings.Application_LoginWithSms)
+                    {
+                        @Html.ActionLink(Strings.Global_Goto_EmailLogin, "OtherLogin", "User", new { @class = "btn btn-sm btn-white btn-block" })
+                    }
+                    else if (!Settings.Application_LoginWithEmail && Settings.Application_LoginWithSms)
+                    {
+                        @Html.ActionLink(Strings.Global_Goto_SmsLogin, "OtherLogin", "User", new { @class = "btn btn-sm btn-white btn-block" })
+                    }
+                </p>
+            }
+            <a href="@Url.Action("OtherLogin", "User", new { ForgetPassword = true })">
+                <small>@Strings.Global_ForgotYourPassword</small>
+            </a>
+        }
+        <p class="m-t">
+            <small>
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    @Html.Label("", (string)ViewBag.ErrorMessage, new { @class = "text-danger" })
+                }
+            </small>
+        </p>
+    </div>
+</div>
+@section scripts{
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+}

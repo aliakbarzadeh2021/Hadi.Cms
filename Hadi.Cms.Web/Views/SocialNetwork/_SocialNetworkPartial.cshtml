@@ -1,0 +1,20 @@
+@using Hadi.Cms.ApplicationService.Services
+@model List<Hadi.Cms.Model.Mappings.Interfaces.ISocialNetwork>
+
+@{
+    var attachmentFileService = new AttachmentFileService();
+}
+
+@foreach (var item in Model)
+{
+<a href="@item.Link">
+    @if (!string.IsNullOrEmpty(item.ImageSource))
+    {
+       <img src="@item.ImageSource" alt="@item.Title" />
+    }
+    else
+    {
+        @Html.Raw(item.Source)
+    }
+</a>
+}

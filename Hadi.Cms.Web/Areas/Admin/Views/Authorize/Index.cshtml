@@ -1,0 +1,160 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Model.Entities
+
+@{
+	ViewBag.Title = Strings.Global_AuthorizeManagment;
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+	@Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+<style>
+	.bold {
+		font-weight: bold;
+	}
+
+	.icheckbox_square-green.checked.disabled {
+		background-color: green !important;
+	}
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+	<div class="col-lg-10">
+		<h2>@Strings.Global_AuthorizeManagment</h2>
+		<ol class="breadcrumb">
+			<li>
+
+			</li>
+			<div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+				<div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+					@ViewBag.Message
+				</div>
+			</div>
+		</ol>
+	</div>
+	<div class="col-lg-2">
+	</div>
+</div>
+
+<div class="wrapper wrapper-content  animated fadeInRight">
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="ibox ">
+				<div class="ibox-title">
+					<h5>@Strings.Global_RolesList</h5>
+				</div>
+				<div class="ibox-content">
+					@if (ViewBag.RoleId != null)
+					{
+						<input type="hidden" id="itemId" value="@ViewBag.RoleId" />
+					}
+					<ul class="todo-list m-t">
+						@{
+							if (ViewBag.RoleId != null)
+							{
+								foreach (var item in ((List<Role>)ViewBag.Roles).Where(r => r.IsActive))
+								{
+									<li>
+										<input type="checkbox" value="" name="role_@item.Id" id="role_@item.Id" disabled="" class="i-checks @(ViewBag.RoleId == item.Id ? "check-tick" : "")" />
+										<a onclick="getFeature('@item.Id')"><span class="m-l-xs @(ViewBag.RoleId == item.Id ? "bold" : "")">@item.DisplayName</span></a>
+										@*<small class="label label-info">@item.RoleName</small>*@
+									</li>
+								}
+							}
+							else
+							{
+								foreach (var item in ((List<Role>)ViewBag.Roles).Where(r => r.IsActive))
+								{
+									<li>
+										<input type="checkbox" value="" name="role_@item.Id" id="role_@item.Id" disabled="" class="i-checks" />
+										<a onclick="getFeature('@item.Id')"><span class="m-l-xs">@item.DisplayName</span></a>
+									</li>
+								}
+							}
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-8">
+			<div class="ibox ">
+				<div class="ibox-title">
+					<h5>@Strings.Global_FeatureList</h5>
+				</div>
+				<div class="ibox-content">
+					@if (ViewBag.RoleId != null)
+					{
+						<ul class="todo-list m-t">
+							@foreach (var item in (List<Feature>)ViewBag.Features)
+							{
+								var roleId = (Guid)ViewBag.RoleId;
+								var featureIsForThisRole = item.RoleFeatures.Any(r => r.FeatureId == item.Id && r.RoleId == roleId);
+								<li>
+									<input type="checkbox" value="" name="feature_@item.Id" id="feature_@item.Id" disabled="" class="i-checks @(featureIsForThisRole ? "check-tick" : "")" />
+									<a onclick="setFeatureToRole('@item.Id', '@ViewBag.RoleId')">
+										<span class="m-l-xs @(featureIsForThisRole ? "bold" : "")">@item.FeaturesName</span>
+										@if (string.IsNullOrEmpty(item.FeaturesName))
+										{
+											<small class="label label-info">@(item.AreaName + " - " + item.ControllerName + " - " + item.ActionName)</small>
+										}
+									</a>
+								</li>
+							}
+						</ul>
+					}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section scripts{
+	@Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+
+	<script>
+		$(function () {
+			var itemId = $("#itemId");
+			if (itemId)
+			{
+				$(".check-tick").parent().addClass("disabled checked");
+			}
+		});
+
+		function getFeature(itemId) {
+			window.location.href = "@Url.Action("Index", "Authorize", null, this.Request.Url?.Scheme)?roleId=" + itemId;
+		}
+
+        function setFeatureToRole(featureId, roleId) {
+			var param = "@Url.Action("SetFeatureToRole", "Authorize", null, this.Request.Url.Scheme)";
+			var ajaxdata = "FeatureId=" + featureId + "&RoleId=" + roleId;
+			@Html.Ajax("POST", "", "nowhere", "ReturnSetFeatureToRole")
+		}
+
+		function ReturnSetFeatureToRole(data) {
+			if (data.type == "add"){
+				$("#feature_" + data.featureId).parent().addClass("disabled checked");
+			}
+			else {
+				$("#feature_" + data.featureId).parent().removeClass("disabled checked");
+			}
+		}
+
+		$('.i-checks').iCheck({
+			checkboxClass: 'icheckbox_square-green',
+			radioClass: 'iradio_square-green'
+		});
+
+		$(".todo-list").sortable({
+			placeholder: "sort-highlight",
+			handle: ".handle",
+			forcePlaceholderSize: true,
+			zIndex: 999999
+        }).disableSelection();
+
+	</script>
+}

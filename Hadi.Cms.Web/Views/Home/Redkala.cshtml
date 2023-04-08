@@ -1,0 +1,87 @@
+
+@{
+    ViewBag.Title = "رد کالا";
+    Layout = "~/Views/Shared/_InnerPageLayout.cshtml";
+}
+
+
+<section class="text-center redkala-header mb-5 py-5">
+    <img class="img-responsive grey-banana" src="~/Content/Images/htdf/images/grey-banana.png" />
+    <img class="img-responsive redkala-logo" src="~/Content/Images/htdf/images/navar-logo.png" />
+    @*<img class="img-responsive redkala-logo" src="~/Content/Images/htdf/images/redkala-logo.png" /> یا هر لوگوی اصلی*@
+    <img class="img-responsive redkala-extra" src="~/Content/Images/htdf/images/navar-extra.png" />
+    @*<img class="img-responsive redkala-extra" src="~/Content/Images/htdf/images/redkala-extra.png" />یا هر تصویر محصولات*@
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-6 redkala-right-header">
+                <div class="circle">
+                    <h1>رد کالا</h1>
+                    <p class="lead">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                    <p class="lead mt-5">
+                        آدرس سایت: <a href="https://redkala.com/" class="text-dark"><b>redkala.com</b></a>
+                    </p>
+                    <p class="lead mt-3">
+                        رتبه الکسا: <b>12.466</b><br />
+                    </p>
+                    <p class="lead mt-3">
+                        درصد مشارکت: <b>27%</b>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 text-right">
+                <div class="attributes">
+                    <h1 class="redkala-left-title font-weight-bold">ویژگی های کسب و کار</h1>
+                    <ul class="nav nav-pills flex-column nav-attributes redkala-left-items mt-5" id="portolio-tab" role="tablist">
+                        @*@foreach (var portfolio in Model)
+                            {*@
+                        <li class="nav-item mt-4">
+                            <a class="nav-link @*portfolioList*@" data-toggle="pill" href="#pills@*-@portfolio.Id*@" role="tab" aria-selected="false" @*data-id="@portfolio.Id"*@>بررسی کالا</a>
+                        </li>
+                        <li class="nav-item mt-4">
+                            <a class="nav-link @*portfolioList*@" data-toggle="pill" href="#pills@*-@portfolio.Id*@" role="tab" aria-selected="false" @*data-id="@portfolio.Id"*@>خرید اینترنتی</a>
+                        </li>
+                        <li class="nav-item mt-4">
+                            <a class="nav-link @*portfolioList*@" data-toggle="pill" href="#pills@*-@portfolio.Id*@" role="tab" aria-selected="false" @*data-id="@portfolio.Id"*@>ارسال درب منزل</a>
+                        </li>
+                        <li class="nav-item mt-4">
+                            <a class="nav-link @*portfolioList*@" data-toggle="pill" href="#pills@*-@portfolio.Id*@" role="tab" aria-selected="false" @*data-id="@portfolio.Id"*@>فروش حراجی آنلاین</a>
+                        </li>
+                        @*}*@
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="top-body">
+    <div class="left-jumbotron"></div>
+    <div class="row top-body-content">
+        <div class="col-lg-6 pt-5">
+            <h2 class="top-body-title font-weight-bold mb-4">
+                بررسی کالا
+            </h2>
+            <p class="top-body-description">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی میباشد.
+            </p>
+        </div>
+        <div class="col-lg-6 top-laptop-column">
+            <img class="img-responsive w-75" src="~/Content/Images/htdf/images/navar-laptop-noble.png" />
+        </div>
+    </div>
+</section>
+<section class="bottom-body">
+    <div class="right-jumbotron"></div>
+    <div class="row bottom-body-content">
+        <div class="col-lg-6 bottom-laptop-column">
+            <img class="img-responsive w-75" src="~/Content/Images/htdf/images/navar-laptop-bio.png" />
+        </div>
+        <div class="col-lg-6 pt-5">
+            <h2 class="bottom-body-title font-weight-bold mb-4">
+                خرید اینترنتی
+            </h2>
+            <p class="bottom-body-description">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی میباشد.
+            </p>
+        </div>
+    </div>
+</section>

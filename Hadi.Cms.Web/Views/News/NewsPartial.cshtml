@@ -1,0 +1,29 @@
+@using Hadi.Cms.Model.Mappings.Interfaces
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Web.Utilities
+
+@model  List<INewsDto>
+
+@foreach (var item in Model)
+{
+	string imgSrc = new AttachmentFileService().GetAttachmentSourceValue(item.MainTitrImage);
+	
+	<div class="col-md-3 mt-4">
+		<div class="card card-top-news">
+			<a class="img-link" href="/News/Details/@item.Id">
+				<img src="@imgSrc" class="card-img-top" alt="...">
+			</a>
+			<div class="card-body">
+				<h5 class="card-title mb-0">
+					<a class="text-light news-brief" href="/News/Details/@item.Id">@item.Title</a>
+				</h5>
+			</div>
+			<div class="card-footer">
+				<small>@item.ReleaseDate.DateTimeToString(SessionData.Current.HasRightToLeftUI, false)</small>
+			</div>
+		</div>
+	</div>
+}
+
+

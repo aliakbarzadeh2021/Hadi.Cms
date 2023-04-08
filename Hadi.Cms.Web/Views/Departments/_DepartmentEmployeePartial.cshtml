@@ -1,0 +1,41 @@
+@model List<Hadi.Cms.Model.Mappings.Interfaces.IEmployeeDto>
+
+@if (Model.Count > 0)
+{
+<section class="structure-container">
+    <div class="structure-header mb-5">
+        <div class="structure-title">
+            ســــاختار تیــــم و اعـضا
+        </div>
+        <div class="structure-pattern">
+            <img src="/Content/Images/Hadi/Departments/pattern2.svg" alt="">
+        </div>
+    </div>
+    <div class="structure-body">
+        <div class="member-info-container">
+            @foreach (var employee in Model)
+            {
+                <div class="member-info">
+                    <div>
+                        <img src="@employee.ImageSource" alt="">
+                    </div>
+                    <div class="name mt-2" style="color : @ViewBag.DepartmentColor">
+                        @employee.FullName
+                    </div>
+                    <div class="role text-light-custom">
+                        @employee.RoleTitle
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="chart-info">
+            @if (!string.IsNullOrEmpty(ViewBag.StructureImageSource))
+            {
+                <img src="@ViewBag.StructureImageSource" alt="">
+            }
+        </div>
+
+    </div>
+</section>
+}

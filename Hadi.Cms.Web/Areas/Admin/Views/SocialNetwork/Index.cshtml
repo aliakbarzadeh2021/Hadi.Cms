@@ -1,0 +1,203 @@
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@model IPagedList<Hadi.Cms.Model.Mappings.Interfaces.ISocialNetwork>
+@{
+    ViewBag.Title = Strings.Global_SocialNetworkManagement;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins")
+}
+
+<style>
+    .float-e-margins .btn {
+        margin-left: 4px;
+    }
+
+    .ibox .fa {
+        font-size: 14px !important;
+    }
+
+    .opr table {
+        margin: 0px 0px -7px -90px;
+    }
+
+    .dflexTD {
+        display: flex;
+        align-items: center;
+        height: 80px;
+    }
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_SocialNetworkManagement</h2>
+        <ol class="breadcrumb">
+            <li>
+
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<p></p>
+
+<div class="animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_SocialNetworkList</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up">
+                            </i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-tasks">
+                            </i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="@Url.Action("Create", "SocialNetwork", new { area = "Admin" })">
+                                    @Strings.Global_NewSocialNetwork
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <input type="text" name="search" class="form-control input-sm m-b-xs" id="filter" placeholder="@Strings.Global_SearchInTable">
+                    <div class="hr-line-dashed"></div>
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8" data-filter="#filter">
+                        <thead>
+                            <tr>
+                                <th>@Strings.Table_RowNumber</th>
+                                <th>@Strings.SocialNetworkModel_Title</th>
+                                <th>@Strings.SocialNetworkModel_Link</th>
+                                <th>@Strings.SocialNetwork_IsActive</th>
+                                <th>@Strings.Table_UserOperations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                var rowId = 0;
+                                for (var i = 1; i < ViewBag.PageNumber; i++)
+                                {
+                                    rowId += 5;
+                                }
+
+                                foreach (var item in Model)
+                                {
+                                    <tr class="gradeX">
+                                        <td class="center">
+                                            @(rowId += 1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.Title)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.Link)
+                                        </td>
+
+                                        <td class="center">
+                                            @if (item.IsActive)
+                                            {
+                                                <strong class="label label-primary">@Strings.Global_Yes</strong>
+                                            }
+                                            else
+                                            {
+                                                <strong class="label label-danger">@Strings.Global_No</strong>
+                                            }
+                                        </td>
+
+                                        <td class="opr">
+                                            <a href="@Url.Action("ChangeStatus", "SocialNetwork", new { area = "Admin", id = item.Id })" class="btn btn-warning btn-circle" title="@Strings.Global_ChangeStatus"><i class="fa fa-exchange"></i></a>
+                                            <a href="@Url.Action("Edit", "SocialNetwork", new { area = "Admin", id = item.Id })" class="btn btn-primary btn-circle" title="@Strings.Global_Edit"><i class="fa fa-edit"></i></a>
+                                            <a onclick="DeleteSocialNetworkAlert('@item.Id');" class="btn btn-danger btn-circle" title="@Strings.Global_Delete"><i class="fa fa-remove"></i></a>
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <ul class="pagination pull-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div aria-label="Page navigation" class="text-center" id="myPager2">
+                    @Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { pageNumber }))
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins")
+
+    <script>
+
+		$(function () {
+			$('.footable').footable();
+		});
+
+		function DeleteSocialNetworkAlert(Id) {
+			swal({
+				title: 'آیا مطمئن هستید',
+				text: 'آیا از حذف شبکه اجتماعی مطمئن هستید',
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText:'@Strings.Yes',
+				cancelButtonText: '@Strings.No',
+				closeOnConfirm: false,
+				closeOnCancel: true
+			},
+			function (isConfirm) {
+				if (isConfirm) {
+                    DeleteSocialNetwork(Id);
+				}
+			});
+		}
+
+		function DeleteSocialNetwork(id) {
+			var param = "@Url.Action("Delete", "SocialNetwork", null, this.Request.Url.Scheme)";
+			var ajaxdata = "id=" + id;
+			@Html.Ajax("POST", "", "nowhere", "ReturnDeleteSocialNetwork")
+		}
+
+		function ReturnDeleteSocialNetwork(data) {
+			swal({
+				title: data.Success,
+				text: data.Message,
+				type: "success",
+				showCancelButton: false,
+				confirmButtonColor: "#23c6c8",
+				confirmButtonText: "OK",
+				closeOnConfirm: true
+			}, function () {
+				window.location.reload();
+			});
+		}
+
+
+    </script>
+}
+

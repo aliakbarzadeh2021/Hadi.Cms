@@ -1,0 +1,98 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.Model.QueryModels.RoleModel
+
+@{
+    ViewBag.Title = Strings.Global_NewRole;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+	<div class="col-lg-10">
+		<h2>@Strings.Global_NewRole</h2>
+		<ol class="breadcrumb">
+			<li>
+                @if (ViewBag.Success == "1")
+				{
+					<a href="@Url.Action("Create", "Role", new { area = "Admin" })" class="btn btn-primary text-white">
+						@Strings.Global_NewRole
+					</a>
+					<a href="@Url.Action("Index", "Authorize", new { area = "Admin", roleId = ViewBag.RoleId })" class="btn btn-primary">
+						@Strings.Global_AuthorizeManagment
+					</a>
+					<a href="@Url.Action("RoleUsers", "Role", new { area = "Admin", roleId = ViewBag.RoleId })" class="btn btn-primary">
+						@Strings.Global_RoleUsers
+					</a>
+				}
+			</li>
+			<div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+				<div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+					@ViewBag.Message
+				</div>
+			</div>
+		</ol>
+	</div>
+	<div class="col-lg-2">
+
+	</div>
+</div>
+
+@using (Html.BeginForm("Create", "Role", FormMethod.Post, new { id = "CreateRoleForm", @class = "form-horizontal m-t-md" }))
+{
+	@Html.AntiForgeryToken()
+
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>@Strings.Global_NewRole</h5>
+				</div>
+				<div class="ibox-content">
+					<div class="form-group">
+						@Html.Label(Strings.RoleModel_RoleName)
+						@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control ltr-input" } })
+						<span class="help-block m-b-none">@Strings.Global_JustUseEnglishCharacters</span>
+						@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label(Strings.RoleModel_RoleDisplayName)
+						@Html.EditorFor(model => model.DisplayName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+						@Html.ValidationMessageFor(model => model.DisplayName, "", new { @class = "text-danger" })
+					</div>
+					<div class="hr-line-dashed"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-4 col-sm-offset-0">
+			<input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+		</div>
+	</div>
+}
+
+@section scripts{
+	<script>
+		$(function () {
+			$('#CreateRoleForm').submit(function () {
+				if ($("#RoleName").val() === "" || $("#RoleDisplayName").val() === "") {
+					MyAlert('خطا', 'لطفا هردو فیلد را پر کنید', 4000, 'error');
+					return false;
+				}
+			});
+		});
+
+		$(".ltr-input").keypress(function (event) { //only allow English characters and numbers for text input
+			var ew = event.which;
+			//if (ew == 32)
+				//return true;
+			if (48 <= ew && ew <= 57)
+				return true;
+			if (65 <= ew && ew <= 90)
+				return true;
+			if (97 <= ew && ew <= 122)
+				return true;
+			return false;
+		});
+	</script>
+}

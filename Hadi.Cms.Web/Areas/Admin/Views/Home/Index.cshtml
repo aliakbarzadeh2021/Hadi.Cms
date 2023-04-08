@@ -1,0 +1,162 @@
+@using System.Web.Caching
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Web.Utilities
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Infrastructure.Helpers
+@model Hadi.Cms.ApplicationService.QueryModels.AdminHomePageDto
+
+
+@{
+    ViewBag.Title = @Strings.Global_Managment;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .ibox-content{
+        display: flex;
+    }
+    .tag-container {
+    margin-left: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 110px;
+    height: 59px;
+    border-radius: 3%;
+    box-shadow: 3px 3px 3px hsla(0, 0%, 0%, .2);
+    background-image: linear-gradient(rgba(199, 197, 197, 1), rgba(177, 177, 177, .4) );
+    }
+
+    .tag {
+        color: white;
+    }
+
+    .tag-count {
+        background-color: white;
+        color: black;
+        text-align: center;
+    }
+
+    .dot {
+        height: 17px;
+        width: 17px;
+        display: inline-block;
+    }
+
+    .tag-count-1 {
+        color: black;
+        text-align: center;
+        background-color: #f3f3f4;
+    }
+
+    .dot-1 {
+        height: 17px;
+        width: 17px;
+        background-color: #f3f3f4;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .td-main {
+        position: relative;
+    }
+
+    .td-num {
+        position: absolute;
+        bottom: 3px;
+        left: 3px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>
+                    @Strings.Global_MostTagsUse
+                </h5>
+            </div>
+            <div class="ibox-content">
+                @foreach (var tag in Model.Tags)
+                {
+                    <div class="tag-container">
+                        <h5 class="tag">@tag.Title</h5>
+                        <span class="tag-count badge badge-secondary badge-pill">@tag.CountOfUse</span>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="col-md-3">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>@Strings.Global_MostVisitedArticles</h5>
+                <div class="ibox-tools">
+
+                </div>
+            </div>
+            <div class="ibox-content">
+                <table class="table table-hover">
+                    <tbody>
+                        @foreach (var item in Model.Articles)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@(!string.IsNullOrEmpty(item.AttachmentImageSource) ? item.AttachmentImageSource : "/PhysicalStorage/no-image.jpg")" alt="@item.Title" title="@item.Title" style="width:50px; height:48px;" class="img-circle" />
+                                </td>
+                                <td class="td-main">
+                                    <a target="_blank" href="@Url.Action("Details", "Articles", new {area = "", id = item.Id})">
+                                        @item.Title.LimitLength(50, "...")
+                                    </a>
+                                    <span class="td-num tag-count-1 tag-count badge badge-secondary badge-pill">@item.ReviewCount</span>
+                                </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>@Strings.Global_MostVisitedServices</h5>
+                <div class="ibox-tools">
+
+                </div>
+            </div>
+            <div class="ibox-content">
+                <table class="table table-hover">
+
+                    <tbody>
+                        @foreach (var item in Model.Services)
+                        {
+                            <tr>
+                                <td>
+                                    <img class="img-circle" src="@(!string.IsNullOrEmpty(item.AttachmentImageSource) ? item.AttachmentImageSource : "/PhysicalStorage/no-image.jpg")" alt="@item.Title" title="@item.Title" style="width:50px; height:48px; padding: 0px;" class="img-circle" />
+                                </td>
+
+                                <td class="td-main">
+                                    <a target="_blank" href="@Url.Action("Details", "Services", new {area = "", id = item.Id})">
+                                        @item.Title.LimitLength(50, "...")
+                                    </a>
+                                    <span class="td-num tag-count-1 tag-count badge badge-secondary badge-pill">@item.ReviewCount</span>
+                                </td>
+
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

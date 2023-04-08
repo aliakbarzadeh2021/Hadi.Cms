@@ -1,0 +1,11 @@
+@using Hadi.Cms.Model.Mappings.Interfaces
+
+@model  IPageDto
+
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_InnerPageLayout.cshtml";
+    ViewBag.IdBody = Model.Alias;
+}
+
+@Html.Raw(Model.Source)

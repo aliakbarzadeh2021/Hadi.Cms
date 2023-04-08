@@ -1,0 +1,185 @@
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Web.Utilities
+@using Hadi.Cms.ApplicationService.Services
+@model  PagedList.IPagedList<Hadi.Cms.Model.Mappings.Interfaces.IEventLogDto>
+
+@{
+    ViewBag.Title = Strings.Global_EventLogsManagement;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins")
+}
+
+<style>
+    .float-e-margins .btn {
+        margin-left: 4px;
+    }
+
+    .ibox .fa {
+        font-size: 14px !important;
+    }
+
+    .opr table {
+        margin: 0px 0px -7px -90px;
+    }
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_EventLogsManagement</h2>
+        <ol class="breadcrumb">
+            <li>
+
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<p></p>
+
+<div class="animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_EventLogsList</h5>
+
+
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up">
+                            </i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-tasks">
+                            </i>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="col-12">
+                        @Html.DropDownList("ErrorType", System.Web.Mvc.Html.EnumHelper.GetSelectList(typeof(Hadi.Cms.Infrastructure.Types.EventType)), Strings.DropDownErrorFilter, new { @class = "form-control" })
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8" data-filter="#filter">
+                        <thead>
+                            <tr>
+                                <th>@Strings.Table_RowNumber</th>
+                                <th>@Strings.EventLogModel_EventCode</th>
+                                <th>@Strings.EventLogModel_EventType</th>
+                                <th>@Strings.EventLogModel_IpAddress</th>
+                                <th>@Strings.EventLogModel_UserName</th>
+                                <th>@Strings.EventLogModel_EventTime</th>
+                                <th>@Strings.Table_UserOperations</th>
+                            </tr>
+                        </thead>
+                        <tbody id="EventLogsContainer">
+                            @if (Model != null)
+                            {
+                                @Html.Partial("EventLogListPartial", Model)
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <ul class="pagination pull-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div aria-label="Page navigation" class="text-center" id="myPager2">
+                    @Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { pageNumber }))
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins")
+
+    <script>
+
+		$(function () {
+			$('.footable').footable();
+		});
+
+		function DeleteEventLogAlert(Id) {
+			swal({
+				title: '@Strings.Are_You_Sure',
+				text: '@Strings.Event_Delete',
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: '@Strings.Yes',
+				cancelButtonText: '@Strings.No',
+				closeOnConfirm: false,
+				closeOnCancel: true
+			},
+			function (isConfirm) {
+				if (isConfirm) {
+					DeleteEventLog(Id);
+				}
+			});
+		}
+
+		function DeleteEventLog(id) {
+			var param = "@Url.Action("Delete", "EventLogs", null, this.Request.Url.Scheme)";
+            var ajaxdata = "eventLogId=" + id;
+			@Html.Ajax("POST", "", "nowhere", "ReturnDeleteEventLog")
+		}
+
+		function ReturnDeleteEventLog(data) {
+			swal({
+				title: data.Success,
+				text: data.Message,
+				type: "success",
+				showCancelButton: false,
+				confirmButtonColor: "#23c6c8",
+				confirmButtonText: "OK",
+				closeOnConfirm: true
+			}, function () {
+				window.location.reload();
+			});
+		}
+
+
+        $("#ErrorType").change(function () {
+
+            var type = $("#ErrorType option:selected").text();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const pageNumber = urlParams.get('pageNumber');
+
+            @*var pageNumber = @Request.QueryString["pageNumber"];*@
+            ChangeErrorType(type , pageNumber);
+        });
+
+
+        function ChangeErrorType(type , pageNumber) {
+			var param = "@Url.Action("ChangeErrorType", "EventLogs", null, this.Request.Url.Scheme)";
+			var ajaxdata = "ErrorType=" + type + "&pageNumber=" + pageNumber;
+			@Html.Ajax("POST", "", "nowhere", "ReturnChangeErrorType")
+		}
+
+
+        function ReturnChangeErrorType(response) {
+            $("#EventLogsContainer").html(response);
+		}
+
+    </script>
+}

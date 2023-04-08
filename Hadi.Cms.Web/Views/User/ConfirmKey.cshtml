@@ -1,0 +1,51 @@
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Configuration
+
+
+@{
+    ViewBag.Title = @Strings.Global_ConfirmKey;
+    Layout = "~/Views/Shared/_LayoutBaseLogin.cshtml";
+}
+
+<div class="middle-box text-center animated fadeInDown">
+    <div style="margin-bottom:10px;">
+        <img src="~/Content/images/MainLogo.png" />
+    </div>
+    <h4 class="font-bold">@Settings.Application_CompanyName | انتخاب درست؛ انتخاب من</h4>
+    <hr />
+    <h2>
+        @Strings.Global_ConfirmKey
+    </h2>
+    <h3 class="font-bold">
+        @(ViewBag.Message ?? "")
+    </h3>
+    @if (ViewBag.Message == null)
+    {
+        <div class="error-desc">
+            @using (Html.BeginForm("ConfirmSmsKey", "User", new { area = "" }, FormMethod.Post, new { @class = "form-inline m-t" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-12">
+                    <div class="clear" style="margin-top:10px"></div>
+                    <div class="ibox-content">
+                        <span>
+                            جهت فعالسازی حساب کاربری کد دریافتی را وارد نمایید و سپس بر روی دکمه فعالسازی حساب کاربری کلیک نمایید. این کد متناسب با انتخاب شما یا به شماره موبایل و یا به پست الکترونیک ارسال شده است.
+                        </span>
+                        <p></p>
+                        <div class="form-group">
+                            <input type="text" id="keyCode" name="keyCode" class="form-control" placeholder="@Strings.ConfirmKey_InsertKey">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            @Strings.Global_Ok
+                        </button>
+                        <div class="clear" style="margin-top:10px"></div>
+                        <a href="@Url.Action("OtherLogin")">
+                            <small>ارسال مجدد کد فعال سازی</small>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    <div class="hr-line-dashed"></div>
+</div>

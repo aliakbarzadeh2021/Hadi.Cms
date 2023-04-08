@@ -1,0 +1,128 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.Model.QueryModels.TemplateDetailModel
+
+@{
+    ViewBag.Title = Strings.Global_NewTemplateDetail;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_NewTemplateDetail</h2>
+        <ol class="breadcrumb">
+            <li>
+                <input type="submit" form="CreateTemplateDetailForm" value="@Strings.Global_Save" class="btn btn-primary" />
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Create", "TemplateDetails", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewTemplateDetail
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Create", "TemplateDetails", FormMethod.Post, new { id = "CreateTemplateDetailForm", @class = "form-horizontal m-t-md" }))
+{
+    <div class="row">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.TemplateId)
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_NewTemplateDetail</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.TemplateDetailModel_Title)
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.TemplateDetailModel_IsActive)
+                        @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "rtl-input i-checks" } })
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.TemplateDetailModel_Source)
+                        @Html.EditorFor(model => model.Source, new { htmlAttributes = new { @class = "form-control rltr-input sourceText", rows = 20 } })
+                        @Html.ValidationMessageFor(model => model.Source, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+
+    <script>
+        $(function () {
+            $('#CreateTemplateDetailForm').submit(function () {
+                if ($("#Title").val() == "") {
+                    MyAlert('خطا', 'لطفا عنوان قالب را وارد کنید', 4000, 'error');
+                    return false;
+                }
+                else {
+                    $("#Source").val(persianToEnglishNumber($(".note-editable").html()));
+
+                    var formData = new FormData($(this)[0]);
+                    $.ajax({
+                        url: this.action,
+                        type: this.method,
+                        data: formData,
+                        success: function (result) {
+                            alert(result);
+                        },
+                        error: function () {
+                            alert('error');
+                        }
+                    });
+                    return false;
+                }
+            });
+
+            $('.sourceText').summernote();
+            $('.note-codable').css('direction', 'ltr');
+
+            $('.note-editable').html(persianToEnglishNumber($(".note-editable").html()));
+
+        });
+
+        function persianToEnglishNumber(input) {
+            var inputstring = input;
+            var persian = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+            var english = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            for (var i = 0; i < 10; i++) {
+                var regex = new RegExp(persian[i], 'g');
+                inputstring = inputstring.toString().replace(regex, english[i]);
+            }
+            return inputstring;
+        }
+
+    </script>
+}

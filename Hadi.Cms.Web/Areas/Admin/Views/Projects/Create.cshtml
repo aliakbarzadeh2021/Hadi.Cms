@@ -1,0 +1,252 @@
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.ApplicationService.CommandModels.ProjectCreateCommand
+
+@{
+    ViewBag.Title = Strings.Global_NewProject;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_NewProject</h2>
+        <ol class="breadcrumb">
+            <li>
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Create", "Projects", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewProject
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Create", "Projects", FormMethod.Post, new { id = "CreateProjectForm", @class = "form-horizontal m-t-md", @enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_BaseInformation</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.ProjectModel_Title)
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ProjectModel_ProjectType)
+                        @Html.EditorFor(model => model.ProjectType, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.ProjectType, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ProjectModel_EmployerId)
+                        @Html.DropDownListFor(model => model.EmployerId, new SelectList(ViewBag.Employers, "Id", "Name"), new { @class = "form-control rtl-input" })
+                        @Html.ValidationMessageFor(model => model.EmployerId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ProjectModel_ProjectLink)
+                        @Html.EditorFor(model => model.ProjectLink, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.ProjectLink, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ProjectModel_ProjectLinkText)
+                        @Html.EditorFor(model => model.ProjectLinkText, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.ProjectLinkText, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ProjectModel_Technologies)
+                        @Html.DropDownListFor(model => model.TechnologiesId, new SelectList(ViewBag.Technologies, "Id", "Name"), "", new { @class = "form-control multiselect2" })
+                        @Html.ValidationMessageFor(model => model.TechnologiesId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ProjectModel_Tools)
+                        @Html.DropDownListFor(model => model.ToolsId, new SelectList(ViewBag.Tools, "Id", "Name"), "", new { @class = "form-control multiselect2" })
+                        @Html.ValidationMessageFor(model => model.ToolsId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ProjectModel_Tags)
+                        @Html.DropDownListFor(model => model.ProjectTagsId, new SelectList(ViewBag.Tags, "Id", "Title"), "", new { @class = "form-control multiselect2" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ProjectModel_IsActive)
+                        @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "rtl-input i-checks" } })
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div id="input-container" class="form-group">
+                        @Html.Label(Strings.ProjectModel_PreviewImage)
+                        <input type="file" accept="image/*" name="projectPreviewImage" id="projectPreviewImage">
+                    </div>
+
+                    <div id="input-container" class="form-group">
+                        @Html.Label(Strings.ProjectModel_AttachmentImage)
+                        <input type="file" accept="image/*" name="projectImage" id="ProjectImage">
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group" id="inputContainer">
+                                @Html.Label(Strings.ProjectModel_SliderImages)
+                                <input type="file" accept="image/*" name="sliderImages">
+                            </div>
+                            <button class="btn btn-primary" type="button" onclick="addNewInput()">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="form-group form-group-description">
+                            @Html.Label(Strings.ProjectModel_Description)
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control description-text rtl-input", rows = 10 })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="form-group form-group-firststepdescription">
+                            @Html.Label(Strings.ProjectModel_FirstStepDescription)
+                            @Html.TextAreaFor(model => model.FirstStepDescription, new { @class = "form-control first-text rtl-input", rows = 10 })
+                            @Html.ValidationMessageFor(model => model.FirstStepDescription, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label(Strings.ProjectModel_FirstStepImage)
+                            <input type="file" accept="image/*" name="firstStepImage" id="FirstStepImage">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="form-group form-group-secondstepdescription">
+                            @Html.Label(Strings.ProjectModel_SecondDescription)
+                            @Html.TextAreaFor(model => model.SecondStepDescription, new { @class = "form-control second-text rtl-input", rows = 10 })
+                            @Html.ValidationMessageFor(model => model.SecondStepDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="form-group form-group-finalstepdescription">
+                            @Html.Label(Strings.ProjectModel_FinalStepDescription)
+                            @Html.TextAreaFor(model => model.FinalStepDescription, new { @class = "form-control final-text rtl-input", rows = 10 })
+                            @Html.ValidationMessageFor(model => model.FinalStepDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+
+    <script>
+        $(function () {
+            $('#CreateProjectForm').submit(function () {
+                if ($("#Title").val() == "") {
+                    MyAlert('@Strings.Error', '@Strings.Page_Title_Error', 4000, 'error');
+                    return false;
+                }
+                else {
+                    $("#Description").val(persianToEnglishNumber($(".form-group-description .note-editable").html()));
+                    $("#FirstStepDescription").val(persianToEnglishNumber($(".form-group-firststepdescription .note-editable").html()));
+                    $("#SecondStepDescription").val(persianToEnglishNumber($(".form-group-secondstepdescription .note-editable").html()));
+                    $("#FinalStepDescription").val(persianToEnglishNumber($(".form-group-finalstepdescription .note-editable").html()));
+
+                    var formData = new FormData($(this)[0]);
+                    $.ajax({
+                        url: this.action,
+                        type: this.method,
+                        data: formData,
+                        success: function (result) {
+                            alert(result);
+                        },
+                        error: function () {
+                            alert('error');
+                        }
+                    });
+                    return false;
+                }
+            });
+
+            $('.description-text').summernote();
+            $('.first-text').summernote();
+            $('.second-text').summernote();
+            $('.final-text').summernote();
+
+            $('.form-group-description .note-codable').css('direction', 'ltr');
+            $('.form-group-firststepdescription .note-codable').css('direction', 'ltr');
+            $('.form-group-secondstepdescription .note-codable').css('direction', 'ltr');
+            $('.form-group-finalstepdescription .note-codable').css('direction', 'ltr');
+        });
+
+        function persianToEnglishNumber(input) {
+            var inputstring = input;
+            var persian = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+            var english = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            for (var i = 0; i < 10; i++) {
+                var regex = new RegExp(persian[i], 'g');
+                inputstring = inputstring.toString().replace(regex, english[i]);
+            }
+            return inputstring;
+    }
+
+        var addNewInput = function () {
+            var input = document.createElement("input");
+            input.setAttribute("type", "file");
+            input.setAttribute("accept", "image/*");
+            input.setAttribute("name", "sliderImages");
+            input.setAttribute("style", "margin-top:10px");
+
+            document.getElementById("inputContainer").appendChild(input);
+        }
+    </script>
+
+}

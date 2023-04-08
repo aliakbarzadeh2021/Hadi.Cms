@@ -1,0 +1,164 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Model.Entities
+@using Hadi.Cms.Model.Mappings.Interfaces
+
+
+@model List<IMailDto>
+
+@{
+    ViewBag.Title = Strings.Global_SentMail;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+	<link href="~/Content/RadaTemplate/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<link href="~/Content/RadaTemplate/css/plugins/iCheck/custom.css" rel="stylesheet">
+}
+
+<div class="row">
+	<div class="col-lg-3">
+		<div class="ibox float-e-margins">
+			<div class="ibox-content mailbox-content">
+				<div class="file-manager">
+					<a class="btn btn-block btn-primary compose-mail" href="@Url.Action("Compose", "Mail")">@Strings.Global_Compose</a>
+					<div class="space-25"></div>
+					<h5></h5>
+					<ul class="folder-list m-b-md" style="padding: 0">
+						<li><a href="@Url.Action("Inbox", "Mail")"><i class="fa fa-inbox "></i> @Strings.Global_Inbox<span class="label label-warning pull-left">@ViewBag.UnreadMessageCount</span> </a></li>
+						<li><a href="@Url.Action("Outbox", "Mail")"><i class="fa fa-envelope-o"></i> @Strings.Global_SentMail</a></li>
+						<li class="hidden"><a href="#"><i class="fa fa-certificate"></i> @Strings.Global_Important</a></li>
+						<li class="hidden"><a href="#"><i class="fa fa-trash-o"></i> @Strings.Global_Trash</a></li>
+					</ul>
+					<div class="clearfix"></div>
+					<h5>@Strings.Global_MyContacts</h5>
+					<ul class="category-list" style="padding: 0">
+						@foreach (var item in (List<IUserDto>)ViewBag.onlineContact)
+						{
+							<li><a href="@Url.Action("Compose", "Mail", new { area = "Admin", ReceiverId = item.Id })"> <i class="fa fa-user text-navy"></i> @item.FullName </a></li>
+						}
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-9 animated fadeInRight">
+		<div class="mail-box-header">
+			<form method="get" action="" class="pull-left mail-search hidden">
+				<div class="input-group">
+					<input type="text" class="form-control input-sm" name="search" placeholder="@Strings.Global_SearchInMessages">
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-sm btn-primary">
+							@Strings.Global_Search
+						</button>
+					</div>
+				</div>
+			</form>
+			<h3>
+				@*تعداد موارد ارسالی*@
+			</h3>
+			<div class="mail-tools tooltip-demo m-t-md">
+				<div class="btn-group pull-left hidden">
+					<button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+					<button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+				</div>
+				<a href="@Url.Action("Outbox", "Mail")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="@Strings.Global_Refresh"><i class="fa fa-refresh"></i> @Strings.Global_Refresh</a>
+				<button class="btn btn-white btn-sm hidden" data-toggle="tooltip" data-placement="top" title="@Strings.Global_MarkAsUnread"><i class="fa fa-eye"></i> </button>
+				<button class="btn btn-white btn-sm hidden" data-toggle="tooltip" data-placement="top" title="@Strings.Global_MarkAsImportant"><i class="fa fa-star"></i> </button>
+				<a onclick="DeleteSelectedMailAlert();" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@Strings.Global_Delete"><i class="fa fa-trash-o"></i> </a>
+			</div>
+		</div>
+		<div class="mail-box">
+			<table class="table table-hover table-mail">
+				<tbody>
+					@if (Model != null)
+					{
+						foreach (var item in Model)
+						{
+							<tr class="@(item.Unread ? "unread" : "read")">
+								<td class="check-mail">
+									<input id="@item.Id" type="checkbox" class="i-checks">
+								</td>
+								<td class="mail-ontact">
+									<a href="@Url.Action("Detail", "Mail", new { mailId = item.Id, isReceiver = false })">@item.Receivers[0].FullName @(item.Receivers.Count() > 1 ? ", ..." : "")</a>
+								</td>
+								<td class="mail-subject"><a href="@Url.Action("Detail", "Mail", new { mailId = item.Id, isReceiver = false })">@item.Title.ConvertToHtml()</a></td>
+								<td class="">
+									@if (item.WithAttachment)
+									{
+										<i class="fa fa-paperclip"></i>
+									}
+								</td>
+								<td class="text-right mail-date">@item.SendTime.Value.ToTextOfDate((bool)ViewBag.HasRightToLeftUI)</td>
+							</tr>
+						}
+					}
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+@section scripts{
+	<script src="~/Content/RadaTemplate/js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="~/Content/RadaTemplate/js/plugins/iCheck/icheck.min.js"></script>
+
+	<script>
+		var selectedMailId = [];
+
+		$(function () {
+
+		});
+
+		$('.i-checks').iCheck({
+			checkboxClass: 'icheckbox_square-green',
+			radioClass: 'iradio_square-green'
+		});
+
+		function DeleteSelectedMailAlert() {
+			$('.table-mail input:checked').each(function () {
+				selectedMailId.push($(this).attr('id'));
+			});
+			if (selectedMailId.length > 0) {
+				swal({
+					title: "آیا مطمئن هستید",
+					text: "این پیام(ها) از سیستم حذف خواهد شد!",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "بلی",
+					cancelButtonText: "خیر",
+					closeOnConfirm: false,
+					closeOnCancel: true
+				},
+				function (isConfirm) {
+					if (isConfirm) {
+						DeleteSelectedMail();
+					}
+				});
+			}
+		}
+
+		function DeleteSelectedMail() {
+			var param = "@Url.Action("DeleteMail", "Mail", null, this.Request.Url.Scheme)";
+			var ajaxdata = "MailId=" + selectedMailId + "&IsReceiver=" + false;
+			@Html.Ajax("POST", "", "nowhere", "ReturnDeleteSelectedMail")
+		}
+
+		function ReturnDeleteSelectedMail(data) {
+			swal({
+				title: data.Success,
+				text: data.Message,
+				type: "success",
+				showCancelButton: false,
+				confirmButtonColor: "#23c6c8",
+				confirmButtonText: "OK",
+				closeOnConfirm: true
+			}, function () {
+				window.location.reload();
+			});
+		}
+	</script>
+}

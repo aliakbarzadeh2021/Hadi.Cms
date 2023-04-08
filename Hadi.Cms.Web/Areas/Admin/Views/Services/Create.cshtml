@@ -1,0 +1,237 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.ApplicationService.CommandModels.ServiceCreateCommand
+
+@{
+    ViewBag.Title = Strings.Global_NewService;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_NewService</h2>
+        <ol class="breadcrumb">
+            <li>
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Create", "Services", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewService
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Create", "Services", FormMethod.Post, new { id = "CreateServiceForm", @class = "form-horizontal m-t-md", @enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_BaseInformation</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_Title)
+                        @Html.TextAreaFor(model => model.Title, new { @class = "form-control rtl-input", rows = "2" })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_Tags)
+                        @Html.DropDownListFor(model => model.ServiceTagsId, new SelectList(ViewBag.Tags, "Id", "Title"), "", new { @class = "form-control multiselect2" })
+                        @Html.ValidationMessageFor(model => model.ServiceTagsId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group form-group-description">
+                        @Html.Label(Strings.ServiceModel_Description)
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control rtl-input descriptionText", rows = 10 })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_IsActive)
+                        @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "rtl-input i-checks" } })
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_AttachmentImageId)
+                        <input type="file" accept="image/*" name="file" id="servicePic">
+                        @Html.ValidationMessageFor(model => model.AttachmentImageId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_Servicelogo)
+                        <input type="file" name="logoService" id="logoService">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="form-group form-group-sectiononedescription">
+                        @Html.Label(Strings.ServiceModel_SectionOneDescription)
+                        @Html.TextAreaFor(model => model.SectionOneDescription, new { @class = "form-control rtl-input section-one-description", rows = 5 })
+                        @Html.ValidationMessageFor(model => model.SectionOneDescription, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_SectionOneThumbnailImage)
+                        <input type="file" accept="image/*" name="sectionOneThumbnailImage" id="sectionOneThumbnailImage">
+                    </div>
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_SectionOneImage)
+                        <input type="file" accept="image/*" name="sectionOneImage" id="sectionOneImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="form-group form-group-sectiontwodescription">
+                        @Html.Label(Strings.ServiceModel_SectionTwoDescription)
+                        @Html.TextAreaFor(model => model.SectionTwoDescription, new { @class = "form-control rtl-input section-two-description", rows = 5 })
+                        @Html.ValidationMessageFor(model => model.SectionTwoDescription, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_SectionTwoThumbnailImage)
+                        <input type="file" accept="image/*" name="sectionTwoThumbnailImage" id="sectionTwoThumbnailImage">
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_SectionTwoImageSide)
+                        <input type="file" accept="image/*" name="sectionTwoImage" id="sectionTwoImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="form-group form-group-sectionthreedescription">
+                        @Html.Label(Strings.ServiceModel_SectionThreeDescription)
+                        @Html.TextAreaFor(model => model.SectionThreeDescription, new { @class = "form-control rtl-input section-three-description", rows = 5 })
+                        @Html.ValidationMessageFor(model => model.SectionThreeDescription, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_SectionThreeThumbnailImage)
+                        <input type="file" accept="image/*" name="sectionThreeThumbnailImage" id="sectionThreeThumbnailImage">
+                    </div>
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_SectionThreeImage)
+                        <input type="file" accept="image/*" name="sectionThreeImage" id="sectionThreeImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="form-group form-group-sectionfourdescription">
+                        @Html.Label(Strings.ServiceModel_SectionFourDescription)
+                        @Html.TextAreaFor(model => model.SectionFourDescription, new { @class = "form-control rtl-input section-four-description", rows = 5 })
+                        @Html.ValidationMessageFor(model => model.SectionFourDescription, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_SectionFourThumnnailImage)
+                        <input type="file" accept="image/*" name="sectionFourThumbnailImage" id="sectionFourThumbnailImage">
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.ServiceModel_SectionFourImage)
+                        <input type="file" accept="image/*" name="sectionFourImage" id="sectionFourImage">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+    <script>
+        $(function () {
+            $('#CreateServiceForm').submit(function () {
+
+                $("#Description").val(persianToEnglishNumber($(".form-group-description .note-editable").html()));
+                $("#SectionOneDescription").val(persianToEnglishNumber($(".form-group-sectiononedescription .note-editable").html()));
+                $("#SectionTwoDescription").val(persianToEnglishNumber($(".form-group-sectiontwodescription .note-editable").html()));
+                $("#SectionThreeDescription").val(persianToEnglishNumber($(".form-group-sectionthreedescription .note-editable").html()));
+                $("#SectionFourDescription").val(persianToEnglishNumber($(".form-group-sectionfourdescription .note-editable").html()));
+
+                var formData = new FormData($(this)[0]);
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: formData,
+                    success: function (result) {
+                        alert(result);
+                    },
+                    error: function () {
+                        alert('error');
+                    }
+                });
+                return false;
+            });
+
+            $('.descriptionText').summernote();
+            $('.section-one-description').summernote();
+            $('.section-two-description').summernote();
+            $('.section-three-description').summernote();
+            $('.section-four-description').summernote();
+
+            $('.form-group-description .note-codable').css('direction', 'ltr');
+            $('.form-group-sectiononedescription .note-codable').css('direction', 'ltr');
+            $('.form-group-sectiontwodescription .note-codable').css('direction', 'ltr');
+            $('.form-group-sectionthreedescription .note-codable').css('direction', 'ltr');
+            $('.form-group-sectionfourdescription .note-codable').css('direction', 'ltr');
+        });
+        function persianToEnglishNumber(input) {
+            var inputstring = input;
+            var persian = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+            var english = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            for (var i = 0; i < 10; i++) {
+                var regex = new RegExp(persian[i], 'g');
+                inputstring = inputstring.toString().replace(regex, english[i]);
+            }
+            return inputstring;
+        }
+    </script>
+}

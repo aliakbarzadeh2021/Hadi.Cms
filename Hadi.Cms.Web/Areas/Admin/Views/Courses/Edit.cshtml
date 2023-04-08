@@ -1,0 +1,222 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.ApplicationService.CommandModels.CourseEditCommand
+
+@{
+    ViewBag.Title = Strings.Global_EditCourse;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+<style>
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_EditCourse</h2>
+        <ol class="breadcrumb">
+            <li>
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Create", "Courses", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewCourse
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Edit", "Courses", FormMethod.Post, new { id = "EditCourseForm", @class = "form-horizontal m-t-md", @enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.AttachmentCoursePreviewVideoId)
+        @Html.HiddenFor(model => model.AttachmentImageId)
+        @Html.HiddenFor(model => model.CoursePreviewVideoPosterImageId)
+
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_BaseInformation</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.CourseModel_Title)
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.CourseModel_PeriodOfTime)
+                        @Html.EditorFor(model => model.PeriodOfTime, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.PeriodOfTime, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.CourseModel_Price)
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control rtl-input", @type = "number" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.DepartmentModel_IsActive)
+                        @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "rtl-input i-checks" } })
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.CourseModel_AttachmentImage)
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="file" accept="image/*" name="courseImage" id="attachmentImage">
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.AttachmentImageSource))
+                        {
+                            <div class="col-sm-5 input-group">
+                                <img alt="image" class="img-preview img-news" src="@Model.AttachmentImageSource" />
+                            </div>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.CourseModel_PreviewVideo)
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="file" accept="video/*" name="coursePreviewVideo" id="previewVideo">
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.AttachmentCoursePreviewVideoSource))
+                        {
+                            <div class="col-sm-5 input-group">
+                                <video controls>
+                                    <source src="@Model.AttachmentCoursePreviewVideoSource" type=video/mp4 />
+                                </video>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.CourseModel_PreviewVideoPosterImage)
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="file" accept="image/*" name="coursePreviewVideoPosterImage" id="previewVideoPosterImage">
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.AttachmentCoursePreviewVideoPosterImageSource))
+                        {
+                            <div class="col-sm-5 input-group">
+                                <img alt="image" class="img-preview img-news" src="@Model.AttachmentCoursePreviewVideoPosterImageSource" />
+                            </div>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.CourseModel_CourseTeachers)
+                        @Html.DropDownListFor(model => model.CourseTeachersId, new SelectList(ViewBag.Teachers, "Id", "FullName"), "", new { @class = "form-control multiselect2" })
+                        @Html.ValidationMessageFor(model => model.CourseTeachersId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.CourseModel_CourseTags)
+                        @Html.DropDownListFor(model => model.CourseTagsId, new SelectList(ViewBag.Tags, "Id", "Title"), "", new { @class = "form-control multiselect2" })
+                        @Html.ValidationMessageFor(model => model.CourseTagsId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group" id="inputContainer">
+                        @Html.Label(Strings.CourseModel_CourseVideos)
+                        <input type="file" accept="image/*" name="sliderImages" id="SliderImage">
+                    </div>
+                    <button class="btn btn-primary" type="button" onclick="addNewInput()">+</button>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.CourseModel_Description)
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control rtl-input description-text", @rows = 10 })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+    <script>
+        $(function () {
+            $('#EditCourseForm').submit(function () {
+                $("#Description").val(persianToEnglishNumber($(".note-editable").html()));
+                var formData = new FormData($(this)[0]);
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: formData,
+                    success: function (result) {
+                        alert(result);
+                    },
+                    error: function () {
+                        alert('error');
+                    }
+                });
+                return false;
+            });
+            $('.description-text').summernote();
+
+            var selectedTeachers = "@ViewBag.SelectedTeachers".split(',');
+            $("#CourseTeachersId").val(selectedTeachers).trigger("change");
+
+            var selectedCategories = "@ViewBag.SelectedCategories".split(',');
+            $("#CourseCategoriesId").val(selectedCategories).trigger("change");
+
+            var selectedTags = "@ViewBag.SelectedTags".split(',');
+            $("#CourseTagsId").val(selectedTags).trigger("change");
+        });
+
+        function persianToEnglishNumber(input) {
+            var inputstring = input;
+            var persian = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+            var english = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            for (var i = 0; i < 10; i++) {
+                var regex = new RegExp(persian[i], 'g');
+                inputstring = inputstring.toString().replace(regex, english[i]);
+            }
+            return inputstring;
+        }
+
+        var addNewInput = function () {
+            var input = document.createElement("input");
+            input.setAttribute("type", "file");
+            input.setAttribute("accept", "video/*");
+            input.setAttribute("name", "courseVideos");
+            input.setAttribute("id", "CourseVideos");
+            input.setAttribute("style", "margin-top:10px;");
+
+            document.getElementById("inputContainer").appendChild(input);
+        }
+    </script>
+}

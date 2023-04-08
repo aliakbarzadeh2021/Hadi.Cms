@@ -1,0 +1,429 @@
+#a-project main .button-arrow {
+    width: 20px;
+}
+
+#a-project main {
+    padding-bottom: 100px;
+}
+
+    #a-project main .a-project-header {
+        display: flex;
+    }
+
+        #a-project main .a-project-header .project-content {
+            flex: 1;
+            background-image: url(/Content/Images/Hadi/Projects/pattern1.svg);
+            background-repeat: no-repeat;
+            background-position: top right;
+            background-position-y: 50px;
+            background-size: 70px;
+        }
+
+            #a-project main .a-project-header .project-content .left-line {
+                border-top: 1px solid var(--color-shady-lady);
+                width: 40%;
+                height: 10px;
+                float: left;
+                margin-left: -7vw;
+            }
+                #a-project main .a-project-header .project-content .title{
+                    line-height:2;
+                }
+
+                #a-project main .a-project-header .project-content .right-line {
+                    border-top: 1px solid var(--color-shady-lady);
+                    width: 40%;
+                    height: 10px;
+                    float: right;
+                    margin-right: -5vw;
+                }
+
+            #a-project main .a-project-header .project-content .container-fluid {
+                padding-right: 6vw;
+                padding-left: 10vw;
+                padding-top: 10vh;
+            }
+            /* #a-project main .a-project-header .project-content .container-fluid .title .pattern{
+ width: 100px;
+} */
+            #a-project main .a-project-header .project-content .details .project-icon {
+                display: flex;
+            }
+
+                #a-project main .a-project-header .project-content .details .project-icon .icon {
+                    width: 50px;
+                }
+
+            #a-project main .a-project-header .project-content .details .describtion {
+                line-height: 2;
+            }
+
+            #a-project main .a-project-header .project-content .details .used-technologies .content {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+                #a-project main .a-project-header .project-content .details .used-technologies .content .used-technology-image {
+                    width: 40px;
+                    margin-left: 40px;
+                    margin-top: 10px;
+                }
+
+            #a-project main .a-project-header .project-content .details .used-tools .content {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+                #a-project main .a-project-header .project-content .details .used-tools .content .used-tool-image {
+                    width: 40px;
+                    margin-left: 40px;
+                    margin-top: 10px;
+                }
+
+        #a-project main .a-project-header .project-image {
+            flex: 1;
+        }
+        #a-project main .a-project-header .project-image img{
+            height: 100% ;
+            object-fit: cover;
+        }
+
+            #a-project main .a-project-header .project-image .project-link .link a {
+                color: var(--color-persian-green);
+            }
+
+    #a-project main .first-step {
+        display: flex;
+        margin-top: 200px;
+    }
+
+        #a-project main .first-step .image img {
+            object-fit: cover;
+        }
+
+        #a-project main .first-step .content {
+            flex: 0 0 45%;
+            line-height: 2;
+            text-align: justify;
+            margin-top: 75px;
+            margin-bottom: 75px;
+        }
+
+            #a-project main .first-step .content .container-fluid {
+                padding-right: 2vw;
+                padding-left: 15vw;
+            }
+
+    #a-project main .second-step {
+        margin-top: 100px;
+        display: flex;
+    }
+
+        #a-project main .second-step .content {
+            width: 50%;
+            line-height: 2;
+            padding-right: 6vw;
+            padding-left: 15vw;
+            text-align: justify;
+        }
+
+        #a-project main .second-step .empty-part {
+            width: 50%;
+            background: url(/Content/Images/Hadi/Projects/pattern2.svg) no-repeat;
+            background-position-x: right;
+        }
+
+    #a-project main .slider {
+        display: flex;
+        direction: ltr;
+    }
+#a-project .slick-next {
+    left: 0;
+}
+#a-project .slick-prev {
+    right: 0;
+}
+#a-project .slick-arrow {
+    z-index: 1;
+    width: 65px;
+    height: 65px;
+}
+
+#a-project main .slider .small-image {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: flex-end;
+    height: 500px;
+}
+#a-project main .slider .small-image img {
+    object-fit: cover;
+}
+
+    #a-project main .slider-text {
+        display: flex;
+        justify-content: center;
+    }
+
+        #a-project main .slider-text .text {
+            text-align: justify;
+            width: 35%;
+            line-height: 2;
+        }
+
+    #a-project main .about-this-project {
+        margin-top: 50px;
+        display: flex;
+    }
+
+        #a-project main .about-this-project.container-fluid {
+            padding-right: 6vw;
+            padding-left: 6vw;
+        }
+
+        #a-project main .about-this-project .content {
+            flex: 0 0 50%;
+            display: grid;
+            grid-template-columns: 3.5% 90%;
+            grid-template-rows: auto auto 2vw;
+        }
+
+            #a-project main .about-this-project .content .border-bottom-custom {
+                border-bottom: 1px solid var(--color-shady-lady);
+            }
+
+            #a-project main .about-this-project .content .border-right-custom {
+                border-right: 1px solid var(--color-shady-lady);
+            }
+
+            #a-project main .about-this-project .content .about-this-project-container {
+                display: flex;
+                flex-direction: column;
+                border-right: 1px solid var(--color-shady-lady);
+                padding: 2vw 1.5vw 2vw 2vw;
+            }
+
+                #a-project main .about-this-project .content .about-this-project-container .sub-title {
+                    color: var(--color-emperor);
+                }
+
+                    #a-project main .about-this-project .content .about-this-project-container .sub-title .project-name {
+                        color: var(--color-shady-lady);
+                    }
+
+                #a-project main .about-this-project .content .about-this-project-container .detail {
+                    line-height: 2;
+                    text-align: justify;
+                }
+
+                #a-project main .about-this-project .content .about-this-project-container .arrow-button-intraction {
+                    background-color: var(--color-Turmeric);
+                    padding: 10px 20px;
+                    border-radius: 2px;
+                    color: white;
+                    width: 161px;
+                }
+
+        #a-project main .about-this-project .video {
+            flex: 0 0 50%;
+        }
+
+    #a-project main .similar-projects.container-fluid {
+        margin-top: 100px;
+        padding-right: 6vw;
+        padding-left: 6vw;
+    }
+
+    #a-project main .similar-projects .title-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+        #a-project main .similar-projects .title-container .title {
+            font-size: 18px;
+            padding-left: 16px;
+            font-weight: bold;
+        }
+
+        #a-project main .similar-projects .title-container .line {
+            height: 1px;
+            background-color: var(--color-shady-lady);
+            width: 81%;
+        }
+
+    #a-project main .similar-projects .similar-projects-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+        #a-project main .similar-projects .similar-projects-container .item {
+            flex: 1;
+            height: 450px;
+            margin: 20px 20px 10px 20px;
+            min-width: 250px;
+            max-width: 300px;
+            color: black;
+        }
+
+            #a-project main .similar-projects .similar-projects-container .item:hover .image img {
+                transform: scale(1.04);
+                transition: all 0.3s ease-in;
+            }
+
+            #a-project main .similar-projects .similar-projects-container .item .image {
+                width: 100%;
+                height: 75%;
+                overflow: hidden;
+            }
+
+                #a-project main .similar-projects .similar-projects-container .item .image img {
+                    object-fit: cover;
+                    transition: all 0.3s ease-in;
+                }
+
+            #a-project main .similar-projects .similar-projects-container .item .project-category {
+                margin-top: 20px;
+            }
+
+            #a-project main .similar-projects .similar-projects-container .item .project-title {
+                font-weight: bold;
+            }
+
+/*
+320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more — Extra large screens, TV
+*/
+@media only screen and (max-width: 750px) {
+    #a-project main .a-project-header {
+        flex-direction: column-reverse;
+        padding: 10vw;
+    }
+
+        #a-project main .a-project-header .project-content .container-fluid {
+            padding-right: 0;
+            padding-left: 0;
+            padding-top: 10vh;
+        }
+
+        #a-project main .a-project-header .project-content {
+            background: none;
+        }
+
+        #a-project main .a-project-header .project-image .project-link .title {
+            display: none;
+        }
+
+        #a-project main .a-project-header .project-content .details .used-technologies .content .used-technology-image {
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+
+        #a-project main .a-project-header .project-content .details .used-tools .content .used-tool-image {
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+
+    #a-project main .first-step {
+        flex-direction: column-reverse;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+
+        #a-project main .first-step .content {
+            margin-top: 0;
+        }
+
+            #a-project main .first-step .content .container-fluid {
+                padding: 0;
+            }
+
+    #a-project main .second-step {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+        #a-project main .second-step .empty-part {
+            display: none;
+        }
+
+        #a-project main .second-step .content {
+            width: 100%;
+            padding-right: 10vw;
+            padding-left: 10vw;
+            text-align: justify;
+        }
+
+    #a-project main .about-this-project {
+        flex-direction: column-reverse;
+    }
+
+        #a-project main .about-this-project .content .border-bottom-custom {
+            border: none;
+        }
+
+        #a-project main .about-this-project .content .border-right-custom {
+            border: none;
+        }
+
+        #a-project main .about-this-project .content .about-this-project-container {
+            border: none;
+        }
+
+            #a-project main .about-this-project .content .about-this-project-container .title {
+                padding-right: 0 !important;
+                font-size: 1rem !important;
+                margin-top: 10px;
+            }
+
+        #a-project main .about-this-project .content .header-title {
+            font-size: 1.375rem !important;
+            font-weight: bold;
+        }
+
+        #a-project main .about-this-project .content {
+            margin-top: 30px;
+        }
+
+            #a-project main .about-this-project .content .about-this-project-container .detail {
+                margin-top: 2rem !important;
+            }
+
+    #a-project main .similar-projects .title-container .line {
+        display: none;
+    }
+
+    #a-project main .similar-projects .title-container {
+        justify-content: center;
+    }
+
+        #a-project main .similar-projects .title-container .title {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+    #a-project main .similar-projects .similar-projects-container {
+        justify-content: center;
+    }
+
+        #a-project main .similar-projects .similar-projects-container .item .project-category {
+            text-align: center;
+        }
+
+        #a-project main .similar-projects .similar-projects-container .item .project-title {
+            text-align: center;
+        }
+
+    #a-project main .slider .small-image {
+        flex: 0 0 0%;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    #a-project main .slider-text .text {
+        width: 80%;
+    }
+}

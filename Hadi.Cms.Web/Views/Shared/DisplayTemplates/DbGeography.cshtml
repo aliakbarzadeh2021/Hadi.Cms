@@ -1,0 +1,9 @@
+@model System.Data.Entity.Spatial.DbGeography
+
+@if (Model != null)
+{
+    <text>
+    <a href="https://maps.google.com/maps?q=@(Model.Latitude),@(Model.Longitude)&ll=@(Model.Latitude),@(Model.Longitude)&z=17" target="_blank">@String.Format("{0} , {1}", Model.Latitude, Model.Longitude)</a>
+    </text>
+}
+

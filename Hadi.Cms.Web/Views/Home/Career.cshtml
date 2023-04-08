@@ -1,0 +1,285 @@
+@using Hadi.Cms.Infrastructure.Helpers
+
+@{
+    ViewBag.Title = "همکاری با ما";
+    ViewBag.ContainerFluid = "";
+    ViewBag.IdBody = "career";
+}
+<style>
+    .btn-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .submit-btn {
+        background: var(--color-Turmeric);
+        border: none;
+        color: var(--color-stromboli);
+        width: 50px;
+        height: 25px;
+        font-size: 10px;
+        cursor: pointer;
+        display: none;
+    }
+
+    .show-submit {
+        display: block !important;
+    }
+
+    .st38 {
+        fill: #315B51;
+    }
+
+    .inputfile {
+        width: 91px;
+        height: 34px;
+        margin-top: 15px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    .inputfile+label {
+        font-size: 12px;
+        margin-top: 15px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        /* overflow: hidden; */
+        padding: 5px 10px;
+    }
+
+    .no-js .inputfile+label {
+        display: none;
+    }
+
+    .inputfile:focus+label,
+    .inputfile.has-focus+label {
+        outline: 1px dotted #000;
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+
+    .inputfile+label * {
+        /* pointer-events: none; */
+        /* in case of FastClick lib use */
+    }
+
+    .inputfile+label img {
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        fill: currentColor;
+        margin-top: -0.25em;
+        /* 4px */
+        margin-right: 0.25em;
+        /* 4px */
+    }
+
+    .inputfile-1+label {
+        color: var(--color-stromboli);
+        background-color: var(--color-Turmeric);
+    }
+</style>
+
+<main class="">
+    <div class="recruitment-header">
+        <div class="recruitment-title">
+            <div class="noraml-title font-weight-bold"> همـــکاری بامــا </div>
+            <div class="bold-title"> با هادی یک تجربه <br> حرفه ای را شـروع کنید. </div>
+        </div>
+        <div class="recruitment-images-container">
+            <div class="recruitment-pattern-image"> <img src="/Content/Images/Hadi/Career/pattern.svg" alt=""> </div>
+            <div class="recruitment-lamp-image"> <img src="/Content/Images/Hadi/Career/lamp_line.svg" alt=""> </div>
+        </div>
+    </div>
+    <div class="recruitment-main">
+        <div class="recruitment-main-right">
+            <div class="right-title"> سطح کاری خود را مشخص کنید </div>
+            <ul class="right-links nav " id="pills-tab" role="tablist">
+                <li class="link nav-item">
+                    <a id="employmentTab" class="nav-link" data-toggle="pill" href="#Employment" role="tab"
+                        aria-controls="pills-Employment" aria-selected="true">
+                        <span class="title">
+                            استخدامی
+                        </span> <span class="active-bar"></span>
+                    </a>
+                </li>
+                <li class="link nav-item">
+                    <a id="internshipTab" class="nav-link active" data-toggle="pill" href="#internship" role="tab"
+                        aria-controls="pills-profile" aria-selected="false">
+                        <span class="title">کارآموزی</span> <span class="active-bar"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="recruitment-main-left">
+            تصمیم شما را برای پیوستن به خانواده سـوران محترم می شماریم برای ادامه
+            فرآیند، حوزه ی کـاری مورد نظر خود را انـتـخاب کنیــد و پس از آن رزومــه ی خود را جهــت برقراری ارتباط و
+            تعیین جلسه آپلود فرمایید.
+        </div>
+    </div>
+    <div class="tab-content" id="pills-tabContent">
+        <div id="Employment" class="recruitment-footer container-fluid tab-pane fade" role="tabpanel"
+            aria-labelledby="pills-home-tab">
+            <div class="header-container">
+                <div class="title"> فرصت های استخدامی </div>
+                <div class="line"> </div>
+            </div>
+            <div class="card-container">
+
+            </div>
+        </div>
+        <div id="internship" class="recruitment-footer container-fluid tab-pane fade show actives active"
+            role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="header-container">
+                <div class="title"> فرصت های کارآموزی </div>
+                <div class="line"> </div>
+            </div>
+            <div class="card-container">
+
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/Scripts/dropzone-5.7.0/dist/dropzone.js"></script>
+<script>(function (e, t, n) { var r = e.querySelectorAll("html")[0]; r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2") })(document, window, 0);</script>
+
+<script>
+
+
+
+
+    (function () {
+        $.ajax({
+            url: "/CareerOpportunities/GetCareerOpportunityTypeValue",
+            type: "GET",
+            success: function (result) {
+                console.log(result);
+                console.log('success');
+                if (result.CareerOpportunityTypeValue == 1) {
+                    document.getElementById("internshipTab").classList.add("active");
+                    document.getElementById("internship").classList.add("show");
+                    document.getElementById("internship").classList.add("active");
+                    document.getElementById("employmentTab").classList.remove("active");
+                    document.getElementById("Employment").classList.remove("show");
+                    document.getElementById("Employment").classList.remove("active");
+                } else {
+                    document.getElementById("internshipTab").classList.remove("active");
+                    document.getElementById("internship").classList.remove("show");
+                    document.getElementById("internship").classList.remove("active");
+                    document.getElementById("employmentTab").classList.add("active");
+                    document.getElementById("Employment").classList.add("show");
+                    document.getElementById("Employment").classList.add("active");
+                }
+            },
+            error: function () {
+                console.log('error');
+            }
+        });
+        $.ajax({
+            url: "/CareerOpportunities/GetCareerOpportunities",
+            type: "GET",
+            success: function (result) {
+                console.log(result);
+                let employmentPanel = document.querySelector("#Employment .card-container");
+                let internshipPanel = document.querySelector("#internship .card-container");
+                let employmentHtml = "";
+                let internshipHtml = "";
+                for (var i = 0; i < result.Employment.length; i++) {
+                    employmentHtml += "<div id='" + result.Employment[i].Id + "' class='main-container'>";
+                    employmentHtml += "<div class='title'>";
+                    employmentHtml += result.Employment[i].Title;
+                    employmentHtml += "</div>";
+                    employmentHtml += "<div class='description text-medium'>";
+                    employmentHtml +="<div class='description-text'>";
+                    employmentHtml += result.Employment[i].Description;
+                    employmentHtml += "</div>";
+                    employmentHtml += "<div class='image-container'>";
+                    if (result.Employment[i].CareerOpportunityImageSource != "") {
+                        employmentHtml += "<img src='" + result.Employment[i].CareerOpportunityImageSource + "' alt=''>";
+                    }
+                    employmentHtml += "</div>";
+                    employmentHtml += "</div>";
+                    employmentHtml += "<div class='hover-information'>";
+                    employmentHtml += "<div class='description'>";
+                    employmentHtml += "لطفا رزومه خود را آپلود فرمایید. همکاران بخش منابع انسانی هادی با شما تماس خواهند گرفت.";
+                    employmentHtml += "</div>";
+                    employmentHtml += "<div class='btn-container'>";
+                    employmentHtml += "<input id='"+ result.Employment[i].Id +"' type='file' onChange='changeLabelName(this)' name='resumeFile' class='inputfile inputfile-1' accept='.pdf,.docx' />";
+                    employmentHtml += "<label  for='file-1'> <img src='/Content/Images/Hadi/Career/attach.svg' > <span> آپلود رزومه </span></label>";
+                    employmentHtml += "<button class='submit-btn' onClick='sendResume(this)' > ارسال </button>";
+                    employmentHtml += "</div>";
+                    employmentHtml += "</div>";
+                    employmentHtml += "</div>";
+                }
+                employmentPanel.innerHTML = employmentHtml;
+                for (var i = 0; i < result.Internship.length; i++) {
+                    internshipHtml += "<div id='" + result.Internship[i].Id + "' class='main-container'>";
+                    internshipHtml += "<div class='title'>";
+                    internshipHtml += result.Internship[i].Title;
+                    internshipHtml += "</div>";
+                    internshipHtml += "<div class='description text-medium'>";
+                    internshipHtml += result.Internship[i].Description;
+                    internshipHtml += "<div class='image-container'>";
+                    if (result.Internship[i].CareerOpportunityImageSource != "") {
+                        internshipHtml += "<img src='" + result.Internship[i].CareerOpportunityImageSource + "' alt=''>";
+                    }
+                    internshipHtml += "<img src='" + result.Internship[i].CareerOpportunityImageSource + "' alt=''>";
+                    internshipHtml += "</div>";
+                    internshipHtml += "</div>";
+                    internshipHtml += "<div class='hover-information'>";
+                    internshipHtml += "<div class='description'>";
+                    internshipHtml += "لطفا رزومه خود را آپلود فرمایید. همکاران بخش منابع انسانی هادی با شما تماس خواهند گرفت.";
+                    internshipHtml += "</div>";
+                    internshipHtml += "<div class='btn-container'>";
+                    internshipHtml += "<input id='"+ result.Internship[i].Id +"' type='file' onChange='changeLabelName(this)' name='resumeFile' class='inputfile inputfile-1' accept='.pdf,.docx' />";
+                    internshipHtml += "<label  for='file-1'> <img src='/Content/Images/Hadi/Career/attach.svg' > <span> آپلود رزومه </span></label>";
+                    internshipHtml += "<button class='submit-btn' onClick='sendResume(this)' > ارسال </button>";
+                    internshipHtml += "</div>";
+                    internshipHtml += "</div>";
+                    internshipHtml += "</div>";
+                }
+                internshipPanel.innerHTML = internshipHtml;
+            },
+            error: function () {
+                console.log('error');
+            }
+        });
+    })();
+</script>
+<script>
+    var CareerOpportunityId ='';
+    function sendResume(thisElement) {
+        var file = thisElement.previousElementSibling.previousElementSibling.files[0];
+        var formData = new FormData();
+        formData.append('resumeFile', file, file.name);
+        formData.append('CareerOpportunityId', CareerOpportunityId );
+        var xhttp;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert("رزومه شما با موفقیت ارسال شد");
+                file = null;
+            }
+            else{
+                alert("رزومه شما ارسال نشد");
+            }
+        };
+        xhttp.open("POST", "/Resumes/Create", false);
+        xhttp.send(formData);
+    }
+    function changeLabelName(selectedInput) {
+        selectedInput.nextElementSibling.innerHTML = selectedInput.files[0].name;
+        selectedInput.nextElementSibling.nextElementSibling.classList.add('show-submit');
+        console.log('class has been added');
+        CareerOpportunityId = selectedInput.id;
+        console.log(CareerOpportunityId);
+    }
+
+</script>

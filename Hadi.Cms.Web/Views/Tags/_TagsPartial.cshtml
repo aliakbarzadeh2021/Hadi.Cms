@@ -1,0 +1,25 @@
+@using System.Data
+@using Hadi.Cms.Infrastructure.Helpers
+@model List<Hadi.Cms.Model.Mappings.Interfaces.ITagDto>
+
+@foreach (var obj in Model@*.Take(!ViewBag.ShowAll ? 7 : Model.Count)*@.Select((item, index) => new { item, index }))
+{
+    if (obj.index == 0 || obj.index % 7 == 0)
+    {
+        @Html.Raw("<div class='filters'>")
+    }
+    <a class="filter" id="@obj.item.Id" onclick="sorthByTag()" >
+        @obj.item.Title
+    </a>
+    if ((obj.index + 1) % 7 == 0 || obj.index + 1 == Model/*.Take(!ViewBag.ShowAll ? 7 : Model.Count)*/.Count())
+    {
+        @Html.Raw("</div>");
+    }
+}
+@if (Model.Count > 7)
+{
+    <div onclick="getMoreHashTag()" class="more-hashtag">
+        <span>تگ های بیشتر</span>
+        <img src="/Content/Images/Hadi/arrow-down-gray.svg" alt="">
+    </div>  
+}

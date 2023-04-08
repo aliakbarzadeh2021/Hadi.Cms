@@ -1,0 +1,83 @@
+@using Hadi.Cms.Model.Mappings.Interfaces
+@using Hadi.Cms.ApplicationService.Services;
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Web.Utilities
+
+@model List<INewsDto>
+
+@{
+	ViewBag.Title = "اخبار";
+	Layout = "~/Views/Shared/_InnerPageLayout.cshtml";
+}
+
+Layout = "~/Views/Shared/_InnerPageLayout.cshtml";
+} 
+
+@{
+    var pageId = Request.QueryString["Id"] != null ? Guid.Parse(Request.QueryString["Id"]) : Guid.Empty;
+    var contentImageSource = "/Content/images/LogoShare.png";
+    var contentService = new PageService();
+    var keywords = contentService.GetPageKeywords(pageId);
+    var description = contentService.GetPageDescription(pageId);
+
+    if (pageId != Guid.Empty)
+    {
+        var attachmentGuid = contentService.Get(c => c.Id == pageId).ImageId;
+        contentImageSource = new AttachmentFileService().GetAttachmentSourceValue(attachmentGuid);
+
+        @Html.MetaTag(description, keywords);
+    }
+    else
+    {
+        <meta name="description" content="@Strings.Global_DescriptionMetaTag">
+        <meta name="keywords" content="@Strings.Global_KeywordMetaTag">
+    }
+}
+
+<div id="news" class="container-fluid">
+	<main>
+		<section>
+			<div class="content row justify-content-center text-right">
+				<div class="col-md-12">
+					<div class="so-display-2 mb-5">اخبار</div>
+
+				</div>
+				<div class="col-md-10">
+					@foreach (var item in Model)
+					{
+						var imageSource = new AttachmentFileService().GetAttachmentSourceValue(item.Image);
+
+						<div class="row">
+							<div class="col-12">
+								<div class="card card-news mb-4">
+									<div class="row no-gutters">
+										<div class="col-md-4">
+											<a href="/News/Details/@item.Id" >
+												<img src="@imageSource" class="card-img">
+											</a>
+										</div>
+										<div class="col-md-8">
+											<div class="card-body">
+												<h3 class="card-title mb-4">
+													<a href="/News/Details/@item.Id" class="text-dark">
+														@item.Title
+													</a>
+												</h3>
+
+												<p class="card-text mb-auto">@item.RuTitr</p>
+
+												<p class="card-text"><span class="text-muted"><i class="fa fa-clock-o"></i> @item.ReleaseDate.DateTimeToString(SessionData.Current.HasRightToLeftUI, false)</span></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>						
+					}
+
+				</div>
+			</div>
+		</section>
+	</main>
+</div>

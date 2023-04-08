@@ -1,0 +1,65 @@
+@using System.Globalization;
+@using Hadi.Cms.Web.Utilities
+
+@model System.DateTime?
+@{
+	DateTime? dateValue = Model ?? ViewData["value"] as DateTime?;
+	string valueAsString = string.Empty;
+
+    if (dateValue.HasValue)
+    {
+        if (SessionData.Current.HasRightToLeftUI)
+        {
+            PersianCalendar persianCalendar = new PersianCalendar();
+
+            valueAsString = $"{persianCalendar.GetYear(dateValue.Value):0000}/{persianCalendar.GetMonth(dateValue.Value):00}/{persianCalendar.GetDayOfMonth(dateValue.Value):00}";
+        }
+        else
+        {
+            valueAsString = $"{dateValue.Value.Year:0000}/{dateValue.Value.Month:00}/{dateValue.Value.Day:00}";
+        }
+    }
+}
+
+@Html.TextBox("", valueAsString, MergeAnonymous(ViewData["htmlAttributes"], new { data_rel = "date-picker"}))
+
+@if (ViewBag.ScriptDatePickerRegistered == null)
+{
+	if (SessionData.Current.HasRightToLeftUI)
+	{
+		<script>
+			$(function () {
+
+				$('[data_rel="date-picker"]').datepicker({ isRTL: true, dateFormat: "yy/mm/dd" });
+			});
+		</script>
+	}
+	else
+	{
+		<script>
+			$(function () {
+
+				$('[data_rel="date-picker"]').datepicker({ isRTL: false, dateFormat: "yy/mm/dd" });
+			});
+		</script>
+
+	}
+
+	ViewBag.ScriptDatePickerRegistered = true;
+}
+
+@functions{
+	IDictionary<string, object> MergeAnonymous(object obj1, object obj2)
+	{
+		var dict1 = new RouteValueDictionary(obj1);
+		var dict2 = new RouteValueDictionary(obj2);
+		IDictionary<string, object> result = new Dictionary<string, object>();
+
+		foreach (var pair in dict1.Concat(dict2))
+		{
+			result.Add(pair);
+		}
+
+		return result;
+	}
+}

@@ -1,0 +1,21 @@
+@model List<Hadi.Cms.Model.Mappings.Interfaces.IServiceDto>
+
+@if (Model.Count > 0)
+{
+    <div style="color: @ViewBag.DepartmentColor" class="caption-table mt-5 mb-4">
+        خدمات دپارتمان
+    </div>
+
+    <div id="yourDivID" class="service-grid mb-5" style="grid-template-columns: repeat(@Model.Count, 1fr);">
+        @foreach (var service in Model)
+        {
+            <div style="color: @ViewBag.DepartmentColor" class="service-info">
+                <img src="@service.ServiceLogoSource" alt="">
+                <a href="@Url.Action("Details","Services", new {id = service.Id})">
+                   @Html.Raw(service.Title)
+                </a>
+            </div>
+        }
+        <div class="border-top-custom"></div>
+    </div>
+}

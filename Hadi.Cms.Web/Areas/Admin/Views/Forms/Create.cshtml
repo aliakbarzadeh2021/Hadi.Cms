@@ -1,0 +1,219 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.ApplicationService.CommandModels.FormCreateCommand
+
+@{
+    ViewBag.Title = Strings.Global_NewForm;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+<style>
+    .half{
+        flex: 0 0 50%;
+    }
+    .hide-element {
+        display: none;
+    }
+
+    .uploader::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+
+    .uploader {
+        background-size: 15px;
+    }
+
+        .uploader::before {
+            background: url(../../../../Content/Images/Hadi/ContactUs/attach.svg);
+            content: ' بارگذاری فایل ( در صورت لزوم ) ';
+            background-repeat: no-repeat;
+            display: inline-block;
+            border-radius: 3px;
+            padding: 5px 20px;
+            outline: none;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-shadow: 1px 1px #fff;
+            font-weight: 700;
+            font-size: 10pt;
+            background-size: 15px;
+            font-size: 10px;
+            background-position: 145px;
+        }
+       .render-wrap{
+            background-color: white;
+            padding: 17px 30px;
+            margin: auto;
+            margin-top: 30px;
+       }
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_NewForm</h2>
+        <ol class="breadcrumb">
+            <li>
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Create", "Forms", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewForm
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Create", "Forms", FormMethod.Post, new { id = "CreateFormForm", @class = "form-horizontal m-t-md" }))
+{
+    <div class="row">
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-12 col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_BaseInformation</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_Name)
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_Title)
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_DisplayNameEn)
+                        @Html.EditorFor(model => model.DisplayEnName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.DisplayEnName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_DisplayNameFa)
+                        @Html.EditorFor(model => model.DisplayFaName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.DisplayFaName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_RedirectUrl)
+                        @Html.EditorFor(model => model.RedirectUrl, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.RedirectUrl, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_Language)
+                        @Html.DropDownListFor(model => model.LanguageId, new SelectList(ViewBag.Languages, "Id", "Name"), "انتخاب کنید...", new { @class = "form-control rtl-input select2" })
+                        @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group last-form-group">
+                        @Html.Label(Strings.FormModel_FormDataSource)
+                        @Html.EditorFor(model => model.FormDataSource, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.FormDataSource, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-sm-4 col-sm-offset-0">
+                            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div id="build-wrap"></div>
+            <div class="render-wrap"></div>
+        </div>
+    </div>
+
+}
+
+
+@section scripts{
+
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+    <script src="/Scripts/FormBuilder/form-builder.min.js"></script>
+    <script src="/Scripts/FormBuilder/form-render.min.js"></script>
+    <script>
+        function AddingRowClass() {
+            document.querySelector(".render-wrap ").classList.add('row');
+        }
+        AddingRowClass();
+        setTimeout(() => {
+            changeButtonsName();
+        }, 300);
+        function changeButtonsName() {
+            document.querySelector('.clear-all').innerText = "پاک کردن";
+            document.querySelector('.save-template').innerText = "تایید فرم";
+            document.querySelector('.clear-all ').classList.add('hide-element');
+        }
+        //askjldf
+        var formFields = [];
+        jQuery(function ($) {
+            var fbTemplate = document.getElementById("build-wrap");
+            var options = {
+                onSave: function (evt, formData) {
+                    toggleEdit(false);
+                    $(".render-wrap").formRender({ formData });
+                    var formStringData = document.querySelector('.rendered-form').innerHTML;
+                    document.getElementById('FormDataSource').value = formStringData;
+                    var formInputs = document.querySelectorAll('.rendered-form input , .rendered-form textarea , .rendered-form button, .rendered-form select');
+                    var formInputLabel = document.querySelectorAll('.rendered-form label');
+                    for (var i = 0; i < formInputs.length; i++) {
+                        formFields.push({"name":formInputs[i].name,"type":formInputs[i].type , "label":formInputLabel[i].innerHTML});
+                    }
+                    console.log(formFields);
+                }
+            };
+            $(fbTemplate).formBuilder(options);
+        });
+
+        function toggleEdit(editing) {
+            document.body.classList.toggle("form-rendered", !editing);
+        }
+
+        $(function () {
+            $('#CreateFormForm').submit(function () {
+                var form = $(this);
+                FormData = form.serialize() + '&' + $.param({
+                    "formFields": formFields
+                });              
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: FormData,
+                    success: function (result) {
+                        console.log("success");
+                        window.location = "/Admin/Forms/Index"
+                    },
+                    error: function () {
+                        console.log('error');
+                    }
+                });
+                return false;
+            });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+}

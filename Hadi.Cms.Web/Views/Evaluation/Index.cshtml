@@ -1,0 +1,233 @@
+@using Hadi.Cms.Model.QueryModels
+@using Hadi.Cms.Model.Enums
+
+@model  EvaluationModel
+
+@{
+    ViewBag.Title = "Index";
+
+    Layout = "~/Views/Shared/_InnerPageLayout.cshtml";
+}
+
+<section class="quick-assessment">
+    <div class="row d-flex">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10">
+            <div class="row assessment-header">
+                <div class="col-lg-7 grey-hatching"></div>
+                <div class="col-lg-5 assessment-vector text-center">
+                    <img class="img-responsive w-75" src="~/Content/Images/htdf/images/assessment-vector.png" />
+                </div>
+            </div>
+            <div class="row assessment-body pl-5 text-center">
+                <div class="col-lg-11">
+                    <div class="row assessment-topic text-right">
+                        <h2 class="assessment-title font-weight-bold text-right my-4">
+                            استــــعلام رتبه و حد اعتباری
+                        </h2>
+                        <p class="assessment-description">
+                            لــورم ایـپسـوم یـا طـرح‌نـما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صـنـعت چـاپ، صفحـه‌آرایی و طـراحـی گــرافــیک گفـتــه مـی‌شـود. طـراح گرافیـک از این مـتن به عنوان عنـصری از تـرکیــب بنـدی بـرای پــر کـردن صــفحـه و ارایـه اولیــه شــــکل.
+                        </p>
+                    </div>
+                    <div class="row my-4">
+                        <div class="info-box col-lg-12 p-3 text-right">
+                            <div class="row d-flex flex-column">
+                                <div class="col-lg-12">
+                                    <p class="font-weight-bold">
+                                        اطلاعات اولیه
+                                    </p>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap mb-3">
+
+                                    <div class="col-lg-4">
+                                        @Html.DropDownListFor(model => model.DurationActivity, System.Web.Mvc.Html.EnumHelper.GetSelectList(typeof(DurationActivity)), "مدت زمان فعالیت", new { @class = "assessment-selection w-100" })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.DropDownListFor(model => model.DurationActivity, System.Web.Mvc.Html.EnumHelper.GetSelectList(typeof(CompanyType)), "نوع شرکت", new { @class = "assessment-selection w-100" })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.EditorFor(model => model.InsurancedPersonelCount, new { htmlAttributes = new { @class = "assessment-input w-100", placeholder = "تعداد پرسنل بیمه شده", min = 0 } })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.DropDownListFor(model => model.DurationActivity, System.Web.Mvc.Html.EnumHelper.GetSelectList(typeof(CreditRatingOfCompany)), "امتیاز اعتباری شرکت", new { @class = "assessment-selection w-100" })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.EditorFor(model => model.InsurancedPersonelCount, new { htmlAttributes = new { @class = "assessment-input w-100", placeholder = "میزان قراردادهای جاری شرکت", min = 0 } })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.DropDownListFor(model => model.DurationActivity, System.Web.Mvc.Html.EnumHelper.GetSelectList(typeof(AverrageCreditRatingOfBoardMembers)), "میانگین امتیاز اعتباری اعضای هیئت مدیره", new { @class = "assessment-selection w-100" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <p class="font-weight-bold">
+                                        اطلاعات مالی شرکت
+                                    </p>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-wrap mb-3">
+
+                                    <div class="col-lg-4">
+                                        @Html.DropDownListFor(model => model.DurationActivity, System.Web.Mvc.Html.EnumHelper.GetSelectList(typeof(AmountOfFacilityDebtOfCompany)), "مانده بدهی تسهیلات شرکت", new { @class = "assessment-selection w-100" })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.DropDownListFor(model => model.DurationActivity, System.Web.Mvc.Html.EnumHelper.GetSelectList(typeof(TypeOfFinancialStatement)), "نوع صورتهای مالی", new { @class = "assessment-selection w-100" })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.EditorFor(model => model.FixedCapital, new { htmlAttributes = new { @class = "assessment-input w-100", placeholder = "سرمایه ثبتی", min = 0 } })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.EditorFor(model => model.AmountOfShareholdersRightsLastYear, new { htmlAttributes = new { @class = "assessment-input w-100", placeholder = "میزان حقوق سهامداران در سال گذشته", min = 0 } })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.EditorFor(model => model.AmountOfShareholdersRightsInLastTwoYear, new { htmlAttributes = new { @class = "assessment-input w-100", placeholder = "میزان حقوق سهامداران در دو سال گذشته", min = 0 } })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.EditorFor(model => model.FixedRateOfCompany, new { htmlAttributes = new { @class = "assessment-input w-100", placeholder = "میزان دارایی ثابت شرکت", min = 0 } })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.EditorFor(model => model.OpertaingProfitOfCompanyLastYear, new { htmlAttributes = new { @class = "assessment-input w-100", placeholder = "سود عملیاتی شرکت در سال گذشته", min = 0 } })
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        @Html.EditorFor(model => model.OpertaingProfitOfCompanyInLastTwoYear, new { htmlAttributes = new { @class = "assessment-input w-100", placeholder = "سود عملیاتی شرکت در دو سال گذشته", min = 0 } })
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-12">
+                                    <p class="font-weight-bold">
+                                        مجوزات و گواهینامه‌ها و تائیدیه‌ها
+                                    </p>
+                                </div>
+
+                                <div class="d-flex flex-wrap @*justify-content-around*@">
+                                    <div class="policy-checkboxes custom-control custom-switch">
+                                        @Html.EditorFor(model => model.PerformanceConfirmationFromEmployer, new { htmlAttributes = new { @class = "custom-control-input" } })
+                                        <label class="custom-control-label" for="PerformanceConfirmationFromEmployer">تاییدیه عملکرد از کارفرما</label>
+                                    </div>
+                                    <div class="policy-checkboxes custom-control custom-switch">
+                                        @Html.EditorFor(model => model.ManagementSystemCertificates, new { htmlAttributes = new { @class = "custom-control-input" } })
+                                        <label class="custom-control-label" for="ManagementSystemCertificates">گواهینامه‌های سیستم مدیریت</label>
+                                    </div>
+                                    <div class="policy-checkboxes custom-control custom-switch last-policy-checkbox">
+                                        @Html.EditorFor(model => model.SubscribeToListReputableCompaniesAndOrganizations, new { htmlAttributes = new { @class = "custom-control-input" } })
+                                        <label class="custom-control-label" for="SubscribeToListReputableCompaniesAndOrganizations">عضویت در لیست پیمانکاران شرکت‌ها و سازمان‌های معتبر</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-lg-1 pr-0 d-flex flex-column align-items-center">
+                            <div class="active-ball-out">
+                                <div class="active-ball-middle">
+                                    <div class="active-ball-in"></div>
+                                </div>
+                            </div>
+                            <div class="green-line h-100"></div>
+                            <div class="disabled-ball-out">
+                                <div class="disabled-ball-middle-out">
+                                    <div class="disabled-ball-middle-in">
+                                        <div class="disabled-ball-in"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 text-right pr-0 pt-2">
+                            <h4 class="financial-current-title font-weight-bold">
+                                نسبتهای مالی یکسال قبل
+                            </h4>
+                            <div class="financial-ratios d-flex align-items-center my-4 flex-wrap">
+                                <div class="col-lg-5 financial-results d-flex justify-content-between align-items-end p-4">
+                                    <p class="font-weight-bold">
+                                        نسبت جاری
+                                    </p>
+                                    @Html.EditorFor(model => model.CurrentRatio, new { htmlAttributes = new { @class = "readonly-input w-25 readonly", disabled = "disabled" } })
+                                </div>
+                                <div class="col-lg-7 financial-calc d-flex align-items-baseline p-4">
+
+                                    <span class="m-2">=</span>
+
+                                    @Html.EditorFor(model => model.CurrentDebt, new { htmlAttributes = new { @class = "financial-input w-100", placeholder = "بدهی جاری", min = 0 } })
+
+                                    <span class="m-2">÷</span>
+
+                                    @Html.EditorFor(model => model.CurrentAssest, new { htmlAttributes = new { @class = "financial-input w-100", placeholder = "بدهی جاری", min = 0 } })
+                                </div>
+                                <div class="col-lg-5 financial-results d-flex justify-content-between align-items-end p-4">
+                                    <p class="font-weight-bold">
+                                        دوره وصول مطالبات
+                                    </p>
+                                    @Html.EditorFor(model => model.PeriodicalsCollection, new { htmlAttributes = new { @class = "readonly-input w-25 readonly", disabled = "disabled" } })
+                                </div>
+                                <div class="col-lg-7 financial-calc d-flex align-items-baseline p-4">
+
+                                    <span class="m-2">=</span>
+
+                                    @Html.EditorFor(model => model.OperatingIncome1, new { htmlAttributes = new { @class = "financial-input w-100", placeholder = "درآمد عملیاتی", min = 0 } })
+
+                                    <span class="m-2">÷</span>
+                                    @Html.EditorFor(model => model.AccountAndReceivedDocuments, new { htmlAttributes = new { @class = "financial-input w-100", placeholder = "حساب ها و اسناد دریافتی", min = 0 } })
+                                </div>
+                                <div class="col-lg-5 financial-results d-flex justify-content-between align-items-end p-4">
+                                    <p class="font-weight-bold">
+                                        نسبت بدهی‌ها به دارایی‌ها
+                                    </p>
+                                    @Html.EditorFor(model => model.DetToAssestRatio, new { htmlAttributes = new { @class = "readonly-input w-25 readonly", disabled = "disabled" } })
+                                </div>
+
+                                <div class="col-lg-7 financial-calc d-flex align-items-baseline p-4">
+
+                                    <span class="m-2">=</span>
+
+                                    @Html.EditorFor(model => model.TotalAssests, new { htmlAttributes = new { @class = "financial-input w-100", placeholder = "جمع دارایی ها", min = 0 } })
+
+                                    <span class="m-2">÷</span>
+
+                                    @Html.EditorFor(model => model.TotalDebts, new { htmlAttributes = new { @class = "financial-input w-100", placeholder = "جمع بدهی ها", min = 0 } })
+                                </div>
+                                <div class="col-lg-5 financial-results d-flex justify-content-between align-items-end p-4">
+                                    <p class="font-weight-bold">
+                                        نسبت بازده فروش
+                                    </p>
+                                    @Html.EditorFor(model => model.SalesReturnRatio, new { htmlAttributes = new { @class = "readonly-input w-25 readonly", disabled = "disabled" } })
+                                </div>
+
+                                <div class="col-lg-7 financial-calc d-flex align-items-baseline p-4">
+
+                                    <span class="m-2">=</span>
+
+                                    @Html.EditorFor(model => model.OperatingIncome2, new { htmlAttributes = new { @class = "financial-input w-100", placeholder = "درآمد عملیاتی", min = 0 } })
+
+                                    <span class="m-2">÷</span>
+
+                                    @Html.EditorFor(model => model.NetProfit, new { htmlAttributes = new { @class = "financial-input w-100", placeholder = "سود خالص", min = 0 } })
+                                </div>
+                            </div>
+                            <h4 class="financial-next-title font-weight-bold">
+                                نسبتهای مالی دوسال قبل
+                            </h4>
+                        </div>
+                        <div class="col-lg-4 mt-5">
+                            <a href="/Evaluation/Result" class="btn btn-success btn-inquiry w-100 p-3">
+                                استعلام
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,141 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Model.Entities
+@model Hadi.Cms.Model.QueryModels.MailModel
+
+@{
+    ViewBag.Title = Strings.Global_ViewMessage;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+	<div class="col-lg-3">
+		<div class="ibox float-e-margins">
+			<div class="ibox-content mailbox-content">
+				<div class="file-manager">
+					<a class="btn btn-block btn-primary compose-mail" href="mail_compose.html">@Strings.Global_Compose</a>
+					<div class="space-25"></div>
+					<h5></h5>
+					<ul class="folder-list m-b-md" style="padding: 0">
+						<li><a href="@Url.Action("Inbox", "Mail")"><i class="fa fa-inbox "></i> @Strings.Global_Inbox<span class="label label-warning pull-left">@ViewBag.UnreadMessageCount</span> </a></li>
+						<li><a href="@Url.Action("Outbox", "Mail")"><i class="fa fa-envelope-o"></i> @Strings.Global_SentMail</a></li>
+						<li class="hidden"><a href="#"><i class="fa fa-certificate"></i> @Strings.Global_Important</a></li>
+						<li class="hidden"><a href="#"><i class="fa fa-trash-o"></i> @Strings.Global_Trash</a></li>
+					</ul>
+					<div class="clearfix"></div>
+					<h5>@Strings.Global_MyContacts</h5>
+					<ul class="category-list" style="padding: 0">
+						@foreach (var item in (List<User>)ViewBag.onlineContact)
+						{
+							<li><a href="@Url.Action("Compose", "Mail", new { area = "Admin", ReceiverId = item.Id })"> <i class="fa fa-user text-navy"></i> @item.FullName </a></li>
+						}
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-9 animated fadeInRight">
+		<div class="mail-box-header">
+			<div class="pull-left tooltip-demo">
+				@if (bool.Parse(ViewBag.IsReceiver))
+				{
+					<a href="@Url.Action("Compose", "Mail", new { ReceiverId = Model.Sender.Id })" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@Strings.Global_Replay"><i class="fa fa-reply"></i> @Strings.Global_Replay</a>
+				}
+				<a href="#" class="btn btn-white btn-sm hidden" data-toggle="tooltip" data-placement="top" title="@Strings.Global_Print"><i class="fa fa-print"></i> </a>
+				<a onclick="DeleteMail()" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@Strings.Global_Delete"><i class="fa fa-trash-o"></i> </a>
+			</div>
+			<h3>
+				@Strings.Global_ViewMessage
+			</h3>
+			<div class="mail-tools tooltip-demo m-t-md">
+				<h3>
+					<span class="font-noraml">@Strings.MailModel_Title : </span>@Model.Title.ConvertToHtml()
+				</h3>
+				<h5>
+					<span class="pull-right font-noraml" style="float: left !important;">@Model.SendTime.Value.DateTimeToString((bool)ViewBag.HasRightToLeftUI)</span>
+					@if (bool.Parse(ViewBag.IsReceiver))
+					{
+						<span class="font-noraml">@Strings.Global_From : </span>@Model.Sender.FullName
+					}
+					else
+					{
+						<span class="font-noraml">@Strings.Global_SendTo : </span>@Html.Raw(string.Join(", ", Model.Receivers.Select(x => x.FullName).ToArray()));
+					}
+				</h5>
+			</div>
+		</div>
+		<div class="mail-box">
+
+			<div class="mail-body">
+				@Html.Raw(HttpUtility.HtmlDecode(Model.Text))
+			</div>
+			<div class="mail-attachment">
+				@if (Model.Attachments != null && Model.Attachments.Count > 0)
+				{
+					<p>
+						<span><i class="fa fa-paperclip"></i> @(Model.Attachments.Count + Strings.MailModel_Attachments + " - ")</span>
+					</p>
+					<div class="attachment">
+						@foreach (var item in Model.Attachments)
+						{
+							<div class="file-box">
+								<div class="file">
+									<a onclick="DownloadAttachment('@item.Id')">
+										<span class="corner"></span>
+										<div class="icon">
+											<i class="fa fa-file"></i>
+										</div>
+										<div class="file-name">
+											@item.Name
+											<br />
+											<small>@item.Size.BytesToString()</small>
+										</div>
+									</a>
+								</div>
+							</div>
+						}
+						<div class="clearfix"></div>
+					</div>
+				}
+			</div>
+			<div class="mail-body text-right tooltip-demo">
+				@if (bool.Parse(ViewBag.IsReceiver))
+				{
+					<a class="btn btn-sm btn-white" href="@Url.Action("Compose", "Mail", new { ReceiverId = Model.Sender.Id })"><i class="fa fa-reply"></i> @Strings.Global_Replay</a>
+				}
+				<a class="btn btn-sm btn-white hidden" href="#"><i class="fa fa-arrow-right"></i> @Strings.Global_Forward</a>
+				<button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn btn-sm btn-white hidden"><i class="fa fa-print"></i> @Strings.Global_Print</button>
+				<a onclick="DeleteMail()" title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> @Strings.Global_Delete</a>
+			</div>
+			<div class="clearfix"></div>
+
+		</div>
+	</div>
+</div>
+
+@section scripts{
+	<script>
+		$(function () {
+			
+		});
+
+		function DownloadAttachment(attachmentId) {
+			window.location.href = "@Url.Action("DownloadAttachment", "Mail",null, this.Request.Url.Scheme)?attachmentGuid=" + attachmentId;
+		}
+
+		function DeleteMail() {
+			var selectedMailId = [];
+			selectedMailId.push(@Model.Id);
+			var isReceiver = @ViewBag.IsReceiver;
+
+			var param = "@Url.Action("DeleteMail", "Mail", null, this.Request.Url.Scheme)";
+			var ajaxdata = "MailId=" + selectedMailId + "&IsReceiver=" + isReceiver;
+			@Html.Ajax("POST", "", "nowhere", "ReturnDeleteMail")
+		}
+
+		function ReturnDeleteMail() {
+			window.location.href = "@Url.Action("Inbox", "Mail",null, this.Request.Url.Scheme)";
+		}
+	</script>
+}

@@ -1,0 +1,178 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@model  PagedList.IPagedList<Hadi.Cms.Model.Mappings.Interfaces.IFeatureDto>
+
+@{
+    ViewBag.Title = Strings.Global_FeatureManagment;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_FeatureManagment</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a style="color: #fff" onclick="UpdateFeature()" class="btn btn-primary">
+                    @Strings.Global_Update
+                </a>
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<p></p>
+<div class="animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_FeatureList</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up">
+                            </i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>@Strings.Table_RowNumber</th>
+                                    <th>@Strings.FeatureModel_AreaName</th>
+                                    <th>@Strings.FeatureModel_ControllerName</th>
+                                    <th>@Strings.FeatureModel_ActionName</th>
+                                    <th>@Strings.FeatureModel_Attributes</th>
+                                    <th>@Strings.FeatureModel_FeaturesName</th>
+                                    <th>@Strings.Table_UserOperations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    var rowId = 0;
+                                    for (var i = 1; i < ViewBag.PageNumber; i++)
+                                    {
+                                        rowId += 20;
+                                    }
+
+                                    foreach (var item in Model)
+                                    {
+                                        <tr class="gradeX">
+                                            <td class="center">
+                                                @(rowId += 1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => item.AreaName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => item.ControllerName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => item.ActionName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => item.Attributes)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => item.FeaturesName)
+                                            </td>
+                                            <td class="opr">
+                                                <table>
+                                                    <tr>
+                                                        <th>
+                                                            <a onclick="GetFeature('@item.Id');" class="btn btn-info btn-circle" data-toggle="modal" data-target="#AttributesModal" title="ثبت عنوان ویژگی"><i class="fa fa-edit"></i></a>
+                                                        </th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div aria-label="Page navigation" class="text-center" id="myPager2">
+                    @Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { pageNumber }))
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal" id="AttributesModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Strings.Global_Close</span></button>
+                <h4 class="modal-title">@Strings.Feature_Property_Title</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <textarea class="form-control" id="attributeTitle" name="attributeTitle" placeholder="@Strings.Feature_Property_Title" cols="40" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">@Strings.Global_Close</button>
+                <button type="button" onclick="SetFeatureName();" class="btn btn-primary">@Strings.Global_Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+		var featureId = -1;
+
+		function UpdateFeature() {
+			$(".loader").fadeIn("slow");
+
+			var param = "@Url.Action("UpdateFeature", "Feature", null, this.Request.Url.Scheme)";
+			var ajaxdata = "";
+			@Html.Ajax("POST", "", "nowhere", "ReturnUpdateFeature")
+		}
+
+		function ReturnUpdateFeature() {
+			$(".loader").fadeOut("slow")
+			window.location.reload();
+		}
+
+        function GetFeature(id) {
+            featureId = id;
+			var param = "@Url.Action("GetFeature", "Feature", null, this.Request.Url.Scheme)";
+			var ajaxdata = "FeatureId=" + id;
+			@Html.Ajax("GET", "", "nowhere", "ReturnGetFeature")
+
+        }
+
+        function ReturnGetFeature(response) {
+            $("#attributeTitle").val(response.FeaturesName);
+		}
+
+		function SetFeatureName() {
+			$(".loader").fadeIn("slow");
+
+			var featureName = $("#attributeTitle").val();
+			var param = "@Url.Action("SetFeatureName", "Feature", null, this.Request.Url.Scheme)";
+			var ajaxdata = "featureId=" + featureId + "&featureName=" + featureName;
+			@Html.Ajax("POST", "", "nowhere", "ReturnSetFeatureName")
+		}
+
+		function ReturnSetFeatureName() {
+			$(".loader").fadeOut("slow")
+			window.location.reload();
+		}
+    </script>
+}

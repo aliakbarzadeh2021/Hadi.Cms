@@ -1,0 +1,205 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.Model.QueryModels.TemplateDetailsListModel
+
+@{
+    ViewBag.Title = Strings.Global_TemplateDetailsManagement;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins")
+}
+
+<style>
+    .float-e-margins .btn {
+        margin-left: 4px;
+    }
+
+    .ibox .fa {
+        font-size: 14px !important;
+    }
+
+    .opr table {
+        margin: 0px 0px -7px -90px;
+    }
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_TemplateDetailsManagement</h2>
+        <ol class="breadcrumb">
+            <li>
+
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<p></p>
+
+<div class="animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>
+                        @Strings.Global_TemplateDetailsList "@Model.TemplateTitle"
+                    </h5>
+
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up">
+                            </i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-tasks">
+                            </i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="@Url.Action("Create", "TemplateDetails", new { area = "Admin" , TemplateId=Model.TemplateId })">
+                                    @Strings.Global_NewTemplateDetail
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","Templates",new { area="admin" })">
+                                    @Strings.Global_TemplatesList
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="@Strings.Global_SearchInTable">
+                    <div class="hr-line-dashed"></div>
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8" data-filter="#filter">
+                        <thead>
+                            <tr>
+                                <th>@Strings.Table_RowNumber</th>
+                                <th>@Strings.TemplateDetailModel_Title</th>
+                                <th>@Strings.TemplateDetailModel_IsActive</th>
+                                <th>@Strings.Table_UserOperations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                var rowId = 0;
+                                for (var i = 1; i < ViewBag.PageNumber; i++)
+                                {
+                                    rowId += 5;
+                                }
+
+                                foreach (var item in Model.TemplateDetails)
+                                {
+                                    <tr class="gradeX">
+                                        <td class="center">
+                                            @(rowId += 1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.Title)
+                                        </td>
+                                        <td class="center">
+                                            @if (item.IsActive)
+                                            {
+                                                <strong class="label label-primary">@Strings.Global_Yes</strong>
+                                            }
+                                            else
+                                            {
+                                                <strong class="label label-danger">@Strings.Global_No</strong>
+                                            }
+                                        </td>
+                                        <td class="opr">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <a onclick="DeleteTemplateDetailAlert('@item.Id' , '@Model.TemplateId');" class="btn btn-danger btn-circle" title="@Strings.Global_Delete"><i class="fa fa-remove"></i></a>
+                                                    </th>
+                                                    <th>
+                                                        <a href="@Url.Action("Edit", "TemplateDetails", new { area = "Admin", Id = item.Id , TemplateId = item.TemplateId })" class="btn btn-primary btn-circle" title="@Strings.Global_Edit"><i class="fa fa-edit"></i></a>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <ul class="pagination pull-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div aria-label="Page navigation" class="text-center" id="myPager2">
+                    @Html.PagedListPager(Model.TemplateDetails, pageNumber => Url.Action("Index", new { pageNumber }))
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins")
+
+    <script>
+
+		$(function () {
+			$('.footable').footable();
+		});
+
+		function DeleteTemplateDetailAlert(Id,TemplateId) {
+			swal({
+				title: "آیا مطمئن هستید",
+				text: "اطلاعات قالب انتخاب شده حذف خواهد شد!",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: "بلی",
+				cancelButtonText: "خیر",
+				closeOnConfirm: false,
+				closeOnCancel: true
+			},
+			function (isConfirm) {
+				if (isConfirm) {
+					DeleteTemplateDetail(Id,TemplateId);
+				}
+			});
+		}
+
+		function DeleteTemplateDetail(id,TemplateId) {
+			var param = "@Url.Action("Delete", "TemplateDetails", null, this.Request.Url.Scheme)";
+			var ajaxdata = "Id=" + id + "&TemplateId=" + TemplateId;
+			@Html.Ajax("POST", "", "nowhere", "ReturnDeleteTemplateDetail")
+		}
+
+		function ReturnDeleteTemplateDetail(data) {
+			swal({
+				title: data.Success,
+				text: data.Message,
+				type: "success",
+				showCancelButton: false,
+				confirmButtonColor: "#23c6c8",
+				confirmButtonText: "OK",
+				closeOnConfirm: true
+			}, function () {
+				window.location.reload();
+			});
+		}
+
+    </script>
+}

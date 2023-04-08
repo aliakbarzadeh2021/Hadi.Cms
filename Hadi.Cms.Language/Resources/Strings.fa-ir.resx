@@ -1,0 +1,4002 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdminLayout_SideBar_Monitoring" xml:space="preserve">
+    <value>مانیتورینگ</value>
+  </data>
+  <data name="AdminLayout_SideBar_Projects" xml:space="preserve">
+    <value>پروژه ها</value>
+  </data>
+  <data name="AdminLayout_SideBar_Reports" xml:space="preserve">
+    <value>گزارش ها</value>
+  </data>
+  <data name="AdminLayout_SideBar_Security" xml:space="preserve">
+    <value>امنیت</value>
+  </data>
+  <data name="AdminLayout_Sidebar_Settings" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="AdminLayout_SideBar_TaskFormTemplateCategories" xml:space="preserve">
+    <value>دسته های قالب فرم</value>
+  </data>
+  <data name="AdminLayout_SideBar_TaskFormTemplates" xml:space="preserve">
+    <value>قالب فرم</value>
+  </data>
+  <data name="AdminLayout_SideBar_Users" xml:space="preserve">
+    <value>کاربران</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>سامانه مدیریت محتوای هادی</value>
+  </data>
+  <data name="Application_BinaryStorage" xml:space="preserve">
+    <value>ذخیره فایل روی پایگاه داده</value>
+  </data>
+  <data name="Application_CompanyName" xml:space="preserve">
+    <value>نام شرکت</value>
+  </data>
+  <data name="Application_DisplayFooterLanguageChanger" xml:space="preserve">
+    <value>نمایش تغییر دهنده زبان سیستم در پایین</value>
+  </data>
+  <data name="Application_DisplayFooterVersionText" xml:space="preserve">
+    <value>نمایش شماره نسخه نرم افزار در پایین</value>
+  </data>
+  <data name="Application_DisplayLeftMenuBar" xml:space="preserve">
+    <value>نمایش منوی سمت چپ</value>
+  </data>
+  <data name="Application_DisplayLoginLogo" xml:space="preserve">
+    <value>نمایش لوگو در صفحات ورودی</value>
+  </data>
+  <data name="Application_DisplayNotificationTopIcon" xml:space="preserve">
+    <value>نمایش آیکون اطلاعیه در نوار بالا</value>
+  </data>
+  <data name="Application_DisplayViewLogo" xml:space="preserve">
+    <value>نمایش لوگو در صفحات نمایشی</value>
+  </data>
+  <data name="Application_EnableIpBanned" xml:space="preserve">
+    <value>فعال کردن محدودیت آی پی</value>
+  </data>
+  <data name="Application_EnableIpRange" xml:space="preserve">
+    <value>فعال کردن بررسی محدوده آی پی</value>
+  </data>
+  <data name="Application_FailedLoginLimitedCheck" xml:space="preserve">
+    <value>بررسی محدودیت تعداد ورود ناموفق کاربران</value>
+  </data>
+  <data name="Application_FailedLoginMaximumCount" xml:space="preserve">
+    <value>حداکثر تعداد ورود ناموفق مجاز</value>
+  </data>
+  <data name="Application_License" xml:space="preserve">
+    <value>لایسنس</value>
+  </data>
+  <data name="Application_LoginFooterText" xml:space="preserve">
+    <value>متن پایین سایت در صفحات ورودی</value>
+  </data>
+  <data name="Application_LoginLogoPath" xml:space="preserve">
+    <value>آدرس لوگو در صفحات ورودی</value>
+  </data>
+  <data name="Application_LoginWithCaptcha" xml:space="preserve">
+    <value>استفاده از کد امنیتی</value>
+  </data>
+  <data name="Application_LoginWithEmail" xml:space="preserve">
+    <value>ورود از طریق ایمیل</value>
+  </data>
+  <data name="Application_LoginWithSms" xml:space="preserve">
+    <value>ورود ازطریق پیامک</value>
+  </data>
+  <data name="Application_PanelFooterText" xml:space="preserve">
+    <value>متن پایین سایت در صفحات پنل</value>
+  </data>
+  <data name="Application_PhysicalStorage" xml:space="preserve">
+    <value>ذخیره فایل روی دیسک</value>
+  </data>
+  <data name="Application_TextUnderLoginLogo" xml:space="preserve">
+    <value>متن زیر لوگو در صفحات ورودی</value>
+  </data>
+  <data name="Application_UserHasDepartment" xml:space="preserve">
+    <value>کاربر دارای سازمان است</value>
+  </data>
+  <data name="Application_ViewFooterText" xml:space="preserve">
+    <value>متن پایین سایت در صفحات نمایشی</value>
+  </data>
+  <data name="Application_ViewLogoPath" xml:space="preserve">
+    <value>آدرس لوگو در صفحات نمایشی</value>
+  </data>
+  <data name="ContactUsModel_Subject" xml:space="preserve">
+    <value>موضوع</value>
+  </data>
+  <data name="ContactUsModel_Text" xml:space="preserve">
+    <value>متن</value>
+  </data>
+  <data name="ContactUsModel_TextRequired" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="ContactUsModel_UserEmail" xml:space="preserve">
+    <value>آدرس پست الکترونیک</value>
+  </data>
+  <data name="ContactUsModel_UserEmailRequired" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="ContactUsModel_UserMobile" xml:space="preserve">
+    <value>تلفن همراه</value>
+  </data>
+  <data name="ContactUsModel_Username" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="ContactUsModel_UsernameRequired" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="CopainModel_CopainCount" xml:space="preserve">
+    <value>تعداد</value>
+  </data>
+  <data name="CopainModel_CopainPrice" xml:space="preserve">
+    <value>قیمت</value>
+  </data>
+  <data name="CopainModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="CopainModel_Discount" xml:space="preserve">
+    <value>درصد تخفیف</value>
+  </data>
+  <data name="CopainModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="CopainModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Credit_HasFinancialAccounts" xml:space="preserve">
+    <value>کاربر حساب مالی دارد</value>
+  </data>
+  <data name="Credit_UseCopain" xml:space="preserve">
+    <value>استفاده از کوپن</value>
+  </data>
+  <data name="Credit_UseWallet" xml:space="preserve">
+    <value>استفاده از کیف پول</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_DescriptionRequierd" xml:space="preserve">
+    <value>توضیحات وارد نشده</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_Text" xml:space="preserve">
+    <value>متن</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_TextRequired" xml:space="preserve">
+    <value>لطفا متن را وارد کنید.</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_Value" xml:space="preserve">
+    <value>مقدار</value>
+  </data>
+  <data name="CustomQuestionTypeMetadata_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="CustomQuestionTypeMetadata_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="CustomQuestionTypeMetadata_NameRequired" xml:space="preserve">
+    <value>لطفا نام را وارد کنید.</value>
+  </data>
+  <data name="CustoQuestionTypeItemMetadata_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="CustoQuestionTypeItemMetadata_DescriptionRequierd" xml:space="preserve">
+    <value>لطفا توضیح را وارد کنید</value>
+  </data>
+  <data name="CustoQuestionTypeItemMetadata_ValueRequierd" xml:space="preserve">
+    <value>لطفا مقدار را وارد کنید.</value>
+  </data>
+  <data name="DepartmentModel_DepartmentName" xml:space="preserve">
+    <value>نام سازمان</value>
+  </data>
+  <data name="DepartmentModel_DepartmentTitle" xml:space="preserve">
+    <value>عنوان سازمان</value>
+  </data>
+  <data name="DepartmentModel_DepartmentUniqueID" xml:space="preserve">
+    <value>شماره ی یکتای سازمان</value>
+  </data>
+  <data name="DepartmentModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="DepartmentModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="DepartmentModel_MailAddress" xml:space="preserve">
+    <value>آدرس ایمیل</value>
+  </data>
+  <data name="DepartmentModel_OfficeAddress" xml:space="preserve">
+    <value>آدرس سازمان</value>
+  </data>
+  <data name="DepartmentModel_Phone" xml:space="preserve">
+    <value>تلفن سازمان</value>
+  </data>
+  <data name="DepartmentModel_WebSiteUrl" xml:space="preserve">
+    <value>آدرس وبسایت</value>
+  </data>
+  <data name="DepartmentUserModel_DepartmentId" xml:space="preserve">
+    <value>آی دی سازمان</value>
+  </data>
+  <data name="DepartmentUserModel_IsHead" xml:space="preserve">
+    <value>مدیر سازمان</value>
+  </data>
+  <data name="Enums_PaymentGateWaysEnum_ArianPal" xml:space="preserve">
+    <value>درگاه پرداخت آرین پال</value>
+  </data>
+  <data name="Enums_PaymentGateWaysEnum_Mellat" xml:space="preserve">
+    <value>درگاه پرداخت ملت</value>
+  </data>
+  <data name="Enums_PaymentGateWaysEnum_PayIr" xml:space="preserve">
+    <value>درگاه پرداخت سامان(Pay.ir)</value>
+  </data>
+  <data name="FeatureModel_ActionName" xml:space="preserve">
+    <value>Action Name</value>
+  </data>
+  <data name="FeatureModel_AreaName" xml:space="preserve">
+    <value>Area Name</value>
+  </data>
+  <data name="FeatureModel_Attributes" xml:space="preserve">
+    <value>خصوصیات</value>
+  </data>
+  <data name="FeatureModel_ControllerName" xml:space="preserve">
+    <value>Controller Name</value>
+  </data>
+  <data name="FeatureModel_FeaturesName" xml:space="preserve">
+    <value>نام ویژگی</value>
+  </data>
+  <data name="Global_About" xml:space="preserve">
+    <value>درباره ما</value>
+  </data>
+  <data name="Global_Accuracy" xml:space="preserve">
+    <value>حداقل دقت</value>
+  </data>
+  <data name="Global_Add" xml:space="preserve">
+    <value>اضافه</value>
+  </data>
+  <data name="Global_Application" xml:space="preserve">
+    <value>برنامه</value>
+  </data>
+  <data name="Global_Back" xml:space="preserve">
+    <value>بازگشت</value>
+  </data>
+  <data name="Global_BackToList" xml:space="preserve">
+    <value>بازگشت به لیست</value>
+  </data>
+  <data name="Global_Balance" xml:space="preserve">
+    <value>موجودی حساب</value>
+  </data>
+  <data name="Global_Cancel" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="Global_Close" xml:space="preserve">
+    <value>بستن</value>
+  </data>
+  <data name="Global_Create" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="Global_CreateNew" xml:space="preserve">
+    <value>ایجاد</value>
+  </data>
+  <data name="Global_Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Global_Department" xml:space="preserve">
+    <value>سازمان</value>
+  </data>
+  <data name="Global_Details" xml:space="preserve">
+    <value>جزئیات</value>
+  </data>
+  <data name="Global_Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="Global_ExportToExcel" xml:space="preserve">
+    <value>دریافت فایل اکسل</value>
+  </data>
+  <data name="Global_From" xml:space="preserve">
+    <value>از</value>
+  </data>
+  <data name="Global_Home" xml:space="preserve">
+    <value>صفحه اصلی</value>
+  </data>
+  <data name="Global_IsDone" xml:space="preserve">
+    <value>انجام شده است</value>
+  </data>
+  <data name="Global_Login" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="Global_LogOff" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="Global_Monitoring" xml:space="preserve">
+    <value>مانیتورینگ</value>
+  </data>
+  <data name="Global_No" xml:space="preserve">
+    <value>خیر</value>
+  </data>
+  <data name="Global_Ok" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="Global_Ping" xml:space="preserve">
+    <value>تست ارتباط</value>
+  </data>
+  <data name="Global_Print" xml:space="preserve">
+    <value>چاپ</value>
+  </data>
+  <data name="Global_Project" xml:space="preserve">
+    <value>پروژه</value>
+  </data>
+  <data name="Global_ProjectAction" xml:space="preserve">
+    <value>اقدام پروژه</value>
+  </data>
+  <data name="Global_ProjectLocation" xml:space="preserve">
+    <value>مکان پروژه</value>
+  </data>
+  <data name="Global_Question" xml:space="preserve">
+    <value>سوال</value>
+  </data>
+  <data name="Global_Save" xml:space="preserve">
+    <value>ذخیره</value>
+  </data>
+  <data name="Global_Show" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="Global_TaskFormTemplate" xml:space="preserve">
+    <value>قالب فرم کار</value>
+  </data>
+  <data name="Global_Time" xml:space="preserve">
+    <value>زمان</value>
+  </data>
+  <data name="Global_To" xml:space="preserve">
+    <value>تا</value>
+  </data>
+  <data name="Global_User" xml:space="preserve">
+    <value>کاربر</value>
+  </data>
+  <data name="Global_UserAccount" xml:space="preserve">
+    <value>حساب کاربر</value>
+  </data>
+  <data name="Global_UserList" xml:space="preserve">
+    <value>لیست کاربران</value>
+  </data>
+  <data name="Global_Yes" xml:space="preserve">
+    <value>بله</value>
+  </data>
+  <data name="GroupModel_CreateWhen" xml:space="preserve">
+    <value>تاریخ ثبت</value>
+  </data>
+  <data name="GroupModel_DepartmentName" xml:space="preserve">
+    <value>نام سازمان</value>
+  </data>
+  <data name="GroupModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="GroupModel_ImageBinary" xml:space="preserve">
+    <value>تصویر گروه</value>
+  </data>
+  <data name="GroupModel_IsActive" xml:space="preserve">
+    <value>وضعیت فعالیت</value>
+  </data>
+  <data name="GroupModel_Name" xml:space="preserve">
+    <value>نام گروه</value>
+  </data>
+  <data name="GroupUserModel_GroupId" xml:space="preserve">
+    <value>گروه</value>
+  </data>
+  <data name="GroupUserModel_IsHead" xml:space="preserve">
+    <value>مدیر</value>
+  </data>
+  <data name="IpBannedModel_IPAddress" xml:space="preserve">
+    <value>آدرس آی پی</value>
+  </data>
+  <data name="IpBannedModel_IPAddressBanReason" xml:space="preserve">
+    <value>دلیل مسدود شدن آی پی</value>
+  </data>
+  <data name="IpBannedModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="IpRangeModel_Lower" xml:space="preserve">
+    <value>کمینه آی پی</value>
+  </data>
+  <data name="IpRangeModel_Upper" xml:space="preserve">
+    <value>بیشینه آی پی</value>
+  </data>
+  <data name="Layout_UserWelcome" xml:space="preserve">
+    <value>{0} خوش آمدید !</value>
+  </data>
+  <data name="LoginViewModel_Password" xml:space="preserve">
+    <value>کلمه عبور</value>
+  </data>
+  <data name="LoginViewModel_PasswordRequired" xml:space="preserve">
+    <value>کلمه عبور خود را وارد کنید.</value>
+  </data>
+  <data name="LoginViewModel_Username" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="LoginViewModel_UsernameRequired" xml:space="preserve">
+    <value>نام کاربری خود را وارد کنید.</value>
+  </data>
+  <data name="MailModel_Attachments" xml:space="preserve">
+    <value>فایل ضمیمه</value>
+  </data>
+  <data name="MailModel_Receivers" xml:space="preserve">
+    <value>دریافت کننده (ها)</value>
+  </data>
+  <data name="MailModel_Sender" xml:space="preserve">
+    <value>ارسال کننده</value>
+  </data>
+  <data name="MailModel_SendTime" xml:space="preserve">
+    <value>Send time</value>
+  </data>
+  <data name="MailModel_Text" xml:space="preserve">
+    <value>متن پیام</value>
+  </data>
+  <data name="MailModel_Title" xml:space="preserve">
+    <value>عنوان پیام</value>
+  </data>
+  <data name="MailModel_Unread" xml:space="preserve">
+    <value>خوانده نشده</value>
+  </data>
+  <data name="MailModel_WithAttachment" xml:space="preserve">
+    <value>به همراه فایل ضمیمه</value>
+  </data>
+  <data name="Map_FilterByProjectStatus" xml:space="preserve">
+    <value>فیلتر براساس وضعیت پروژه</value>
+  </data>
+  <data name="Map_FilterByUser" xml:space="preserve">
+    <value>فیلتر براساس متصدی</value>
+  </data>
+  <data name="MessageOptionMetaData_Email" xml:space="preserve">
+    <value>ارسال از طریق پست الکترونیک</value>
+  </data>
+  <data name="MessageOptionMetaData_PanelMessage" xml:space="preserve">
+    <value>ارسال از طریق پنل پیام</value>
+  </data>
+  <data name="MessageOptionMetaData_Sms" xml:space="preserve">
+    <value>ارسال از طریق پیامک</value>
+  </data>
+  <data name="MessageOptionMetaData_User" xml:space="preserve">
+    <value>کاربر</value>
+  </data>
+  <data name="NewsModel_IsHotLink" xml:space="preserve">
+    <value>لینک ویژه</value>
+  </data>
+  <data name="NewsModel_IsLiveNews" xml:space="preserve">
+    <value>خبر زنده</value>
+  </data>
+  <data name="NewsModel_IsMainTitr" xml:space="preserve">
+    <value>در تیتر اصلی باشد</value>
+  </data>
+  <data name="NewsModel_IsPublished" xml:space="preserve">
+    <value>انتشار</value>
+  </data>
+  <data name="NewsModel_MainTitrImage" xml:space="preserve">
+    <value>تصویر تیتر اصلی</value>
+  </data>
+  <data name="NewsModel_NewsImage" xml:space="preserve">
+    <value>تصویر داخل خبر</value>
+  </data>
+  <data name="NewsModel_NewsReleaseDate" xml:space="preserve">
+    <value>تاریخ انتشار</value>
+  </data>
+  <data name="NewsModel_NewsShowPriorityDate" xml:space="preserve">
+    <value>تاریخ اولویت نمایش</value>
+  </data>
+  <data name="NewsModel_RuTitr" xml:space="preserve">
+    <value>روتیتر</value>
+  </data>
+  <data name="NewsModel_Source" xml:space="preserve">
+    <value>متن خبر</value>
+  </data>
+  <data name="NewsModel_SubTitle" xml:space="preserve">
+    <value>خلاصه</value>
+  </data>
+  <data name="NewsModel_ThumbnailImage" xml:space="preserve">
+    <value>تصویر بند انگشتی</value>
+  </data>
+  <data name="NewsModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="NewsModel_WithFilm" xml:space="preserve">
+    <value>به همراه فیلم</value>
+  </data>
+  <data name="NewsModel_WithImage" xml:space="preserve">
+    <value>به همراه تصویر</value>
+  </data>
+  <data name="NewsModel_WithVoice" xml:space="preserve">
+    <value>به همراه صوت</value>
+  </data>
+  <data name="NotificationModel_IsPublic" xml:space="preserve">
+    <value>عمومی</value>
+  </data>
+  <data name="NotificationModel_NewsID" xml:space="preserve">
+    <value>شماره خبر</value>
+  </data>
+  <data name="NotificationModel_Receiver" xml:space="preserve">
+    <value>گیرنده</value>
+  </data>
+  <data name="NotificationModel_ReceiveTime" xml:space="preserve">
+    <value>زمان مشاهده</value>
+  </data>
+  <data name="NotificationModel_Sender" xml:space="preserve">
+    <value>فرستنده</value>
+  </data>
+  <data name="NotificationModel_SendTime" xml:space="preserve">
+    <value>زمان ارسال</value>
+  </data>
+  <data name="NotificationModel_Status" xml:space="preserve">
+    <value>وضعیت</value>
+  </data>
+  <data name="NotificationModel_Text" xml:space="preserve">
+    <value>متن</value>
+  </data>
+  <data name="NotificationModel_WithNews" xml:space="preserve">
+    <value>دارای لینک خبر</value>
+  </data>
+  <data name="PartCell_Create_Action" xml:space="preserve">
+    <value>عملیات</value>
+  </data>
+  <data name="PartCell_Create_Description" xml:space="preserve">
+    <value>توضیح</value>
+  </data>
+  <data name="PartCell_Create_Js_NoDubplicated" xml:space="preserve">
+    <value>این محصول قبلا اضافه شده</value>
+  </data>
+  <data name="PartCell_Create_Js_Quantity" xml:space="preserve">
+    <value>تعداد وارد نشده</value>
+  </data>
+  <data name="PartCell_Create_Js_SelectProduct" xml:space="preserve">
+    <value>یک محصول انتخاب کنید</value>
+  </data>
+  <data name="PartCell_Create_Js_Unit" xml:space="preserve">
+    <value>نوع واحد انتخاب نشده</value>
+  </data>
+  <data name="PartCell_Create_Quantity" xml:space="preserve">
+    <value>تعداد</value>
+  </data>
+  <data name="PartCell_Create_Unit" xml:space="preserve">
+    <value>واحد</value>
+  </data>
+  <data name="PaymentInfoModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="PaymentInfoModel_Email" xml:space="preserve">
+    <value>آدرس پست الکترونیک</value>
+  </data>
+  <data name="PaymentInfoModel_Mobile" xml:space="preserve">
+    <value>شماره تلفن همراه</value>
+  </data>
+  <data name="PaymentInfoModel_Paymenter" xml:space="preserve">
+    <value>نام پرداخت کننده</value>
+  </data>
+  <data name="PaymentInfoModel_PaymentGateWayType" xml:space="preserve">
+    <value>انتخاب درگاه</value>
+  </data>
+  <data name="PaymentInfoModel_Price" xml:space="preserve">
+    <value>قیمت</value>
+  </data>
+  <data name="PaymentInfoModel_Type" xml:space="preserve">
+    <value>نوع خرید</value>
+  </data>
+  <data name="Payment_ArianPalResult" xml:space="preserve">
+    <value>نتیجه پرداخت - آرین پال</value>
+  </data>
+  <data name="Payment_MellatResult" xml:space="preserve">
+    <value>نتیجه پرداخت - ملت</value>
+  </data>
+  <data name="Payment_PayIrResult" xml:space="preserve">
+    <value>نتیجه پرداخت - سامان (Pay.ir)</value>
+  </data>
+  <data name="ProfileModel_BirthDate" xml:space="preserve">
+    <value>تاریخ تولد</value>
+  </data>
+  <data name="ProfileModel_CityId" xml:space="preserve">
+    <value>شهر</value>
+  </data>
+  <data name="ProfileModel_EducationId" xml:space="preserve">
+    <value>تحصیلات</value>
+  </data>
+  <data name="ProfileModel_EmailAddress" xml:space="preserve">
+    <value>آدرس پست الکترونیک</value>
+  </data>
+  <data name="ProfileModel_ImageBinary" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="ProfileModel_MobileNumber" xml:space="preserve">
+    <value>شماره تلفن همراه</value>
+  </data>
+  <data name="ProfileModel_NationalCode" xml:space="preserve">
+    <value>کدملی</value>
+  </data>
+  <data name="ProfileModel_PhoneNumber" xml:space="preserve">
+    <value>شماره تلفن</value>
+  </data>
+  <data name="ProfileModel_Sex" xml:space="preserve">
+    <value>جنسیت</value>
+  </data>
+  <data name="ProfileModel_User" xml:space="preserve">
+    <value>کاربر</value>
+  </data>
+  <data name="ProfileModel_User_FirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="ProfileModel_User_LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="ProjectActionMetadata_Date" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="ProjectActionMetadata_DateRequired" xml:space="preserve">
+    <value>لطفا تاریخ را وارد کنید.</value>
+  </data>
+  <data name="ProjectActionMetadata_Project" xml:space="preserve">
+    <value>پروژه</value>
+  </data>
+  <data name="ProjectActionMetadata_ProjectStatusId" xml:space="preserve">
+    <value>وضعیت پروژه</value>
+  </data>
+  <data name="ProjectActionMetadata_ProjectStatusIdRequired" xml:space="preserve">
+    <value>لطفا وضعیت پروژه را انتخاب کنید.</value>
+  </data>
+  <data name="ProjectActionMetadata_Text" xml:space="preserve">
+    <value>متن</value>
+  </data>
+  <data name="ProjectActionMetadata_TextRequired" xml:space="preserve">
+    <value>لطفا متن را وارد کنید.</value>
+  </data>
+  <data name="ProjectActions_Date" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="ProjectActions_Status" xml:space="preserve">
+    <value>وضعیت</value>
+  </data>
+  <data name="ProjectActions_Text" xml:space="preserve">
+    <value>متن</value>
+  </data>
+  <data name="ProjectLocationMetadata_Location" xml:space="preserve">
+    <value>مختصات مکان</value>
+  </data>
+  <data name="ProjectLocationMetadata_LocationRadius" xml:space="preserve">
+    <value>شعاع مختصات</value>
+  </data>
+  <data name="ProjectLocationMetadata_MapCode" xml:space="preserve">
+    <value>کد نقشه</value>
+  </data>
+  <data name="ProjectLocationMetadata_Project" xml:space="preserve">
+    <value>پروژه</value>
+  </data>
+  <data name="ProjectMetadata_Code" xml:space="preserve">
+    <value>کد</value>
+  </data>
+  <data name="ProjectMetadata_CodeInvalidFormat" xml:space="preserve">
+    <value>قالب کد رعایت نشده است.</value>
+  </data>
+  <data name="ProjectMetadata_CodeNonUniqueError" xml:space="preserve">
+    <value>قبلا پروژه ای با این کد ثبت شده است. کد پروژه باید منحصر به فرد باشد.</value>
+  </data>
+  <data name="ProjectMetadata_CodeRequired" xml:space="preserve">
+    <value>لطفا کد را وارد کنید.</value>
+  </data>
+  <data name="ProjectMetadata_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="ProjectMetadata_Locations" xml:space="preserve">
+    <value>مکان ها</value>
+  </data>
+  <data name="ProjectMetadata_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="ProjectMetadata_NameRequired" xml:space="preserve">
+    <value>لطفا نام را وارد کنید.</value>
+  </data>
+  <data name="ProjectMetadata_Operator" xml:space="preserve">
+    <value>متصدی پروژه</value>
+  </data>
+  <data name="ProjectMetadata_OperatorUserId" xml:space="preserve">
+    <value>متصدی</value>
+  </data>
+  <data name="ProjectMetadata_Parent" xml:space="preserve">
+    <value>پروژه اصلی</value>
+  </data>
+  <data name="ProjectsCodeFormat_AlphaNumeric" xml:space="preserve">
+    <value>عدد و حروف</value>
+  </data>
+  <data name="ProjectsCodeFormat_Numeric" xml:space="preserve">
+    <value>عدد</value>
+  </data>
+  <data name="ProjectStatus_Canceled" xml:space="preserve">
+    <value>لغو شده</value>
+  </data>
+  <data name="ProjectStatus_Completed" xml:space="preserve">
+    <value>اتمام یافته</value>
+  </data>
+  <data name="ProjectStatus_InProgress" xml:space="preserve">
+    <value>در حال پیگیری</value>
+  </data>
+  <data name="ProjectStatus_Pending" xml:space="preserve">
+    <value>در انتظار</value>
+  </data>
+  <data name="ProjectStatus_Unknown" xml:space="preserve">
+    <value>نامشخص</value>
+  </data>
+  <data name="QuestionMetadata_Choices" xml:space="preserve">
+    <value>گزینه ها</value>
+  </data>
+  <data name="QuestionMetadata_HaveAttachment" xml:space="preserve">
+    <value>فایل پیوست</value>
+  </data>
+  <data name="QuestionMetadata_HaveNote" xml:space="preserve">
+    <value>یادداشت</value>
+  </data>
+  <data name="QuestionMetadata_TaskFormTemplate" xml:space="preserve">
+    <value>قالب فرم</value>
+  </data>
+  <data name="QuestionMetadata_Text" xml:space="preserve">
+    <value>متن</value>
+  </data>
+  <data name="QuestionMetadata_TextRequired" xml:space="preserve">
+    <value>لطفا متن سوال را وارد کنید.</value>
+  </data>
+  <data name="QuestionMetadata_Type" xml:space="preserve">
+    <value>نوع سوال</value>
+  </data>
+  <data name="QuestionMetadata_TypeRequired" xml:space="preserve">
+    <value>لطفا نوع سوال را انتخاب کنید</value>
+  </data>
+  <data name="QuestionType_Command" xml:space="preserve">
+    <value>سوال دستوری</value>
+  </data>
+  <data name="QuestionType_Date" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="QuestionType_MultipleChoice" xml:space="preserve">
+    <value>سوال چند گزینه ای</value>
+  </data>
+  <data name="QuestionType_Numeric" xml:space="preserve">
+    <value>عددی</value>
+  </data>
+  <data name="QuestionType_Simple" xml:space="preserve">
+    <value>سوال با پاسخ قابل ویرایش</value>
+  </data>
+  <data name="QuestionType_YesNo" xml:space="preserve">
+    <value>سوال بلی / خیر</value>
+  </data>
+  <data name="Reports_Tasks" xml:space="preserve">
+    <value>گزارش کارها</value>
+  </data>
+  <data name="Reports_UserWorkTime_IsExit" xml:space="preserve">
+    <value>ورود/خروج</value>
+  </data>
+  <data name="Reports_UserWorkTime_Location" xml:space="preserve">
+    <value>مکان</value>
+  </data>
+  <data name="Reports_UserWorkTime_Time" xml:space="preserve">
+    <value>زمان</value>
+  </data>
+  <data name="Reports_UserWorkTime_User" xml:space="preserve">
+    <value>کاربر</value>
+  </data>
+  <data name="Reports_WorkTimes" xml:space="preserve">
+    <value>گزارش ورود/خروج کاربران از کار</value>
+  </data>
+  <data name="Reports_WorkTime_ViewBag_IsExit_false" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="Reports_WorkTime_ViewBag_IsExit_true" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="RoleModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="RoleModel_RoleDisplayName" xml:space="preserve">
+    <value>نام جهت نمایش</value>
+  </data>
+  <data name="RoleModel_RoleName" xml:space="preserve">
+    <value>نام نقش</value>
+  </data>
+  <data name="SettingsModelMetadata_EnableMovingAverage" xml:space="preserve">
+    <value>فعال بودن میانگین حرکت در نمایش مسیر کاربران</value>
+  </data>
+  <data name="SettingsModelMetadata_MinTripDistance" xml:space="preserve">
+    <value>حداکثر حرکت در تشخیص توقف (متر)</value>
+  </data>
+  <data name="SettingsModelMetadata_MinTripDistanceRequired" xml:space="preserve">
+    <value>لطفا حداکثر حرکت در تشخیص توقف را وارد کنید.</value>
+  </data>
+  <data name="SettingsModelMetadata_Projects_CodeFormat" xml:space="preserve">
+    <value>قالب کد پروژه ها</value>
+  </data>
+  <data name="SettingsModelMetadata_StopTime" xml:space="preserve">
+    <value>حداقل زمان در تشخیص توقف (دقیقه)</value>
+  </data>
+  <data name="SettingsModelMetadata_StopTimeRequired" xml:space="preserve">
+    <value>لطفا حداقل زمان در تشخیص توقف را وارد کنید.</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TaskFormTemplateCategoryMetadata_Name" xml:space="preserve">
+    <value>نام دسته</value>
+  </data>
+  <data name="TaskFormTemplateCategoryMetadata_NameRequired" xml:space="preserve">
+    <value>لطفا نام را وارد کنید.</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_Category" xml:space="preserve">
+    <value>دسته</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_CategoryRequired" xml:space="preserve">
+    <value>لطفا دسته را انتخاب کنید.</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_NameRequired" xml:space="preserve">
+    <value>لطفا نام را وارد کنید.</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_Path" xml:space="preserve">
+    <value>مسیر</value>
+  </data>
+  <data name="TaskMetadata_Command" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="TaskMetadata_DoEndBefore" xml:space="preserve">
+    <value>ضرب الاجل</value>
+  </data>
+  <data name="TaskMetadata_Performer" xml:space="preserve">
+    <value>مخاطب</value>
+  </data>
+  <data name="TaskMetadata_Project" xml:space="preserve">
+    <value>پروژه</value>
+  </data>
+  <data name="TaskMetadata_ProjectLocation" xml:space="preserve">
+    <value>مکان پروژه</value>
+  </data>
+  <data name="TaskMetadata_Requester" xml:space="preserve">
+    <value>درخواست دهنده</value>
+  </data>
+  <data name="TaskMetadata_Request_time" xml:space="preserve">
+    <value>زمان ایجاد</value>
+  </data>
+  <data name="TaskMetadata_TaskState" xml:space="preserve">
+    <value>وضعیت کار</value>
+  </data>
+  <data name="TaskMetadate_Description" xml:space="preserve">
+    <value>شرح</value>
+  </data>
+  <data name="TaskQuestionMetadata_Note" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="UserMetadata_FirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="UserMetadata_FirstNameRequired" xml:space="preserve">
+    <value>لطفا نام را وارد کنید.</value>
+  </data>
+  <data name="UserMetadata_LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="UserMetadata_LastNameRequired" xml:space="preserve">
+    <value>لطفا نام خانوادگی را وارد کنید.</value>
+  </data>
+  <data name="UserMetadata_Password" xml:space="preserve">
+    <value>کلمه عبور</value>
+  </data>
+  <data name="UserMetadata_PasswordRequired" xml:space="preserve">
+    <value> لطفا کلمه عبور را وارد کنید.</value>
+  </data>
+  <data name="UserMetadata_Picture" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="UserMetadata_Username" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="UserMetadata_UsernameRequired" xml:space="preserve">
+    <value>لطفا نام کاربری را وارد کنید.</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Create_Title" xml:space="preserve">
+    <value>ایجاد آیتم</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Delete_Confirm" xml:space="preserve">
+    <value>آیا از حذف این آیتم مطمئن هستید؟</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Delete_Title" xml:space="preserve">
+    <value>حذف آیتم</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Details_Title" xml:space="preserve">
+    <value>جزئیات آیتم</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Index_Title" xml:space="preserve">
+    <value>آیتم ها</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItem_Quantity" xml:space="preserve">
+    <value>تعداد</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItem_Type" xml:space="preserve">
+    <value>نوع</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Create_Title" xml:space="preserve">
+    <value>ایجاد نوع سوال های سفارشی</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Delete_Confirm" xml:space="preserve">
+    <value>آیا از حذف این نوع سوال سفارشی مطمئن هستید؟</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Delete_Title" xml:space="preserve">
+    <value>حذف نوع سوال سفارشی</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Details_Title" xml:space="preserve">
+    <value>جزئیات نوع سوال سفارشی</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Edit_Title" xml:space="preserve">
+    <value>ویرایش نوع سوال سفارشی</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Index_Title" xml:space="preserve">
+    <value>نوع سوال های سفارشی</value>
+  </data>
+  <data name="Views_Custom_Question_Type_Item_Edit" xml:space="preserve">
+    <value>ویرایش آیتم</value>
+  </data>
+  <data name="Views_Custom_Question_Type_Item_Edit_Button" xml:space="preserve">
+    <value>ویرایش آیتم</value>
+  </data>
+  <data name="Views_Login_InvalidUsernameOrPassword" xml:space="preserve">
+    <value>نام کاربری یا کلمه عبور اشتباه است.</value>
+  </data>
+  <data name="Views_Login_Tip" xml:space="preserve">
+    <value>لطفا نام کاربری و کلمه عبور را وارد کنید.</value>
+  </data>
+  <data name="Views_Monitoring_Loading" xml:space="preserve">
+    <value>در حال بارگذاری</value>
+  </data>
+  <data name="Views_Monitoring_TotalForms" xml:space="preserve">
+    <value>تعداد کل فرم ها</value>
+  </data>
+  <data name="Views_Monitoring_TotalTodayForms" xml:space="preserve">
+    <value>تعداد فرم های امروز</value>
+  </data>
+  <data name="Views_PartCell_AddToList" xml:space="preserve">
+    <value>افزودن به لیست</value>
+  </data>
+  <data name="Views_PartCell_Comment" xml:space="preserve">
+    <value>توضیح</value>
+  </data>
+  <data name="Views_PartCell_Create_Title" xml:space="preserve">
+    <value>ایجاد درخواست</value>
+  </data>
+  <data name="Views_PartCell_ProductList" xml:space="preserve">
+    <value>انتخاب کالا</value>
+  </data>
+  <data name="Views_PartCell_Quantity" xml:space="preserve">
+    <value>تعداد</value>
+  </data>
+  <data name="Views_PartCell_Unit" xml:space="preserve">
+    <value>واحد</value>
+  </data>
+  <data name="Views_ProjectAction_Create_Title" xml:space="preserve">
+    <value>ثبت اقدام پروژه</value>
+  </data>
+  <data name="Views_ProjectAction_Delete_Confirm" xml:space="preserve">
+    <value>آیا از حذف این اقدام پروژه مطمئن هستید؟</value>
+  </data>
+  <data name="Views_ProjectAction_Delete_Title" xml:space="preserve">
+    <value>حذف اقدام پروژه</value>
+  </data>
+  <data name="Views_ProjectAction_Details_Title" xml:space="preserve">
+    <value>جزئیات اقدام پروژه</value>
+  </data>
+  <data name="Views_ProjectAction_Edit_Title" xml:space="preserve">
+    <value>ویرایش اقدام پروژه</value>
+  </data>
+  <data name="Views_ProjectAction_Index_Title" xml:space="preserve">
+    <value>لیست اقدامات پروژه</value>
+  </data>
+  <data name="Views_ProjectLocation_Create_Title" xml:space="preserve">
+    <value>ایجاد مکان پروژه</value>
+  </data>
+  <data name="Views_ProjectLocation_Delete_Confirm" xml:space="preserve">
+    <value>آیا از حذف این مکان پروژه مطمئن هستید؟</value>
+  </data>
+  <data name="Views_ProjectLocation_Delete_Title" xml:space="preserve">
+    <value>حذف مکان پروژه</value>
+  </data>
+  <data name="Views_ProjectLocation_Details_Title" xml:space="preserve">
+    <value>جزئیات مکان پروژه</value>
+  </data>
+  <data name="Views_ProjectLocation_Edit_Title" xml:space="preserve">
+    <value>ویرایش مکان پروژه</value>
+  </data>
+  <data name="Views_ProjectLocation_Index_Title" xml:space="preserve">
+    <value>لیست مکان های پروژه</value>
+  </data>
+  <data name="Views_Projects_Delete_Title" xml:space="preserve">
+    <value>حذف پروژه</value>
+  </data>
+  <data name="Views_Projects_Error_DuplicateCode" xml:space="preserve">
+    <value>کد باید منحصر به فرد باشد.</value>
+  </data>
+  <data name="Views_Project_Create_Title" xml:space="preserve">
+    <value>ایجاد پروژه</value>
+  </data>
+  <data name="Views_Project_Delete_Confirm" xml:space="preserve">
+    <value>آیا از حذف این پروژه مطمئن هستید؟</value>
+  </data>
+  <data name="Views_Project_Delete_Title" xml:space="preserve">
+    <value>حذف پروژه</value>
+  </data>
+  <data name="Views_Project_Details_Title" xml:space="preserve">
+    <value>جزئیات پروژه</value>
+  </data>
+  <data name="Views_Project_Edit_Title" xml:space="preserve">
+    <value>ویرایش پروژه</value>
+  </data>
+  <data name="Views_Project_Index_Title" xml:space="preserve">
+    <value>لیست پروژه ها</value>
+  </data>
+  <data name="Views_Question_Create_Title" xml:space="preserve">
+    <value>ایجاد سوال</value>
+  </data>
+  <data name="Views_Question_Delete_Confirm" xml:space="preserve">
+    <value>آیا از حذف این سوال مطمئن هستید؟</value>
+  </data>
+  <data name="Views_Question_Delete_Title" xml:space="preserve">
+    <value>حذف سوال</value>
+  </data>
+  <data name="Views_Question_Details_Title" xml:space="preserve">
+    <value>جزئیات سوال</value>
+  </data>
+  <data name="Views_Question_Edit_Title" xml:space="preserve">
+    <value>ویرایش سوال</value>
+  </data>
+  <data name="Views_Question_Index_Title" xml:space="preserve">
+    <value>سوالات</value>
+  </data>
+  <data name="Views_Reports_Index_Title" xml:space="preserve">
+    <value>گزارش ها</value>
+  </data>
+  <data name="Views_Reports_WorkTime_Error_From" xml:space="preserve">
+    <value>تاریخ آغاز را وارد کنید</value>
+  </data>
+  <data name="Views_Reports_WorkTime_Error_To" xml:space="preserve">
+    <value>تاریخ پایان را انتخاب کنید</value>
+  </data>
+  <data name="Views_Reports_WorkTime_Error_UserId" xml:space="preserve">
+    <value>لطفا یک کاربر انتخاب کنید</value>
+  </data>
+  <data name="Views_Settings_Index_Description" xml:space="preserve">
+    <value>تنظیمات مربوط به بخشهای مختلف در این قسمت انجام خواهد شد.</value>
+  </data>
+  <data name="Views_Settings_Index_ProjectCodeFormatWarning" xml:space="preserve">
+    <value>قالب کد به دلیل وجود کارکتر های غیر مجاز در کد پروژه قابل تغییر نمی باشد. </value>
+  </data>
+  <data name="Views_Settings_Index_Title" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Create_Title" xml:space="preserve">
+    <value>ایجاد دسته قالب فرم کار</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Delete_Confirm" xml:space="preserve">
+    <value>آیا از حذف این دسته قالب فرم کار مطمئن هستید؟</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Delete_Title" xml:space="preserve">
+    <value>حذف دسته قالب فرم کار</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Details_Title" xml:space="preserve">
+    <value>جزئیات دسته قالب فرم کار</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Edit_Title" xml:space="preserve">
+    <value>ویرایش دسته قالب فرم کار</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Index_Title" xml:space="preserve">
+    <value>لیست دسته های قالب فرم کار</value>
+  </data>
+  <data name="Views_TaskFormTemplate_Delete_Confirm" xml:space="preserve">
+    <value>آیا از حذف این قالب فرم کار مطمئن هستید؟</value>
+  </data>
+  <data name="Views_TaskFormTemplate_HaveAttachment" xml:space="preserve">
+    <value>فایل پیوست داشته باشد.</value>
+  </data>
+  <data name="Views_TaskFormTemplate_HaveNote" xml:space="preserve">
+    <value>یادداشت داشته باشد.</value>
+  </data>
+  <data name="Views_TaskFormTemplate_Index_Title" xml:space="preserve">
+    <value>قالب های فرم کار</value>
+  </data>
+  <data name="Views_TaskReports_Error_From" xml:space="preserve">
+    <value>لطفا تاریخ آغاز را وارد کنید</value>
+  </data>
+  <data name="Views_TaskReports_Error_To" xml:space="preserve">
+    <value>لطفا تاریخ پایان را وارد کنید</value>
+  </data>
+  <data name="Views_TaskReports_Error_UserId" xml:space="preserve">
+    <value>لطفا یک کاربر انتخاب کنید</value>
+  </data>
+  <data name="Views_Tasks_Create_Title" xml:space="preserve">
+    <value>ایجاد کار جدید</value>
+  </data>
+  <data name="Views_Tasks_Fillout_Title" xml:space="preserve">
+    <value>رسیدگی به کار</value>
+  </data>
+  <data name="Views_Tasks_TaskList_Title_Inbox" xml:space="preserve">
+    <value>صندوق ورودی</value>
+  </data>
+  <data name="Views_Tasks_TaskList_Title_Sent" xml:space="preserve">
+    <value>صندوق ارسالی</value>
+  </data>
+  <data name="Views_User_Create_Title" xml:space="preserve">
+    <value>ایجاد کاربر</value>
+  </data>
+  <data name="Views_User_Delete" xml:space="preserve">
+    <value>حذف کاربر</value>
+  </data>
+  <data name="Views_User_Delete_Confirm" xml:space="preserve">
+    <value>آیا از حذف این کاربر مطمئن هستید؟</value>
+  </data>
+  <data name="Views_User_Delete_Title" xml:space="preserve">
+    <value>حذف کاربر</value>
+  </data>
+  <data name="Views_User_Details" xml:space="preserve">
+    <value>مشخصات کاربر</value>
+  </data>
+  <data name="Views_User_Details_Title" xml:space="preserve">
+    <value>جزئیات کاربر</value>
+  </data>
+  <data name="Views_User_Edit" xml:space="preserve">
+    <value>ویرایش کاربر</value>
+  </data>
+  <data name="Views_User_Edit_Title" xml:space="preserve">
+    <value>ویرایش کاربر</value>
+  </data>
+  <data name="Views_User_Index_Title" xml:space="preserve">
+    <value>لیست کاربران</value>
+  </data>
+  <data name="WorkTimeReportModelMetadata_From" xml:space="preserve">
+    <value>از تاریخ</value>
+  </data>
+  <data name="WorkTimeReportModelMetadata_To" xml:space="preserve">
+    <value>تا تاریخ</value>
+  </data>
+  <data name="WorkTimeReportModelMetadata_User" xml:space="preserve">
+    <value>کاربر</value>
+  </data>
+  <data name="CreateUser_AccountInformation" xml:space="preserve">
+    <value>اطلاعات کاربری</value>
+  </data>
+  <data name="CreateUser_PublicInformation" xml:space="preserve">
+    <value>اطلاعات عمومی</value>
+  </data>
+  <data name="Global_AboutUs" xml:space="preserve">
+    <value>درباره ما</value>
+  </data>
+  <data name="Global_AddUserToDepartment" xml:space="preserve">
+    <value>اضافه کردن کاربر به سازمان</value>
+  </data>
+  <data name="Global_AddUserToGroup" xml:space="preserve">
+    <value>انتساب کاربر به گروه</value>
+  </data>
+  <data name="Global_AdminPanel" xml:space="preserve">
+    <value>پنل مدیریت</value>
+  </data>
+  <data name="Global_AuthorizeManagment" xml:space="preserve">
+    <value>مدیریت سطوح دسترسی</value>
+  </data>
+  <data name="Global_BackToHome" xml:space="preserve">
+    <value>بازگشت به صفحه اصلی</value>
+  </data>
+  <data name="Global_BaseInformation" xml:space="preserve">
+    <value>اطلاعات پایه</value>
+  </data>
+  <data name="Global_ChangeDepartmentHeadStatus" xml:space="preserve">
+    <value>تغییر وضعیت مدیر سازمان</value>
+  </data>
+  <data name="Global_ChangeGroupHeadStatus" xml:space="preserve">
+    <value>تغییر وضعیت مدیریت گروه</value>
+  </data>
+  <data name="Global_ChangePassword" xml:space="preserve">
+    <value>تغییر کلمه عبور</value>
+  </data>
+  <data name="Global_ChangeStatus" xml:space="preserve">
+    <value>تغییر وضعیت</value>
+  </data>
+  <data name="Global_Check" xml:space="preserve">
+    <value>بررسی</value>
+  </data>
+  <data name="Global_ChoiceDepartmentAdmin" xml:space="preserve">
+    <value>انتخاب ادمین سازمان</value>
+  </data>
+  <data name="Global_ChoiceUser" xml:space="preserve">
+    <value>انتخاب کاربر</value>
+  </data>
+  <data name="Global_Compose" xml:space="preserve">
+    <value>پیام جدید</value>
+  </data>
+  <data name="Global_ConfirmAndContinue" xml:space="preserve">
+    <value>تایید و ادامه</value>
+  </data>
+  <data name="Global_ConfirmKey" xml:space="preserve">
+    <value>بررسی کد فعال سازی</value>
+  </data>
+  <data name="Global_Contacts" xml:space="preserve">
+    <value>مخاطبین</value>
+  </data>
+  <data name="Global_ContactUs" xml:space="preserve">
+    <value>تماس با ما</value>
+  </data>
+  <data name="Global_ContactUsForm" xml:space="preserve">
+    <value>فرم تماس با ما</value>
+  </data>
+  <data name="Global_Copain" xml:space="preserve">
+    <value>کوپن</value>
+  </data>
+  <data name="Global_CopainCharge" xml:space="preserve">
+    <value>شارژ کوپن</value>
+  </data>
+  <data name="Global_CopainList" xml:space="preserve">
+    <value>لیست کوپن</value>
+  </data>
+  <data name="Global_CopainManagment" xml:space="preserve">
+    <value>مدیریت کوپن</value>
+  </data>
+  <data name="Global_CreateDepartmentUser" xml:space="preserve">
+    <value>ایجاد کاربر سازمان</value>
+  </data>
+  <data name="Global_Credit" xml:space="preserve">
+    <value>اعتبار</value>
+  </data>
+  <data name="Global_CreditCharge" xml:space="preserve">
+    <value>شارژ حساب</value>
+  </data>
+  <data name="Global_CreditSetting" xml:space="preserve">
+    <value>تنظیمات اعتبار</value>
+  </data>
+  <data name="Global_DepartmentInfo" xml:space="preserve">
+    <value>اطلاعات سازمان</value>
+  </data>
+  <data name="Global_DepartmentManagment" xml:space="preserve">
+    <value>مدیریت سازمان</value>
+  </data>
+  <data name="Global_DepartmentsList" xml:space="preserve">
+    <value>لیست سازمان ها</value>
+  </data>
+  <data name="Global_DepartmentUsersManagment" xml:space="preserve">
+    <value>مدیریت کاربران سازمان</value>
+  </data>
+  <data name="Global_DisableUserCount" xml:space="preserve">
+    <value>تعداد کاربران غیرفعال</value>
+  </data>
+  <data name="Global_Discard" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="Global_DisplayImage" xml:space="preserve">
+    <value>نمایش تصویر</value>
+  </data>
+  <data name="Global_DisplaySettings" xml:space="preserve">
+    <value>تنظیمات نمایش</value>
+  </data>
+  <data name="Global_Download" xml:space="preserve">
+    <value>دانلود</value>
+  </data>
+  <data name="Global_Draft" xml:space="preserve">
+    <value>پیش نویس</value>
+  </data>
+  <data name="Global_EditNews" xml:space="preserve">
+    <value>ویرایش خبر</value>
+  </data>
+  <data name="Global_EditProfile" xml:space="preserve">
+    <value>ویرایش پروفایل</value>
+  </data>
+  <data name="Global_Email" xml:space="preserve">
+    <value>آدرس ایمیل</value>
+  </data>
+  <data name="Global_EmailOrSms" xml:space="preserve">
+    <value>آدرس ایمیل یا شماره موبایل</value>
+  </data>
+  <data name="Global_FeatureList" xml:space="preserve">
+    <value>لیست ویژگی ها</value>
+  </data>
+  <data name="Global_FeatureManagment" xml:space="preserve">
+    <value>مدیریت ویژگی ها</value>
+  </data>
+  <data name="Global_Female" xml:space="preserve">
+    <value>زن</value>
+  </data>
+  <data name="Global_ForgotYourPassword" xml:space="preserve">
+    <value>رمز عبور خود را فراموش کرده اید؟</value>
+  </data>
+  <data name="Global_ForVerificationMobileNumberPleaseClickHere" xml:space="preserve">
+    <value>برای تایید شماره تلفن همراه؛ لطفا اینجا را کلیک کنید</value>
+  </data>
+  <data name="Global_Forward" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="Global_FurtherInformation" xml:space="preserve">
+    <value>اطلاعات تکمیلی</value>
+  </data>
+  <data name="Global_Goto_EmailLogin" xml:space="preserve">
+    <value>ورود از طریق ایمیل</value>
+  </data>
+  <data name="Global_Goto_SmsAndEmailLogin" xml:space="preserve">
+    <value>ورود از طریق ایمیل یا پیامک</value>
+  </data>
+  <data name="Global_Goto_SmsLogin" xml:space="preserve">
+    <value>ورود از طریق پیامک</value>
+  </data>
+  <data name="Global_GroupManagment" xml:space="preserve">
+    <value>مدیریت گروه</value>
+  </data>
+  <data name="Global_GroupsList" xml:space="preserve">
+    <value>لیست گروه ها</value>
+  </data>
+  <data name="Global_GroupUsersManagment" xml:space="preserve">
+    <value>مدیریت کاربران گروه</value>
+  </data>
+  <data name="Global_Images" xml:space="preserve">
+    <value>تصاویر</value>
+  </data>
+  <data name="Global_Important" xml:space="preserve">
+    <value>نشاندار ها</value>
+  </data>
+  <data name="Global_Inaccessibility" xml:space="preserve">
+    <value>عدم دسترسی</value>
+  </data>
+  <data name="Global_Inbox" xml:space="preserve">
+    <value>صندوق ورودی</value>
+  </data>
+  <data name="Global_InCountry" xml:space="preserve">
+    <value>در کشور</value>
+  </data>
+  <data name="Global_IpBannedManagment" xml:space="preserve">
+    <value>مدیریت آی پی های مسدود</value>
+  </data>
+  <data name="Global_IpList" xml:space="preserve">
+    <value>لیست آی پی ها</value>
+  </data>
+  <data name="Global_IpRangeManagment" xml:space="preserve">
+    <value>مدیریت محدوده آی پی</value>
+  </data>
+  <data name="Global_JustUseEnglishCharacters" xml:space="preserve">
+    <value>فقط از حروف انگلیسی استفاده کنید</value>
+  </data>
+  <data name="Global_LoginSetting" xml:space="preserve">
+    <value>تنظیمات ورود</value>
+  </data>
+  <data name="Global_Male" xml:space="preserve">
+    <value>مرد</value>
+  </data>
+  <data name="Global_Managment" xml:space="preserve">
+    <value>مدیریت</value>
+  </data>
+  <data name="Global_MarkAsImportant" xml:space="preserve">
+    <value>نشاندار کردن</value>
+  </data>
+  <data name="Global_MarkAsUnread" xml:space="preserve">
+    <value>علامت گزاری به عنوان خوانده نشده</value>
+  </data>
+  <data name="Global_Menu" xml:space="preserve">
+    <value>منو</value>
+  </data>
+  <data name="Global_Message" xml:space="preserve">
+    <value>پیام</value>
+  </data>
+  <data name="Global_Messages" xml:space="preserve">
+    <value>پیام ها</value>
+  </data>
+  <data name="Global_Messenger" xml:space="preserve">
+    <value>پیام رسان</value>
+  </data>
+  <data name="Global_MyContacts" xml:space="preserve">
+    <value>مخاطبین من</value>
+  </data>
+  <data name="Global_New" xml:space="preserve">
+    <value>جدید</value>
+  </data>
+  <data name="Global_NewCopain" xml:space="preserve">
+    <value>کوپن جدید</value>
+  </data>
+  <data name="Global_NewCrop" xml:space="preserve">
+    <value>برش جدید</value>
+  </data>
+  <data name="Global_NewDepartment" xml:space="preserve">
+    <value>دپارتمان جدید</value>
+  </data>
+  <data name="Global_NewDepartmentUser" xml:space="preserve">
+    <value>کاربر سازمان جدید</value>
+  </data>
+  <data name="Global_NewGroup" xml:space="preserve">
+    <value>گروه جدید</value>
+  </data>
+  <data name="Global_NewIp" xml:space="preserve">
+    <value>آی پی جدید</value>
+  </data>
+  <data name="Global_NewNews" xml:space="preserve">
+    <value>خبر جدید</value>
+  </data>
+  <data name="Global_NewNotification" xml:space="preserve">
+    <value>اطلاعیه جدید</value>
+  </data>
+  <data name="Global_NewRole" xml:space="preserve">
+    <value>نقش جدید</value>
+  </data>
+  <data name="Global_News" xml:space="preserve">
+    <value>اخبار</value>
+  </data>
+  <data name="Global_NewsContent" xml:space="preserve">
+    <value>محتوای خبر</value>
+  </data>
+  <data name="Global_NewsList" xml:space="preserve">
+    <value>لیست اخبار</value>
+  </data>
+  <data name="Global_NewsManagment" xml:space="preserve">
+    <value>مدیریت اخبار</value>
+  </data>
+  <data name="Global_NewUser" xml:space="preserve">
+    <value>کاربر جدید</value>
+  </data>
+  <data name="Global_Notification" xml:space="preserve">
+    <value>اطلاعیه</value>
+  </data>
+  <data name="Global_NotificationList" xml:space="preserve">
+    <value>لیست اطلاعیه ها</value>
+  </data>
+  <data name="Global_NotificationManagment" xml:space="preserve">
+    <value>مدیریت اطلاعیه ها</value>
+  </data>
+  <data name="Global_OfflineUserCount" xml:space="preserve">
+    <value>تعداد کاربران آفلاین</value>
+  </data>
+  <data name="Global_OnlineFriend" xml:space="preserve">
+    <value>دوستان آنلاین</value>
+  </data>
+  <data name="Global_OnlineUser" xml:space="preserve">
+    <value>کاربران آنلاین</value>
+  </data>
+  <data name="Global_OnlineUserCount" xml:space="preserve">
+    <value>تعداد کاربران آنلاین</value>
+  </data>
+  <data name="Global_Outbox" xml:space="preserve">
+    <value>صندوق خروجی</value>
+  </data>
+  <data name="Global_PageNotFound" xml:space="preserve">
+    <value>صفحه مورد نظر یافت نشد</value>
+  </data>
+  <data name="Global_PasswordRecovery" xml:space="preserve">
+    <value>بازنشانی کلمه عبور</value>
+  </data>
+  <data name="Global_Payment" xml:space="preserve">
+    <value>پرداخت</value>
+  </data>
+  <data name="Global_PaymentForm" xml:space="preserve">
+    <value>فرم پرداخت</value>
+  </data>
+  <data name="Global_PaymentPage" xml:space="preserve">
+    <value>صفحه پرداخت</value>
+  </data>
+  <data name="Global_PleaseInsertNewPassword" xml:space="preserve">
+    <value>لطفا رمز عبور جدید را وارد کنید</value>
+  </data>
+  <data name="Global_PleaseWait" xml:space="preserve">
+    <value>لطفا کمی صبر کنید ...</value>
+  </data>
+  <data name="Global_Private" xml:space="preserve">
+    <value>خصوصی</value>
+  </data>
+  <data name="Global_Profile" xml:space="preserve">
+    <value>پروفایل</value>
+  </data>
+  <data name="Global_ProfileDetail" xml:space="preserve">
+    <value>جزئیات پروفایل</value>
+  </data>
+  <data name="Global_Properties" xml:space="preserve">
+    <value>مشخصات</value>
+  </data>
+  <data name="Global_Public" xml:space="preserve">
+    <value>عمومی</value>
+  </data>
+  <data name="Global_PublicSettings" xml:space="preserve">
+    <value>تنظیمات عمومی</value>
+  </data>
+  <data name="Global_Read" xml:space="preserve">
+    <value>خوانده شده</value>
+  </data>
+  <data name="Global_Refresh" xml:space="preserve">
+    <value>تازه سازی</value>
+  </data>
+  <data name="Global_RegisteryDate" xml:space="preserve">
+    <value>تاریخ عضویت</value>
+  </data>
+  <data name="Global_Replay" xml:space="preserve">
+    <value>پاسخ</value>
+  </data>
+  <data name="Global_Reports" xml:space="preserve">
+    <value>گزارشات</value>
+  </data>
+  <data name="Global_Rial" xml:space="preserve">
+    <value>ریال</value>
+  </data>
+  <data name="Global_Role" xml:space="preserve">
+    <value>نقش</value>
+  </data>
+  <data name="Global_RoleManagment" xml:space="preserve">
+    <value>مدیریت نقش ها</value>
+  </data>
+  <data name="Global_Roles" xml:space="preserve">
+    <value>نقش ها</value>
+  </data>
+  <data name="Global_RolesList" xml:space="preserve">
+    <value>لیست نقش ها</value>
+  </data>
+  <data name="Global_RoleUsers" xml:space="preserve">
+    <value>کاربران نقش</value>
+  </data>
+  <data name="Global_RotateLeft" xml:space="preserve">
+    <value>چرخش به چپ</value>
+  </data>
+  <data name="Global_RotateRight" xml:space="preserve">
+    <value>چرخش به راست</value>
+  </data>
+  <data name="Global_Rules" xml:space="preserve">
+    <value>قوانین و مقررات</value>
+  </data>
+  <data name="Global_Search" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="Global_SearchInMessages" xml:space="preserve">
+    <value>جستجو در پیام ها</value>
+  </data>
+  <data name="Global_SearchInTable" xml:space="preserve">
+    <value>جستجو در جدول</value>
+  </data>
+  <data name="Global_SecurityCode" xml:space="preserve">
+    <value>کد امنیتی</value>
+  </data>
+  <data name="Global_Select" xml:space="preserve">
+    <value>انتخاب کنید</value>
+  </data>
+  <data name="Global_SelectContact" xml:space="preserve">
+    <value>انتخاب مخاطب</value>
+  </data>
+  <data name="Global_Selected" xml:space="preserve">
+    <value>انتخاب شده</value>
+  </data>
+  <data name="Global_SelectImage" xml:space="preserve">
+    <value>انتخاب تصویر</value>
+  </data>
+  <data name="Global_Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="Global_SendForm" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="Global_SendMessage" xml:space="preserve">
+    <value>ارسال پیام</value>
+  </data>
+  <data name="Global_SendRequest" xml:space="preserve">
+    <value>ارسال درخواست</value>
+  </data>
+  <data name="Global_SendTo" xml:space="preserve">
+    <value>ارسال به</value>
+  </data>
+  <data name="Global_SentMail" xml:space="preserve">
+    <value>پیام های ارسال شده</value>
+  </data>
+  <data name="Global_SeparateUsersWithChar" xml:space="preserve">
+    <value>کاربران را با "," از هم جدا کنید</value>
+  </data>
+  <data name="Global_Settings" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="Global_SiteStatistic" xml:space="preserve">
+    <value>آمار سایت</value>
+  </data>
+  <data name="Global_Sms" xml:space="preserve">
+    <value>شماره موبایل</value>
+  </data>
+  <data name="Global_Status" xml:space="preserve">
+    <value>وضعیت</value>
+  </data>
+  <data name="Global_Status_Active" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Global_Status_InActive" xml:space="preserve">
+    <value>غیرفعال</value>
+  </data>
+  <data name="Global_Subject" xml:space="preserve">
+    <value>موضوع</value>
+  </data>
+  <data name="Global_SystemUserCount" xml:space="preserve">
+    <value>تعداد کاربران سامانه</value>
+  </data>
+  <data name="Global_Trash" xml:space="preserve">
+    <value>حذف شده ها</value>
+  </data>
+  <data name="Global_UnRead" xml:space="preserve">
+    <value>خوانده نشده</value>
+  </data>
+  <data name="Global_Update" xml:space="preserve">
+    <value>بروز رسانی</value>
+  </data>
+  <data name="Global_UploadNewImage" xml:space="preserve">
+    <value>بارگزاری تصویر جدید</value>
+  </data>
+  <data name="Global_UserFurtherInformation" xml:space="preserve">
+    <value>اطلاعات تکمیلی کاربر</value>
+  </data>
+  <data name="Global_UserManagment" xml:space="preserve">
+    <value>مدیریت کاربران</value>
+  </data>
+  <data name="Global_UserPanel" xml:space="preserve">
+    <value>پنل کاربری</value>
+  </data>
+  <data name="Global_UserRoles" xml:space="preserve">
+    <value>نقش(های) کاربر</value>
+  </data>
+  <data name="Global_Users" xml:space="preserve">
+    <value>کاربران</value>
+  </data>
+  <data name="Global_VerificationMobileNumber" xml:space="preserve">
+    <value>تایید شماره تلفن همراه</value>
+  </data>
+  <data name="Global_VerificationMobileNumberStatus" xml:space="preserve">
+    <value>وضعیت تایید شماره تلفن همراه</value>
+  </data>
+  <data name="Global_ViewMessage" xml:space="preserve">
+    <value>مشاهده پیام</value>
+  </data>
+  <data name="Global_Wallet" xml:space="preserve">
+    <value>کیف پول</value>
+  </data>
+  <data name="Global_WalletCharge" xml:space="preserve">
+    <value>شارژ کیف پول</value>
+  </data>
+  <data name="Global_WelcomeToAdminPanel" xml:space="preserve">
+    <value>به بخش مدیریت خوش آمدید</value>
+  </data>
+  <data name="Global_YouDontHaveAccessTopage" xml:space="preserve">
+    <value>شما به این صفحه دسترسی ندارید</value>
+  </data>
+  <data name="Global_ZoomIn" xml:space="preserve">
+    <value>بزرگ کردن</value>
+  </data>
+  <data name="Global_ZoomOut" xml:space="preserve">
+    <value>کوچک کردن</value>
+  </data>
+  <data name="Table_RowNumber" xml:space="preserve">
+    <value>ردیف</value>
+  </data>
+  <data name="Table_UserOperations" xml:space="preserve">
+    <value>عملیات</value>
+  </data>
+  <data name="UserMetadata_ConfirmPassword" xml:space="preserve">
+    <value>تایید کلمه عبور</value>
+  </data>
+  <data name="UserMetadata_UserIsEnable" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="News_HotLink" xml:space="preserve">
+    <value>لینک ویژه</value>
+  </data>
+  <data name="News_LiveNews" xml:space="preserve">
+    <value>خبر زنده</value>
+  </data>
+  <data name="News_WithFilm" xml:space="preserve">
+    <value>به همراه فیلم</value>
+  </data>
+  <data name="News_WithImage" xml:space="preserve">
+    <value>به همراه تصویر</value>
+  </data>
+  <data name="News_WithVoice" xml:space="preserve">
+    <value>به همراه صوت</value>
+  </data>
+  <data name="ConfirmKey_InsertKey" xml:space="preserve">
+    <value>لطفا کد دریافتی را وارد کنید</value>
+  </data>
+  <data name="Global_Register" xml:space="preserve">
+    <value>ثبت نام</value>
+  </data>
+  <data name="Application_Language" xml:space="preserve">
+    <value>زبان سامانه</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>صـنـــــدوق توسعه فــن آوری نــــویــن</value>
+  </data>
+  <data name="Application_HeaderTitle" xml:space="preserve">
+    <value>صندوق توسعه فناوری های نوین</value>
+  </data>
+  <data name="User_Metadata_Language" xml:space="preserve">
+    <value>زبان کاربری</value>
+  </data>
+  <data name="Statistic_AlexaRank" xml:space="preserve">
+    <value>رتبه الکسا</value>
+  </data>
+  <data name="Global_DescriptionMetaTag" xml:space="preserve">
+    <value>سایت صندوق نوآوری و شکوفایی که در راستای کمک به مشاغل نوپا شروع به سرمایه گزاری و حمایت از استارت آپ ها کرده است.</value>
+  </data>
+  <data name="Global_KeywordMetaTag" xml:space="preserve">
+    <value>صندوق، ضمانت نامه، تسهیلات، استارت آپ، مشاغل نوپا، سرمایه گزاری نوین، صندوق نوآوری و شکوفایی</value>
+  </data>
+  <data name="Global_PortfolioManagement" xml:space="preserve">
+    <value>مدیریت سبدهای سهام</value>
+  </data>
+  <data name="Global_NewPortfolio" xml:space="preserve">
+    <value> سبد سهام جدید</value>
+  </data>
+  <data name="Global_PortfoliosManagement" xml:space="preserve">
+    <value>مدیریت سبدهای سهام</value>
+  </data>
+  <data name="PortfolioModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Global_PortfolioList" xml:space="preserve">
+    <value>لیست سبدهای سهام</value>
+  </data>
+  <data name="ToReceiveActivationCode" xml:space="preserve">
+    <value>برای دریافت کد فعال سازی</value>
+  </data>
+  <data name="Global_EditPortfolio" xml:space="preserve">
+    <value>ویرایش سبد سهام</value>
+  </data>
+  <data name="Global_Portfolios" xml:space="preserve">
+    <value>سبدهای سهام</value>
+  </data>
+  <data name="Global_DesignBy" xml:space="preserve">
+    <value>طراحی شده توسط شرکت هادی </value>
+  </data>
+  <data name="Global_LastMessageReceived" xml:space="preserve">
+    <value>آخرین پیام های دریافتی</value>
+  </data>
+  <data name="Global_LastNews" xml:space="preserve">
+    <value>آخرین اخبار</value>
+  </data>
+  <data name="Global_RegisterIn" xml:space="preserve">
+    <value>ثبت نام در</value>
+  </data>
+  <data name="Global_YourUsernameWillBeMobileOrEmail" xml:space="preserve">
+    <value>نام کاربری شما، شماره موبایل یا آدرس ایمیلی خواهد بود که در این قسمت وارد می کنید</value>
+  </data>
+  <data name="Global_NewPortfolioItem" xml:space="preserve">
+    <value>ایجاد آیتم سبد سهام جدید</value>
+  </data>
+  <data name="Global_PortfolioItemsList" xml:space="preserve">
+    <value>لیست آیتم های سبد سهام</value>
+  </data>
+  <data name="Global_PortfolioItemsManagement" xml:space="preserve">
+    <value>مدیریت آیتم های سبد سهام</value>
+  </data>
+  <data name="PortfolioItemModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="PortfolioItems" xml:space="preserve">
+    <value>آیتم های سبد سهام</value>
+  </data>
+  <data name="Global_ViewSite" xml:space="preserve">
+    <value>مشاهده سایت</value>
+  </data>
+  <data name="Global_MenusList" xml:space="preserve">
+    <value>لیست منوها</value>
+  </data>
+  <data name="Global_MenusManagement" xml:space="preserve">
+    <value>مدیریت منوها</value>
+  </data>
+  <data name="Global_NewMenu" xml:space="preserve">
+    <value>منوی جدید</value>
+  </data>
+  <data name="MenuModel_CssClass" xml:space="preserve">
+    <value>کلاس استایل</value>
+  </data>
+  <data name="MenuModel_LanguageId" xml:space="preserve">
+    <value>زبان</value>
+  </data>
+  <data name="MenuModel_Link" xml:space="preserve">
+    <value>لینک</value>
+  </data>
+  <data name="MenuModel_OrderId" xml:space="preserve">
+    <value>ترتیب</value>
+  </data>
+  <data name="MenuModel_ParentId" xml:space="preserve">
+    <value>منوی والد</value>
+  </data>
+  <data name="MenuModel_Relationship" xml:space="preserve">
+    <value>رابطه لینک</value>
+  </data>
+  <data name="MenuModel_Target" xml:space="preserve">
+    <value>مقصد لینک</value>
+  </data>
+  <data name="MenuModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="MenuModel_Image" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="Global_EditMenu" xml:space="preserve">
+    <value>ویرایش منو</value>
+  </data>
+  <data name="PortfolioItemModel_Image" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="Global_MenuManagment" xml:space="preserve">
+    <value>مدیریت منوها</value>
+  </data>
+  <data name="Global_NewTag" xml:space="preserve">
+    <value>برچسب جدید</value>
+  </data>
+  <data name="Global_TagsList" xml:space="preserve">
+    <value>لیست برچسب ها</value>
+  </data>
+  <data name="Global_TagsManagement" xml:space="preserve">
+    <value>مدیریت برچسب ها</value>
+  </data>
+  <data name="TagModel_Name" xml:space="preserve">
+    <value>نام کلمه کلیدی</value>
+  </data>
+  <data name="TagModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="ArticleModel_AttachmentImage" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="ArticleModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="ArticleModel_Source" xml:space="preserve">
+    <value>متن </value>
+  </data>
+  <data name="ArticleModel_Summary" xml:space="preserve">
+    <value>خلاصه متن</value>
+  </data>
+  <data name="ArticleModel_Tags" xml:space="preserve">
+    <value>برچسب ها</value>
+  </data>
+  <data name="ArticleModel_Title" xml:space="preserve">
+    <value>عنوان </value>
+  </data>
+  <data name="Global_ArticlesList" xml:space="preserve">
+    <value>لیست مقالات</value>
+  </data>
+  <data name="Global_ArticlesManagement" xml:space="preserve">
+    <value>مدیریت مقالات</value>
+  </data>
+  <data name="Global_NewArticle" xml:space="preserve">
+    <value>مقاله جدید</value>
+  </data>
+  <data name="Global_Articles" xml:space="preserve">
+    <value>مقالات</value>
+  </data>
+  <data name="Global_NewTemplate" xml:space="preserve">
+    <value>قالب جدید</value>
+  </data>
+  <data name="Global_NewTemplateDetail" xml:space="preserve">
+    <value>اطلاعات قالب جدید</value>
+  </data>
+  <data name="Global_TemplateDetailsList" xml:space="preserve">
+    <value>لیست اطلاعات قالب</value>
+  </data>
+  <data name="Global_TemplateDetailsManagement" xml:space="preserve">
+    <value>مدیریت اطلاعات قالب</value>
+  </data>
+  <data name="Global_TemplatesList" xml:space="preserve">
+    <value>لیست قالب ها</value>
+  </data>
+  <data name="Global_TemplatesManagement" xml:space="preserve">
+    <value>مدیریت قالب ها</value>
+  </data>
+  <data name="TemplateDetailModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="TemplateDetailModel_Source" xml:space="preserve">
+    <value>کد</value>
+  </data>
+  <data name="TemplateDetailModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="TemplateDetails" xml:space="preserve">
+    <value>جزپیات قالب</value>
+  </data>
+  <data name="TemplateModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="TemplateModel_Source" xml:space="preserve">
+    <value>کد</value>
+  </data>
+  <data name="TemplateModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="PortfolioModel_TemplateId" xml:space="preserve">
+    <value>قالب</value>
+  </data>
+  <data name="Global_NewPage" xml:space="preserve">
+    <value>صفحه جدید</value>
+  </data>
+  <data name="Global_PagesList" xml:space="preserve">
+    <value>لیست صفحات</value>
+  </data>
+  <data name="Global_PagesManagement" xml:space="preserve">
+    <value>مدیریت صفحات</value>
+  </data>
+  <data name="PageModel_Alias" xml:space="preserve">
+    <value>نام مستعار</value>
+  </data>
+  <data name="PageModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="PageModel_ImageId" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="PageModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="PageModel_Keywords" xml:space="preserve">
+    <value>کلمات کلیدی</value>
+  </data>
+  <data name="PageModel_LanguageId" xml:space="preserve">
+    <value>زبان</value>
+  </data>
+  <data name="PageModel_OrderId" xml:space="preserve">
+    <value>ترتیب</value>
+  </data>
+  <data name="PageModel_Source" xml:space="preserve">
+    <value>کد</value>
+  </data>
+  <data name="PageModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Global_PageContent" xml:space="preserve">
+    <value>محتوای صفحه</value>
+  </data>
+  <data name="NewsModel_Language" xml:space="preserve">
+    <value>زبان</value>
+  </data>
+  <data name="ArticleModel_Language" xml:space="preserve">
+    <value>زبان</value>
+  </data>
+  <data name="Global_Templates" xml:space="preserve">
+    <value>قالب ها</value>
+  </data>
+  <data name="PortfolioModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Global_NewPortfolioItemDetail" xml:space="preserve">
+    <value>جزئیات سبد سهام جدید</value>
+  </data>
+  <data name="Global_PortfolioItemDetailsList" xml:space="preserve">
+    <value>لیست جزئیات سبد سهام</value>
+  </data>
+  <data name="Global_PortfolioItemDetailsManagement" xml:space="preserve">
+    <value>مدیریت جزئیات سبد سهام</value>
+  </data>
+  <data name="NewsModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="PortfolioItemDetailModel_AlexaGrade" xml:space="preserve">
+    <value>رتبه الکسا</value>
+  </data>
+  <data name="PortfolioItemDetailModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="PortfolioItemDetailModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="PortfolioItemDetailModel_LeftImageId" xml:space="preserve">
+    <value>تصویر سمت چپ</value>
+  </data>
+  <data name="PortfolioItemDetailModel_ParticipationPercent" xml:space="preserve">
+    <value>درصد مشارکت</value>
+  </data>
+  <data name="PortfolioItemDetailModel_RightImageId" xml:space="preserve">
+    <value>تصویر سمت راست</value>
+  </data>
+  <data name="PortfolioItemDetailModel_SiteUrl" xml:space="preserve">
+    <value>آدرس سایت</value>
+  </data>
+  <data name="PortfolioItemDetailModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="PortfolioItemDetails" xml:space="preserve">
+    <value>جزئیات سبد سهام</value>
+  </data>
+  <data name="Global_NewPortfolioItemFeature" xml:space="preserve">
+    <value>ویژگی سبد سهام جدید</value>
+  </data>
+  <data name="Global_PortfolioItemFeaturesList" xml:space="preserve">
+    <value>لیست ویژگی های سبد سهام</value>
+  </data>
+  <data name="Global_PortfolioItemFeaturesManagement" xml:space="preserve">
+    <value>مدیریت ویژگی های سبد سهام</value>
+  </data>
+  <data name="PortfolioItemFeatureModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="PortfolioItemFeatureModel_ImageId" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="PortfolioItemFeatureModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="PortfolioItemFeatures" xml:space="preserve">
+    <value>ویژگی های سبد سهام</value>
+  </data>
+  <data name="DropDownFilter" xml:space="preserve">
+    <value>فیلتر ارور ... </value>
+  </data>
+  <data name="EventLogModel_EventCode" xml:space="preserve">
+    <value>کد رویداد</value>
+  </data>
+  <data name="EventLogModel_EventDescription" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="EventLogModel_EventMachineName" xml:space="preserve">
+    <value>نام ماشین</value>
+  </data>
+  <data name="EventLogModel_EventTime" xml:space="preserve">
+    <value>زمان رویداد</value>
+  </data>
+  <data name="EventLogModel_EventType" xml:space="preserve">
+    <value>نوع ارور</value>
+  </data>
+  <data name="EventLogModel_EventUrl" xml:space="preserve">
+    <value>آدرس رویداد</value>
+  </data>
+  <data name="EventLogModel_EventUrlReferrer" xml:space="preserve">
+    <value>آدرس مراجعه</value>
+  </data>
+  <data name="EventLogModel_EventUserAgent" xml:space="preserve">
+    <value>کاربر عامل</value>
+  </data>
+  <data name="EventLogModel_IpAddress" xml:space="preserve">
+    <value>آدرس IP</value>
+  </data>
+  <data name="EventLogModel_Source" xml:space="preserve">
+    <value>منبع</value>
+  </data>
+  <data name="EventLogModel_UserId" xml:space="preserve">
+    <value>شناسه کاربر</value>
+  </data>
+  <data name="EventLogModel_UserName" xml:space="preserve">
+    <value>نام کاربر</value>
+  </data>
+  <data name="Global_EventLogsList" xml:space="preserve">
+    <value>لیست گزارشات خطاها</value>
+  </data>
+  <data name="Global_EventLogsManagement" xml:space="preserve">
+    <value>گزارش خطاهای سیستم</value>
+  </data>
+  <data name="DropDownErrorFilter" xml:space="preserve">
+    <value>فیلتر ارور</value>
+  </data>
+  <data name="FileModel_CreatedBy" xml:space="preserve">
+    <value>ایجاد شده توسط</value>
+  </data>
+  <data name="FileModel_File" xml:space="preserve">
+    <value>فایل</value>
+  </data>
+  <data name="FileModel_Image" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="FileModel_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="FileModel_Source" xml:space="preserve">
+    <value>منبع</value>
+  </data>
+  <data name="FileModel_Type" xml:space="preserve">
+    <value>نوع</value>
+  </data>
+  <data name="Global_FilesList" xml:space="preserve">
+    <value>لیست فایل ها</value>
+  </data>
+  <data name="Global_FilesManagement" xml:space="preserve">
+    <value>مدیریت فایل ها</value>
+  </data>
+  <data name="Global_NewFile" xml:space="preserve">
+    <value>فایل جدید</value>
+  </data>
+  <data name="FileModel_LastModifiedDate" xml:space="preserve">
+    <value>تاریخ ایجاد</value>
+  </data>
+  <data name="FileModel_StorageType" xml:space="preserve">
+    <value>نوع ذخیره سازی</value>
+  </data>
+  <data name="FileModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Global_EventLogDetails" xml:space="preserve">
+    <value>جزئیات خطا</value>
+  </data>
+  <data name="Global_Next" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="Global_Previous" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value>زمان ثبت</value>
+  </data>
+  <data name="MenuModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Global_EditPage" xml:space="preserve">
+    <value>ویرایش صفحه</value>
+  </data>
+  <data name="Global_EditHtdfService" xml:space="preserve">
+    <value>ویرایش خدمت</value>
+  </data>
+  <data name="Global_HtdfServicesList" xml:space="preserve">
+    <value>لیست خدمات</value>
+  </data>
+  <data name="Global_HtdfServicesManagement" xml:space="preserve">
+    <value>مدیریت خدمات</value>
+  </data>
+  <data name="Global_NewHtdfService" xml:space="preserve">
+    <value>خدمت جدید</value>
+  </data>
+  <data name="PageModel_LanguageName" xml:space="preserve">
+    <value>زبان</value>
+  </data>
+  <data name="Global_LoginToSystem" xml:space="preserve">
+    <value>ورود به سامانه</value>
+  </data>
+  <data name="PortfolioItemModel_SubTitle" xml:space="preserve">
+    <value>زیرعنوان</value>
+  </data>
+  <data name="Global_AccountDeleted" xml:space="preserve">
+    <value>حساب کاربری شما غیرفعال است. لطفا با مدیر سیستم تماس بگیرید</value>
+  </data>
+  <data name="Views_Login_YourAccountHasBeenBlocked" xml:space="preserve">
+    <value>حساب کاربری شما غیرفعال می باشد</value>
+  </data>
+  <data name="New_Ip_Created" xml:space="preserve">
+    <value>آی پی جدید با موفقیت ثبت شد</value>
+  </data>
+  <data name="New_Ip_Created_Failed" xml:space="preserve">
+    <value>خطا در ثبت اطلاعات</value>
+  </data>
+  <data name="Delete_Ip_Range_Error" xml:space="preserve">
+    <value>عملیات حذف با خطا مواجه شد</value>
+  </data>
+  <data name="Delete_Ip_Range_Success" xml:space="preserve">
+    <value>آی پی انتخابی با موفقیت حذف شد</value>
+  </data>
+  <data name="Is_Deleted" xml:space="preserve">
+    <value>حذف شد !</value>
+  </data>
+  <data name="Is_Error" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="Are_You_Sure" xml:space="preserve">
+    <value>آیا مطمئن هستید ؟</value>
+  </data>
+  <data name="Delete_Ip_Sweet_Alert" xml:space="preserve">
+    <value>آی پی مورد نظر از سیستم حذف خواهد شد</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>خیر</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>بلی</value>
+  </data>
+  <data name="User_Attention_To_For_Delete" xml:space="preserve">
+    <value>کاربر مورد نظر از سیستم حذف خواهد شد</value>
+  </data>
+  <data name="User_Failed_Deleted" xml:space="preserve">
+    <value>عملیات حذف کاربر با شکست مواجه شد</value>
+  </data>
+  <data name="User_NotPermission_To_Delete_Error" xml:space="preserve">
+    <value>شما مجوز حذف این کاربر را ندارید</value>
+  </data>
+  <data name="User_Successfully_Deleted" xml:space="preserve">
+    <value>کاربر با موفقیت حذف شد</value>
+  </data>
+  <data name="IP_Banned_Failed_Create" xml:space="preserve">
+    <value>عملیات ثبت ای پی با شکست مواجه شد</value>
+  </data>
+  <data name="IP_Banned_failed_Deleted_Permission" xml:space="preserve">
+    <value>شما مجوز حذف این آی پی را ندارید</value>
+  </data>
+  <data name="IP_Banned_Falied_Deleted" xml:space="preserve">
+    <value>عملیات حذف ای پی با شکست مواجه شد</value>
+  </data>
+  <data name="IP_Banned_Successfully_Create" xml:space="preserve">
+    <value>آی پی جدید با موفقیت ثبت شد</value>
+  </data>
+  <data name="IP_Banned_Successfully_Deleted" xml:space="preserve">
+    <value>آی پی انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Create_Failed" xml:space="preserve">
+    <value>خطا در ثبت اطلاعات</value>
+  </data>
+  <data name="Success_User_Signup" xml:space="preserve">
+    <value>کاربر جدید با موفقیت ثبت شد</value>
+  </data>
+  <data name="User_Name_Already_Taken" xml:space="preserve">
+    <value>این نام کاربری در سیستم وجود دارد</value>
+  </data>
+  <data name="Role_Assigned_To_User_Error" xml:space="preserve">
+    <value>این نقش به کاربری نسبت داده شده</value>
+  </data>
+  <data name="Role_Deleted_Successfully" xml:space="preserve">
+    <value>نقش انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Role_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>شما مجوز حذف این نقش را ندارید</value>
+  </data>
+  <data name="Role_Error_While_Delete" xml:space="preserve">
+    <value>خطا در حذف نقش</value>
+  </data>
+  <data name="Role_Exists_System" xml:space="preserve">
+    <value>این نقش قبلاً در سیستم بوده است</value>
+  </data>
+  <data name="Role_Successfully_Created" xml:space="preserve">
+    <value>نقش جدید با موفقیت ثبت شد</value>
+  </data>
+  <data name="IP_Exists" xml:space="preserve">
+    <value>این ای پی قبلا تعریف شده است</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>فیلد باید مقداری داشته باشد</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="IsEnabled" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>زبان</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>کلمه عبور</value>
+  </data>
+  <data name="RetypePassword" xml:space="preserve">
+    <value>تکرار کلمه عبور</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="User_Passowrd_Not_Match_With_Confirm" xml:space="preserve">
+    <value>کلمه عبور با تکرار کلمه عبور همخوانی ندارد</value>
+  </data>
+  <data name="Change_Password_Error" xml:space="preserve">
+    <value>عملیات تغییر کلمه عبور با شکست رو به رو شد</value>
+  </data>
+  <data name="Change_Password_Hint" xml:space="preserve">
+    <value>لطفا در انتخاب رمز عبور جدید از حروف کوچک و بزرگ انگلیسی و اعداد بصورت ترکیبی استفاده نمایید</value>
+  </data>
+  <data name="Global_Clear" xml:space="preserve">
+    <value>بارگذاری مجدد</value>
+  </data>
+  <data name="Feature_Property_Title" xml:space="preserve">
+    <value>عنوان ویژگی</value>
+  </data>
+  <data name="Event_Delete" xml:space="preserve">
+    <value>رخداد انتخاب شده از سیستم حذف خواهد شد</value>
+  </data>
+  <data name="Notification_Created_Error" xml:space="preserve">
+    <value>خطا در ثبت اطلاعات</value>
+  </data>
+  <data name="Notification_Created_Successfully" xml:space="preserve">
+    <value>اطلاعیه ی جدید با موفقیت ثبت شد</value>
+  </data>
+  <data name="Notification_Delete_Error" xml:space="preserve">
+    <value>خطا در حذف اطلاعیه</value>
+  </data>
+  <data name="Notification_Delete_Successfully" xml:space="preserve">
+    <value>اطلاعیه ی انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Notification_Dont_Have_Permission" xml:space="preserve">
+    <value>شما مجوز حذف این اطلاعیه را ندارید</value>
+  </data>
+  <data name="File_Management_Delete" xml:space="preserve">
+    <value>فایل انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="File_Managment_Delete_Successfully" xml:space="preserve">
+    <value>فایل انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="File_Managment_Dont_Permission_For_Delete" xml:space="preserve">
+    <value>شما مجوز حذف این فایل را ندارید</value>
+  </data>
+  <data name="File_Managment_Error_While_Delete_File" xml:space="preserve">
+    <value>خطا در حذف فایل</value>
+  </data>
+  <data name="Email_Is_Inavlid" xml:space="preserve">
+    <value>ایمیل صحیح نمی باشد</value>
+  </data>
+  <data name="Phone_Is_Invalid" xml:space="preserve">
+    <value>شماره تلفن وارد شده صحیح نمی باشد</value>
+  </data>
+  <data name="National_Code_Is_Invalid" xml:space="preserve">
+    <value>کد ملی را با فرمت صحیح وارد کنید</value>
+  </data>
+  <data name="News_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>شما مجوز حذف این خبر را ندارید</value>
+  </data>
+  <data name="News_Delete_Error" xml:space="preserve">
+    <value>خطا در حذف خبر</value>
+  </data>
+  <data name="News_Delete_Message" xml:space="preserve">
+    <value>خبر انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="News_Delete_Success" xml:space="preserve">
+    <value>خبر انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Notification_Delete_Message" xml:space="preserve">
+    <value>اطلاعیه ی مورد نظر از سیستم حذف خواهد شد</value>
+  </data>
+  <data name="News_Title_Error" xml:space="preserve">
+    <value>لطفا عنوان خبر را وارد نمایید</value>
+  </data>
+  <data name="Article_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>شما مجوز حذف این مقاله را ندارید</value>
+  </data>
+  <data name="Article_Delete_Error" xml:space="preserve">
+    <value>خطا در حذف  مقاله</value>
+  </data>
+  <data name="Article_Delete_Message" xml:space="preserve">
+    <value>مقاله انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Article_Delete_Message_Successfully" xml:space="preserve">
+    <value>مقاله انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Article_Short_Des_Error" xml:space="preserve">
+    <value>لطفا توضیح خلاصه مقاله را وارد کنید</value>
+  </data>
+  <data name="Article_Title_Error" xml:space="preserve">
+    <value>لطفا عنوان مقاله را وارد کنید</value>
+  </data>
+  <data name="Menu_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>شما مجوز حذف این منو را ندارید</value>
+  </data>
+  <data name="Menu_Delete_Error" xml:space="preserve">
+    <value>خطا در حذف منو</value>
+  </data>
+  <data name="Menu_Delete_Question" xml:space="preserve">
+    <value>منوی انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Menu_Delete_Successfully" xml:space="preserve">
+    <value>منوی انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Menu_Link_Error" xml:space="preserve">
+    <value>لطفا لینک منو را وارد کنید</value>
+  </data>
+  <data name="Menu_Title_Error" xml:space="preserve">
+    <value>لطفا عنوان منو را وارد کنید</value>
+  </data>
+  <data name="For_Example" xml:space="preserve">
+    <value>برای مثال</value>
+  </data>
+  <data name="Page_Delete_Dont_Permission_Error" xml:space="preserve">
+    <value>شما مجوز حذف این صفحه را ندارید</value>
+  </data>
+  <data name="Page_Delete_Error" xml:space="preserve">
+    <value>خطا در حذف  صفحه</value>
+  </data>
+  <data name="Page_Delete_Message" xml:space="preserve">
+    <value>صفحه انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Page_Delete_Successfully" xml:space="preserve">
+    <value>صفحه انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Page_Title_Error" xml:space="preserve">
+    <value>لطفا عنوان صفحه را وارد نمایید</value>
+  </data>
+  <data name="Portfolio_Delete_Dont_Have_Permission_Message" xml:space="preserve">
+    <value>شما مجوز حذف این سبد سهام را ندارید</value>
+  </data>
+  <data name="Portfolio_Delete_Error" xml:space="preserve">
+    <value>خطا در حذف سبد سهام</value>
+  </data>
+  <data name="Portfolio_Delete_Question" xml:space="preserve">
+    <value>سبد سهام انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Portfolio_Delete_Successfully" xml:space="preserve">
+    <value>سبد سهام انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Portfolio_Template_Error" xml:space="preserve">
+    <value>لطفا قالب سبد سهام را وارد کنید</value>
+  </data>
+  <data name="Portfolio_Title_Error" xml:space="preserve">
+    <value>لطفا عنوان سبد سهام را وارد کنید</value>
+  </data>
+  <data name="Template_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>شما مجوز حذف این قالب را ندارید</value>
+  </data>
+  <data name="Template_Delete_Error" xml:space="preserve">
+    <value>خطا در حذف قالب</value>
+  </data>
+  <data name="Template_Delete_Message" xml:space="preserve">
+    <value>قالب انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Template_Delete_Successfully" xml:space="preserve">
+    <value>قالب انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Template_Title_Error" xml:space="preserve">
+    <value>لطفا عنوان قالب را وارد کنید</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>موفق</value>
+  </data>
+  <data name="Setting_Update_Successful" xml:space="preserve">
+    <value>تنظیمات با موفقیت تغییر یافت</value>
+  </data>
+  <data name="Event_Log_Successfully_Removed" xml:space="preserve">
+    <value>رخداد با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_Error" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="Global_Success" xml:space="preserve">
+    <value>موفق</value>
+  </data>
+  <data name="Global_SystemError" xml:space="preserve">
+    <value>متاسفانه خطای سیستمی رخ داده است</value>
+  </data>
+  <data name="NewsCategory_Delete_Success" xml:space="preserve">
+    <value>دسته بندی با موفقیت حذف شد</value>
+  </data>
+  <data name="Global_Category" xml:space="preserve">
+    <value>دسته بندی</value>
+  </data>
+  <data name="Global_EnTitle" xml:space="preserve">
+    <value>عنوان انگلیسی</value>
+  </data>
+  <data name="Global_NewsCategoryList" xml:space="preserve">
+    <value>لیست دسته بندی</value>
+  </data>
+  <data name="Global_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="MenuModel_IsSideBar" xml:space="preserve">
+    <value>منو کناره</value>
+  </data>
+  <data name="MenuModel_Color" xml:space="preserve">
+    <value>رنگ منو</value>
+  </data>
+  <data name="ArticleModel_Special" xml:space="preserve">
+    <value>ویژه</value>
+  </data>
+  <data name="Global_Tags" xml:space="preserve">
+    <value>برچسب ها</value>
+  </data>
+  <data name="TagModel_Color" xml:space="preserve">
+    <value>رنگ</value>
+  </data>
+  <data name="TagModel_Parent" xml:space="preserve">
+    <value>والد برچسب</value>
+  </data>
+  <data name="TagModel_Title" xml:space="preserve">
+    <value>عنوان برچسب</value>
+  </data>
+  <data name="TagModel_UniqueValue" xml:space="preserve">
+    <value>مقدار یکتا</value>
+  </data>
+  <data name="ArticleModel_ImageCaption" xml:space="preserve">
+    <value>توضیحات عکس</value>
+  </data>
+  <data name="Global_EditArticle" xml:space="preserve">
+    <value>ویرایش مقاله</value>
+  </data>
+  <data name="ProfileModel_InstagramAddress" xml:space="preserve">
+    <value>آدرس اینستاگرام</value>
+  </data>
+  <data name="ProfileModel_LinkedInAddress" xml:space="preserve">
+    <value>آدرس لینکدین</value>
+  </data>
+  <data name="ProfileModel_TelegramAddress" xml:space="preserve">
+    <value>آدرس تلگرام</value>
+  </data>
+  <data name="Global_Edit_File_Tags" xml:space="preserve">
+    <value>ویرایش تگ های فایل</value>
+  </data>
+  <data name="FileModel_PosterImageGuid" xml:space="preserve">
+    <value>شناسه پوستر</value>
+  </data>
+  <data name="Global_SocialNetworkManagement" xml:space="preserve">
+    <value>مدیریت شبکه های اجتماعی</value>
+  </data>
+  <data name="SocialNetworkModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="SocialNetwork_CssClass" xml:space="preserve">
+    <value>کلاس استایل</value>
+  </data>
+  <data name="SocialNetwork_Image" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="SocialNetwork_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Global_NewSocialNetwork" xml:space="preserve">
+    <value>شبکه اجتماعی جدید</value>
+  </data>
+  <data name="Global_SocialNetworkList" xml:space="preserve">
+    <value>لیست شبکه های اجتماعی</value>
+  </data>
+  <data name="SocialNetworkModel_Title_Required" xml:space="preserve">
+    <value>لطفا عنوان شبکه اجتماعی را وارد نمایید</value>
+  </data>
+  <data name="Global_EditSocialNetwork" xml:space="preserve">
+    <value>ویرایش شبکه اجتماعی</value>
+  </data>
+  <data name="Global_SocialNetwork" xml:space="preserve">
+    <value>شبکه های اجتماعی</value>
+  </data>
+  <data name="SocialNetworkModel_Link" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="EmployerModel_ExistsName" xml:space="preserve">
+    <value>نام وارد شده قبلا در سیستم موجود می باشد</value>
+  </data>
+  <data name="Global_EditProject" xml:space="preserve">
+    <value>ویرایش پروژه</value>
+  </data>
+  <data name="Global_NewProject" xml:space="preserve">
+    <value>پروژه جدید</value>
+  </data>
+  <data name="Global_ProjectList" xml:space="preserve">
+    <value>لیست پروژه ها</value>
+  </data>
+  <data name="Global_ProjectManagment" xml:space="preserve">
+    <value>مدیریت پروژه ها</value>
+  </data>
+  <data name="Global_Projects" xml:space="preserve">
+    <value>مدیریت پروژه ها</value>
+  </data>
+  <data name="ProjectModel_AttachmentImage" xml:space="preserve">
+    <value>عکس پروژه</value>
+  </data>
+  <data name="ProjectModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="ProjectModel_EmployerId" xml:space="preserve">
+    <value>کارفرما</value>
+  </data>
+  <data name="ProjectModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="ProjectModel_ProjectLink" xml:space="preserve">
+    <value>لینک پروژه</value>
+  </data>
+  <data name="ProjectModel_Tags" xml:space="preserve">
+    <value>برچسب ها</value>
+  </data>
+  <data name="ProjectModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="ProjectModel_Title_Required" xml:space="preserve">
+    <value>لطفا عنوان پروژه را وارد نمایید</value>
+  </data>
+  <data name="EmployerModel_Address" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="EmployerModel_CEOName" xml:space="preserve">
+    <value>نام مدیرعامل</value>
+  </data>
+  <data name="EmployerModel_DeleteMessage" xml:space="preserve">
+    <value>کارفرمای انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="EmployerModel_Image" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="EmployerModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="EmployerModel_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="EmployerModel_Phone" xml:space="preserve">
+    <value>تلفن</value>
+  </data>
+  <data name="Employer_Delete_Successfully" xml:space="preserve">
+    <value>عملیات حذف کارفرما با موفقیت انجام شد</value>
+  </data>
+  <data name="Global_EditEmployer" xml:space="preserve">
+    <value>ویرایش اطلاعات کارفرما</value>
+  </data>
+  <data name="Global_EmployerList" xml:space="preserve">
+    <value>لیست کارفرمایان</value>
+  </data>
+  <data name="Global_Employers" xml:space="preserve">
+    <value>مدیریت کارفرمایان</value>
+  </data>
+  <data name="Global_EmployersManagment" xml:space="preserve">
+    <value>مدیریت کارفرمایان</value>
+  </data>
+  <data name="Global_NewEmployer" xml:space="preserve">
+    <value>کارفرمای جدید</value>
+  </data>
+  <data name="ProjectModel_EmployerName" xml:space="preserve">
+    <value>نام کارفرما</value>
+  </data>
+  <data name="Project_Delete_Message" xml:space="preserve">
+    <value>پروژه انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Project_Delete_Successfully" xml:space="preserve">
+    <value>پروژه با موفقیت حذف گردید</value>
+  </data>
+  <data name="ChallengeModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="ChallengeModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="ChallengeModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Challenge_Delete_Message" xml:space="preserve">
+    <value>چالش انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Challenge_Title_Error" xml:space="preserve">
+    <value>عنوان چالش را وارد نمایید</value>
+  </data>
+  <data name="Delete_Challenge_Successfull" xml:space="preserve">
+    <value>عملیات حذف چالش به موفقیت انجام شد</value>
+  </data>
+  <data name="Global_ChallengeList" xml:space="preserve">
+    <value>لیست چالش ها</value>
+  </data>
+  <data name="Global_Challenges" xml:space="preserve">
+    <value>مدیریت چالش ها</value>
+  </data>
+  <data name="Global_ChallengesManagement" xml:space="preserve">
+    <value>مدیریت چالش ها</value>
+  </data>
+  <data name="Global_EditChallenge" xml:space="preserve">
+    <value>ویرایش چالش</value>
+  </data>
+  <data name="Global_NewChallenge" xml:space="preserve">
+    <value>چالش جدید</value>
+  </data>
+  <data name="ChallengeModel_Projects" xml:space="preserve">
+    <value>پروژه</value>
+  </data>
+  <data name="ProjectModel_ProjectType" xml:space="preserve">
+    <value>نوع پروژه</value>
+  </data>
+  <data name="ProjectModel_FinalStepDescription" xml:space="preserve">
+    <value>توضیحات بخش آخر</value>
+  </data>
+  <data name="ProjectModel_FirstStepDescription" xml:space="preserve">
+    <value>توضیحات بخش اول</value>
+  </data>
+  <data name="ProjectModel_SecondDescription" xml:space="preserve">
+    <value>توضیحات بخش دوم</value>
+  </data>
+  <data name="ProjectModel_ProjectLinkText" xml:space="preserve">
+    <value>متن لینک پروژه</value>
+  </data>
+  <data name="Global_Edit_Technology" xml:space="preserve">
+    <value>ویرایش تکنولوژِی</value>
+  </data>
+  <data name="Global_Edit_Tool" xml:space="preserve">
+    <value>ویرایش ابزار</value>
+  </data>
+  <data name="Global_New_Tool_Technology" xml:space="preserve">
+    <value>ابزار یا تکنولوژی جدید</value>
+  </data>
+  <data name="Global_Tools_TechnologiesList" xml:space="preserve">
+    <value>لیست ابزارها و تکنولوژی ها</value>
+  </data>
+  <data name="Global_Tools_TechnologiesManagement" xml:space="preserve">
+    <value>مدیریت ابزارها و تکنولوژی ها</value>
+  </data>
+  <data name="Global_Tool_Technology" xml:space="preserve">
+    <value>مدیریت ابزارها و تکنولوژی ها</value>
+  </data>
+  <data name="TechnologyModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="TechnologyModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="TechnologyModel_IsTool" xml:space="preserve">
+    <value>ابزار</value>
+  </data>
+  <data name="TechnologyModel_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="Technology_Delete_Message" xml:space="preserve">
+    <value>تکنولوژی انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Technology_Delete_Successfully" xml:space="preserve">
+    <value>حذف تکنولوژی با موفقیت انجام شد</value>
+  </data>
+  <data name="Technology_Tool_Name_Error" xml:space="preserve">
+    <value>نام تکنولوژی یا ابزار را وارد نمایید</value>
+  </data>
+  <data name="ProjectModel_Technologies" xml:space="preserve">
+    <value>تکنولوژی های استفاده شده</value>
+  </data>
+  <data name="ProjectModel_Tools" xml:space="preserve">
+    <value>ابزارهای استفاده شده</value>
+  </data>
+  <data name="ProjectModel_SliderImages" xml:space="preserve">
+    <value>عکس اسلایدر</value>
+  </data>
+  <data name="ProjectModel_FirstStepImage" xml:space="preserve">
+    <value>عکس بخش اول</value>
+  </data>
+  <data name="SocialNetwork_Source" xml:space="preserve">
+    <value>سورس</value>
+  </data>
+  <data name="Global_NewslettersList" xml:space="preserve">
+    <value>لیست ایمیل ها</value>
+  </data>
+  <data name="Global_NewslettersManagment" xml:space="preserve">
+    <value>مدیریت خبرنامه</value>
+  </data>
+  <data name="Global_NewslettersModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Global_Newsletters_Delete" xml:space="preserve">
+    <value>ایمیل انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Global_Newsletters_Delete_Success" xml:space="preserve">
+    <value>ایمیل انتخا شده با موفقیت حذف شد</value>
+  </data>
+  <data name="NewslettersModel_Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+  <data name="NewslettersModel_Email_Already_In_Newsletters" xml:space="preserve">
+    <value>ایمیل وارد شده قبلا در سیستم ثبت شده است</value>
+  </data>
+  <data name="NewslettersModel_Email_Has_Been_Registred" xml:space="preserve">
+    <value>ایمیل با موفقیت در خبرنامه ثبت شد</value>
+  </data>
+  <data name="Newsletters_Email_No_Valid" xml:space="preserve">
+    <value>ایمیل وارد شده معتبر نمی باشد</value>
+  </data>
+  <data name="Global_Newsletters" xml:space="preserve">
+    <value>مدیریت خبرنامه</value>
+  </data>
+  <data name="NewslettersModel_EmailList" xml:space="preserve">
+    <value>لیست ایمیل ها</value>
+  </data>
+  <data name="NewslettersModel_SendMessage" xml:space="preserve">
+    <value>ارسال پیام جدید</value>
+  </data>
+  <data name="Exists_Form_Name" xml:space="preserve">
+    <value>نام وارد شده قبلا در سیستم ثبت شده است</value>
+  </data>
+  <data name="FormModel_CssClass" xml:space="preserve">
+    <value>کلاس استایل</value>
+  </data>
+  <data name="FormModel_DisplayName" xml:space="preserve">
+    <value>نام نمایشی</value>
+  </data>
+  <data name="FormModel_DisplayText" xml:space="preserve">
+    <value>متن نمایشی</value>
+  </data>
+  <data name="FormModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="FormModel_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="FormModel_RedirectToUrl" xml:space="preserve">
+    <value>آدرس بازگشتی</value>
+  </data>
+  <data name="FormModel_SubmitButtonText" xml:space="preserve">
+    <value>متن دکمه ارسال</value>
+  </data>
+  <data name="Form_Delete_Message" xml:space="preserve">
+    <value>فرم انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Form_DisplayName_Required" xml:space="preserve">
+    <value>نام نمایشی فرم را وارد نمایید</value>
+  </data>
+  <data name="Form_Name_Required" xml:space="preserve">
+    <value>نام فرم را وارد نمایید</value>
+  </data>
+  <data name="Form_Successfully_Deleted" xml:space="preserve">
+    <value>فرم انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_EditForm" xml:space="preserve">
+    <value>فرم ویرایش</value>
+  </data>
+  <data name="Global_FormList" xml:space="preserve">
+    <value>لیست فرم ها</value>
+  </data>
+  <data name="Global_Forms" xml:space="preserve">
+    <value>فرم ساز</value>
+  </data>
+  <data name="Global_FormsManagement" xml:space="preserve">
+    <value>مدیریت فرم ها</value>
+  </data>
+  <data name="Global_NewForm" xml:space="preserve">
+    <value>فرم جدید</value>
+  </data>
+  <data name="FiledName_Already_Exists" xml:space="preserve">
+    <value>نام فیلد قبلا در سیستم موجود می باشد</value>
+  </data>
+  <data name="FormFieldModel_CssClass" xml:space="preserve">
+    <value>کلاس استایل</value>
+  </data>
+  <data name="FormFieldModel_DisplayNameEn" xml:space="preserve">
+    <value>نام نمایشی لاتین</value>
+  </data>
+  <data name="FormFieldModel_DisplayNameFa" xml:space="preserve">
+    <value>نام نمایشی فارسی</value>
+  </data>
+  <data name="FormFieldModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="FormFieldModel_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="FormFieldModel_OrderId" xml:space="preserve">
+    <value>ترتیب نمایش</value>
+  </data>
+  <data name="FormFieldModel_Type" xml:space="preserve">
+    <value>نوع</value>
+  </data>
+  <data name="FormField_Delete_Message" xml:space="preserve">
+    <value>فیلد انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="FormField_DisplayNameEn_Required" xml:space="preserve">
+    <value>نام نمایشی لاتین فیلد را وارد نمایید</value>
+  </data>
+  <data name="FormField_DisplayNameFa_Required" xml:space="preserve">
+    <value>نام نمایشی فارسی فیلد را وارد نمایید</value>
+  </data>
+  <data name="FormField_Name_Required" xml:space="preserve">
+    <value>نام فیلد را وارد نمایید</value>
+  </data>
+  <data name="Global_EditFormField" xml:space="preserve">
+    <value>ویرایش فیلد</value>
+  </data>
+  <data name="Global_FormFieldList" xml:space="preserve">
+    <value>لیست فیلدهای فرم</value>
+  </data>
+  <data name="Global_FormFieldsManagement" xml:space="preserve">
+    <value>مدیریت فیلدهای فرم</value>
+  </data>
+  <data name="Global_NewFormField" xml:space="preserve">
+    <value>فیلد جدید</value>
+  </data>
+  <data name="FormModel_FormField" xml:space="preserve">
+    <value>فیلدهای فرم</value>
+  </data>
+  <data name="Exists_Title_Department" xml:space="preserve">
+    <value>عنوان وارد شده قبلا در سیستم موجود می باشد</value>
+  </data>
+  <data name="DepartmentModel_AttachmentImageId" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="DepartmentModel_Color" xml:space="preserve">
+    <value>رنگ</value>
+  </data>
+  <data name="DepartmentModel_Services" xml:space="preserve">
+    <value>خدمات</value>
+  </data>
+  <data name="DepartmentModel_Slogan" xml:space="preserve">
+    <value>شعار</value>
+  </data>
+  <data name="DepartmentModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Department_Delete_Message" xml:space="preserve">
+    <value>دپارتمان انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Departmen_Delete_Successfully" xml:space="preserve">
+    <value>دپارتمان با موفقیت حذف شد</value>
+  </data>
+  <data name="Global_DepartmentList" xml:space="preserve">
+    <value>لیست دپارتمان ها</value>
+  </data>
+  <data name="Global_Departments" xml:space="preserve">
+    <value>مدیریت دپارتمان</value>
+  </data>
+  <data name="Global_DepartmentsManagement" xml:space="preserve">
+    <value>مدیریت دپارتمان ها</value>
+  </data>
+  <data name="Global_EditDepartment" xml:space="preserve">
+    <value>ویرایش دپارتمان</value>
+  </data>
+  <data name="Service_Exists_Title" xml:space="preserve">
+    <value>عنوان وارد شده قبلا در سیستم موجود می باشد</value>
+  </data>
+  <data name="Service_Success_Delete" xml:space="preserve">
+    <value>خدمت با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_NewService" xml:space="preserve">
+    <value>خدمت جدید</value>
+  </data>
+  <data name="Global_ServiceList" xml:space="preserve">
+    <value>لیست خدمات</value>
+  </data>
+  <data name="Global_ServiceManagement" xml:space="preserve">
+    <value>مدیریت خدمات</value>
+  </data>
+  <data name="ServiceModel_AttachmentImageId" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="ServiceModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Global_EditService" xml:space="preserve">
+    <value>ویرایش خدمت</value>
+  </data>
+  <data name="ServiceModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="ServiceModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Service_Delete_Message" xml:space="preserve">
+    <value>سرویس انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Global_Services" xml:space="preserve">
+    <value>مدیریت خدمات</value>
+  </data>
+  <data name="Global_ServicesList" xml:space="preserve">
+    <value>لیست خدمات</value>
+  </data>
+  <data name="Delete_DepartmentSelectionReason_Message" xml:space="preserve">
+    <value>مورد انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="DepartmentSelectionReasonModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="DepartmentSelectionReasonModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="DepartmentSelectionReasonModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="DepartmentSelectionReasonModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="DepartmentSelectionReason_Delete_Successfully" xml:space="preserve">
+    <value>مورد انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_DepartmentSelectionReasonList" xml:space="preserve">
+    <value>لیست دلایل انتخاب</value>
+  </data>
+  <data name="Global_DepartmentSelectionReasonManagement" xml:space="preserve">
+    <value>مدیریت دلایل انتخاب</value>
+  </data>
+  <data name="Global_EditDepartmentSelectionReason" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="Global_NewDepartmentSelectionReason" xml:space="preserve">
+    <value>جدید</value>
+  </data>
+  <data name="Global_DepartmentSelectionReason" xml:space="preserve">
+    <value>دلایل انتخاب دپارتمان</value>
+  </data>
+  <data name="EmployeeModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="EmployeeModel_FullName" xml:space="preserve">
+    <value>نام کامل</value>
+  </data>
+  <data name="EmployeeModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="EmployeeModel_OrderId" xml:space="preserve">
+    <value>ترتیب</value>
+  </data>
+  <data name="EmployeeModel_RoleTitle" xml:space="preserve">
+    <value>عنوان نقش</value>
+  </data>
+  <data name="Employee_Delete_Message" xml:space="preserve">
+    <value>کارمند انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Employee_Delete_Successfully" xml:space="preserve">
+    <value>کارمند با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_EmployeesList" xml:space="preserve">
+    <value>لیست کارمندان</value>
+  </data>
+  <data name="Global_EmployeesManagement" xml:space="preserve">
+    <value>مدیریت کارمندان</value>
+  </data>
+  <data name="Global_NewEmployee" xml:space="preserve">
+    <value>کارمند جدید</value>
+  </data>
+  <data name="EmployeeModel_FirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="EmployeeModel_LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="Global_EditEmployee" xml:space="preserve">
+    <value>ویرایش کارمند</value>
+  </data>
+  <data name="DepartmentSelectionReason_Exists_Title" xml:space="preserve">
+    <value>عنوان وارد شده قبلا در سیستم ثبت شده است</value>
+  </data>
+  <data name="Global_DepartmentEmployee" xml:space="preserve">
+    <value>کارمندان دپارتمان</value>
+  </data>
+  <data name="Global_DepartmentMethodology" xml:space="preserve">
+    <value>متدلوژی دپارتمان</value>
+  </data>
+  <data name="Global_EditMethodology" xml:space="preserve">
+    <value>ویرایش متدلوژی</value>
+  </data>
+  <data name="Global_MethodologyList" xml:space="preserve">
+    <value>لیست متدلوژی ها</value>
+  </data>
+  <data name="Global_MethodologyManagement" xml:space="preserve">
+    <value>مدیریت متدولوژی ها</value>
+  </data>
+  <data name="Global_NewMethodology" xml:space="preserve">
+    <value>متدلوژی جدید</value>
+  </data>
+  <data name="MethodologyModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="MethodologyModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="MethodologyModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="MethodologyModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Methodology_Delete_Message" xml:space="preserve">
+    <value>متدلوژی انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Methodology_Delete_Successfully" xml:space="preserve">
+    <value>متدلوژی انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="ChallengeModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="ChallengeModel_AttachmentVideo" xml:space="preserve">
+    <value>ویدیو</value>
+  </data>
+  <data name="ChallengeModel_ProblemDescription" xml:space="preserve">
+    <value>شرح مسئله</value>
+  </data>
+  <data name="ChallengeModel_ProblemSolvingDescription" xml:space="preserve">
+    <value>راه حل مسئله</value>
+  </data>
+  <data name="Teacher_Delete_Successfully" xml:space="preserve">
+    <value>مدرس با موفقیت حذف گردید</value>
+  </data>
+  <data name="Delete_Course_Successfully" xml:space="preserve">
+    <value>دوره انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="Course_Title_Exists" xml:space="preserve">
+    <value>عنوان دوره قبلا در سیستم ثبت شده است</value>
+  </data>
+  <data name="CourseCategoryModel_Color" xml:space="preserve">
+    <value>رنگ</value>
+  </data>
+  <data name="CourseCategoryModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="CourseCategoryModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="CourseCategory_Delete_Message" xml:space="preserve">
+    <value>دسته انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Global_CourseCategoryManagement" xml:space="preserve">
+    <value>مدیریت دسته بندی دوره ها</value>
+  </data>
+  <data name="Global_NewCourseCategory" xml:space="preserve">
+    <value>دسته بندی جدید دوره</value>
+  </data>
+  <data name="Global_NewTeacher" xml:space="preserve">
+    <value>مدرس جدید</value>
+  </data>
+  <data name="Global_TeachersManagement" xml:space="preserve">
+    <value>مدیریت مدرسین</value>
+  </data>
+  <data name="TeacherModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="TeacherModel_FirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="TeacherModel_FullName" xml:space="preserve">
+    <value>نام کامل</value>
+  </data>
+  <data name="TeacherModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="TeacherModel_LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="CourseModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="CourseModel_CourseCategories" xml:space="preserve">
+    <value>دسته بندی دوره</value>
+  </data>
+  <data name="CourseModel_CourseTags" xml:space="preserve">
+    <value>برچسب های دوره</value>
+  </data>
+  <data name="CourseModel_CourseTeachers" xml:space="preserve">
+    <value>مدرسین دوره</value>
+  </data>
+  <data name="CourseModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="CourseModel_PeriodOfTime" xml:space="preserve">
+    <value>مدت زمان</value>
+  </data>
+  <data name="CourseModel_PreviewVideo" xml:space="preserve">
+    <value>ویدیو پیش نمایش</value>
+  </data>
+  <data name="CourseModel_PreviewVideoPosterImage" xml:space="preserve">
+    <value>پوستر ویدیوی پیش نمایش</value>
+  </data>
+  <data name="CourseModel_Price" xml:space="preserve">
+    <value>قیمت</value>
+  </data>
+  <data name="CourseModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Global_CourseList" xml:space="preserve">
+    <value>لیست دوره ها</value>
+  </data>
+  <data name="Global_CoursesManagement" xml:space="preserve">
+    <value>مدیریت دوره ها</value>
+  </data>
+  <data name="Global_EditCourse" xml:space="preserve">
+    <value>ویرایش دوره</value>
+  </data>
+  <data name="Global_NewCourse" xml:space="preserve">
+    <value>دوره جدید</value>
+  </data>
+  <data name="CourseModel_CourseVideos" xml:space="preserve">
+    <value>آپلود ویدیوهای دوره</value>
+  </data>
+  <data name="CourseModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="Delete_CourseCategory_Successfully" xml:space="preserve">
+    <value>حذف دسته با موفقیت انجام شد</value>
+  </data>
+  <data name="Global_CourseCategoriesList" xml:space="preserve">
+    <value>لیست دسته بندی های دوره</value>
+  </data>
+  <data name="Global_Courses" xml:space="preserve">
+    <value>مدیریت دوره ها</value>
+  </data>
+  <data name="Global_CoursesList" xml:space="preserve">
+    <value>لیست دوره ها</value>
+  </data>
+  <data name="Global_EditTeacher" xml:space="preserve">
+    <value>ویرایش مدرس</value>
+  </data>
+  <data name="Global_Teachers" xml:space="preserve">
+    <value>مدیریت مدرسین</value>
+  </data>
+  <data name="Global_TeachersList" xml:space="preserve">
+    <value>لیست مدرسین</value>
+  </data>
+  <data name="Teacher_Delete_Message" xml:space="preserve">
+    <value>مدرس انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Course_Delete_Message" xml:space="preserve">
+    <value>دوره انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Global_EditCourseCategory" xml:space="preserve">
+    <value>ویرایش دسته دوره</value>
+  </data>
+  <data name="NlMessage_Delete_Successfully" xml:space="preserve">
+    <value>مورد انتخاب شده با موفقیت حذف شد</value>
+  </data>
+  <data name="Global_NewNlMessage" xml:space="preserve">
+    <value>پیام جدید</value>
+  </data>
+  <data name="Global_NlMessageList" xml:space="preserve">
+    <value>پیام ها</value>
+  </data>
+  <data name="Global_NlMessageManagement" xml:space="preserve">
+    <value>مدیریت پیام ها</value>
+  </data>
+  <data name="NlMessageModel_AttachmentFile" xml:space="preserve">
+    <value>فایل</value>
+  </data>
+  <data name="NlMessageModel_Subject" xml:space="preserve">
+    <value>موضوع</value>
+  </data>
+  <data name="NlMessageModel_Text" xml:space="preserve">
+    <value>متن</value>
+  </data>
+  <data name="NlMessageModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="NlMessage_Delete_Message" xml:space="preserve">
+    <value>مورد انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Global_EditNlMessage" xml:space="preserve">
+    <value>ویرایش پیام</value>
+  </data>
+  <data name="Global_NlMessages" xml:space="preserve">
+    <value>خبرنامه</value>
+  </data>
+  <data name="NlMessageModel_NewNlMessage" xml:space="preserve">
+    <value>پیام جدید</value>
+  </data>
+  <data name="NlMessageModel_NlMessageList" xml:space="preserve">
+    <value>لیست پیام ها</value>
+  </data>
+  <data name="Global_SendEmail" xml:space="preserve">
+    <value>ارسال به ایمیل ها</value>
+  </data>
+  <data name="TeacherModel_AttachmentSocialNetworkImage" xml:space="preserve">
+    <value>عکس شبکه  اجتماعی</value>
+  </data>
+  <data name="TeacherModel_SocialNetworkLink" xml:space="preserve">
+    <value>لینک شبکه اجتماعی</value>
+  </data>
+  <data name="TeacherModel_SocialNetworkName" xml:space="preserve">
+    <value>نام شبکه اجتماعی</value>
+  </data>
+  <data name="ServiceModel_Tags" xml:space="preserve">
+    <value>برچسب ها</value>
+  </data>
+  <data name="ServiceReceiverModel_Delete_Successfully" xml:space="preserve">
+    <value>مورد انتخاب شده حذف خواهد شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="ServiceReceiver_Delete_Message" xml:space="preserve">
+    <value>مورد انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Global_NewServiceReceiver" xml:space="preserve">
+    <value>جدید</value>
+  </data>
+  <data name="Global_ServiceReceiverList" xml:space="preserve">
+    <value>لیست گیرنده های خدمت</value>
+  </data>
+  <data name="Global_ServiceReceiverManagement" xml:space="preserve">
+    <value>مدیریت گیرنده های خدمت</value>
+  </data>
+  <data name="ServiceReceiverModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="ServiceReceiverModel_ReceiverName" xml:space="preserve">
+    <value>نام گیرنده</value>
+  </data>
+  <data name="ServiceModel_SectionFourAttachmentImage" xml:space="preserve">
+    <value>عکس بخش چهارم</value>
+  </data>
+  <data name="ServiceModel_SectionFourDescription" xml:space="preserve">
+    <value>توضیحات بخش چهارم</value>
+  </data>
+  <data name="ServiceModel_SectionOneAttachmentImage" xml:space="preserve">
+    <value>عکس بخش اول</value>
+  </data>
+  <data name="ServiceModel_SectionOneDescription" xml:space="preserve">
+    <value>توضیحات بخش اول</value>
+  </data>
+  <data name="ServiceModel_SectionThreeAttachmentImage" xml:space="preserve">
+    <value>عکس بخش سوم</value>
+  </data>
+  <data name="ServiceModel_SectionThreeDescription" xml:space="preserve">
+    <value>توضیحات بخش سوم</value>
+  </data>
+  <data name="ServiceModel_SectionTwoAttachmentImage" xml:space="preserve">
+    <value>عکس بخش دوم</value>
+  </data>
+  <data name="ServiceModel_SectionTwoDescription" xml:space="preserve">
+    <value>توضیحات بخش دوم</value>
+  </data>
+  <data name="ServiceComment_Delete_Successfully" xml:space="preserve">
+    <value>کامنت با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_NewServiceComment" xml:space="preserve">
+    <value>نظر جدید</value>
+  </data>
+  <data name="Global_ServiceCommentList" xml:space="preserve">
+    <value>لیست نظرهای خدمت</value>
+  </data>
+  <data name="Global_ServiceCommentManagement" xml:space="preserve">
+    <value>مدیریت نظرهای خدمت</value>
+  </data>
+  <data name="ServiceCommentModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="ServiceCommentModel_PersonFullName" xml:space="preserve">
+    <value>نام کامل</value>
+  </data>
+  <data name="ServiceCommentModel_PersonRoleTitle" xml:space="preserve">
+    <value>عنوان نقش</value>
+  </data>
+  <data name="ServiceComment_Delete_Message" xml:space="preserve">
+    <value>نظر انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Global_EditServiceComment" xml:space="preserve">
+    <value>ویرایش نظر خدمت</value>
+  </data>
+  <data name="Global_ServiceComments" xml:space="preserve">
+    <value>نظرهای خدمت</value>
+  </data>
+  <data name="ServiceCommentModel_Text" xml:space="preserve">
+    <value>متن</value>
+  </data>
+  <data name="ServiceModel_SectionFourImage" xml:space="preserve">
+    <value>عکس بخش چهارم</value>
+  </data>
+  <data name="ServiceModel_SectionFourThumnnailImage" xml:space="preserve">
+    <value>عکس بند انگشتی بخش چهارم</value>
+  </data>
+  <data name="ServiceModel_SectionOneImage" xml:space="preserve">
+    <value>عکس بخش اول</value>
+  </data>
+  <data name="ServiceModel_SectionOneThumbnailImage" xml:space="preserve">
+    <value>عکس بند انگشتی بخش اول</value>
+  </data>
+  <data name="ServiceModel_SectionThreeImage" xml:space="preserve">
+    <value>عکس بخش سوم</value>
+  </data>
+  <data name="ServiceModel_SectionThreeThumbnailImage" xml:space="preserve">
+    <value>عکس بند انگشتی بخش سوم</value>
+  </data>
+  <data name="ServiceModel_SectionTwoImageSide" xml:space="preserve">
+    <value>عکس بخش دوم</value>
+  </data>
+  <data name="ServiceModel_SectionTwoThumbnailImage" xml:space="preserve">
+    <value>عکس بند انگشتی بخش دوم</value>
+  </data>
+  <data name="Global_EditServiceReceiver" xml:space="preserve">
+    <value>ویرایش سرویس گیرنده</value>
+  </data>
+  <data name="ServiceReceiverModel_ServiceReceiver" xml:space="preserve">
+    <value>خدمات</value>
+  </data>
+  <data name="Delete_Article_Successfully" xml:space="preserve">
+    <value>حذف مقاله با موفقیت انجام شد</value>
+  </data>
+  <data name="Profile_National_Code_Required" xml:space="preserve">
+    <value>کد ملی را وارد نمایید</value>
+  </data>
+  <data name="Global_EditTag" xml:space="preserve">
+    <value>ویرایش برچسب</value>
+  </data>
+  <data name="DepartmentModel_HeaderBackgroundImage" xml:space="preserve">
+    <value>عکس پس زمینه هدر</value>
+  </data>
+  <data name="DepartmentModel_JoinOurTeamDescription" xml:space="preserve">
+    <value>متن پیوستن به تیم ما</value>
+  </data>
+  <data name="DepartmentModel_JoinOurTeamImage" xml:space="preserve">
+    <value>عکس پیوستن به تیم ما</value>
+  </data>
+  <data name="DepartmentModel_StructureImage" xml:space="preserve">
+    <value>عکس ساختار سازمانی</value>
+  </data>
+  <data name="DepartmentModel_InternshipButtonIsActive" xml:space="preserve">
+    <value>فعال کردن دکمه "کارآموزی"</value>
+  </data>
+  <data name="DepartmentModel_RecruitmentButtonIsActive" xml:space="preserve">
+    <value>فعال کردن دکمه "استخدام"</value>
+  </data>
+  <data name="EventModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="EventModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="EventModel_Link" xml:space="preserve">
+    <value>لینک</value>
+  </data>
+  <data name="EventModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Event_Delete_Message" xml:space="preserve">
+    <value>رویداد انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Event_Delete_Successfully" xml:space="preserve">
+    <value>رویداد انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="Event_Title_Exists" xml:space="preserve">
+    <value>عنوان وارد شده برای رویداد قبلا ثبت شده است</value>
+  </data>
+  <data name="Global_EditEvent" xml:space="preserve">
+    <value>ویرایش رویداد</value>
+  </data>
+  <data name="Global_EventList" xml:space="preserve">
+    <value>لیست رویدادها</value>
+  </data>
+  <data name="Global_Events" xml:space="preserve">
+    <value>مدیریت رویدادها</value>
+  </data>
+  <data name="Global_EventsManagement" xml:space="preserve">
+    <value>مدیریت رویدادها</value>
+  </data>
+  <data name="Global_NewEvent" xml:space="preserve">
+    <value>رویداد جدید</value>
+  </data>
+  <data name="Delete_Resume_Successfully" xml:space="preserve">
+    <value>رزومه انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_Resumes" xml:space="preserve">
+    <value>مدیریت رزومه ها</value>
+  </data>
+  <data name="Global_ResumesList" xml:space="preserve">
+    <value>لیست رزومه ها</value>
+  </data>
+  <data name="Global_ResumesManagement" xml:space="preserve">
+    <value>مدیریت رزومه ها</value>
+  </data>
+  <data name="ResumeModel_FileType" xml:space="preserve">
+    <value>نوع فایل</value>
+  </data>
+  <data name="ResumeModel_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="ResumeModel_StorageType" xml:space="preserve">
+    <value>نحوه ذخیره سازی</value>
+  </data>
+  <data name="Resume_Delete_Message" xml:space="preserve">
+    <value>رزومه انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="ServiceModel_Servicelogo" xml:space="preserve">
+    <value>لوگوی سرویس</value>
+  </data>
+  <data name="SliderModel_Delete_Successfully" xml:space="preserve">
+    <value>اسلایدر انتخاب شده حذف گردید</value>
+  </data>
+  <data name="SliderModel_Title_Exists" xml:space="preserve">
+    <value>عنوان وارد شده برای اسلایدر قبلا ثبت شده است</value>
+  </data>
+  <data name="Global_EditSlider" xml:space="preserve">
+    <value>ویرایش اسلایدر</value>
+  </data>
+  <data name="Global_EditSliderItem" xml:space="preserve">
+    <value>ویرایش آیتم اسلایدر</value>
+  </data>
+  <data name="Global_NewSlider" xml:space="preserve">
+    <value>اسلایدر جدید</value>
+  </data>
+  <data name="Global_NewSliderItem" xml:space="preserve">
+    <value>آیتم جدید</value>
+  </data>
+  <data name="Global_SliderItemsList" xml:space="preserve">
+    <value>لیست آیتم های اسلایدر</value>
+  </data>
+  <data name="Global_SliderItemsManagement" xml:space="preserve">
+    <value>مدیریت آیتم های اسلایدر</value>
+  </data>
+  <data name="Global_Sliders" xml:space="preserve">
+    <value>اسلایدر</value>
+  </data>
+  <data name="Global_SlidersList" xml:space="preserve">
+    <value>لیست اسلایدرها</value>
+  </data>
+  <data name="Global_SlidersManagement" xml:space="preserve">
+    <value>مدیریت اسلایدرها</value>
+  </data>
+  <data name="SliderItemModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="SliderItemModel_ButtonCss" xml:space="preserve">
+    <value>کلاس های استایل دکمه</value>
+  </data>
+  <data name="SliderItemModel_ButtonLink" xml:space="preserve">
+    <value>لینک دکمه</value>
+  </data>
+  <data name="SliderItemModel_ButtonText" xml:space="preserve">
+    <value>متن دکمه</value>
+  </data>
+  <data name="SliderItemModel_Delete_message" xml:space="preserve">
+    <value>آیتم انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="SliderItemModel_Delete_Successfully" xml:space="preserve">
+    <value>مورد انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="SliderItemModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="SliderItemModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="SliderItemModel_OrderId" xml:space="preserve">
+    <value>ترتیب</value>
+  </data>
+  <data name="SliderItemModel_SubTitle" xml:space="preserve">
+    <value>زیر عنوان</value>
+  </data>
+  <data name="SliderItemModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="SliderModel_Delete_message" xml:space="preserve">
+    <value>اسلایدر انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="SliderModel_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="SliderModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="SliderModel_SliderItems" xml:space="preserve">
+    <value>آیتم های اسلایدر</value>
+  </data>
+  <data name="SliderModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="ArticleModel_AutorName" xml:space="preserve">
+    <value>نام نویسنده</value>
+  </data>
+  <data name="ArticleModel_AuthorImage" xml:space="preserve">
+    <value>عکس نویسنده</value>
+  </data>
+  <data name="CareerOpportunityModel_Delete_Message" xml:space="preserve">
+    <value>مورد انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="CareerOpportunityModel_Delete_Successfully" xml:space="preserve">
+    <value>مورد انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="CareerOpportunityModel_Image" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="CareerOpportunityModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="CareerOpportunity_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="CareerOpportunity_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="CareerOpportunity_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Global_CareerOpportunitiesManagement" xml:space="preserve">
+    <value>مدیریت فرصت های شغلی</value>
+  </data>
+  <data name="Global_CareerOpportunity" xml:space="preserve">
+    <value>فرصت های شغلی</value>
+  </data>
+  <data name="Global_CareerOpportunityList" xml:space="preserve">
+    <value>لیست فرصت های شغلی</value>
+  </data>
+  <data name="Global_EditCareerOpportunity" xml:space="preserve">
+    <value>ویرایش فرصت شغلی</value>
+  </data>
+  <data name="Global_NewCareerOpportunity" xml:space="preserve">
+    <value>ثبت فرصت شغلی</value>
+  </data>
+  <data name="CareerOpportunityModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="CareerOpportunityModel_CareerOpportunityType" xml:space="preserve">
+    <value>نوع شغل</value>
+  </data>
+  <data name="ResumeModel_IPAddress" xml:space="preserve">
+    <value>ای پی کاربر</value>
+  </data>
+  <data name="FormModel_DisplayNameEn" xml:space="preserve">
+    <value>نام نمایشی لایتن</value>
+  </data>
+  <data name="FormModel_DisplayNameFa" xml:space="preserve">
+    <value>نام نمایشی فارسی</value>
+  </data>
+  <data name="FormModel_Exists_Name" xml:space="preserve">
+    <value>نام فرم قبلا در سیستم ثبت شده است</value>
+  </data>
+  <data name="FormModel_FormDataSource" xml:space="preserve">
+    <value>کد فرم</value>
+  </data>
+  <data name="FormModel_Language" xml:space="preserve">
+    <value>زبان</value>
+  </data>
+  <data name="FormModel_RedirectUrl" xml:space="preserve">
+    <value>آدرس بازگشتی</value>
+  </data>
+  <data name="FormModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="FooterCategoryModel_Delete_Message" xml:space="preserve">
+    <value>دسته بندی انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="FooterLinkCategoryModel_CategoryTitle" xml:space="preserve">
+    <value>عنوان دسته</value>
+  </data>
+  <data name="FooterLinkCategoryModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="FooterLinkCategoryModel_NumberOfShows" xml:space="preserve">
+    <value>تعداد نمایشی</value>
+  </data>
+  <data name="FooterLinkCategoryModel_OrderId" xml:space="preserve">
+    <value>ترتیب</value>
+  </data>
+  <data name="FooterLinkCategoryModel_SelectType" xml:space="preserve">
+    <value>انتخاب نوع</value>
+  </data>
+  <data name="FooterModel_Delete_Successfully" xml:space="preserve">
+    <value>مورد انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_FooterLinkCategoryList" xml:space="preserve">
+    <value>لیست دسته بندی لینک های فوتر</value>
+  </data>
+  <data name="Global_FooterLinkCategoryManagement" xml:space="preserve">
+    <value>مدیریت دسته بندی لینک های فوتر</value>
+  </data>
+  <data name="Global_NewFooterLinkCategory" xml:space="preserve">
+    <value>دسته بندی جدید</value>
+  </data>
+  <data name="FooterCategoryModel_Delete_Successfully" xml:space="preserve">
+    <value>دسته بندی انتخاب شده حذف گردید</value>
+  </data>
+  <data name="FooterCategoryModel_EntityHaveReviewCount" xml:space="preserve">
+    <value>موجودیت</value>
+  </data>
+  <data name="FooterCategoryModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="FooterCategoryModel_Link" xml:space="preserve">
+    <value>لینک</value>
+  </data>
+  <data name="FooterCategoryModel_NumberOfShows" xml:space="preserve">
+    <value>تعداد نمایشی</value>
+  </data>
+  <data name="FooterCategoryModel_StatisticalRepresentation" xml:space="preserve">
+    <value>نمایش آماری</value>
+  </data>
+  <data name="FooterCategoryModel_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="FooterCategory_Title_Error" xml:space="preserve">
+    <value>عنوان دسته را وارد نمایید</value>
+  </data>
+  <data name="Global_EditFooterCategory" xml:space="preserve">
+    <value>ویرایش دسته بندی</value>
+  </data>
+  <data name="Global_Footer" xml:space="preserve">
+    <value>فوتر</value>
+  </data>
+  <data name="Global_FooterCategoriesList" xml:space="preserve">
+    <value>لیست دسته بندی های فوتر</value>
+  </data>
+  <data name="Global_FooterCategoriesManagment" xml:space="preserve">
+    <value>مدیریت دسته بندی های فوتر</value>
+  </data>
+  <data name="Global_NewFooterCategory" xml:space="preserve">
+    <value>دسته بندی جدید</value>
+  </data>
+  <data name="FooterCategoryLinkModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="FooterCategoryLinkModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="FooterCategoryLinkModel_Link" xml:space="preserve">
+    <value>لینک</value>
+  </data>
+  <data name="FooterCategoryLinkModel_LinkText" xml:space="preserve">
+    <value>متن لینک</value>
+  </data>
+  <data name="FooterCategoryLinkModel_LinkText_Error" xml:space="preserve">
+    <value>متن لینک را وارد نمایید</value>
+  </data>
+  <data name="FooterCategoryLinkModel_Link_Error" xml:space="preserve">
+    <value>لینک را وارد نمایید</value>
+  </data>
+  <data name="FooterLinkModel_Delete_Successfully" xml:space="preserve">
+    <value>لینک انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_CategoryLinksList" xml:space="preserve">
+    <value>لیست لینک های دسته بندی</value>
+  </data>
+  <data name="Global_EditFooterCategoryLink" xml:space="preserve">
+    <value>ویرایش لینک</value>
+  </data>
+  <data name="Global_FooterCategoryLinksManagement" xml:space="preserve">
+    <value>مدیریت لینک های دسته بندی</value>
+  </data>
+  <data name="Global_NewFooterCategoryLink" xml:space="preserve">
+    <value>لینک جدید</value>
+  </data>
+  <data name="Global_EditPartner" xml:space="preserve">
+    <value>ویرایش همکار</value>
+  </data>
+  <data name="Global_NewPartner" xml:space="preserve">
+    <value>همکار جدید</value>
+  </data>
+  <data name="Global_Partners" xml:space="preserve">
+    <value>مدیریت همکاران</value>
+  </data>
+  <data name="Global_PartnersList" xml:space="preserve">
+    <value>لیست همکاران</value>
+  </data>
+  <data name="Global_PartnersManagement" xml:space="preserve">
+    <value>مدیریت همکاران</value>
+  </data>
+  <data name="ParterModel_Delete_Successfully" xml:space="preserve">
+    <value>مورد انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="PartnerModel_AttachmentImage" xml:space="preserve">
+    <value>عکس</value>
+  </data>
+  <data name="PartnerModel_Delete_Message" xml:space="preserve">
+    <value>مورد انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="PartnerModel_IsActive" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="PartnerModel_Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="PartnerModel_Name_Error" xml:space="preserve">
+    <value>نام همکار را وارد نمایید</value>
+  </data>
+  <data name="PartnerModel_Link" xml:space="preserve">
+    <value>لینک</value>
+  </data>
+  <data name="PartnerModel_ToolTip" xml:space="preserve">
+    <value>عنوان رو نشان</value>
+  </data>
+  <data name="FooterCategoryModel_OrderId" xml:space="preserve">
+    <value>ترتیب</value>
+  </data>
+  <data name="Global_MostVisitedArticles" xml:space="preserve">
+    <value>پر بازدیدترین مقالات</value>
+  </data>
+  <data name="Global_MostVisitedServices" xml:space="preserve">
+    <value>پر بازدیدترین خدمات</value>
+  </data>
+  <data name="Global_MostTagsUse" xml:space="preserve">
+    <value>پر استفاده ترین برچسب ها</value>
+  </data>
+  <data name="Application_ENamadCode" xml:space="preserve">
+    <value>کد نماد</value>
+  </data>
+  <data name="FormFieldModel_Delete_Successfully" xml:space="preserve">
+    <value>فیلد انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_FormFieldValues" xml:space="preserve">
+    <value>مقادیر فیلد</value>
+  </data>
+  <data name="FormModel_FormFieldValues" xml:space="preserve">
+    <value>مقادیر وارد شده برای فیلدهای فرم</value>
+  </data>
+  <data name="FormFieldValueModel_IpAddress" xml:space="preserve">
+    <value>آدرس ای پی</value>
+  </data>
+  <data name="Global_FormFieldValueManagement" xml:space="preserve">
+    <value>مدیریت مقادیر فیلدهای فرم</value>
+  </data>
+  <data name="Global_IpLists" xml:space="preserve">
+    <value>لیست ای پی ها</value>
+  </data>
+  <data name="FormModel_Form_Cannot_Edit" xml:space="preserve">
+    <value>امکان ویرایش فرم هنگام ویرایش وجود ندارد</value>
+  </data>
+  <data name="FormModel_Form_Craete_New_For_Edit" xml:space="preserve">
+    <value>برای تغییر در فرم باید یک فرم جدید بسازید</value>
+  </data>
+  <data name="FormFieldValueModel_CreatedDate" xml:space="preserve">
+    <value>در تاریخ</value>
+  </data>
+  <data name="FormFieldValueModel_Label" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="FormFieldValueModel_Value" xml:space="preserve">
+    <value>مقدار</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>نمونه ها</value>
+  </data>
+  <data name="Hadi_Academy" xml:space="preserve">
+    <value>آکادمی هادی</value>
+  </data>
+  <data name="MenuModel_IsParent" xml:space="preserve">
+    <value>منوی والد</value>
+  </data>
+  <data name="Author_AuthorExists" xml:space="preserve">
+    <value>نام نویسنده قبلا در سیستم ثبت شده است</value>
+  </data>
+  <data name="DeleteOperationFailed" xml:space="preserve">
+    <value>عملیات حذف با شکست مواجه شد</value>
+  </data>
+  <data name="Auhtor_AuhtorDeleteSuccessfully" xml:space="preserve">
+    <value>نویسنده ی انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="AuthorModel_AuthorImage" xml:space="preserve">
+    <value>عکس نویسنده</value>
+  </data>
+  <data name="AuthorModel_AuthorName" xml:space="preserve">
+    <value>نام نویسنده</value>
+  </data>
+  <data name="AuthorModel_InstagramAddress" xml:space="preserve">
+    <value>آدرس اینستاگرام</value>
+  </data>
+  <data name="AuthorModel_LinkedInAddress" xml:space="preserve">
+    <value>آدرس لینکدین</value>
+  </data>
+  <data name="AuthorModel_TelegramAddress" xml:space="preserve">
+    <value>آدرس تلگرام</value>
+  </data>
+  <data name="Author_AuthorDeleteMessage" xml:space="preserve">
+    <value>نویسنده ی انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="Global_Authors" xml:space="preserve">
+    <value>نویسندگان</value>
+  </data>
+  <data name="Global_AuthorsList" xml:space="preserve">
+    <value>لیست نویسندگان</value>
+  </data>
+  <data name="Global_AuthorsManagement" xml:space="preserve">
+    <value>مدیریت نویسندگان</value>
+  </data>
+  <data name="Global_EditAuthor" xml:space="preserve">
+    <value>ویرایش اطلاعات نویسنده</value>
+  </data>
+  <data name="Global_NewAuthor" xml:space="preserve">
+    <value>نویسنده جدید</value>
+  </data>
+  <data name="ArticleModel_Author" xml:space="preserve">
+    <value>نویسنده</value>
+  </data>
+  <data name="NlEmail_DeleteNlEmailSuccessfully" xml:space="preserve">
+    <value>ایمیل انتخاب شده با موفقیت حذف گردید</value>
+  </data>
+  <data name="Global_NlEmailsList" xml:space="preserve">
+    <value>لیست ایمیل ها</value>
+  </data>
+  <data name="Global_NlEmailsManagement" xml:space="preserve">
+    <value>مدیریت ایمیل های خبرنامه</value>
+  </data>
+  <data name="NlEmailModel_CreatedDate" xml:space="preserve">
+    <value>تاریخ عضویت</value>
+  </data>
+  <data name="NlEmailModel_Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+  <data name="NlEmail_DeleteEmailMessage" xml:space="preserve">
+    <value>ایمیل انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="DepartmentModel_ContactUsLink" xml:space="preserve">
+    <value>لینک دکمه ی "تماس با ما"</value>
+  </data>
+  <data name="DepartmentModel_InternshipButtonLink" xml:space="preserve">
+    <value>لینک دکمه ی "کارآموزی"</value>
+  </data>
+  <data name="DepartmentModel_RecruitmentButtonLink" xml:space="preserve">
+    <value>لینک دکمه ی "استخدامی"</value>
+  </data>
+  <data name="ProjectModel_ProjectNotFound" xml:space="preserve">
+    <value>پروژه ای یافت نشد</value>
+  </data>
+  <data name="Author_SliderImageDeleteMessage" xml:space="preserve">
+    <value>آیتم انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="ProjectModel_ProjectAttachmentFieNotFound" xml:space="preserve">
+    <value>موردی یافت نشد</value>
+  </data>
+  <data name="ProjectModel_ProjectAttachmentFileHasBeenDeleted" xml:space="preserve">
+    <value>مورد انتخاب شده حذف خواهد شد</value>
+  </data>
+  <data name="EmployerModel_FillNameError" xml:space="preserve">
+    <value>لطفا نام کارفرما را وارد نمایید</value>
+  </data>
+  <data name="ChallengeModel_ExistsChallengeTitle" xml:space="preserve">
+    <value>عنوان چالش تکراری می باشد</value>
+  </data>
+  <data name="ProjectModel_ExistsTitle" xml:space="preserve">
+    <value>عنوان پروژه تکراری می باشد</value>
+  </data>
+  <data name="Global_DownloadFile" xml:space="preserve">
+    <value>بارگذاری فایل</value>
+  </data>
+  <data name="FormFieldModel_Label" xml:space="preserve">
+    <value>برچسب</value>
+  </data>
+  <data name="ProjectModel_PreviewImage" xml:space="preserve">
+    <value>عکس پیش نمایش</value>
+  </data>
+</root>

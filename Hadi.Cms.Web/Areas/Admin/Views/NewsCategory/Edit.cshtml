@@ -1,0 +1,26 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.Model.Mappings.Interfaces.INewsCategory
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Edit", "NewsCategory", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.Label("",Strings.Global_Title, new { @for = "Title" })
+        @Html.EditorFor(x => x.Title, new { htmlAttributes = new { @class = "form-control rtl-input text-box single-line", @type = "text" } })
+        @Html.HiddenFor(x => x.Id)
+    </div>
+    <div class="form-group">
+        @Html.Label("", Strings.Global_EnTitle, new { @for = "EnTitle" })
+        @Html.EditorFor(x => x.EnTitle, new { htmlAttributes = new { @class = "form-control rtl-input text-box single-line", @type = "text" } })
+    </div>
+    <div class="form-group">
+        @Html.Label(Strings.MenuModel_OrderId)
+        @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+        @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-primary">@Strings.Global_Save</button>
+}

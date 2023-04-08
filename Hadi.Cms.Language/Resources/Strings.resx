@@ -1,0 +1,4008 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdminLayout_SideBar_CustomQuestionTypes" xml:space="preserve">
+    <value>Custom Question Types</value>
+  </data>
+  <data name="AdminLayout_SideBar_Monitoring" xml:space="preserve">
+    <value>Monitoring</value>
+  </data>
+  <data name="AdminLayout_SideBar_Projects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="AdminLayout_SideBar_Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="AdminLayout_SideBar_Security" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="AdminLayout_Sidebar_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="AdminLayout_SideBar_TaskFormTemplateCategories" xml:space="preserve">
+    <value>Task Form Template Categories</value>
+  </data>
+  <data name="AdminLayout_SideBar_TaskFormTemplates" xml:space="preserve">
+    <value>Task Form Templates</value>
+  </data>
+  <data name="AdminLayout_SideBar_Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Hadi CMS</value>
+  </data>
+  <data name="Application_BinaryStorage" xml:space="preserve">
+    <value>Binary storage</value>
+  </data>
+  <data name="Application_CompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="Application_DisplayFooterLanguageChanger" xml:space="preserve">
+    <value>Display footer language changerer</value>
+  </data>
+  <data name="Application_DisplayFooterVersionText" xml:space="preserve">
+    <value>Display footer version text</value>
+  </data>
+  <data name="Application_DisplayLeftMenuBar" xml:space="preserve">
+    <value>Display left menu bar</value>
+  </data>
+  <data name="Application_DisplayLoginLogo" xml:space="preserve">
+    <value>Display Login Pages Logo</value>
+  </data>
+  <data name="Application_DisplayNotificationTopIcon" xml:space="preserve">
+    <value>Display notification top icon</value>
+  </data>
+  <data name="Application_DisplayViewLogo" xml:space="preserve">
+    <value>Display View Pages Logo</value>
+  </data>
+  <data name="Application_EnableIpBanned" xml:space="preserve">
+    <value>Enable Ip Banned</value>
+  </data>
+  <data name="Application_EnableIpRange" xml:space="preserve">
+    <value>Enable Ip Range</value>
+  </data>
+  <data name="Application_FailedLoginLimitedCheck" xml:space="preserve">
+    <value>Check limits the number of failed login user</value>
+  </data>
+  <data name="Application_FailedLoginMaximumCount" xml:space="preserve">
+    <value>Maximum number of failed login attempts allowed</value>
+  </data>
+  <data name="Application_License" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="Application_LoginFooterText" xml:space="preserve">
+    <value>Login Pages Footer Text</value>
+  </data>
+  <data name="Application_LoginLogoPath" xml:space="preserve">
+    <value>Login Pages Logo Path</value>
+  </data>
+  <data name="Application_LoginWithCaptcha" xml:space="preserve">
+    <value>Login with captcha</value>
+  </data>
+  <data name="Application_LoginWithEmail" xml:space="preserve">
+    <value>Login with email</value>
+  </data>
+  <data name="Application_LoginWithSms" xml:space="preserve">
+    <value>Login with sms</value>
+  </data>
+  <data name="Application_PanelFooterText" xml:space="preserve">
+    <value>Panel Pages Footer Text</value>
+  </data>
+  <data name="Application_PhysicalStorage" xml:space="preserve">
+    <value>Physical storage</value>
+  </data>
+  <data name="Application_TextUnderLoginLogo" xml:space="preserve">
+    <value>Text Under Login Pages Logo</value>
+  </data>
+  <data name="Application_UserHasDepartment" xml:space="preserve">
+    <value>User has department</value>
+  </data>
+  <data name="Application_ViewFooterText" xml:space="preserve">
+    <value>View Pages Footer Text</value>
+  </data>
+  <data name="Application_ViewLogoPath" xml:space="preserve">
+    <value>View Pages Logo Path</value>
+  </data>
+  <data name="ContactUsModel_Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="ContactUsModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="ContactUsModel_TextRequired" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="ContactUsModel_UserEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ContactUsModel_UserEmailRequired" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="ContactUsModel_UserMobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="ContactUsModel_Username" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="ContactUsModel_UsernameRequired" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="CopainModel_CopainCount" xml:space="preserve">
+    <value>Copain count</value>
+  </data>
+  <data name="CopainModel_CopainPrice" xml:space="preserve">
+    <value>Copain price</value>
+  </data>
+  <data name="CopainModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="CopainModel_Discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="CopainModel_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="CopainModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Credit_HasFinancialAccounts" xml:space="preserve">
+    <value>Has financial accounts</value>
+  </data>
+  <data name="Credit_UseCopain" xml:space="preserve">
+    <value>Use copain</value>
+  </data>
+  <data name="Credit_UseWallet" xml:space="preserve">
+    <value>Use wallet</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_DescriptionRequierd" xml:space="preserve">
+    <value>Description Requierd</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_TextRequired" xml:space="preserve">
+    <value>Please enter text.</value>
+  </data>
+  <data name="CustomQuestionTypeItemMetadata_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="CustomQuestionTypeMetadata_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="CustomQuestionTypeMetadata_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="CustomQuestionTypeMetadata_NameRequired" xml:space="preserve">
+    <value>Please enter name.</value>
+  </data>
+  <data name="CustoQuestionTypeItemMetadata_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="CustoQuestionTypeItemMetadata_DescriptionRequierd" xml:space="preserve">
+    <value>Please Enter Description</value>
+  </data>
+  <data name="CustoQuestionTypeItemMetadata_ValueRequierd" xml:space="preserve">
+    <value>Please enter value.</value>
+  </data>
+  <data name="DepartmentModel_DepartmentName" xml:space="preserve">
+    <value>Department Name</value>
+  </data>
+  <data name="DepartmentModel_DepartmentTitle" xml:space="preserve">
+    <value>Department Title</value>
+  </data>
+  <data name="DepartmentModel_DepartmentUniqueID" xml:space="preserve">
+    <value>Department UniqueID</value>
+  </data>
+  <data name="DepartmentModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DepartmentModel_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="DepartmentModel_MailAddress" xml:space="preserve">
+    <value>Mail Address</value>
+  </data>
+  <data name="DepartmentModel_OfficeAddress" xml:space="preserve">
+    <value>Office Address</value>
+  </data>
+  <data name="DepartmentModel_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="DepartmentModel_WebSiteUrl" xml:space="preserve">
+    <value>WebSite Url</value>
+  </data>
+  <data name="DepartmentUserModel_DepartmentId" xml:space="preserve">
+    <value>Department Id</value>
+  </data>
+  <data name="DepartmentUserModel_IsHead" xml:space="preserve">
+    <value>Is Head</value>
+  </data>
+  <data name="Enums_PaymentGateWaysEnum_ArianPal" xml:space="preserve">
+    <value>ArianPal GateWay</value>
+  </data>
+  <data name="Enums_PaymentGateWaysEnum_Mellat" xml:space="preserve">
+    <value>Mellat GateWay</value>
+  </data>
+  <data name="Enums_PaymentGateWaysEnum_PayIr" xml:space="preserve">
+    <value>Saman(Pay.ir) GateWay</value>
+  </data>
+  <data name="FeatureModel_ActionName" xml:space="preserve">
+    <value>Action Name</value>
+  </data>
+  <data name="FeatureModel_AreaName" xml:space="preserve">
+    <value>Area Name</value>
+  </data>
+  <data name="FeatureModel_Attributes" xml:space="preserve">
+    <value>Attributes</value>
+  </data>
+  <data name="FeatureModel_ControllerName" xml:space="preserve">
+    <value>Controller Name</value>
+  </data>
+  <data name="FeatureModel_FeaturesName" xml:space="preserve">
+    <value>Features Name</value>
+  </data>
+  <data name="Global_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Global_Accuracy" xml:space="preserve">
+    <value>Accuracy</value>
+  </data>
+  <data name="Global_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Global_Application" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="Global_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Global_BackToList" xml:space="preserve">
+    <value>Back to list</value>
+  </data>
+  <data name="Global_Balance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="Global_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Global_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Global_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Global_CreateNew" xml:space="preserve">
+    <value>Create New</value>
+  </data>
+  <data name="Global_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Global_Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="Global_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Global_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Global_ExportToExcel" xml:space="preserve">
+    <value>Export To Excel</value>
+  </data>
+  <data name="Global_From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Global_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Global_IsDone" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="Global_Login" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Global_LogOff" xml:space="preserve">
+    <value>Log off</value>
+  </data>
+  <data name="Global_Monitoring" xml:space="preserve">
+    <value>Monitoring</value>
+  </data>
+  <data name="Global_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Global_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Global_Ping" xml:space="preserve">
+    <value>Ping</value>
+  </data>
+  <data name="Global_Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Global_Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="Global_ProjectAction" xml:space="preserve">
+    <value>Project action</value>
+  </data>
+  <data name="Global_ProjectLocation" xml:space="preserve">
+    <value>Project location</value>
+  </data>
+  <data name="Global_Question" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Global_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Global_Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="Global_TaskFormTemplate" xml:space="preserve">
+    <value>Task form template</value>
+  </data>
+  <data name="Global_Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Global_To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="Global_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Global_UserAccount" xml:space="preserve">
+    <value>User Account</value>
+  </data>
+  <data name="Global_UserList" xml:space="preserve">
+    <value>Users List</value>
+  </data>
+  <data name="Global_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="GroupModel_CreateWhen" xml:space="preserve">
+    <value>Create When</value>
+  </data>
+  <data name="GroupModel_DepartmentName" xml:space="preserve">
+    <value>Department Name</value>
+  </data>
+  <data name="GroupModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="GroupModel_ImageBinary" xml:space="preserve">
+    <value>Group Image</value>
+  </data>
+  <data name="GroupModel_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="GroupModel_Name" xml:space="preserve">
+    <value>Group Name</value>
+  </data>
+  <data name="GroupUserModel_GroupId" xml:space="preserve">
+    <value>Group Id</value>
+  </data>
+  <data name="GroupUserModel_IsHead" xml:space="preserve">
+    <value>Is Head</value>
+  </data>
+  <data name="IpBannedModel_IPAddress" xml:space="preserve">
+    <value>IP address</value>
+  </data>
+  <data name="IpBannedModel_IPAddressBanReason" xml:space="preserve">
+    <value>IP address banned reason</value>
+  </data>
+  <data name="IpRangeModel_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="IpRangeModel_Lower" xml:space="preserve">
+    <value>Lower ip</value>
+  </data>
+  <data name="IpRangeModel_Upper" xml:space="preserve">
+    <value>Upper ip</value>
+  </data>
+  <data name="Layout_UserWelcome" xml:space="preserve">
+    <value>Hello {0}!</value>
+  </data>
+  <data name="LoginViewModel_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginViewModel_PasswordRequired" xml:space="preserve">
+    <value>Please enter your password.</value>
+  </data>
+  <data name="LoginViewModel_Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="LoginViewModel_UsernameRequired" xml:space="preserve">
+    <value>Please enter your username.</value>
+  </data>
+  <data name="MailModel_Attachments" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="MailModel_Receivers" xml:space="preserve">
+    <value>Receiver</value>
+  </data>
+  <data name="MailModel_Sender" xml:space="preserve">
+    <value>Sender</value>
+  </data>
+  <data name="MailModel_SendTime" xml:space="preserve">
+    <value>Send time</value>
+  </data>
+  <data name="MailModel_Text" xml:space="preserve">
+    <value>Message Text</value>
+  </data>
+  <data name="MailModel_Title" xml:space="preserve">
+    <value>Message  title</value>
+  </data>
+  <data name="MailModel_Unread" xml:space="preserve">
+    <value>Unread</value>
+  </data>
+  <data name="MailModel_WithAttachment" xml:space="preserve">
+    <value>With attachment</value>
+  </data>
+  <data name="Map_FilterByProjectStatus" xml:space="preserve">
+    <value>Filter by project status</value>
+  </data>
+  <data name="Map_FilterByUser" xml:space="preserve">
+    <value>Filter by user</value>
+  </data>
+  <data name="MessageOptionMetaData_Email" xml:space="preserve">
+    <value>Send by email</value>
+  </data>
+  <data name="MessageOptionMetaData_PanelMessage" xml:space="preserve">
+    <value>Send by message panel</value>
+  </data>
+  <data name="MessageOptionMetaData_Sms" xml:space="preserve">
+    <value>Send by sms</value>
+  </data>
+  <data name="MessageOptionMetaData_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="NewsModel_IsHotLink" xml:space="preserve">
+    <value>Is hot link</value>
+  </data>
+  <data name="NewsModel_IsLiveNews" xml:space="preserve">
+    <value>Is live news</value>
+  </data>
+  <data name="NewsModel_IsMainTitr" xml:space="preserve">
+    <value>Is main titr</value>
+  </data>
+  <data name="NewsModel_IsPublished" xml:space="preserve">
+    <value>Is published</value>
+  </data>
+  <data name="NewsModel_MainTitrImage" xml:space="preserve">
+    <value>Main titr Image</value>
+  </data>
+  <data name="NewsModel_NewsImage" xml:space="preserve">
+    <value>News Image</value>
+  </data>
+  <data name="NewsModel_NewsReleaseDate" xml:space="preserve">
+    <value>Release date</value>
+  </data>
+  <data name="NewsModel_NewsShowPriorityDate" xml:space="preserve">
+    <value>Show priority date</value>
+  </data>
+  <data name="NewsModel_RuTitr" xml:space="preserve">
+    <value>Top Headline</value>
+  </data>
+  <data name="NewsModel_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="NewsModel_SubTitle" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="NewsModel_ThumbnailImage" xml:space="preserve">
+    <value>Thumbnail Image</value>
+  </data>
+  <data name="NewsModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="NewsModel_WithFilm" xml:space="preserve">
+    <value>With film</value>
+  </data>
+  <data name="NewsModel_WithImage" xml:space="preserve">
+    <value>With Image</value>
+  </data>
+  <data name="NewsModel_WithVoice" xml:space="preserve">
+    <value>With voice</value>
+  </data>
+  <data name="NotificationModel_IsPublic" xml:space="preserve">
+    <value>Is Public</value>
+  </data>
+  <data name="NotificationModel_NewsID" xml:space="preserve">
+    <value>News ID</value>
+  </data>
+  <data name="NotificationModel_Receiver" xml:space="preserve">
+    <value>Receiver</value>
+  </data>
+  <data name="NotificationModel_ReceiveTime" xml:space="preserve">
+    <value>ReceiveTime</value>
+  </data>
+  <data name="NotificationModel_Sender" xml:space="preserve">
+    <value>Sender</value>
+  </data>
+  <data name="NotificationModel_SendTime" xml:space="preserve">
+    <value>SendTime</value>
+  </data>
+  <data name="NotificationModel_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="NotificationModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="NotificationModel_WithNews" xml:space="preserve">
+    <value>With News</value>
+  </data>
+  <data name="PartCell_Create_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="PartCell_Create_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PartCell_Create_Js_NoDubplicated" xml:space="preserve">
+    <value>Dont accept duplicated</value>
+  </data>
+  <data name="PartCell_Create_Js_Quantity" xml:space="preserve">
+    <value>Please Enter Quantity</value>
+  </data>
+  <data name="PartCell_Create_Js_SelectProduct" xml:space="preserve">
+    <value>Please select a product.</value>
+  </data>
+  <data name="PartCell_Create_Js_Unit" xml:space="preserve">
+    <value>Please select a unit type</value>
+  </data>
+  <data name="PartCell_Create_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="PartCell_Create_Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="PaymentInfoModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PaymentInfoModel_Email" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="PaymentInfoModel_Mobile" xml:space="preserve">
+    <value>Mobile number</value>
+  </data>
+  <data name="PaymentInfoModel_Paymenter" xml:space="preserve">
+    <value>Paymenter full name</value>
+  </data>
+  <data name="PaymentInfoModel_PaymentGateWayType" xml:space="preserve">
+    <value>Select payment gateway</value>
+  </data>
+  <data name="PaymentInfoModel_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="PaymentInfoModel_Type" xml:space="preserve">
+    <value>Payment type</value>
+  </data>
+  <data name="Payment_ArianPalResult" xml:space="preserve">
+    <value>Payment Result - ArianPal</value>
+  </data>
+  <data name="Payment_MellatResult" xml:space="preserve">
+    <value>Payment Result - Mellat</value>
+  </data>
+  <data name="Payment_PayIrResult" xml:space="preserve">
+    <value>Payment Result - Pay.ir</value>
+  </data>
+  <data name="ProfileModel_BirthDate" xml:space="preserve">
+    <value>Birth date</value>
+  </data>
+  <data name="ProfileModel_CityId" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="ProfileModel_EducationId" xml:space="preserve">
+    <value>Education</value>
+  </data>
+  <data name="ProfileModel_EmailAddress" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="ProfileModel_ImageBinary" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ProfileModel_MobileNumber" xml:space="preserve">
+    <value>Mobile number</value>
+  </data>
+  <data name="ProfileModel_NationalCode" xml:space="preserve">
+    <value>National code</value>
+  </data>
+  <data name="ProfileModel_PhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="ProfileModel_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="ProfileModel_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="ProfileModel_User_FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="ProfileModel_User_LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="ProjectActionMetadata_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ProjectActionMetadata_DateRequired" xml:space="preserve">
+    <value>Please enter date of project action.</value>
+  </data>
+  <data name="ProjectActionMetadata_Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ProjectActionMetadata_ProjectStatusId" xml:space="preserve">
+    <value>Project status</value>
+  </data>
+  <data name="ProjectActionMetadata_ProjectStatusIdRequired" xml:space="preserve">
+    <value>Please select Project status.</value>
+  </data>
+  <data name="ProjectActionMetadata_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="ProjectActionMetadata_TextRequired" xml:space="preserve">
+    <value>Please enter text of project action.</value>
+  </data>
+  <data name="ProjectActions_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ProjectActions_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ProjectActions_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="ProjectLocationMetadata_Location" xml:space="preserve">
+    <value>Location Coordinate</value>
+  </data>
+  <data name="ProjectLocationMetadata_LocationRadius" xml:space="preserve">
+    <value>Location Radius</value>
+  </data>
+  <data name="ProjectLocationMetadata_MapCode" xml:space="preserve">
+    <value>Map Code</value>
+  </data>
+  <data name="ProjectLocationMetadata_Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ProjectMetadata_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="ProjectMetadata_CodeInvalidFormat" xml:space="preserve">
+    <value>Invalid Code Format.</value>
+  </data>
+  <data name="ProjectMetadata_CodeNonUniqueError" xml:space="preserve">
+    <value>Project coed must be unique.</value>
+  </data>
+  <data name="ProjectMetadata_CodeRequired" xml:space="preserve">
+    <value>Please enter code.</value>
+  </data>
+  <data name="ProjectMetadata_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ProjectMetadata_Location" xml:space="preserve">
+    <value>Location Coordinates</value>
+  </data>
+  <data name="ProjectMetadata_Locations" xml:space="preserve">
+    <value>Locations</value>
+  </data>
+  <data name="ProjectMetadata_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ProjectMetadata_NameRequired" xml:space="preserve">
+    <value>Please enter name.</value>
+  </data>
+  <data name="ProjectMetadata_Operator" xml:space="preserve">
+    <value>Project operator</value>
+  </data>
+  <data name="ProjectMetadata_OperatorUserId" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+  <data name="ProjectMetadata_Parent" xml:space="preserve">
+    <value>Parent Project</value>
+  </data>
+  <data name="ProjectsCodeFormat_AlphaNumeric" xml:space="preserve">
+    <value>Alpha Numeric</value>
+  </data>
+  <data name="ProjectsCodeFormat_Numeric" xml:space="preserve">
+    <value>Numeric</value>
+  </data>
+  <data name="ProjectStatus_Canceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="ProjectStatus_Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="ProjectStatus_InProgress" xml:space="preserve">
+    <value>In progress</value>
+  </data>
+  <data name="ProjectStatus_Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="ProjectStatus_Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="QuestionMetadata_Choices" xml:space="preserve">
+    <value>Choices</value>
+  </data>
+  <data name="QuestionMetadata_HaveAttachment" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="QuestionMetadata_HaveNote" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="QuestionMetadata_TaskFormTemplate" xml:space="preserve">
+    <value>Form Template</value>
+  </data>
+  <data name="QuestionMetadata_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="QuestionMetadata_TextRequired" xml:space="preserve">
+    <value>Please enter text of Question.</value>
+  </data>
+  <data name="QuestionMetadata_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="QuestionMetadata_TypeRequired" xml:space="preserve">
+    <value>Please select Type.</value>
+  </data>
+  <data name="QuestionType_Command" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="QuestionType_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="QuestionType_MultipleChoice" xml:space="preserve">
+    <value>Multiple Choices</value>
+  </data>
+  <data name="QuestionType_Numeric" xml:space="preserve">
+    <value>Numeric</value>
+  </data>
+  <data name="QuestionType_Simple" xml:space="preserve">
+    <value>Simple</value>
+  </data>
+  <data name="QuestionType_YesNo" xml:space="preserve">
+    <value>Yes / No</value>
+  </data>
+  <data name="Reports_Tasks" xml:space="preserve">
+    <value>Tasks report</value>
+  </data>
+  <data name="Reports_UserWorkTime_IsExit" xml:space="preserve">
+    <value>Enter/Exit</value>
+  </data>
+  <data name="Reports_UserWorkTime_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Reports_UserWorkTime_Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Reports_UserWorkTime_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Reports_WorkTimes" xml:space="preserve">
+    <value>Users work time report</value>
+  </data>
+  <data name="Reports_WorkTime_ViewBag_IsExit_false" xml:space="preserve">
+    <value>Enter</value>
+  </data>
+  <data name="Reports_WorkTime_ViewBag_IsExit_true" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="RoleModel_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="RoleModel_RoleDisplayName" xml:space="preserve">
+    <value>Role Display Name</value>
+  </data>
+  <data name="RoleModel_RoleName" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="SettingsModelMetadata_EnableMovingAverage" xml:space="preserve">
+    <value>Enable moving average on users path</value>
+  </data>
+  <data name="SettingsModelMetadata_MinTripDistance" xml:space="preserve">
+    <value>Maximum movement in stop detection (meter)</value>
+  </data>
+  <data name="SettingsModelMetadata_MinTripDistanceRequired" xml:space="preserve">
+    <value>Please enter maximum movement in stop detection.</value>
+  </data>
+  <data name="SettingsModelMetadata_Projects_CodeFormat" xml:space="preserve">
+    <value>Projects code format</value>
+  </data>
+  <data name="SettingsModelMetadata_StopTime" xml:space="preserve">
+    <value>Minimum time in stop detection (minute)</value>
+  </data>
+  <data name="SettingsModelMetadata_StopTimeRequired" xml:space="preserve">
+    <value>Please enter minimum time in stop detection.</value>
+  </data>
+  <data name="TaskFormTemplateCategoryMetadata_Name" xml:space="preserve">
+    <value>Category name</value>
+  </data>
+  <data name="TaskFormTemplateCategoryMetadata_NameRequired" xml:space="preserve">
+    <value>Please enter Category name.</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_CategoryRequired" xml:space="preserve">
+    <value>Please select Category.</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_NameRequired" xml:space="preserve">
+    <value>Please enter name.</value>
+  </data>
+  <data name="TaskFormTemplateMetadata_Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="TaskMetadata_Command" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="TaskMetadata_DoEndBefore" xml:space="preserve">
+    <value>Deadline</value>
+  </data>
+  <data name="TaskMetadata_Performer" xml:space="preserve">
+    <value>Requestee</value>
+  </data>
+  <data name="TaskMetadata_Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="TaskMetadata_ProjectLocation" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="TaskMetadata_Requester" xml:space="preserve">
+    <value>Requester</value>
+  </data>
+  <data name="TaskMetadata_Request_time" xml:space="preserve">
+    <value>Request Time</value>
+  </data>
+  <data name="TaskMetadata_TaskState" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TaskMetadate_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TaskQuestionMetadata_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="UserMetadata_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="UserMetadata_FirstNameRequired" xml:space="preserve">
+    <value>Please enter First name.</value>
+  </data>
+  <data name="UserMetadata_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="UserMetadata_LastNameRequired" xml:space="preserve">
+    <value>Please enter Last name.</value>
+  </data>
+  <data name="UserMetadata_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="UserMetadata_PasswordRequired" xml:space="preserve">
+    <value>Please enter Password.</value>
+  </data>
+  <data name="UserMetadata_Picture" xml:space="preserve">
+    <value>Picture</value>
+  </data>
+  <data name="UserMetadata_Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UserMetadata_UsernameRequired" xml:space="preserve">
+    <value>Please enter Username.</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Create_Title" xml:space="preserve">
+    <value>Create Custom Question Type Item</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Delete_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Delete_Title" xml:space="preserve">
+    <value>Delete Item</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Details_Title" xml:space="preserve">
+    <value>Custom Question Type Details</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItems_Index_Title" xml:space="preserve">
+    <value>Custom Question Type Items</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItem_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Views_CustomQuestionTypeItem_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Create_Title" xml:space="preserve">
+    <value>Create Custom Question Type</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Delete_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Delete_Title" xml:space="preserve">
+    <value>Delete Custom Question Type</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Details_Title" xml:space="preserve">
+    <value>Custom Question Type Details</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Edit_Title" xml:space="preserve">
+    <value>Edit Custom Question Type</value>
+  </data>
+  <data name="Views_CustomQuestionTypes_Index_Title" xml:space="preserve">
+    <value>Custom Question Types</value>
+  </data>
+  <data name="Views_Custom_Question_Type_Item_Edit" xml:space="preserve">
+    <value>Edit Custom Question Type</value>
+  </data>
+  <data name="Views_Custom_Question_Type_Item_Edit_Button" xml:space="preserve">
+    <value>Edit Item</value>
+  </data>
+  <data name="Views_Login_InvalidUsernameOrPassword" xml:space="preserve">
+    <value>Invalid Username or Password.</value>
+  </data>
+  <data name="Views_Login_Tip" xml:space="preserve">
+    <value>Please enter username and password.</value>
+  </data>
+  <data name="Views_Monitoring_Loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="Views_Monitoring_TotalForms" xml:space="preserve">
+    <value>Total forms</value>
+  </data>
+  <data name="Views_Monitoring_TotalTodayForms" xml:space="preserve">
+    <value>Total today forms</value>
+  </data>
+  <data name="Views_PartCell_AddToList" xml:space="preserve">
+    <value>Add To List</value>
+  </data>
+  <data name="Views_PartCell_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Views_PartCell_Create_Title" xml:space="preserve">
+    <value>Create Request</value>
+  </data>
+  <data name="Views_PartCell_ProductList" xml:space="preserve">
+    <value>Select Item</value>
+  </data>
+  <data name="Views_PartCell_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Views_PartCell_Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="Views_ProjectAction_Create_Title" xml:space="preserve">
+    <value>Create Project Action</value>
+  </data>
+  <data name="Views_ProjectAction_Delete_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Views_ProjectAction_Delete_Title" xml:space="preserve">
+    <value>Delete Project Action</value>
+  </data>
+  <data name="Views_ProjectAction_Details_Title" xml:space="preserve">
+    <value>Project action details</value>
+  </data>
+  <data name="Views_ProjectAction_Edit_Title" xml:space="preserve">
+    <value>Edit Project action</value>
+  </data>
+  <data name="Views_ProjectAction_Index_Title" xml:space="preserve">
+    <value>Project actions</value>
+  </data>
+  <data name="Views_ProjectLocation_Create_Title" xml:space="preserve">
+    <value>Create Project Location</value>
+  </data>
+  <data name="Views_ProjectLocation_Delete_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Views_ProjectLocation_Delete_Title" xml:space="preserve">
+    <value>Delete Project location </value>
+  </data>
+  <data name="Views_ProjectLocation_Details_Title" xml:space="preserve">
+    <value>Project location details</value>
+  </data>
+  <data name="Views_ProjectLocation_Edit_Title" xml:space="preserve">
+    <value>Edit Project location </value>
+  </data>
+  <data name="Views_ProjectLocation_Index_Title" xml:space="preserve">
+    <value>Project locations</value>
+  </data>
+  <data name="Views_Projects_Delete_Title" xml:space="preserve">
+    <value>Delete Project</value>
+  </data>
+  <data name="Views_Projects_Error_DuplicateCode" xml:space="preserve">
+    <value>Code must be unique.</value>
+  </data>
+  <data name="Views_Project_Create_Title" xml:space="preserve">
+    <value>Create Project</value>
+  </data>
+  <data name="Views_Project_Delete_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Views_Project_Delete_Title" xml:space="preserve">
+    <value>Delete Project</value>
+  </data>
+  <data name="Views_Project_Details_Title" xml:space="preserve">
+    <value>Project details</value>
+  </data>
+  <data name="Views_Project_Edit_Title" xml:space="preserve">
+    <value>Edit Project</value>
+  </data>
+  <data name="Views_Project_Index_Title" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="Views_Question_Create_Title" xml:space="preserve">
+    <value>Create Question</value>
+  </data>
+  <data name="Views_Question_Delete_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Views_Question_Delete_Title" xml:space="preserve">
+    <value>Delete Question</value>
+  </data>
+  <data name="Views_Question_Details_Title" xml:space="preserve">
+    <value>Question details</value>
+  </data>
+  <data name="Views_Question_Edit_Title" xml:space="preserve">
+    <value>Edit Question</value>
+  </data>
+  <data name="Views_Question_Index_Title" xml:space="preserve">
+    <value>Questions</value>
+  </data>
+  <data name="Views_Reports_Index_Title" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Views_Reports_WorkTime_Error_From" xml:space="preserve">
+    <value>Please Select From Date</value>
+  </data>
+  <data name="Views_Reports_WorkTime_Error_To" xml:space="preserve">
+    <value>Please Select To Date</value>
+  </data>
+  <data name="Views_Reports_WorkTime_Error_UserId" xml:space="preserve">
+    <value>Please Select A User</value>
+  </data>
+  <data name="Views_Settings_Index_Description" xml:space="preserve">
+    <value>Settings for different sectors will be done in this area.</value>
+  </data>
+  <data name="Views_Settings_Index_ProjectCodeFormatWarning" xml:space="preserve">
+    <value>Code format can't be changed. Because some projects has code with invalid character.</value>
+  </data>
+  <data name="Views_Settings_Index_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Create_Title" xml:space="preserve">
+    <value>Create Task Form Template Category</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Delete_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Delete_Title" xml:space="preserve">
+    <value>Delete Task form category</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Details_Title" xml:space="preserve">
+    <value>Task form category details</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Edit_Title" xml:space="preserve">
+    <value>Edit Task form category</value>
+  </data>
+  <data name="Views_TaskFormTemplateCategory_Index_Title" xml:space="preserve">
+    <value>Task form template categories</value>
+  </data>
+  <data name="Views_TaskFormTemplate_Create_Title" xml:space="preserve">
+    <value>Create Task form template</value>
+  </data>
+  <data name="Views_TaskFormTemplate_Delete_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Views_TaskFormTemplate_HaveAttachment" xml:space="preserve">
+    <value>Have Attachment.</value>
+  </data>
+  <data name="Views_TaskFormTemplate_HaveNote" xml:space="preserve">
+    <value>Have Note.</value>
+  </data>
+  <data name="Views_TaskFormTemplate_Index_Title" xml:space="preserve">
+    <value>Task form templates</value>
+  </data>
+  <data name="Views_TaskReports_Error_From" xml:space="preserve">
+    <value>Please Select From Date</value>
+  </data>
+  <data name="Views_TaskReports_Error_To" xml:space="preserve">
+    <value>Please Select To Date</value>
+  </data>
+  <data name="Views_TaskReports_Error_UserId" xml:space="preserve">
+    <value>Please Choose A User</value>
+  </data>
+  <data name="Views_Tasks_Create_Title" xml:space="preserve">
+    <value>Create New Task</value>
+  </data>
+  <data name="Views_Tasks_Fillout_Title" xml:space="preserve">
+    <value>Task filling</value>
+  </data>
+  <data name="Views_Tasks_TaskList_Title_Inbox" xml:space="preserve">
+    <value>Inbox</value>
+  </data>
+  <data name="Views_Tasks_TaskList_Title_Sent" xml:space="preserve">
+    <value>Sent</value>
+  </data>
+  <data name="Views_User_Create_Title" xml:space="preserve">
+    <value>Create User</value>
+  </data>
+  <data name="Views_User_Delete" xml:space="preserve">
+    <value>Delete User</value>
+  </data>
+  <data name="Views_User_Delete_Confirm" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Views_User_Delete_Title" xml:space="preserve">
+    <value>Delete User</value>
+  </data>
+  <data name="Views_User_Details" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="Views_User_Details_Title" xml:space="preserve">
+    <value>User details</value>
+  </data>
+  <data name="Views_User_Edit" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
+  <data name="Views_User_Edit_Title" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
+  <data name="Views_User_Index_Title" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="WorkTimeReportModelMetadata_From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="WorkTimeReportModelMetadata_To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="WorkTimeReportModelMetadata_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="CreateUser_AccountInformation" xml:space="preserve">
+    <value>Account Information</value>
+  </data>
+  <data name="CreateUser_PublicInformation" xml:space="preserve">
+    <value>Public Information</value>
+  </data>
+  <data name="Global_AboutUs" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="Global_AddUserToDepartment" xml:space="preserve">
+    <value>Add user to department</value>
+  </data>
+  <data name="Global_AddUserToGroup" xml:space="preserve">
+    <value>Add User To Group</value>
+  </data>
+  <data name="Global_AdminPanel" xml:space="preserve">
+    <value>Admin Panel</value>
+  </data>
+  <data name="Global_AuthorizeManagment" xml:space="preserve">
+    <value>Authorize Managment</value>
+  </data>
+  <data name="Global_BackToHome" xml:space="preserve">
+    <value>Back to home</value>
+  </data>
+  <data name="Global_BaseInformation" xml:space="preserve">
+    <value>Base Information</value>
+  </data>
+  <data name="Global_ChangeDepartmentHeadStatus" xml:space="preserve">
+    <value>Change department head status</value>
+  </data>
+  <data name="Global_ChangeGroupHeadStatus" xml:space="preserve">
+    <value>Change Group Head Status</value>
+  </data>
+  <data name="Global_ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Global_ChangeStatus" xml:space="preserve">
+    <value>Change status</value>
+  </data>
+  <data name="Global_Check" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="Global_ChoiceDepartmentAdmin" xml:space="preserve">
+    <value>Choice department admin</value>
+  </data>
+  <data name="Global_ChoiceUser" xml:space="preserve">
+    <value>Choice user</value>
+  </data>
+  <data name="Global_Compose" xml:space="preserve">
+    <value>Compose</value>
+  </data>
+  <data name="Global_ConfirmAndContinue" xml:space="preserve">
+    <value>Confirm And Continue</value>
+  </data>
+  <data name="Global_ConfirmKey" xml:space="preserve">
+    <value>Confirm Key</value>
+  </data>
+  <data name="Global_Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="Global_ContactUs" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="Global_ContactUsForm" xml:space="preserve">
+    <value>Contact us form</value>
+  </data>
+  <data name="Global_Copain" xml:space="preserve">
+    <value>Copain</value>
+  </data>
+  <data name="Global_CopainCharge" xml:space="preserve">
+    <value>Copain charge</value>
+  </data>
+  <data name="Global_CopainList" xml:space="preserve">
+    <value>Copain list</value>
+  </data>
+  <data name="Global_CopainManagment" xml:space="preserve">
+    <value>Copain managment</value>
+  </data>
+  <data name="Global_CreateDepartmentUser" xml:space="preserve">
+    <value>Create department user</value>
+  </data>
+  <data name="Global_Credit" xml:space="preserve">
+    <value>Credit</value>
+  </data>
+  <data name="Global_CreditCharge" xml:space="preserve">
+    <value>Credit charge</value>
+  </data>
+  <data name="Global_CreditSetting" xml:space="preserve">
+    <value>Credit setting</value>
+  </data>
+  <data name="Global_DepartmentInfo" xml:space="preserve">
+    <value>Department Info</value>
+  </data>
+  <data name="Global_DepartmentManagment" xml:space="preserve">
+    <value>Department Managment</value>
+  </data>
+  <data name="Global_DepartmentsList" xml:space="preserve">
+    <value>Departments List</value>
+  </data>
+  <data name="Global_DepartmentUsersManagment" xml:space="preserve">
+    <value>Department users managment</value>
+  </data>
+  <data name="Global_DisableUserCount" xml:space="preserve">
+    <value>Disable user count</value>
+  </data>
+  <data name="Global_Discard" xml:space="preserve">
+    <value>Discard</value>
+  </data>
+  <data name="Global_DisplayImage" xml:space="preserve">
+    <value>Display Image</value>
+  </data>
+  <data name="Global_DisplaySettings" xml:space="preserve">
+    <value>Display Settings</value>
+  </data>
+  <data name="Global_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Global_Draft" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="Global_EditNews" xml:space="preserve">
+    <value>Edit News</value>
+  </data>
+  <data name="Global_EditProfile" xml:space="preserve">
+    <value>Edit profile</value>
+  </data>
+  <data name="Global_Email" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="Global_EmailOrSms" xml:space="preserve">
+    <value>Email or mobile number</value>
+  </data>
+  <data name="Global_FeatureList" xml:space="preserve">
+    <value>Feature List</value>
+  </data>
+  <data name="Global_FeatureManagment" xml:space="preserve">
+    <value>Feature Managment</value>
+  </data>
+  <data name="Global_Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Global_ForgotYourPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="Global_ForVerificationMobileNumberPleaseClickHere" xml:space="preserve">
+    <value>For verification mobile number please click here</value>
+  </data>
+  <data name="Global_Forward" xml:space="preserve">
+    <value>Forward</value>
+  </data>
+  <data name="Global_FurtherInformation" xml:space="preserve">
+    <value>Further Information</value>
+  </data>
+  <data name="Global_Goto_EmailLogin" xml:space="preserve">
+    <value>Login with email</value>
+  </data>
+  <data name="Global_Goto_SmsAndEmailLogin" xml:space="preserve">
+    <value>Login with email or sms</value>
+  </data>
+  <data name="Global_Goto_SmsLogin" xml:space="preserve">
+    <value>Login with sms</value>
+  </data>
+  <data name="Global_GroupManagment" xml:space="preserve">
+    <value>Group Managment</value>
+  </data>
+  <data name="Global_GroupsList" xml:space="preserve">
+    <value>Groups List</value>
+  </data>
+  <data name="Global_GroupUsersManagment" xml:space="preserve">
+    <value>Group Users Managment</value>
+  </data>
+  <data name="Global_Images" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="Global_Important" xml:space="preserve">
+    <value>Important</value>
+  </data>
+  <data name="Global_Inaccessibility" xml:space="preserve">
+    <value>Inaccessibility</value>
+  </data>
+  <data name="Global_Inbox" xml:space="preserve">
+    <value>Inbox</value>
+  </data>
+  <data name="Global_InCountry" xml:space="preserve">
+    <value>In Country</value>
+  </data>
+  <data name="Global_IpBannedManagment" xml:space="preserve">
+    <value>Ip Banned Managment</value>
+  </data>
+  <data name="Global_IpList" xml:space="preserve">
+    <value>Ip List</value>
+  </data>
+  <data name="Global_IpRangeManagment" xml:space="preserve">
+    <value>Ip Range Managment</value>
+  </data>
+  <data name="Global_JustUseEnglishCharacters" xml:space="preserve">
+    <value>Just use english characters</value>
+  </data>
+  <data name="Global_LoginSetting" xml:space="preserve">
+    <value>Login setting</value>
+  </data>
+  <data name="Global_Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Global_Managment" xml:space="preserve">
+    <value>Managment</value>
+  </data>
+  <data name="Global_MarkAsImportant" xml:space="preserve">
+    <value>Mark as important</value>
+  </data>
+  <data name="Global_MarkAsUnread" xml:space="preserve">
+    <value>Mark as unread</value>
+  </data>
+  <data name="Global_Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Global_Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Global_Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="Global_Messenger" xml:space="preserve">
+    <value>Messenger</value>
+  </data>
+  <data name="Global_MyContacts" xml:space="preserve">
+    <value>My Contacts</value>
+  </data>
+  <data name="Global_New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Global_NewCopain" xml:space="preserve">
+    <value>New copain</value>
+  </data>
+  <data name="Global_NewCrop" xml:space="preserve">
+    <value>New crop</value>
+  </data>
+  <data name="Global_NewDepartment" xml:space="preserve">
+    <value>New Department</value>
+  </data>
+  <data name="Global_NewDepartmentUser" xml:space="preserve">
+    <value>New Department User</value>
+  </data>
+  <data name="Global_NewGroup" xml:space="preserve">
+    <value>New Group</value>
+  </data>
+  <data name="Global_NewIp" xml:space="preserve">
+    <value>New Ip</value>
+  </data>
+  <data name="Global_NewNews" xml:space="preserve">
+    <value>New News</value>
+  </data>
+  <data name="Global_NewNotification" xml:space="preserve">
+    <value>New Notification</value>
+  </data>
+  <data name="Global_NewRole" xml:space="preserve">
+    <value>New Role</value>
+  </data>
+  <data name="Global_News" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="Global_NewsContent" xml:space="preserve">
+    <value>News content</value>
+  </data>
+  <data name="Global_NewsList" xml:space="preserve">
+    <value>News List</value>
+  </data>
+  <data name="Global_NewsManagment" xml:space="preserve">
+    <value>News Managment</value>
+  </data>
+  <data name="Global_NewUser" xml:space="preserve">
+    <value>New User</value>
+  </data>
+  <data name="Global_Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="Global_NotificationList" xml:space="preserve">
+    <value>Notification List</value>
+  </data>
+  <data name="Global_NotificationManagment" xml:space="preserve">
+    <value>Notification Managment</value>
+  </data>
+  <data name="Global_OfflineUserCount" xml:space="preserve">
+    <value>Offline user count</value>
+  </data>
+  <data name="Global_OnlineFriend" xml:space="preserve">
+    <value>Online friend</value>
+  </data>
+  <data name="Global_OnlineUser" xml:space="preserve">
+    <value>Online User</value>
+  </data>
+  <data name="Global_OnlineUserCount" xml:space="preserve">
+    <value>Online user count</value>
+  </data>
+  <data name="Global_Outbox" xml:space="preserve">
+    <value>Outbox</value>
+  </data>
+  <data name="Global_PageNotFound" xml:space="preserve">
+    <value>Page not found</value>
+  </data>
+  <data name="Global_PasswordRecovery" xml:space="preserve">
+    <value>Password Recovery</value>
+  </data>
+  <data name="Global_Payment" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="Global_PaymentForm" xml:space="preserve">
+    <value>Payment form</value>
+  </data>
+  <data name="Global_PaymentPage" xml:space="preserve">
+    <value>Payment page</value>
+  </data>
+  <data name="Global_PleaseInsertNewPassword" xml:space="preserve">
+    <value>Please insert new password</value>
+  </data>
+  <data name="Global_PleaseWait" xml:space="preserve">
+    <value>Please Wait ...</value>
+  </data>
+  <data name="Global_Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Global_Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Global_ProfileDetail" xml:space="preserve">
+    <value>Profile detail</value>
+  </data>
+  <data name="Global_Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="Global_Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Global_PublicSettings" xml:space="preserve">
+    <value>Public Settings</value>
+  </data>
+  <data name="Global_Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="Global_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Global_RegisteryDate" xml:space="preserve">
+    <value>Registery Date</value>
+  </data>
+  <data name="Global_Replay" xml:space="preserve">
+    <value>Replay</value>
+  </data>
+  <data name="Global_Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Global_Rial" xml:space="preserve">
+    <value>Rial</value>
+  </data>
+  <data name="Global_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Global_RoleManagment" xml:space="preserve">
+    <value>Role Managment</value>
+  </data>
+  <data name="Global_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Global_RolesList" xml:space="preserve">
+    <value>Roles List</value>
+  </data>
+  <data name="Global_RoleUsers" xml:space="preserve">
+    <value>Users of role</value>
+  </data>
+  <data name="Global_RotateLeft" xml:space="preserve">
+    <value>Rotate left</value>
+  </data>
+  <data name="Global_RotateRight" xml:space="preserve">
+    <value>Rotate right</value>
+  </data>
+  <data name="Global_Rules" xml:space="preserve">
+    <value>Rules</value>
+  </data>
+  <data name="Global_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Global_SearchInMessages" xml:space="preserve">
+    <value>Search in messages</value>
+  </data>
+  <data name="Global_SearchInTable" xml:space="preserve">
+    <value>Search in table</value>
+  </data>
+  <data name="Global_SecurityCode" xml:space="preserve">
+    <value>Security Code</value>
+  </data>
+  <data name="Global_Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Global_SelectContact" xml:space="preserve">
+    <value>Select Contact</value>
+  </data>
+  <data name="Global_Selected" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+  <data name="Global_SelectImage" xml:space="preserve">
+    <value>Select Image</value>
+  </data>
+  <data name="Global_Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="Global_SendForm" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="Global_SendMessage" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="Global_SendRequest" xml:space="preserve">
+    <value>Send Request</value>
+  </data>
+  <data name="Global_SendTo" xml:space="preserve">
+    <value>Send to</value>
+  </data>
+  <data name="Global_SentMail" xml:space="preserve">
+    <value>Sent Mail</value>
+  </data>
+  <data name="Global_SeparateUsersWithChar" xml:space="preserve">
+    <value>Separate users with ","</value>
+  </data>
+  <data name="Global_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Global_SiteStatistic" xml:space="preserve">
+    <value>Site Statistic</value>
+  </data>
+  <data name="Global_Sms" xml:space="preserve">
+    <value>Mobile number</value>
+  </data>
+  <data name="Global_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Global_Status_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Global_Status_InActive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Global_Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="Global_SystemUserCount" xml:space="preserve">
+    <value>System user count</value>
+  </data>
+  <data name="Global_Trash" xml:space="preserve">
+    <value>Trash</value>
+  </data>
+  <data name="Global_UnRead" xml:space="preserve">
+    <value>UnRead</value>
+  </data>
+  <data name="Global_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Global_UploadNewImage" xml:space="preserve">
+    <value>Upload new image</value>
+  </data>
+  <data name="Global_UserFurtherInformation" xml:space="preserve">
+    <value>Further Information</value>
+  </data>
+  <data name="Global_UserManagment" xml:space="preserve">
+    <value>User Managment</value>
+  </data>
+  <data name="Global_UserPanel" xml:space="preserve">
+    <value>User Panel</value>
+  </data>
+  <data name="Global_UserRoles" xml:space="preserve">
+    <value>User Roles</value>
+  </data>
+  <data name="Global_Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Global_VerificationMobileNumber" xml:space="preserve">
+    <value>Verification mobile number</value>
+  </data>
+  <data name="Global_VerificationMobileNumberStatus" xml:space="preserve">
+    <value>Verification mobile number status</value>
+  </data>
+  <data name="Global_ViewMessage" xml:space="preserve">
+    <value>View message</value>
+  </data>
+  <data name="Global_Wallet" xml:space="preserve">
+    <value>Wallet</value>
+  </data>
+  <data name="Global_WalletCharge" xml:space="preserve">
+    <value>Wallet charge</value>
+  </data>
+  <data name="Global_WelcomeToAdminPanel" xml:space="preserve">
+    <value>Welcome to admin panel</value>
+  </data>
+  <data name="Global_YouDontHaveAccessTopage" xml:space="preserve">
+    <value>You do not have access to this page</value>
+  </data>
+  <data name="Global_ZoomIn" xml:space="preserve">
+    <value>Zoom In</value>
+  </data>
+  <data name="Global_ZoomOut" xml:space="preserve">
+    <value>Zoom out</value>
+  </data>
+  <data name="Table_RowNumber" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="Table_UserOperations" xml:space="preserve">
+    <value>Operations</value>
+  </data>
+  <data name="UserMetadata_ConfirmPassword" xml:space="preserve">
+    <value>ConfirmPassword</value>
+  </data>
+  <data name="UserMetadata_UserCreateWhen" xml:space="preserve">
+    <value>Create When</value>
+  </data>
+  <data name="UserMetadata_UserFullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="UserMetadata_UserIsEnable" xml:space="preserve">
+    <value>Is Enable</value>
+  </data>
+  <data name="News_HotLink" xml:space="preserve">
+    <value>Hot Link</value>
+  </data>
+  <data name="News_LiveNews" xml:space="preserve">
+    <value>Live News</value>
+  </data>
+  <data name="News_WithFilm" xml:space="preserve">
+    <value>With Film</value>
+  </data>
+  <data name="News_WithImage" xml:space="preserve">
+    <value>With Image</value>
+  </data>
+  <data name="News_WithVoice" xml:space="preserve">
+    <value>With Voice</value>
+  </data>
+  <data name="ConfirmKey_InsertKey" xml:space="preserve">
+    <value>Please insert key code</value>
+  </data>
+  <data name="Global_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Application_Language" xml:space="preserve">
+    <value>User Language</value>
+  </data>
+  <data name="Application_HeaderTitle" xml:space="preserve">
+    <value>HITECH DEVELOPMENT FUND</value>
+  </data>
+  <data name="User_Metadata_Language" xml:space="preserve">
+    <value>Application Language</value>
+  </data>
+  <data name="Statistic_AlexaRank" xml:space="preserve">
+    <value>Alexa Rank</value>
+  </data>
+  <data name="Global_DescriptionMetaTag" xml:space="preserve">
+    <value>HTDF</value>
+  </data>
+  <data name="Global_KeywordMetaTag" xml:space="preserve">
+    <value>Funds, Guarantees, Facilities, Startups, Start-ups, New Investments, Innovation Funds</value>
+  </data>
+  <data name="Global_PortfoliosManagement" xml:space="preserve">
+    <value>Portfolios Management</value>
+  </data>
+  <data name="Global_NewPortfolio" xml:space="preserve">
+    <value>New Portfolio</value>
+  </data>
+  <data name="PortfolioModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Global_PortfolioList" xml:space="preserve">
+    <value>Potrfolios List</value>
+  </data>
+  <data name="ToReceiveActivationCode" xml:space="preserve">
+    <value>To Receive Activation Code</value>
+  </data>
+  <data name="Global_EditPortfolio" xml:space="preserve">
+    <value>Edit Portfolio</value>
+  </data>
+  <data name="Global_Portfolios" xml:space="preserve">
+    <value>Portfolios</value>
+  </data>
+  <data name="Global_DesignBy" xml:space="preserve">
+    <value>Design by Hadi.co</value>
+  </data>
+  <data name="Global_LastMessageReceived" xml:space="preserve">
+    <value>Last Messages Received</value>
+  </data>
+  <data name="Global_LastNews" xml:space="preserve">
+    <value>Last News</value>
+  </data>
+  <data name="Global_RegisterIn" xml:space="preserve">
+    <value>Register In</value>
+  </data>
+  <data name="Global_YourUsernameWillBeMobileOrEmail" xml:space="preserve">
+    <value>Your username will be the mobile number or email address you enter here</value>
+  </data>
+  <data name="Global_NewPortfolioItem" xml:space="preserve">
+    <value>Create New Portfolio Item</value>
+  </data>
+  <data name="Global_PortfolioItemsList" xml:space="preserve">
+    <value>Portfolio Items</value>
+  </data>
+  <data name="Global_PortfolioItemsManagement" xml:space="preserve">
+    <value>PortfolioItems Management</value>
+  </data>
+  <data name="PortfolioItemModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="PortfolioItems" xml:space="preserve">
+    <value>Portfolio Items</value>
+  </data>
+  <data name="Global_ViewSite" xml:space="preserve">
+    <value>View Site</value>
+  </data>
+  <data name="Global_MenusList" xml:space="preserve">
+    <value>Menus List</value>
+  </data>
+  <data name="Global_MenusManagement" xml:space="preserve">
+    <value>Menus Management</value>
+  </data>
+  <data name="Global_NewMenu" xml:space="preserve">
+    <value>New Menu</value>
+  </data>
+  <data name="MenuModel_CssClass" xml:space="preserve">
+    <value>Css Class</value>
+  </data>
+  <data name="MenuModel_LanguageId" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="MenuModel_Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="MenuModel_OrderId" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="MenuModel_ParentId" xml:space="preserve">
+    <value>Parent Id</value>
+  </data>
+  <data name="MenuModel_Relationship" xml:space="preserve">
+    <value>Relationship</value>
+  </data>
+  <data name="MenuModel_Target" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="MenuModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="MenuModel_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Global_EditMenu" xml:space="preserve">
+    <value>Edit Menu</value>
+  </data>
+  <data name="PortfolioItemModel_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Global_MenuManagment" xml:space="preserve">
+    <value>Menu Management</value>
+  </data>
+  <data name="Global_NewTag" xml:space="preserve">
+    <value>New Tag</value>
+  </data>
+  <data name="Global_TagsList" xml:space="preserve">
+    <value>Tags List</value>
+  </data>
+  <data name="Global_TagsManagement" xml:space="preserve">
+    <value>Tags Management</value>
+  </data>
+  <data name="TagModel_Name" xml:space="preserve">
+    <value>Tag Name</value>
+  </data>
+  <data name="TagModel_IsActive" xml:space="preserve">
+    <value>IsActive Tag</value>
+  </data>
+  <data name="ArticleModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ArticleModel_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="ArticleModel_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="ArticleModel_Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="ArticleModel_Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="ArticleModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Global_ArticlesList" xml:space="preserve">
+    <value>Articles List</value>
+  </data>
+  <data name="Global_ArticlesManagement" xml:space="preserve">
+    <value>Articles Management</value>
+  </data>
+  <data name="Global_NewArticle" xml:space="preserve">
+    <value>New Article</value>
+  </data>
+  <data name="Global_Articles" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="Global_NewTemplate" xml:space="preserve">
+    <value>New Template</value>
+  </data>
+  <data name="Global_NewTemplateDetail" xml:space="preserve">
+    <value>New TemplateDetail</value>
+  </data>
+  <data name="Global_TemplateDetailsList" xml:space="preserve">
+    <value>TemplateDetails List</value>
+  </data>
+  <data name="Global_TemplateDetailsManagement" xml:space="preserve">
+    <value>TemplateDetails Management</value>
+  </data>
+  <data name="Global_TemplatesList" xml:space="preserve">
+    <value>Templates List</value>
+  </data>
+  <data name="Global_TemplatesManagement" xml:space="preserve">
+    <value>Templates Management</value>
+  </data>
+  <data name="TemplateDetailModel_IsActive" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
+  <data name="TemplateDetailModel_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="TemplateDetailModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TemplateDetails" xml:space="preserve">
+    <value>Template Details</value>
+  </data>
+  <data name="TemplateModel_IsActive" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
+  <data name="TemplateModel_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="TemplateModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="PortfolioModel_TemplateId" xml:space="preserve">
+    <value>TemplateId</value>
+  </data>
+  <data name="Global_NewPage" xml:space="preserve">
+    <value>New Page</value>
+  </data>
+  <data name="Global_PagesList" xml:space="preserve">
+    <value>Pages List</value>
+  </data>
+  <data name="Global_PagesManagement" xml:space="preserve">
+    <value>Pages Management</value>
+  </data>
+  <data name="PageModel_Alias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="PageModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PageModel_ImageId" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="PageModel_IsActive" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
+  <data name="PageModel_Keywords" xml:space="preserve">
+    <value>Keywords</value>
+  </data>
+  <data name="PageModel_LanguageId" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="PageModel_OrderId" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="PageModel_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="PageModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Global_PageContent" xml:space="preserve">
+    <value>Page Content</value>
+  </data>
+  <data name="NewsModel_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="ArticleModel_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Global_Templates" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="PortfolioModel_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="Global_NewPortfolioItemDetail" xml:space="preserve">
+    <value>New Portfolio Item Detail</value>
+  </data>
+  <data name="Global_PortfolioItemDetailsList" xml:space="preserve">
+    <value>Portfolio Item Details</value>
+  </data>
+  <data name="Global_PortfolioItemDetailsManagement" xml:space="preserve">
+    <value>Portfolio Item Details Management</value>
+  </data>
+  <data name="NewsModel_IsActive" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
+  <data name="PortfolioItemDetailModel_AlexaGrade" xml:space="preserve">
+    <value>Alexa Grade</value>
+  </data>
+  <data name="PortfolioItemDetailModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PortfolioItemDetailModel_IsActive" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
+  <data name="PortfolioItemDetailModel_LeftImageId" xml:space="preserve">
+    <value>Left Image</value>
+  </data>
+  <data name="PortfolioItemDetailModel_ParticipationPercent" xml:space="preserve">
+    <value>Participation Percent</value>
+  </data>
+  <data name="PortfolioItemDetailModel_RightImageId" xml:space="preserve">
+    <value>Right Image</value>
+  </data>
+  <data name="PortfolioItemDetailModel_SiteUrl" xml:space="preserve">
+    <value>Site Url</value>
+  </data>
+  <data name="PortfolioItemDetailModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="PortfolioItemDetails" xml:space="preserve">
+    <value>Portfolio Item Details</value>
+  </data>
+  <data name="Global_NewPortfolioItemFeature" xml:space="preserve">
+    <value>New Portfolio Item Feature</value>
+  </data>
+  <data name="Global_PortfolioItemFeaturesList" xml:space="preserve">
+    <value>Portfolio Item Features List</value>
+  </data>
+  <data name="Global_PortfolioItemFeaturesManagement" xml:space="preserve">
+    <value>Portfolio Item Features Management</value>
+  </data>
+  <data name="PortfolioItemFeatureModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PortfolioItemFeatureModel_ImageId" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="PortfolioItemFeatureModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="PortfolioItemFeatures" xml:space="preserve">
+    <value>Portfolio Item Features</value>
+  </data>
+  <data name="EventLogModel_EventCode" xml:space="preserve">
+    <value>Eevnt Code</value>
+  </data>
+  <data name="EventLogModel_EventDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="EventLogModel_EventMachineName" xml:space="preserve">
+    <value>Machine Name</value>
+  </data>
+  <data name="EventLogModel_EventType" xml:space="preserve">
+    <value>Eevent Type</value>
+  </data>
+  <data name="EventLogModel_EventUrl" xml:space="preserve">
+    <value>Event Url</value>
+  </data>
+  <data name="EventLogModel_EventUrlReferrer" xml:space="preserve">
+    <value>Url Referrer</value>
+  </data>
+  <data name="EventLogModel_EventUserAgent" xml:space="preserve">
+    <value>User Agent</value>
+  </data>
+  <data name="EventLogModel_IpAddress" xml:space="preserve">
+    <value>Ip Address</value>
+  </data>
+  <data name="EventLogModel_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="EventLogModel_UserName" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="Global_EventLogsList" xml:space="preserve">
+    <value>Event Logs List</value>
+  </data>
+  <data name="Global_EventLogsManagement" xml:space="preserve">
+    <value>Event Logs Of System</value>
+  </data>
+  <data name="DropDownErrorFilter" xml:space="preserve">
+    <value>Error Filter ...</value>
+  </data>
+  <data name="EventLogModel_EventTime" xml:space="preserve">
+    <value>Event Time</value>
+  </data>
+  <data name="EventLogModel_UserId" xml:space="preserve">
+    <value>User Id</value>
+  </data>
+  <data name="FileModel_CreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="FileModel_File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="FileModel_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="FileModel_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="FileModel_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="FileModel_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Global_FilesList" xml:space="preserve">
+    <value>Files List</value>
+  </data>
+  <data name="Global_FilesManagement" xml:space="preserve">
+    <value>Files Management</value>
+  </data>
+  <data name="Global_NewFile" xml:space="preserve">
+    <value>New File</value>
+  </data>
+  <data name="FileModel_LastModifiedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="FileModel_StorageType" xml:space="preserve">
+    <value>Storage Type</value>
+  </data>
+  <data name="FileModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Global_EventLogDetails" xml:space="preserve">
+    <value>EventLog Details</value>
+  </data>
+  <data name="Global_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Global_Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Event Time</value>
+  </data>
+  <data name="MenuModel_IsActive" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
+  <data name="Global_EditPage" xml:space="preserve">
+    <value>Edit Page</value>
+  </data>
+  <data name="Global_EditHtdfService" xml:space="preserve">
+    <value>Edit Service</value>
+  </data>
+  <data name="Global_HtdfServicesList" xml:space="preserve">
+    <value>Services List</value>
+  </data>
+  <data name="Global_HtdfServicesManagement" xml:space="preserve">
+    <value>Services Management</value>
+  </data>
+  <data name="Global_NewHtdfService" xml:space="preserve">
+    <value>New Service</value>
+  </data>
+  <data name="PageModel_LanguageName" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Global_LoginToSystem" xml:space="preserve">
+    <value>Login to system</value>
+  </data>
+  <data name="PortfolioItemModel_SubTitle" xml:space="preserve">
+    <value>SubTitle</value>
+  </data>
+  <data name="Global_AccountDeleted" xml:space="preserve">
+    <value>Your account is disabled. Please contact the system administrator</value>
+  </data>
+  <data name="Views_Login_YourAccountHasBeenBlocked" xml:space="preserve">
+    <value>Your account has been blocked</value>
+  </data>
+  <data name="New_Ip_Created" xml:space="preserve">
+    <value>New IP successfully registered</value>
+  </data>
+  <data name="New_Ip_Created_Failed" xml:space="preserve">
+    <value>Error recording information</value>
+  </data>
+  <data name="Delete_Ip_Range_Error" xml:space="preserve">
+    <value>The deletion operation encountered an error</value>
+  </data>
+  <data name="Delete_Ip_Range_Success" xml:space="preserve">
+    <value>The selected IP was successfully deleted</value>
+  </data>
+  <data name="Is_Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="Is_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Are_You_Sure" xml:space="preserve">
+    <value>Are you sure</value>
+  </data>
+  <data name="Delete_Ip_Sweet_Alert" xml:space="preserve">
+    <value>The desired IP will be removed from the system</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="IpBannedModel_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="User_Attention_To_For_Delete" xml:space="preserve">
+    <value>The desired user will be removed from the system</value>
+  </data>
+  <data name="User_Failed_Deleted" xml:space="preserve">
+    <value>User removal operation failed</value>
+  </data>
+  <data name="User_NotPermission_To_Delete_Error" xml:space="preserve">
+    <value>You do not have permission to delete this user</value>
+  </data>
+  <data name="User_Successfully_Deleted" xml:space="preserve">
+    <value>User successfully removed</value>
+  </data>
+  <data name="IP_Banned_Failed_Create" xml:space="preserve">
+    <value>The IP registration operation failed</value>
+  </data>
+  <data name="IP_Banned_failed_Deleted_Permission" xml:space="preserve">
+    <value>You do not have permission to delete this IP</value>
+  </data>
+  <data name="IP_Banned_Falied_Deleted" xml:space="preserve">
+    <value>The IP removal operation failed</value>
+  </data>
+  <data name="IP_Banned_Successfully_Create" xml:space="preserve">
+    <value>New IP successfully registered</value>
+  </data>
+  <data name="IP_Banned_Successfully_Deleted" xml:space="preserve">
+    <value>The selected IP was successfully deleted.</value>
+  </data>
+  <data name="Create_Failed" xml:space="preserve">
+    <value>Error recording information</value>
+  </data>
+  <data name="Success_User_Signup" xml:space="preserve">
+    <value>User registered successfully</value>
+  </data>
+  <data name="User_Name_Already_Taken" xml:space="preserve">
+    <value>This username is already taken by anthor user</value>
+  </data>
+  <data name="Role_Assigned_To_User_Error" xml:space="preserve">
+    <value>This role is assigned to a user</value>
+  </data>
+  <data name="Role_Deleted_Successfully" xml:space="preserve">
+    <value>The selected role was successfully deleted</value>
+  </data>
+  <data name="Role_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>You do not have permission to delete this role</value>
+  </data>
+  <data name="Role_Error_While_Delete" xml:space="preserve">
+    <value>Error deleting role</value>
+  </data>
+  <data name="Role_Exists_System" xml:space="preserve">
+    <value>This role has been already in the system</value>
+  </data>
+  <data name="Role_Successfully_Created" xml:space="preserve">
+    <value>The new role was successfully registered</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Field cannot be empty</value>
+  </data>
+  <data name="IP_Exists" xml:space="preserve">
+    <value>This IP is already defined</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="IsEnabled" xml:space="preserve">
+    <value>Is enabeld</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RetypePassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="User_Passowrd_Not_Match_With_Confirm" xml:space="preserve">
+    <value>The password does not match the repeated password</value>
+  </data>
+  <data name="Change_Password_Error" xml:space="preserve">
+    <value>Password change operation failed</value>
+  </data>
+  <data name="Change_Password_Hint" xml:space="preserve">
+    <value>Please use uppercase and lowercase English letters and numbers when choosing a new password</value>
+  </data>
+  <data name="Global_Clear" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="Feature_Property_Title" xml:space="preserve">
+    <value>Property title</value>
+  </data>
+  <data name="Event_Delete" xml:space="preserve">
+    <value>The selected event will be removed from the system</value>
+  </data>
+  <data name="Notification_Created_Error" xml:space="preserve">
+    <value>Error recording information</value>
+  </data>
+  <data name="Notification_Created_Successfully" xml:space="preserve">
+    <value>New notification successfully registered</value>
+  </data>
+  <data name="Notification_Delete_Error" xml:space="preserve">
+    <value>Error deleting notifications</value>
+  </data>
+  <data name="Notification_Delete_Successfully" xml:space="preserve">
+    <value>The selected announcement was successfully deleted</value>
+  </data>
+  <data name="Notification_Dont_Have_Permission" xml:space="preserve">
+    <value>You do not have permission to delete this notification</value>
+  </data>
+  <data name="File_Management_Delete" xml:space="preserve">
+    <value>The selected file will be deleted</value>
+  </data>
+  <data name="File_Managment_Delete_Successfully" xml:space="preserve">
+    <value>The selected file was successfully deleted</value>
+  </data>
+  <data name="File_Managment_Dont_Permission_For_Delete" xml:space="preserve">
+    <value>You do not have permission to delete this file</value>
+  </data>
+  <data name="File_Managment_Error_While_Delete_File" xml:space="preserve">
+    <value>Error deleting file</value>
+  </data>
+  <data name="Email_Is_Inavlid" xml:space="preserve">
+    <value>Email is invalid</value>
+  </data>
+  <data name="Phone_Is_Invalid" xml:space="preserve">
+    <value>Phone is invalid</value>
+  </data>
+  <data name="National_Code_Is_Invalid" xml:space="preserve">
+    <value>Enter the national code in the correct format</value>
+  </data>
+  <data name="News_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>You do not have permission to delete this news</value>
+  </data>
+  <data name="News_Delete_Error" xml:space="preserve">
+    <value>Error deleting news</value>
+  </data>
+  <data name="News_Delete_Message" xml:space="preserve">
+    <value>Selected news will be deleted</value>
+  </data>
+  <data name="News_Delete_Success" xml:space="preserve">
+    <value>Selected news was successfully deleted</value>
+  </data>
+  <data name="Notification_Delete_Message" xml:space="preserve">
+    <value>The desired notification will be removed from the system</value>
+  </data>
+  <data name="News_Title_Error" xml:space="preserve">
+    <value>Please enter news title</value>
+  </data>
+  <data name="Article_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>You do not have permission to delete this article</value>
+  </data>
+  <data name="Article_Delete_Error" xml:space="preserve">
+    <value>Error deleting article</value>
+  </data>
+  <data name="Article_Delete_Message" xml:space="preserve">
+    <value>The selected article will be deleted</value>
+  </data>
+  <data name="Article_Delete_Message_Successfully" xml:space="preserve">
+    <value>The selected article was successfully deleted</value>
+  </data>
+  <data name="Article_Short_Des_Error" xml:space="preserve">
+    <value>Please enter a summary of the article</value>
+  </data>
+  <data name="Article_Title_Error" xml:space="preserve">
+    <value>Please enter the title of the article</value>
+  </data>
+  <data name="Menu_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>You do not have permission to delete this menu</value>
+  </data>
+  <data name="Menu_Delete_Error" xml:space="preserve">
+    <value>Error while deleting menu</value>
+  </data>
+  <data name="Menu_Delete_Question" xml:space="preserve">
+    <value>The selected menu will be deleted</value>
+  </data>
+  <data name="Menu_Delete_Successfully" xml:space="preserve">
+    <value>The selected menu was successfully removed</value>
+  </data>
+  <data name="Menu_Link_Error" xml:space="preserve">
+    <value>Please enter the menu link</value>
+  </data>
+  <data name="Menu_Title_Error" xml:space="preserve">
+    <value>Please enter the menu title</value>
+  </data>
+  <data name="For_Example" xml:space="preserve">
+    <value>For example</value>
+  </data>
+  <data name="Page_Delete_Dont_Permission_Error" xml:space="preserve">
+    <value>You do not have permission to delete this page</value>
+  </data>
+  <data name="Page_Delete_Error" xml:space="preserve">
+    <value>Error deleting page</value>
+  </data>
+  <data name="Page_Delete_Message" xml:space="preserve">
+    <value>The selected page will be deleted</value>
+  </data>
+  <data name="Page_Delete_Successfully" xml:space="preserve">
+    <value>The selected page was successfully deleted</value>
+  </data>
+  <data name="Page_Title_Error" xml:space="preserve">
+    <value>Please enter a page title</value>
+  </data>
+  <data name="Portfolio_Delete_Dont_Have_Permission_Message" xml:space="preserve">
+    <value>You do not have permission to delete this portfolio</value>
+  </data>
+  <data name="Portfolio_Delete_Error" xml:space="preserve">
+    <value>Error while deleting portfolio</value>
+  </data>
+  <data name="Portfolio_Delete_Question" xml:space="preserve">
+    <value>The selected portfolio will be deleted</value>
+  </data>
+  <data name="Portfolio_Delete_Successfully" xml:space="preserve">
+    <value>The selected portfolio was successfully removed</value>
+  </data>
+  <data name="Portfolio_Template_Error" xml:space="preserve">
+    <value>Please enter the stock portfolio template</value>
+  </data>
+  <data name="Portfolio_Title_Error" xml:space="preserve">
+    <value>Please enter the title of the stock portfolio</value>
+  </data>
+  <data name="Template_Delete_Dont_Have_Permission" xml:space="preserve">
+    <value>You do not have permission to delete this template</value>
+  </data>
+  <data name="Template_Delete_Error" xml:space="preserve">
+    <value>Error while removing template</value>
+  </data>
+  <data name="Template_Delete_Message" xml:space="preserve">
+    <value>The selected template will be deleted</value>
+  </data>
+  <data name="Template_Delete_Successfully" xml:space="preserve">
+    <value>The selected template was successfully removed</value>
+  </data>
+  <data name="Template_Title_Error" xml:space="preserve">
+    <value>Please enter the title of the template</value>
+  </data>
+  <data name="Setting_Update_Successful" xml:space="preserve">
+    <value>Settings changed successfully</value>
+  </data>
+  <data name="Event_Log_Successfully_Removed" xml:space="preserve">
+    <value>event successfully removed</value>
+  </data>
+  <data name="Global_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Global_Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Global_SystemError" xml:space="preserve">
+    <value>Unfortunately a system error has occurred</value>
+  </data>
+  <data name="NewsCategory_Delete_Success" xml:space="preserve">
+    <value>Category deleted successfully</value>
+  </data>
+  <data name="Global_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Global_EnTitle" xml:space="preserve">
+    <value>En title</value>
+  </data>
+  <data name="Global_NewsCategoryList" xml:space="preserve">
+    <value>List of categories</value>
+  </data>
+  <data name="Global_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="MenuModel_IsSideBar" xml:space="preserve">
+    <value>Is side bar</value>
+  </data>
+  <data name="MenuModel_Color" xml:space="preserve">
+    <value>Menu color</value>
+  </data>
+  <data name="ArticleModel_Special" xml:space="preserve">
+    <value>Special</value>
+  </data>
+  <data name="Global_Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="TagModel_Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="TagModel_Parent" xml:space="preserve">
+    <value>Parent</value>
+  </data>
+  <data name="TagModel_Title" xml:space="preserve">
+    <value>Tag title</value>
+  </data>
+  <data name="TagModel_UniqueValue" xml:space="preserve">
+    <value>Unique value</value>
+  </data>
+  <data name="ArticleModel_ImageCaption" xml:space="preserve">
+    <value>Image caption</value>
+  </data>
+  <data name="Global_EditArticle" xml:space="preserve">
+    <value>Edit article</value>
+  </data>
+  <data name="ProfileModel_InstagramAddress" xml:space="preserve">
+    <value>Instagram address</value>
+  </data>
+  <data name="ProfileModel_LinkedInAddress" xml:space="preserve">
+    <value>Linked in address</value>
+  </data>
+  <data name="ProfileModel_TelegramAddress" xml:space="preserve">
+    <value>Telegram address</value>
+  </data>
+  <data name="Global_Edit_File_Tags" xml:space="preserve">
+    <value>Edit file tags</value>
+  </data>
+  <data name="FileModel_PosterImageGuid" xml:space="preserve">
+    <value>Poster id</value>
+  </data>
+  <data name="Global_SocialNetworkManagement" xml:space="preserve">
+    <value>Social network management</value>
+  </data>
+  <data name="SocialNetworkModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="SocialNetwork_CssClass" xml:space="preserve">
+    <value>Css class</value>
+  </data>
+  <data name="SocialNetwork_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="SocialNetwork_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="Global_NewSocialNetwork" xml:space="preserve">
+    <value>New social network</value>
+  </data>
+  <data name="Global_SocialNetworkList" xml:space="preserve">
+    <value>Social network list</value>
+  </data>
+  <data name="SocialNetworkModel_Title_Required" xml:space="preserve">
+    <value>Please enter social network title</value>
+  </data>
+  <data name="Global_EditSocialNetwork" xml:space="preserve">
+    <value>Edit social network</value>
+  </data>
+  <data name="Global_SocialNetwork" xml:space="preserve">
+    <value>Social network</value>
+  </data>
+  <data name="SocialNetworkModel_Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="EmployerModel_ExistsName" xml:space="preserve">
+    <value>The name entered already exists in the system</value>
+  </data>
+  <data name="Global_EditProject" xml:space="preserve">
+    <value>Edit project</value>
+  </data>
+  <data name="Global_NewProject" xml:space="preserve">
+    <value>New project</value>
+  </data>
+  <data name="Global_ProjectList" xml:space="preserve">
+    <value>Project list</value>
+  </data>
+  <data name="Global_ProjectManagment" xml:space="preserve">
+    <value>Project managment</value>
+  </data>
+  <data name="Global_Projects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="ProjectModel_AttachmentImage" xml:space="preserve">
+    <value>Project image</value>
+  </data>
+  <data name="ProjectModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ProjectModel_EmployerId" xml:space="preserve">
+    <value>Employer</value>
+  </data>
+  <data name="ProjectModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="ProjectModel_ProjectLink" xml:space="preserve">
+    <value>Project link</value>
+  </data>
+  <data name="ProjectModel_Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="ProjectModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="ProjectModel_Title_Required" xml:space="preserve">
+    <value>Please enter the project title</value>
+  </data>
+  <data name="EmployerModel_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="EmployerModel_CEOName" xml:space="preserve">
+    <value>CEO name</value>
+  </data>
+  <data name="EmployerModel_DeleteMessage" xml:space="preserve">
+    <value>The selected employer will be removed</value>
+  </data>
+  <data name="EmployerModel_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="EmployerModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="EmployerModel_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="EmployerModel_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Employer_Delete_Successfully" xml:space="preserve">
+    <value>Employer successfully removed</value>
+  </data>
+  <data name="Global_EditEmployer" xml:space="preserve">
+    <value>Edit employer information</value>
+  </data>
+  <data name="Global_EmployerList" xml:space="preserve">
+    <value>Employers list</value>
+  </data>
+  <data name="Global_Employers" xml:space="preserve">
+    <value>Employers</value>
+  </data>
+  <data name="Global_EmployersManagment" xml:space="preserve">
+    <value>Employers managment</value>
+  </data>
+  <data name="Global_NewEmployer" xml:space="preserve">
+    <value>New employer</value>
+  </data>
+  <data name="ProjectModel_EmployerName" xml:space="preserve">
+    <value>Employer name</value>
+  </data>
+  <data name="Project_Delete_Message" xml:space="preserve">
+    <value>The selected project will be deleted</value>
+  </data>
+  <data name="Project_Delete_Successfully" xml:space="preserve">
+    <value>The project was successfully deleted</value>
+  </data>
+  <data name="ChallengeModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ChallengeModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="ChallengeModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Challenge_Delete_Message" xml:space="preserve">
+    <value>The selected challenge will be removed</value>
+  </data>
+  <data name="Challenge_Title_Error" xml:space="preserve">
+    <value>Enter the title of the challenge</value>
+  </data>
+  <data name="Delete_Challenge_Successfull" xml:space="preserve">
+    <value>The challenge removal operation was successful</value>
+  </data>
+  <data name="Global_ChallengeList" xml:space="preserve">
+    <value>Challenges list</value>
+  </data>
+  <data name="Global_Challenges" xml:space="preserve">
+    <value>Challenges</value>
+  </data>
+  <data name="Global_ChallengesManagement" xml:space="preserve">
+    <value>Challenges management</value>
+  </data>
+  <data name="Global_EditChallenge" xml:space="preserve">
+    <value>Edit challenge</value>
+  </data>
+  <data name="Global_NewChallenge" xml:space="preserve">
+    <value>New challenge</value>
+  </data>
+  <data name="ChallengeModel_Projects" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ProjectModel_ProjectType" xml:space="preserve">
+    <value>Project type</value>
+  </data>
+  <data name="ProjectModel_FinalStepDescription" xml:space="preserve">
+    <value>Final step description</value>
+  </data>
+  <data name="ProjectModel_FirstStepDescription" xml:space="preserve">
+    <value>First step desceription</value>
+  </data>
+  <data name="ProjectModel_SecondDescription" xml:space="preserve">
+    <value>Second step description</value>
+  </data>
+  <data name="ProjectModel_ProjectLinkText" xml:space="preserve">
+    <value>Project link text</value>
+  </data>
+  <data name="Global_Edit_Technology" xml:space="preserve">
+    <value>Edit technology</value>
+  </data>
+  <data name="Global_Edit_Tool" xml:space="preserve">
+    <value>Edit tool</value>
+  </data>
+  <data name="Global_New_Tool_Technology" xml:space="preserve">
+    <value>New technology or tools</value>
+  </data>
+  <data name="Global_Tools_TechnologiesList" xml:space="preserve">
+    <value>List of tools and technologies</value>
+  </data>
+  <data name="Global_Tools_TechnologiesManagement" xml:space="preserve">
+    <value>Management of tools and technologies</value>
+  </data>
+  <data name="Global_Tool_Technology" xml:space="preserve">
+    <value>Tools and technologies</value>
+  </data>
+  <data name="TechnologyModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="TechnologyModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="TechnologyModel_IsTool" xml:space="preserve">
+    <value>Is tool</value>
+  </data>
+  <data name="TechnologyModel_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Technology_Delete_Message" xml:space="preserve">
+    <value>The selected technology will be removed</value>
+  </data>
+  <data name="Technology_Delete_Successfully" xml:space="preserve">
+    <value>The removal of the technology was successful</value>
+  </data>
+  <data name="Technology_Tool_Name_Error" xml:space="preserve">
+    <value>Enter the name of the technology or tool</value>
+  </data>
+  <data name="ProjectModel_Technologies" xml:space="preserve">
+    <value>Technologies used</value>
+  </data>
+  <data name="ProjectModel_Tools" xml:space="preserve">
+    <value>Tools used</value>
+  </data>
+  <data name="ProjectModel_SliderImages" xml:space="preserve">
+    <value>Slider images</value>
+  </data>
+  <data name="ProjectModel_FirstStepImage" xml:space="preserve">
+    <value>First step image</value>
+  </data>
+  <data name="SocialNetwork_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Global_NewslettersList" xml:space="preserve">
+    <value>List of emails</value>
+  </data>
+  <data name="Global_NewslettersManagment" xml:space="preserve">
+    <value>Newsletters managment</value>
+  </data>
+  <data name="Global_NewslettersModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="Global_Newsletters_Delete" xml:space="preserve">
+    <value>The selected email will be deleted</value>
+  </data>
+  <data name="Global_Newsletters_Delete_Success" xml:space="preserve">
+    <value>The selected email was successfully deleted</value>
+  </data>
+  <data name="NewslettersModel_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="NewslettersModel_Email_Already_In_Newsletters" xml:space="preserve">
+    <value>The entered email is already registered in the system</value>
+  </data>
+  <data name="NewslettersModel_Email_Has_Been_Registred" xml:space="preserve">
+    <value>Email was successfully registered in the newsletter</value>
+  </data>
+  <data name="Newsletters_Email_No_Valid" xml:space="preserve">
+    <value>The entered email is not valid</value>
+  </data>
+  <data name="Global_Newsletters" xml:space="preserve">
+    <value>Newsletters</value>
+  </data>
+  <data name="NewslettersModel_EmailList" xml:space="preserve">
+    <value>Emails list</value>
+  </data>
+  <data name="NewslettersModel_SendMessage" xml:space="preserve">
+    <value>Send message</value>
+  </data>
+  <data name="Exists_Form_Name" xml:space="preserve">
+    <value>The name entered is already registered in the system</value>
+  </data>
+  <data name="FormModel_CssClass" xml:space="preserve">
+    <value>Css class</value>
+  </data>
+  <data name="FormModel_DisplayName" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="FormModel_DisplayText" xml:space="preserve">
+    <value>Display text</value>
+  </data>
+  <data name="FormModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="FormModel_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="FormModel_RedirectToUrl" xml:space="preserve">
+    <value>Redirect to url</value>
+  </data>
+  <data name="FormModel_SubmitButtonText" xml:space="preserve">
+    <value>Submit button text</value>
+  </data>
+  <data name="Form_Delete_Message" xml:space="preserve">
+    <value>The selected form will be deleted</value>
+  </data>
+  <data name="Form_DisplayName_Required" xml:space="preserve">
+    <value>Enter the display name of the form</value>
+  </data>
+  <data name="Form_Name_Required" xml:space="preserve">
+    <value>Enter the name of the form</value>
+  </data>
+  <data name="Form_Successfully_Deleted" xml:space="preserve">
+    <value>The selected form was successfully deleted</value>
+  </data>
+  <data name="Global_EditForm" xml:space="preserve">
+    <value>Edit form</value>
+  </data>
+  <data name="Global_FormList" xml:space="preserve">
+    <value>Forms list</value>
+  </data>
+  <data name="Global_Forms" xml:space="preserve">
+    <value>Form builder</value>
+  </data>
+  <data name="Global_FormsManagement" xml:space="preserve">
+    <value>Forms management</value>
+  </data>
+  <data name="Global_NewForm" xml:space="preserve">
+    <value>New form</value>
+  </data>
+  <data name="FiledName_Already_Exists" xml:space="preserve">
+    <value>The field name already exists in the system</value>
+  </data>
+  <data name="FormFieldModel_CssClass" xml:space="preserve">
+    <value>Css class</value>
+  </data>
+  <data name="FormFieldModel_DisplayNameEn" xml:space="preserve">
+    <value>Display name en</value>
+  </data>
+  <data name="FormFieldModel_DisplayNameFa" xml:space="preserve">
+    <value>Display name fa</value>
+  </data>
+  <data name="FormFieldModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="FormFieldModel_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="FormFieldModel_OrderId" xml:space="preserve">
+    <value>Order id</value>
+  </data>
+  <data name="FormFieldModel_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="FormField_Delete_Message" xml:space="preserve">
+    <value>The selected field will be deleted</value>
+  </data>
+  <data name="FormField_DisplayNameEn_Required" xml:space="preserve">
+    <value>Enter the field display name EN</value>
+  </data>
+  <data name="FormField_DisplayNameFa_Required" xml:space="preserve">
+    <value>Enter the field display name FA</value>
+  </data>
+  <data name="FormField_Name_Required" xml:space="preserve">
+    <value>Enter the field name</value>
+  </data>
+  <data name="Global_EditFormField" xml:space="preserve">
+    <value>Edit field</value>
+  </data>
+  <data name="Global_FormFieldList" xml:space="preserve">
+    <value>Form fields list</value>
+  </data>
+  <data name="Global_FormFieldsManagement" xml:space="preserve">
+    <value>Form fields management</value>
+  </data>
+  <data name="Global_NewFormField" xml:space="preserve">
+    <value>New form filed</value>
+  </data>
+  <data name="FormModel_FormField" xml:space="preserve">
+    <value>Form fields</value>
+  </data>
+  <data name="Exists_Title_Department" xml:space="preserve">
+    <value>The title entered already exists in the system</value>
+  </data>
+  <data name="DepartmentModel_AttachmentImageId" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="DepartmentModel_Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="DepartmentModel_Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="DepartmentModel_Slogan" xml:space="preserve">
+    <value>Slogan</value>
+  </data>
+  <data name="DepartmentModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Department_Delete_Message" xml:space="preserve">
+    <value>The selected department will be deleted</value>
+  </data>
+  <data name="Departmen_Delete_Successfully" xml:space="preserve">
+    <value>The department was successfully deleted</value>
+  </data>
+  <data name="Global_DepartmentList" xml:space="preserve">
+    <value>Departments list</value>
+  </data>
+  <data name="Global_Departments" xml:space="preserve">
+    <value>Departments management</value>
+  </data>
+  <data name="Global_DepartmentsManagement" xml:space="preserve">
+    <value>Departments management</value>
+  </data>
+  <data name="Global_EditDepartment" xml:space="preserve">
+    <value>Edit department</value>
+  </data>
+  <data name="Service_Exists_Title" xml:space="preserve">
+    <value>The title entered already exists in the system</value>
+  </data>
+  <data name="Service_Success_Delete" xml:space="preserve">
+    <value>Service successfully deleted</value>
+  </data>
+  <data name="Global_EditService" xml:space="preserve">
+    <value>Edit service</value>
+  </data>
+  <data name="Global_NewService" xml:space="preserve">
+    <value>New service</value>
+  </data>
+  <data name="Global_ServiceList" xml:space="preserve">
+    <value>Services list</value>
+  </data>
+  <data name="Global_ServiceManagement" xml:space="preserve">
+    <value>Services management</value>
+  </data>
+  <data name="ServiceModel_AttachmentImageId" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ServiceModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ServiceModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="ServiceModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Service_Delete_Message" xml:space="preserve">
+    <value>The selected service will be deleted</value>
+  </data>
+  <data name="Global_Services" xml:space="preserve">
+    <value>Services management</value>
+  </data>
+  <data name="Global_ServicesList" xml:space="preserve">
+    <value>Services list</value>
+  </data>
+  <data name="Delete_DepartmentSelectionReason_Message" xml:space="preserve">
+    <value>The selected item will be deleted</value>
+  </data>
+  <data name="DepartmentSelectionReasonModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="DepartmentSelectionReasonModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DepartmentSelectionReasonModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="DepartmentSelectionReasonModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="DepartmentSelectionReason_Delete_Successfully" xml:space="preserve">
+    <value>The selected item was successfully deleted</value>
+  </data>
+  <data name="Global_DepartmentSelectionReasonList" xml:space="preserve">
+    <value>Selection reasons list</value>
+  </data>
+  <data name="Global_DepartmentSelectionReasonManagement" xml:space="preserve">
+    <value>selection reasons management</value>
+  </data>
+  <data name="Global_EditDepartmentSelectionReason" xml:space="preserve">
+    <value>Edit departmeent selection reason</value>
+  </data>
+  <data name="Global_NewDepartmentSelectionReason" xml:space="preserve">
+    <value>New reason</value>
+  </data>
+  <data name="Global_DepartmentSelectionReason" xml:space="preserve">
+    <value>Selection reason</value>
+  </data>
+  <data name="EmployeeModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="EmployeeModel_FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="EmployeeModel_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="EmployeeModel_OrderId" xml:space="preserve">
+    <value>Order id</value>
+  </data>
+  <data name="EmployeeModel_RoleTitle" xml:space="preserve">
+    <value>Role title</value>
+  </data>
+  <data name="Employee_Delete_Message" xml:space="preserve">
+    <value>The selected employee will be removed</value>
+  </data>
+  <data name="Employee_Delete_Successfully" xml:space="preserve">
+    <value>Employee successfully removed</value>
+  </data>
+  <data name="Global_EmployeesList" xml:space="preserve">
+    <value>Employees list</value>
+  </data>
+  <data name="Global_EmployeesManagement" xml:space="preserve">
+    <value>Employees management</value>
+  </data>
+  <data name="Global_NewEmployee" xml:space="preserve">
+    <value>New employee</value>
+  </data>
+  <data name="EmployeeModel_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="EmployeeModel_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="Global_EditEmployee" xml:space="preserve">
+    <value>Edit employee</value>
+  </data>
+  <data name="DepartmentSelectionReason_Exists_Title" xml:space="preserve">
+    <value>The entered title is already registered in the system</value>
+  </data>
+  <data name="Global_DepartmentEmployee" xml:space="preserve">
+    <value>Department employees</value>
+  </data>
+  <data name="Methodology_Delete_Message" xml:space="preserve">
+    <value>The selected methodology will be deleted</value>
+  </data>
+  <data name="Global_DepartmentMethodology" xml:space="preserve">
+    <value>Department methodology</value>
+  </data>
+  <data name="Global_EditMethodology" xml:space="preserve">
+    <value>Edit methology</value>
+  </data>
+  <data name="Global_MethodologyList" xml:space="preserve">
+    <value>Methodologies list</value>
+  </data>
+  <data name="Global_MethodologyManagement" xml:space="preserve">
+    <value>Methodology management</value>
+  </data>
+  <data name="Global_NewMethodology" xml:space="preserve">
+    <value>New methodology</value>
+  </data>
+  <data name="MethodologyModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="MethodologyModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="MethodologyModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="MethodologyModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Methodology_Delete_Successfully" xml:space="preserve">
+    <value>The selected methodology was successfully removed</value>
+  </data>
+  <data name="ChallengeModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ChallengeModel_AttachmentVideo" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="ChallengeModel_ProblemDescription" xml:space="preserve">
+    <value>Problem description</value>
+  </data>
+  <data name="ChallengeModel_ProblemSolvingDescription" xml:space="preserve">
+    <value>Problem solving description</value>
+  </data>
+  <data name="Teacher_Delete_Successfully" xml:space="preserve">
+    <value>The teacher was successfully deleted</value>
+  </data>
+  <data name="Delete_Course_Successfully" xml:space="preserve">
+    <value>The selected course was successfully deleted</value>
+  </data>
+  <data name="Course_Title_Exists" xml:space="preserve">
+    <value>The course title is already registered in the system</value>
+  </data>
+  <data name="CourseCategoryModel_Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="CourseCategoryModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="CourseCategoryModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="CourseCategory_Delete_Message" xml:space="preserve">
+    <value>The selected categiry will be deleted</value>
+  </data>
+  <data name="Global_CourseCategoryManagement" xml:space="preserve">
+    <value>Course categories management</value>
+  </data>
+  <data name="Global_NewCourseCategory" xml:space="preserve">
+    <value>New course category</value>
+  </data>
+  <data name="Global_EditTeacher" xml:space="preserve">
+    <value>Edit teacher</value>
+  </data>
+  <data name="Global_NewTeacher" xml:space="preserve">
+    <value>New teacher</value>
+  </data>
+  <data name="Global_TeachersManagement" xml:space="preserve">
+    <value>Teachers management</value>
+  </data>
+  <data name="TeacherModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="TeacherModel_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="TeacherModel_FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="TeacherModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="TeacherModel_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="CourseModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="CourseModel_CourseCategories" xml:space="preserve">
+    <value>Course categories</value>
+  </data>
+  <data name="CourseModel_CourseTags" xml:space="preserve">
+    <value>Course tags</value>
+  </data>
+  <data name="CourseModel_CourseTeachers" xml:space="preserve">
+    <value>Course teacher</value>
+  </data>
+  <data name="CourseModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="CourseModel_PeriodOfTime" xml:space="preserve">
+    <value>Period of time</value>
+  </data>
+  <data name="CourseModel_PreviewVideo" xml:space="preserve">
+    <value>Preview video</value>
+  </data>
+  <data name="CourseModel_PreviewVideoPosterImage" xml:space="preserve">
+    <value>Preview video poster image</value>
+  </data>
+  <data name="CourseModel_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="CourseModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Global_CourseList" xml:space="preserve">
+    <value>Courses list</value>
+  </data>
+  <data name="Global_CoursesManagement" xml:space="preserve">
+    <value>Courses management</value>
+  </data>
+  <data name="Global_EditCourse" xml:space="preserve">
+    <value>Edit course</value>
+  </data>
+  <data name="Global_NewCourse" xml:space="preserve">
+    <value>New course</value>
+  </data>
+  <data name="CourseModel_CourseVideos" xml:space="preserve">
+    <value>Upload course video</value>
+  </data>
+  <data name="CourseModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Global_CourseCategoriesList" xml:space="preserve">
+    <value>Courses categories list</value>
+  </data>
+  <data name="Global_Courses" xml:space="preserve">
+    <value>Coueses</value>
+  </data>
+  <data name="Global_CoursesList" xml:space="preserve">
+    <value>Courses list</value>
+  </data>
+  <data name="Global_Teachers" xml:space="preserve">
+    <value>Teachers</value>
+  </data>
+  <data name="Global_TeachersList" xml:space="preserve">
+    <value>Teachers list</value>
+  </data>
+  <data name="Teacher_Delete_Message" xml:space="preserve">
+    <value>The selected teacher will be deleted</value>
+  </data>
+  <data name="Delete_CourseCategory_Successfully" xml:space="preserve">
+    <value>Delete course category successfully</value>
+  </data>
+  <data name="Course_Delete_Message" xml:space="preserve">
+    <value>The selected course will be deleted</value>
+  </data>
+  <data name="Global_EditCourseCategory" xml:space="preserve">
+    <value>Edit course category</value>
+  </data>
+  <data name="NlMessage_Delete_Successfully" xml:space="preserve">
+    <value>The selected item was successfully deleted</value>
+  </data>
+  <data name="Global_NewNlMessage" xml:space="preserve">
+    <value>New message</value>
+  </data>
+  <data name="Global_NlMessageList" xml:space="preserve">
+    <value>Messages list</value>
+  </data>
+  <data name="Global_NlMessageManagement" xml:space="preserve">
+    <value>Messages management</value>
+  </data>
+  <data name="NlMessageModel_AttachmentFile" xml:space="preserve">
+    <value>Attachment file</value>
+  </data>
+  <data name="NlMessageModel_Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="NlMessageModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="NlMessageModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="NlMessage_Delete_Message" xml:space="preserve">
+    <value>The selected item will be deleted</value>
+  </data>
+  <data name="Global_EditNlMessage" xml:space="preserve">
+    <value>Edit message</value>
+  </data>
+  <data name="Global_NlMessages" xml:space="preserve">
+    <value>Newsletters</value>
+  </data>
+  <data name="NlMessageModel_NewNlMessage" xml:space="preserve">
+    <value>New message</value>
+  </data>
+  <data name="NlMessageModel_NlMessageList" xml:space="preserve">
+    <value>Messages list</value>
+  </data>
+  <data name="Global_SendEmail" xml:space="preserve">
+    <value>Send to emails</value>
+  </data>
+  <data name="TeacherModel_AttachmentSocialNetworkImage" xml:space="preserve">
+    <value>Social network image</value>
+  </data>
+  <data name="TeacherModel_SocialNetworkLink" xml:space="preserve">
+    <value>Social network link</value>
+  </data>
+  <data name="TeacherModel_SocialNetworkName" xml:space="preserve">
+    <value>Social network name</value>
+  </data>
+  <data name="ServiceModel_Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="ServiceReceiverModel_Delete_Successfully" xml:space="preserve">
+    <value>The selected item has successfully removed</value>
+  </data>
+  <data name="ServiceReceiver_Delete_Message" xml:space="preserve">
+    <value>The selected item will be deleted</value>
+  </data>
+  <data name="Global_NewServiceReceiver" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Global_ServiceReceiverList" xml:space="preserve">
+    <value>Service receivers list</value>
+  </data>
+  <data name="Global_ServiceReceiverManagement" xml:space="preserve">
+    <value>Service receivers management</value>
+  </data>
+  <data name="ServiceReceiverModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ServiceReceiverModel_ReceiverName" xml:space="preserve">
+    <value>Receiver name</value>
+  </data>
+  <data name="ServiceModel_SectionFourAttachmentImage" xml:space="preserve">
+    <value>Section four image</value>
+  </data>
+  <data name="ServiceModel_SectionFourDescription" xml:space="preserve">
+    <value>Section four description</value>
+  </data>
+  <data name="ServiceModel_SectionOneAttachmentImage" xml:space="preserve">
+    <value>Section one image</value>
+  </data>
+  <data name="ServiceModel_SectionOneDescription" xml:space="preserve">
+    <value>Section one description</value>
+  </data>
+  <data name="ServiceModel_SectionThreeAttachmentImage" xml:space="preserve">
+    <value>Section three image</value>
+  </data>
+  <data name="ServiceModel_SectionThreeDescription" xml:space="preserve">
+    <value>Section three descriotion</value>
+  </data>
+  <data name="ServiceModel_SectionTwoAttachmentImage" xml:space="preserve">
+    <value>Section two image</value>
+  </data>
+  <data name="ServiceModel_SectionTwoDescription" xml:space="preserve">
+    <value>Section two description</value>
+  </data>
+  <data name="ServiceComment_Delete_Successfully" xml:space="preserve">
+    <value>comment was successfully removed</value>
+  </data>
+  <data name="Global_NewServiceComment" xml:space="preserve">
+    <value>New comment</value>
+  </data>
+  <data name="Global_ServiceCommentList" xml:space="preserve">
+    <value>Service comment list</value>
+  </data>
+  <data name="Global_ServiceCommentManagement" xml:space="preserve">
+    <value>Service comment management</value>
+  </data>
+  <data name="ServiceCommentModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ServiceCommentModel_PersonFullName" xml:space="preserve">
+    <value>FullName</value>
+  </data>
+  <data name="ServiceCommentModel_PersonRoleTitle" xml:space="preserve">
+    <value>Role title</value>
+  </data>
+  <data name="ServiceComment_Delete_Message" xml:space="preserve">
+    <value>Service comment will be deleted</value>
+  </data>
+  <data name="Global_EditServiceComment" xml:space="preserve">
+    <value>Service comment edit</value>
+  </data>
+  <data name="Global_ServiceComments" xml:space="preserve">
+    <value>Service comments</value>
+  </data>
+  <data name="ServiceCommentModel_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="ServiceModel_SectionFourImage" xml:space="preserve">
+    <value>Section four image</value>
+  </data>
+  <data name="ServiceModel_SectionFourThumnnailImage" xml:space="preserve">
+    <value>Section four thumbnail image</value>
+  </data>
+  <data name="ServiceModel_SectionOneImage" xml:space="preserve">
+    <value>Section one image</value>
+  </data>
+  <data name="ServiceModel_SectionOneThumbnailImage" xml:space="preserve">
+    <value>Section one thumbnail image</value>
+  </data>
+  <data name="ServiceModel_SectionThreeImage" xml:space="preserve">
+    <value>Section three image</value>
+  </data>
+  <data name="ServiceModel_SectionThreeThumbnailImage" xml:space="preserve">
+    <value>Section three thumbnail image</value>
+  </data>
+  <data name="ServiceModel_SectionTwoImageSide" xml:space="preserve">
+    <value>Section two image</value>
+  </data>
+  <data name="ServiceModel_SectionTwoThumbnailImage" xml:space="preserve">
+    <value>Section two thumbnail image</value>
+  </data>
+  <data name="ServiceReceiverModel_ServiceReceiver" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Global_EditServiceReceiver" xml:space="preserve">
+    <value>Edit service receiver</value>
+  </data>
+  <data name="Delete_Article_Successfully" xml:space="preserve">
+    <value>Article delete successfully</value>
+  </data>
+  <data name="Profile_National_Code_Required" xml:space="preserve">
+    <value>Enter national code</value>
+  </data>
+  <data name="Global_EditTag" xml:space="preserve">
+    <value>Edit tag</value>
+  </data>
+  <data name="DepartmentModel_HeaderBackgroundImage" xml:space="preserve">
+    <value>Header background image</value>
+  </data>
+  <data name="DepartmentModel_InternshipButtonIsActive" xml:space="preserve">
+    <value>"Internship" button is active</value>
+  </data>
+  <data name="DepartmentModel_JoinOurTeamDescription" xml:space="preserve">
+    <value>Join out team description</value>
+  </data>
+  <data name="DepartmentModel_JoinOurTeamImage" xml:space="preserve">
+    <value>Join our team image</value>
+  </data>
+  <data name="DepartmentModel_RecruitmentButtonIsActive" xml:space="preserve">
+    <value>"Recruitment" button is active</value>
+  </data>
+  <data name="DepartmentModel_StructureImage" xml:space="preserve">
+    <value>Structure image</value>
+  </data>
+  <data name="EventModel_AttachmentImage" xml:space="preserve">
+    <value>Attachment image</value>
+  </data>
+  <data name="EventModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="EventModel_Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="EventModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Event_Delete_Message" xml:space="preserve">
+    <value>The selected event will be deleted</value>
+  </data>
+  <data name="Event_Delete_Successfully" xml:space="preserve">
+    <value>The selected event was successfully deleted</value>
+  </data>
+  <data name="Event_Title_Exists" xml:space="preserve">
+    <value>The title entered for the event has already been registered</value>
+  </data>
+  <data name="Global_EditEvent" xml:space="preserve">
+    <value>Edit event</value>
+  </data>
+  <data name="Global_EventList" xml:space="preserve">
+    <value>Events list</value>
+  </data>
+  <data name="Global_Events" xml:space="preserve">
+    <value>Events management</value>
+  </data>
+  <data name="Global_EventsManagement" xml:space="preserve">
+    <value>Events management</value>
+  </data>
+  <data name="Global_NewEvent" xml:space="preserve">
+    <value>New event</value>
+  </data>
+  <data name="Global_ResumesManagement" xml:space="preserve">
+    <value>Resumes management</value>
+  </data>
+  <data name="Delete_Resume_Successfully" xml:space="preserve">
+    <value>The selected resume has been deleted</value>
+  </data>
+  <data name="Global_Resumes" xml:space="preserve">
+    <value>Resumes</value>
+  </data>
+  <data name="Global_ResumesList" xml:space="preserve">
+    <value>Resumes list</value>
+  </data>
+  <data name="ResumeModel_FileType" xml:space="preserve">
+    <value>File type</value>
+  </data>
+  <data name="ResumeModel_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ResumeModel_StorageType" xml:space="preserve">
+    <value>Storage type</value>
+  </data>
+  <data name="Resume_Delete_Message" xml:space="preserve">
+    <value>The selected resume wll be deleted</value>
+  </data>
+  <data name="ServiceModel_Servicelogo" xml:space="preserve">
+    <value>Service logo</value>
+  </data>
+  <data name="SliderModel_Delete_Successfully" xml:space="preserve">
+    <value>The selected slider has been deleted</value>
+  </data>
+  <data name="SliderModel_Title_Exists" xml:space="preserve">
+    <value>The title entered for the sldier is already registered .</value>
+  </data>
+  <data name="Global_EditSlider" xml:space="preserve">
+    <value>Edit slider</value>
+  </data>
+  <data name="Global_EditSliderItem" xml:space="preserve">
+    <value>Edit slider item</value>
+  </data>
+  <data name="Global_NewSlider" xml:space="preserve">
+    <value>New slider</value>
+  </data>
+  <data name="Global_NewSliderItem" xml:space="preserve">
+    <value>New item</value>
+  </data>
+  <data name="Global_SliderItemsList" xml:space="preserve">
+    <value>Slider items list</value>
+  </data>
+  <data name="Global_SliderItemsManagement" xml:space="preserve">
+    <value>Slider items management</value>
+  </data>
+  <data name="Global_Sliders" xml:space="preserve">
+    <value>Sliders</value>
+  </data>
+  <data name="Global_SlidersList" xml:space="preserve">
+    <value>Sliders list</value>
+  </data>
+  <data name="Global_SlidersManagement" xml:space="preserve">
+    <value>Sliders management</value>
+  </data>
+  <data name="SliderItemModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="SliderItemModel_ButtonCss" xml:space="preserve">
+    <value>Button css</value>
+  </data>
+  <data name="SliderItemModel_ButtonLink" xml:space="preserve">
+    <value>Button link</value>
+  </data>
+  <data name="SliderItemModel_ButtonText" xml:space="preserve">
+    <value>Button text</value>
+  </data>
+  <data name="SliderItemModel_Delete_message" xml:space="preserve">
+    <value>The selected item will be deleted</value>
+  </data>
+  <data name="SliderItemModel_Delete_Successfully" xml:space="preserve">
+    <value>The selected item has been successfully deleted</value>
+  </data>
+  <data name="SliderItemModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="SliderItemModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="SliderItemModel_OrderId" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="SliderItemModel_SubTitle" xml:space="preserve">
+    <value>Sub title</value>
+  </data>
+  <data name="SliderItemModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="SliderModel_Delete_message" xml:space="preserve">
+    <value>The selected slider will be deleted</value>
+  </data>
+  <data name="SliderModel_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="SliderModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="SliderModel_SliderItems" xml:space="preserve">
+    <value>Sliders item</value>
+  </data>
+  <data name="SliderModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="ArticleModel_AuthorImage" xml:space="preserve">
+    <value>Author image</value>
+  </data>
+  <data name="ArticleModel_AutorName" xml:space="preserve">
+    <value>Author name</value>
+  </data>
+  <data name="CareerOpportunityModel_Delete_Message" xml:space="preserve">
+    <value>The selected item will be deleted .</value>
+  </data>
+  <data name="CareerOpportunityModel_Delete_Successfully" xml:space="preserve">
+    <value>The selected item will be deleted .</value>
+  </data>
+  <data name="CareerOpportunityModel_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="CareerOpportunityModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="CareerOpportunity_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="CareerOpportunity_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="CareerOpportunity_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="Global_CareerOpportunitiesManagement" xml:space="preserve">
+    <value>Career opportunity management</value>
+  </data>
+  <data name="Global_CareerOpportunity" xml:space="preserve">
+    <value>Career opportunities</value>
+  </data>
+  <data name="Global_CareerOpportunityList" xml:space="preserve">
+    <value>Career opportunities list</value>
+  </data>
+  <data name="Global_EditCareerOpportunity" xml:space="preserve">
+    <value>Edit career opportunity</value>
+  </data>
+  <data name="Global_NewCareerOpportunity" xml:space="preserve">
+    <value>New career opportunity</value>
+  </data>
+  <data name="CareerOpportunityModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="CareerOpportunityModel_CareerOpportunityType" xml:space="preserve">
+    <value>Career opportunity type</value>
+  </data>
+  <data name="ResumeModel_IPAddress" xml:space="preserve">
+    <value>Ip address</value>
+  </data>
+  <data name="FormModel_DisplayNameEn" xml:space="preserve">
+    <value>Display name en</value>
+  </data>
+  <data name="FormModel_DisplayNameFa" xml:space="preserve">
+    <value>Display name fa</value>
+  </data>
+  <data name="FormModel_Exists_Name" xml:space="preserve">
+    <value>The form name is already registered in the system</value>
+  </data>
+  <data name="FormModel_FormDataSource" xml:space="preserve">
+    <value>Form source</value>
+  </data>
+  <data name="FormModel_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="FormModel_RedirectUrl" xml:space="preserve">
+    <value>Redirect url</value>
+  </data>
+  <data name="FormModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="FooterCategoryModel_Delete_Message" xml:space="preserve">
+    <value>The selected category will be deleted</value>
+  </data>
+  <data name="FooterLinkCategoryModel_CategoryTitle" xml:space="preserve">
+    <value>Category title</value>
+  </data>
+  <data name="FooterLinkCategoryModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="FooterLinkCategoryModel_NumberOfShows" xml:space="preserve">
+    <value>Number of shows</value>
+  </data>
+  <data name="FooterLinkCategoryModel_OrderId" xml:space="preserve">
+    <value>Order id</value>
+  </data>
+  <data name="FooterLinkCategoryModel_SelectType" xml:space="preserve">
+    <value>Select type</value>
+  </data>
+  <data name="FooterModel_Delete_Successfully" xml:space="preserve">
+    <value>The selected item has been deleted</value>
+  </data>
+  <data name="Global_FooterLinkCategoryList" xml:space="preserve">
+    <value>Footer link categories list</value>
+  </data>
+  <data name="Global_FooterLinkCategoryManagement" xml:space="preserve">
+    <value>Footer link categories managemment</value>
+  </data>
+  <data name="Global_NewFooterLinkCategory" xml:space="preserve">
+    <value>New category</value>
+  </data>
+  <data name="FooterCategoryModel_Delete_Successfully" xml:space="preserve">
+    <value>The selected category has been deleted</value>
+  </data>
+  <data name="FooterCategoryModel_EntityHaveReviewCount" xml:space="preserve">
+    <value>Entity</value>
+  </data>
+  <data name="FooterCategoryModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="FooterCategoryModel_Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="FooterCategoryModel_NumberOfShows" xml:space="preserve">
+    <value>Number of shows</value>
+  </data>
+  <data name="FooterCategoryModel_StatisticalRepresentation" xml:space="preserve">
+    <value>Statistical representation</value>
+  </data>
+  <data name="FooterCategoryModel_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="FooterCategory_Title_Error" xml:space="preserve">
+    <value>Enter the category title</value>
+  </data>
+  <data name="Global_EditFooterCategory" xml:space="preserve">
+    <value>Edit footer category</value>
+  </data>
+  <data name="Global_Footer" xml:space="preserve">
+    <value>Footer</value>
+  </data>
+  <data name="Global_FooterCategoriesList" xml:space="preserve">
+    <value>Footer categories list</value>
+  </data>
+  <data name="Global_FooterCategoriesManagment" xml:space="preserve">
+    <value>Footer categories management</value>
+  </data>
+  <data name="Global_NewFooterCategory" xml:space="preserve">
+    <value>New footer category</value>
+  </data>
+  <data name="FooterCategoryLinkModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="FooterCategoryLinkModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="FooterCategoryLinkModel_Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="FooterCategoryLinkModel_LinkText" xml:space="preserve">
+    <value>Link text</value>
+  </data>
+  <data name="FooterCategoryLinkModel_LinkText_Error" xml:space="preserve">
+    <value>Enter the text of the link</value>
+  </data>
+  <data name="FooterCategoryLinkModel_Link_Error" xml:space="preserve">
+    <value>Enter the link</value>
+  </data>
+  <data name="FooterLinkModel_Delete_Successfully" xml:space="preserve">
+    <value>The selected link was successfully deleted</value>
+  </data>
+  <data name="Global_CategoryLinksList" xml:space="preserve">
+    <value>category links list</value>
+  </data>
+  <data name="Global_EditFooterCategoryLink" xml:space="preserve">
+    <value>Edit link</value>
+  </data>
+  <data name="Global_FooterCategoryLinksManagement" xml:space="preserve">
+    <value>Category links management</value>
+  </data>
+  <data name="Global_NewFooterCategoryLink" xml:space="preserve">
+    <value>New link</value>
+  </data>
+  <data name="Global_EditPartner" xml:space="preserve">
+    <value>Edit partner</value>
+  </data>
+  <data name="Global_NewPartner" xml:space="preserve">
+    <value>New partner</value>
+  </data>
+  <data name="Global_Partners" xml:space="preserve">
+    <value>Partners</value>
+  </data>
+  <data name="Global_PartnersList" xml:space="preserve">
+    <value>Partners list</value>
+  </data>
+  <data name="Global_PartnersManagement" xml:space="preserve">
+    <value>Partners management</value>
+  </data>
+  <data name="ParterModel_Delete_Successfully" xml:space="preserve">
+    <value>The selected item will be deleted</value>
+  </data>
+  <data name="PartnerModel_AttachmentImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="PartnerModel_Delete_Message" xml:space="preserve">
+    <value>The selected item will be deleted</value>
+  </data>
+  <data name="PartnerModel_IsActive" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="PartnerModel_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="PartnerModel_Name_Error" xml:space="preserve">
+    <value>Enter a paertner name</value>
+  </data>
+  <data name="PartnerModel_Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="PartnerModel_ToolTip" xml:space="preserve">
+    <value>Tool tip</value>
+  </data>
+  <data name="FooterCategoryModel_OrderId" xml:space="preserve">
+    <value>Order id</value>
+  </data>
+  <data name="Global_MostVisitedArticles" xml:space="preserve">
+    <value>Most visited articles</value>
+  </data>
+  <data name="Global_MostVisitedServices" xml:space="preserve">
+    <value>Most visited services</value>
+  </data>
+  <data name="Global_MostTagsUse" xml:space="preserve">
+    <value>The most used tags</value>
+  </data>
+  <data name="Application_ENamadCode" xml:space="preserve">
+    <value>ENamad code</value>
+  </data>
+  <data name="FormFieldModel_Delete_Successfully" xml:space="preserve">
+    <value>The selected field was successfully deleted</value>
+  </data>
+  <data name="Global_FormFieldValues" xml:space="preserve">
+    <value>field values</value>
+  </data>
+  <data name="FormModel_FormFieldValues" xml:space="preserve">
+    <value>Form field values</value>
+  </data>
+  <data name="Global_FormFieldValueManagement" xml:space="preserve">
+    <value>Form field values management</value>
+  </data>
+  <data name="FormFieldValueModel_IpAddress" xml:space="preserve">
+    <value>Ip address</value>
+  </data>
+  <data name="Global_IpLists" xml:space="preserve">
+    <value>Ip lists</value>
+  </data>
+  <data name="FormModel_Form_Cannot_Edit" xml:space="preserve">
+    <value>It is not possible to edit the form while editing</value>
+  </data>
+  <data name="FormModel_Form_Craete_New_For_Edit" xml:space="preserve">
+    <value>You must create a new form to change the form</value>
+  </data>
+  <data name="FormFieldValueModel_CreatedDate" xml:space="preserve">
+    <value>Created date</value>
+  </data>
+  <data name="FormFieldValueModel_Label" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="FormFieldValueModel_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="Hadi_Academy" xml:space="preserve">
+    <value>Hadi academy</value>
+  </data>
+  <data name="MenuModel_IsParent" xml:space="preserve">
+    <value>Is parent menu</value>
+  </data>
+  <data name="Auhtor_AuhtorDeleteSuccessfully" xml:space="preserve">
+    <value>The selected author was successfully deleted</value>
+  </data>
+  <data name="Author_AuthorExists" xml:space="preserve">
+    <value>The author name is already registered in the system</value>
+  </data>
+  <data name="DeleteOperationFailed" xml:space="preserve">
+    <value>The deletion operation failed</value>
+  </data>
+  <data name="AuthorModel_AuthorImage" xml:space="preserve">
+    <value>Author image</value>
+  </data>
+  <data name="AuthorModel_AuthorName" xml:space="preserve">
+    <value>Author name</value>
+  </data>
+  <data name="AuthorModel_InstagramAddress" xml:space="preserve">
+    <value>Instagram address</value>
+  </data>
+  <data name="AuthorModel_LinkedInAddress" xml:space="preserve">
+    <value>Linkedin address</value>
+  </data>
+  <data name="AuthorModel_TelegramAddress" xml:space="preserve">
+    <value>Telegram address</value>
+  </data>
+  <data name="Author_AuthorDeleteMessage" xml:space="preserve">
+    <value>The selected author will be deleted</value>
+  </data>
+  <data name="Global_Authors" xml:space="preserve">
+    <value>Authors</value>
+  </data>
+  <data name="Global_AuthorsList" xml:space="preserve">
+    <value>Authors list</value>
+  </data>
+  <data name="Global_AuthorsManagement" xml:space="preserve">
+    <value>Authors management</value>
+  </data>
+  <data name="Global_EditAuthor" xml:space="preserve">
+    <value>Edit author information</value>
+  </data>
+  <data name="Global_NewAuthor" xml:space="preserve">
+    <value>New author</value>
+  </data>
+  <data name="ArticleModel_Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="NlEmail_DeleteNlEmailSuccessfully" xml:space="preserve">
+    <value>The selected email has been successfully deleted</value>
+  </data>
+  <data name="Global_NlEmailsList" xml:space="preserve">
+    <value>Emails list</value>
+  </data>
+  <data name="Global_NlEmailsManagement" xml:space="preserve">
+    <value>Newsletter emails management</value>
+  </data>
+  <data name="NlEmailModel_CreatedDate" xml:space="preserve">
+    <value>Created date</value>
+  </data>
+  <data name="NlEmailModel_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="NlEmail_DeleteEmailMessage" xml:space="preserve">
+    <value>The selected email will be deleted</value>
+  </data>
+  <data name="DepartmentModel_ContactUsLink" xml:space="preserve">
+    <value>Contact us button link</value>
+  </data>
+  <data name="DepartmentModel_InternshipButtonLink" xml:space="preserve">
+    <value>Intership button link</value>
+  </data>
+  <data name="DepartmentModel_RecruitmentButtonLink" xml:space="preserve">
+    <value>Recruitment button link</value>
+  </data>
+  <data name="ProjectModel_ProjectNotFound" xml:space="preserve">
+    <value>Project not found</value>
+  </data>
+  <data name="Author_SliderImageDeleteMessage" xml:space="preserve">
+    <value>The selected item will be deleted</value>
+  </data>
+  <data name="ProjectModel_ProjectAttachmentFieNotFound" xml:space="preserve">
+    <value>Item not found</value>
+  </data>
+  <data name="ProjectModel_ProjectAttachmentFileHasBeenDeleted" xml:space="preserve">
+    <value>Item has been deleted</value>
+  </data>
+  <data name="EmployerModel_FillNameError" xml:space="preserve">
+    <value>Please enter employer name</value>
+  </data>
+  <data name="ProjectModel_ExistsTitle" xml:space="preserve">
+    <value>The project title is duplicate</value>
+  </data>
+  <data name="ChallengeModel_ExistsChallengeTitle" xml:space="preserve">
+    <value>The challenge title is duplicate</value>
+  </data>
+  <data name="Global_DownloadFile" xml:space="preserve">
+    <value>Donwload file</value>
+  </data>
+  <data name="FormFieldModel_Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="ProjectModel_PreviewImage" xml:space="preserve">
+    <value>Preview image</value>
+  </data>
+</root>

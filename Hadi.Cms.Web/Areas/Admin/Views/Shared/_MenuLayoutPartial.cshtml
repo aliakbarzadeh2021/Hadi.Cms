@@ -1,0 +1,828 @@
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Web.Utilities
+@using System.Web.Mvc
+
+<ul class="nav metismenu" id="side-menu">
+    <li class="nav-header">
+        <div class="dropdown profile-element">
+            <span>
+                @{
+                    string imgSrc = "";
+                    if (UserService.UserHasPicture(SessionData.Current.User))
+                    {
+                        var attachmentId = SessionData.Current != null && SessionData.Current.User != null && SessionData.Current.User.UserProfiles != null ? SessionData.Current.User.UserProfiles.FirstOrDefault()?.ImageAttachmentGuid : Guid.Empty;
+                        imgSrc = new AttachmentFileService().GetAttachmentSourceValue(attachmentId);
+                    }
+                    else
+                    {
+                        imgSrc = "/Content/RadaTemplate/img/profile_small.jpg";
+                    }
+                }
+                <img alt="image" class="img-circle" src="@imgSrc" style="max-width: 50px; height: 48px;" />
+            </span>
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="clear">
+                    <span class="block m-t-xs">
+                        <strong class="font-bold">
+                            @(SessionData.Current != null && SessionData.Current.User != null ? SessionData.Current.User.FullName : "")
+                        </strong>
+                    </span>
+                    <span class="text-muted text-xs block">
+                        @(SessionData.Current != null && SessionData.Current.User != null ? SessionData.Current.User.UserName : "")
+                        <b class="caret"></b>
+                    </span>
+                </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInLeft m-t-xs">
+                <li>
+                    <a href="@Url.Action("Index", "Profile", new { userId = SessionData.Current.User.Id })">
+                        @Strings.Global_Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Inbox", "Mail")">
+                        @Strings.Global_Messages
+                    </a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                    <a href="@Url.Action("LogOff","User",new { area="" })">
+                        @Strings.Global_LogOff
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="logo-element">
+            @Strings.Global_Menu
+        </div>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index", controllers: "Home", areas: "Admin", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="@Url.Action("Index", "Home", new { area = "Admin" })">
+            <i class="fa fa-home">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Home
+            </span>
+        </a>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Inbox", controllers: "Mail", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="@Url.Action("Inbox", "Mail", new { area = "Admin" })">
+            <i class="fa fa-envelope">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Messages
+            </span>
+            <span class="label label-warning pull-left">
+                @(new MailService().GetUnreadInboxCount(SessionData.Current.User.Id) + "/" + new MailService().GetAllInboxCount(SessionData.Current.User.Id))
+            </span>
+        </a>
+    </li>
+
+    <li class="@Html.IsActive(actions: "List,Create,Index", controllers: "Users,Role,Feature,Authorize,Notification,IpRange,IpBanned,EventLogs,AttachmentFiles", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-magic">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Managment
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index,Create", controllers: "Users", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="#">
+                    @Strings.Global_UserManagment <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-third-level">
+                    <li class="@Html.IsActive(actions: "Index", controllers: "Users", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("Index", "Users", new { area = "Admin" })">
+                            @Strings.Global_UserList
+                        </a>
+                    </li>
+                    <li class="@Html.IsActive(actions: "Create", controllers: "Users", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("Create", "Users", new { area = "Admin" })">
+                            @Strings.Global_NewUser
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="@Html.IsActive(actions: "List,Create", controllers: "Role", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="#">
+                    @Strings.Global_RoleManagment <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-third-level">
+                    <li class="@Html.IsActive(actions: "List", controllers: "Role", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("List", "Role", new { area = "Admin" })">
+                            @Strings.Global_RolesList
+                        </a>
+                    </li>
+                    <li class="@Html.IsActive(actions: "Create", controllers: "Role", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("Create", "Role", new { area = "Admin" })">
+                            @Strings.Global_NewRole
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="@Html.IsActive(actions: "List,Create", controllers: "IpRange", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="#">
+                    @Strings.Global_IpRangeManagment <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-third-level">
+                    <li class="@Html.IsActive(actions: "List", controllers: "IpRange", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("List", "IpRange", new { area = "Admin" })">
+                            @Strings.Global_IpList
+                        </a>
+                    </li>
+                    <li class="@Html.IsActive(actions: "Create", controllers: "IpRange", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("Create", "IpRange", new { area = "Admin" })">
+                            @Strings.Global_NewIp
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="@Html.IsActive(actions: "List,Create", controllers: "IpBanned", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="#">
+                    @Strings.Global_IpBannedManagment <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-third-level">
+                    <li class="@Html.IsActive(actions: "List", controllers: "IpBanned", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("List", "IpBanned", new { area = "Admin" })">
+                            @Strings.Global_IpList
+                        </a>
+                    </li>
+                    <li class="@Html.IsActive(actions: "Create", controllers: "IpBanned", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("Create", "IpBanned", new { area = "Admin" })">
+                            @Strings.Global_NewIp
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="@Html.IsActive(actions: "Index", controllers: "Feature", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Feature", new { area = "Admin" })">
+                    @Strings.Global_FeatureManagment
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Index", controllers: "Authorize", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Authorize", new { area = "Admin" })">
+                    @Strings.Global_AuthorizeManagment
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "List,Create", controllers: "Notification", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="#">
+                    @Strings.Global_NotificationManagment <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-third-level">
+                    <li class="@Html.IsActive(actions: "List", controllers: "Notification", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("List", "Notification", new { area = "Admin" })">
+                            @Strings.Global_NotificationList
+                        </a>
+                    </li>
+                    <li class="@Html.IsActive(actions: "Create", controllers: "Notification", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("Create", "Notification", new { area = "Admin" })">
+                            @Strings.Global_NewNotification
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="@Html.IsActive(controllers: "EventLogs",actions: "Index", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="#">
+                    @Strings.Global_EventLogsManagement <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-third-level">
+                    <li class="@Html.IsActive(controllers: "EventLogs", actions: "Index", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("Index", "EventLogs", new { area = "Admin" })">
+                            @Strings.Global_EventLogsList
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="@Html.IsActive(actions: "Index,Create", controllers: "AttachmentFiles", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="#">
+                    @Strings.Global_FilesManagement <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-third-level">
+                    <li class="@Html.IsActive(actions: "Index", controllers: "AttachmentFiles", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("Index", "AttachmentFiles", new { area = "Admin" })">
+                            @Strings.Global_FilesList
+                        </a>
+                    </li>
+
+                    <li class="@Html.IsActive(actions: "Create", controllers: "AttachmentFiles", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                        <a href="@Url.Action("Create", "AttachmentFiles", new { area = "Admin" })">
+                            @Strings.Global_NewFile
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(controllers: "News,NewsCategory", actions: "Index,Create", areas: "Admin", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-newspaper-o">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_News
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(controllers: "News", actions: "Index", areas: "Admin", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "News", new { area = "Admin" })">
+                    @Strings.Global_NewsList
+                </a>
+            </li>
+            <li class="@Html.IsActive(controllers: "News", actions: "Create", areas: "Admin", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "News", new { area = "Admin" })">
+                    @Strings.Global_NewNews
+                </a>
+            </li>
+            <li class="@Html.IsActive(controllers: "NewsCategory", actions: "Index", areas: "Admin", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "NewsCategory", new { area = "Admin" })">
+                    @Strings.Global_NewsCategoryList
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Tags", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-tags">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Tags
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Tags", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Tags", new { area = "Admin" })">
+                    @Strings.Global_TagsList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Tags", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Tags", new { area = "Admin" })">
+                    @Strings.Global_NewTag
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Articles", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-file-text-o">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Articles
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Articles", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Articles", new { area = "Admin" })">
+                    @Strings.Global_ArticlesList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Articles", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Articles", new { area = "Admin" })">
+                    @Strings.Global_NewArticle
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(controllers: "NlMessages,NlEmail", actions: "Index,Create", areas: "Admin", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-envelope-o">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_NlMessages
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(controllers: "NlMessages", actions: "Index", areas: "Admin", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "NlMessages", new { area = "Admin" })">
+                    @Strings.NlMessageModel_NlMessageList
+                </a>
+            </li>
+            <li class="@Html.IsActive(controllers: "NlMessages", actions: "Create", areas: "Admin", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "NlMessages", new { area = "Admin" })">
+                    @Strings.NlMessageModel_NewNlMessage
+                </a>
+            </li>
+            <li class="@Html.IsActive(controllers: "NlEmail", actions: "Index", areas: "Admin", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "NlEmail", new { area = "Admin" })">
+                    @Strings.Global_NlEmailsList
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Forms", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-credit-card">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Forms
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Forms", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Forms", new { area = "Admin" })">
+                    @Strings.Global_FormList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Forms", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Forms", new { area = "Admin" })">
+                    @Strings.Global_NewForm
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Authors", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-pencil">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Authors
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Authors", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Authors", new { area = "Admin" })">
+                    @Strings.Global_AuthorsList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Authors", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Authors", new { area = "Admin" })">
+                    @Strings.Global_NewAuthor
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Sliders", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-sliders">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Sliders
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Sliders", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Sliders", new { area = "Admin" })">
+                    @Strings.Global_SlidersList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Sliders", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Sliders", new { area = "Admin" })">
+                    @Strings.Global_NewSlider
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "FooterCategories", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-credit-card">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Footer
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "FooterCategories", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "FooterCategories", new { area = "Admin" })">
+                    @Strings.Global_FooterCategoriesList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "FooterCategories", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "FooterCategories", new { area = "Admin" })">
+                    @Strings.Global_NewFooterCategory
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "CareerOpportunities", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-clock-o">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_CareerOpportunity
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "CareerOpportunities", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "CareerOpportunities", new { area = "Admin" })">
+                    @Strings.Global_CareerOpportunityList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "CareerOpportunities", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "CareerOpportunities", new { area = "Admin" })">
+                    @Strings.Global_NewCareerOpportunity
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "SocialNetwork", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-globe">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_SocialNetwork
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-third-level">
+            <li class="@Html.IsActive(actions: "Index", controllers: "SocialNetwork", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "SocialNetwork", new { area = "Admin" })">
+                    @Strings.Global_SocialNetworkList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "SocialNetwork", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "SocialNetwork", new { area = "Admin" })">
+                    @Strings.Global_NewSocialNetwork
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Partners", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-users">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Partners
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Partners", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Partners", new { area = "Admin" })">
+                    @Strings.Global_PartnersList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Partners", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Partners", new { area = "Admin" })">
+                    @Strings.Global_NewPartner
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Courses", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-book">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Courses
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Courses", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Courses", new { area = "Admin" })">
+                    @Strings.Global_CoursesList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Courses", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Courses", new { area = "Admin" })">
+                    @Strings.Global_NewCourse
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Teachers", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-user-secret">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Teachers
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Teachers", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Teachers", new { area = "Admin" })">
+                    @Strings.Global_TeachersList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Teachers", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Teachers", new { area = "Admin" })">
+                    @Strings.Global_NewTeacher
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Departments", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-building">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Departments
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Departments", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Departments", new { area = "Admin" })">
+                    @Strings.Global_DepartmentList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Departments", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Departments", new { area = "Admin" })">
+                    @Strings.Global_NewDepartment
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Services,ServiceReceivers", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-file-text">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Services
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Services", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Services", new { area = "Admin" })">
+                    @Strings.Global_ServicesList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Services", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Services", new { area = "Admin" })">
+                    @Strings.Global_NewService
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Index", controllers: "ServiceReceivers", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "ServiceReceivers", new { area = "Admin" })">
+                    @Strings.Global_ServiceReceiverList
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Challenge", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-trophy">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Challenges
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Challenge", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Challenge", new { area = "Admin" })">
+                    @Strings.Global_ChallengeList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Challenge", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Challenge", new { area = "Admin" })">
+                    @Strings.Global_NewChallenge
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Employers", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-users">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Employers
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Employers", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Employers", new { area = "Admin" })">
+                    @Strings.Global_EmployerList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Employers", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Employers", new { area = "Admin" })">
+                    @Strings.Global_NewEmployer
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Events", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-magic">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Events
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Events", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Events", new { area = "Admin" })">
+                    @Strings.Global_EventList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Events", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Events", new { area = "Admin" })">
+                    @Strings.Global_NewEvent
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Projects", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-laptop">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Projects
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Projects", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Projects", new { area = "Admin" })">
+                    @Strings.Global_ProjectList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Projects", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Projects", new { area = "Admin" })">
+                    @Strings.Global_NewProject
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Menus", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-list-ul">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_MenusManagement
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Menus", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Menus", new { area = "Admin" })">
+                    @Strings.Global_MenusList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Menus", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Menus", new { area = "Admin" })">
+                    @Strings.Global_NewMenu
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Pages", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-file-text">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_PagesManagement
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-third-level">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Pages", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Pages", new { area = "Admin" })">
+                    @Strings.Global_PagesList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Pages", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Pages", new { area = "Admin" })">
+                    @Strings.Global_NewPage
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@Html.IsActive(actions: "Index,Create", controllers: "Technologies", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="#">
+            <i class="fa fa-wrench">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Tool_Technology
+            </span>
+            <span class="fa arrow">
+            </span>
+        </a>
+        <ul class="nav nav-third-level">
+            <li class="@Html.IsActive(actions: "Index", controllers: "Technologies", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Index", "Technologies", new { area = "Admin" })">
+                    @Strings.Global_Tools_TechnologiesList
+                </a>
+            </li>
+            <li class="@Html.IsActive(actions: "Create", controllers: "Technologies", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                <a href="@Url.Action("Create", "Technologies", new { area = "Admin" })">
+                    @Strings.Global_New_Tool_Technology
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    @*<li class="@Html.IsActive(actions: "Index,Create", controllers: "Templates", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+            <a href="#">
+                <i class="fa fa-cubes">
+                </i>
+                <span class="nav-label">
+                    @Strings.Global_Templates
+                </span>
+                <span class="fa arrow">
+                </span>
+            </a>
+            <ul class="nav nav-second-level collapse">
+                <li class="@Html.IsActive(actions: "Index", controllers: "Templates", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                    <a href="@Url.Action("Index", "Templates", new { area = "Admin" })">
+                        @Strings.Global_TemplatesList
+                    </a>
+                </li>
+                <li class="@Html.IsActive(actions: "Create", controllers: "Templates", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+                    <a href="@Url.Action("Create", "Templates", new { area = "Admin" })">
+                        @Strings.Global_NewTemplate
+                    </a>
+                </li>
+            </ul>
+        </li>*@
+
+
+    <li class="@Html.IsActive(actions: "Index", controllers: "Settings", acceptedFeatures: AuthorizeService.GetUserAcceptedFeature(SessionData.Current.User))">
+        <a href="@Url.Action("Index", "Settings", new { area = "Admin" })">
+            <i class="fa fa-gear">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_Settings
+            </span>
+        </a>
+    </li>
+
+    <li class="">
+        <a href="@Url.Action("Index", "Home", new { area = "" })" target="_blank">
+            <i class="fa fa-eye">
+            </i>
+            <span class="nav-label">
+                @Strings.Global_ViewSite
+            </span>
+        </a>
+    </li>
+</ul>

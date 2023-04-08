@@ -1,0 +1,81 @@
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Model.Mappings.Interfaces
+@using Hadi.Cms.Web.Utilities
+
+@model INewsDto
+
+@{
+	ViewBag.Title = Strings.Global_NewsContent;
+	Layout = "~/Views/Shared/_InnerPageLayout.cshtml";
+}
+
+<style>
+	.summaryText {
+		background-color: #f5f5f5;
+		padding: 15px;
+		margin: 0px 0 15px 0;
+		border-bottom: 1px solid #c2c2c2;
+	}
+
+	.article-title {
+		margin-bottom: 60px !important;
+	}
+
+	.img-news {
+		padding: 4px;
+		margin-bottom: 15px;
+	}
+</style>
+
+@*<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="row">
+					<div class="col-md-3">
+						@Model.Title
+					</div>
+					<div class="col-md-9"></div>
+				</div>
+			</div>
+		</div>
+	</div>*@
+@if (Model != null)
+{
+
+	string imgSrc = new AttachmentFileService().GetAttachmentSourceValue(Model.MainTitrImage);
+	<div class="container-fluid pt-5 news-details">
+		<div class="container">
+			<div class="row bg-white">
+				<div class="col-md-12 my-5">
+					<div class="row align-items-center">
+						<div class="col-md-4">
+							<div class="so-display-2 mb-5">@Model.Title</div>
+							<div class="text-muted">
+								<div class="mb-3">
+									@Model.ReleaseDate.DateTimeToString(SessionData.Current.HasRightToLeftUI, false)
+								</div>
+								<br />
+								<i class="fa fa-share-alt fa-2x ml-3 text-gray"></i>
+								<i class="fa fa-print fa-2x text-gray"></i>
+
+							</div>
+						</div>
+						<div class="col-md-8 pr-0">
+							<div class="news-image-place">
+								<img class="img-fluid news-image" src="@imgSrc" />
+								<img class="news-vector" src="~/Content/Images/htdf/images/news-vector.png" />
+							</div>
+						</div>
+					</div>
+					<div class="row my-5">
+						<div class="col-12 news-details-style">
+							@Html.Raw(@Model.Source)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

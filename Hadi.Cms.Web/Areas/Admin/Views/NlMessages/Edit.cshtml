@@ -1,0 +1,123 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.ApplicationService.CommandModels.NlMessageEditCommand
+
+@{
+    ViewBag.Title = Strings.Global_EditNlMessage;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_EditNlMessage</h2>
+        <ol class="breadcrumb">
+            <li>
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Edit", "NlMessages", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewNlMessage
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Edit", "NlMessages", FormMethod.Post, new { id = "EditNlMessageForm", @class = "form-horizontal m-t-md", @enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.AttachmentId)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="col-md-12 col-sm-12 col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_EditNlMessage</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.NlMessageModel_Title)
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.NlMessageModel_Subject)
+                        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.NlMessageModel_Text)
+                        @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control rtl-input text" } })
+                        @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.NlMessageModel_AttachmentFile)
+                        <input type="file" name="file" id="file">
+                        @Html.ValidationMessageFor(model => model.AttachmentId, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+    <script>
+        $(function() {
+            $('#CreateNlMessageForm').submit(function () {
+                $("#Text").val(persianToEnglishNumber($(".note-editable").html()));
+                var formData = new FormData($(this)[0]);
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: formData,
+                    success: function(result) {
+                        alert(result);
+                    },
+                    error: function() {
+                        alert('error');
+                    }
+                });
+                return false;
+            });
+            $('.text').summernote();
+            $('.note-codable').css('direction', 'ltr');
+        });
+
+        function persianToEnglishNumber(input) {
+            var inputstring = input;
+            var persian = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+            var english = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            for (var i = 0; i < 10; i++) {
+                var regex = new RegExp(persian[i], 'g');
+                inputstring = inputstring.toString().replace(regex, english[i]);
+            }
+            return inputstring;
+        }
+
+    </script>
+}

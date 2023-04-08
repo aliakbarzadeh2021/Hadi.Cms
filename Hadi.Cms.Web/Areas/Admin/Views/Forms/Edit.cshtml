@@ -1,0 +1,143 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.ApplicationService.CommandModels.FormEditCommand
+
+@{
+    ViewBag.Title = Strings.Global_NewForm;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_NewForm</h2>
+        <ol class="breadcrumb">
+            <li>
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Create", "Forms", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewForm
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Edit", "Forms", FormMethod.Post, new { id = "EditFormForm", @class = "form-horizontal m-t-md" }))
+{
+    <div class="row">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="col-md-12 col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_BaseInformation</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_Name)
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_Title)
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_DisplayNameEn)
+                        @Html.EditorFor(model => model.DisplayEnName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.DisplayEnName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_DisplayNameFa)
+                        @Html.EditorFor(model => model.DisplayFaName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.DisplayFaName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_RedirectUrl)
+                        @Html.EditorFor(model => model.RedirectUrl, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.RedirectUrl, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FormModel_Language)
+                        @Html.DropDownListFor(model => model.LanguageId, new SelectList(ViewBag.Languages, "Id", "Name"), "انتخاب کنید...", new { @class = "form-control rtl-input select2" })
+                        @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group hidden">
+                        @Html.Label(Strings.FormModel_FormDataSource)
+                        @Html.EditorFor(model => model.FormDataSource, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.FormDataSource, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+            <div class="alert alert-warning">
+                <span><i class="fa fa-warning"></i></span>
+                @Strings.FormModel_Form_Cannot_Edit
+            </div>
+            <div class="alert alert-info">
+                <span><i class="fa fa-info"></i></span>
+                @Strings.FormModel_Form_Craete_New_For_Edit
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+
+@section scripts{
+
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+    <script>
+        $(function () {
+            $('#EditFormForm').submit(function () {
+                var formData = new FormData($(this)[0]);
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: formData,
+                    success: function (result) {
+                        alert(result);
+                    },
+                    error: function () {
+                        alert('error');
+                    }
+                });
+                return false;
+            });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green'
+            });
+        });
+
+    </script>
+}

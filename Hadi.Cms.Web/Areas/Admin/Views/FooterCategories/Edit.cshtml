@@ -1,0 +1,145 @@
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.ApplicationService.CommandModels.FooterCategoryEditCommand
+
+@{
+    ViewBag.Title = Strings.Global_EditFooterCategory;
+}
+
+@section style{
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@Strings.Global_EditFooterCategory</h2>
+        <ol class="breadcrumb">
+            <li>
+                @if (ViewBag.Success == "1")
+                {
+                    <a href="@Url.Action("Create", "FooterCategories", new { area = "Admin" })" class="btn btn-primary">
+                        @Strings.Global_NewFooterCategory
+                    </a>
+                }
+            </li>
+            <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+                <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Edit", "FooterCategories", FormMethod.Post, new { id = "EditFooterCategoryForm", @class = "form-horizontal m-t-md" }))
+{
+    <div class="row">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="col-md-6 col-sm-6 col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_BaseInformation</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.FooterCategoryModel_Title)
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FooterCategoryModel_Link)
+                        @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FooterCategoryModel_OrderId)
+                        @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FooterCategoryModel_IsActive)
+                        @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "rtl-input i-checks" } })
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_FurtherInformation</h5>
+                </div>
+
+                <div class="ibox-content">
+                    <div class="form-group">
+                        @Html.Label(Strings.FooterCategoryModel_StatisticalRepresentation)
+                        @Html.EditorFor(model => model.StatisticalRepresentation, new { htmlAttributes = new { @class = "rtl-input i-checks" } })
+                        @Html.ValidationMessageFor(model => model.StatisticalRepresentation, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FooterCategoryModel_EntityHaveReviewCount)
+                        @Html.DropDownListFor(model => model.EntityHaveReviewCount, new SelectList(ViewBag.EntityHaveReviewCountList, "Value", "Name"), "انتخاب کنید...", new { @class = "form-control rtl-input select2" })
+                        @Html.ValidationMessageFor(model => model.EntityHaveReviewCount, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label(Strings.FooterCategoryModel_NumberOfShows)
+                        @Html.EditorFor(model => model.NumberOfShows, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                        @Html.ValidationMessageFor(model => model.NumberOfShows, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+
+    <script>
+        $(function () {
+            $('#EditFooterCategoryForm').submit(function () {
+                if ($("#Title").val() === "") {
+                    MyAlert('@Strings.Error', '@Strings.FooterCategory_Title_Error', 4000, 'error');
+                    return false;
+                }
+                else {
+                    var formData = new FormData($(this)[0]);
+                    $.ajax({
+                        url: this.action,
+                        type: this.method,
+                        data: formData,
+                        success: function (result) {
+                            alert(result);
+                        },
+                        error: function () {
+                            alert('error');
+                        }
+                    });
+                    return false;
+                }
+            });
+        });
+    </script>
+}

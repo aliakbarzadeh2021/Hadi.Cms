@@ -1,0 +1,138 @@
+@using DocumentFormat.OpenXml.Presentation
+@using Hadi.Cms.ApplicationService.Services
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.ApplicationService.QueryModels.ProjectDetailWithChallengeDto
+@{
+    ViewBag.IdBody = "a-project";
+    ViewBag.Title = $"{Strings.Projects} - {Model.ProjectDto.Title}";
+}
+
+<style>
+    .hidden {
+        visibility: hidden;
+    }
+</style>
+
+<div class="a-project-header">
+    <div class="project-content ">
+        <div class="container-fluid">
+            <div class="left-line"></div>
+            <div class="title font-anjoman so-display-h1 py-4">
+                @*<img class="pattern" src="~/Content/Images/Hadi/Projects/pattern1.svg" alt="">*@
+                <span class="font-weight-light">
+                    پروژه
+                </span>
+                <br>
+                @Model.ProjectDto.Title
+            </div>
+            <div class="right-line"></div>
+            <br>
+            <div class="details">
+                @if (!string.IsNullOrEmpty(Model.ProjectDto.EmployerName))
+                {
+                    <div class="project-icon mt-2 mb-4">
+                        <img class="icon" src="@Model.ProjectDto.EmployerImageSource" alt="">
+                        <div class="text mr-3">
+                            <div class="title font-weight-bold">
+                                کارفرما :
+                            </div>
+                            <div class="project-name">
+                                @Model.ProjectDto.EmployerName
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="describtion text-justify">
+                    @Html.Raw(@Model.ProjectDto.Description)
+                </div>
+                <div class="used-technologies mt-5">
+                    <div class="title mb-3">
+                        تکنولوژی های استفاده شده :
+                    </div>
+                    <div class="content">
+                        @Html.Action("UsedTechnologiesPartial", "Technologies", new { id = Model.ProjectDto.Id })
+                    </div>
+                </div>
+                <div class="used-tools mt-4">
+                    <div class="title mb-3">
+                        ابزار های استفاده شده :
+                    </div>
+                    <div class="content">
+                        @Html.Action("UsedToolsPartial", "Technologies", new { id = Model.ProjectDto.Id })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="project-image">
+        <img class="image w-100" src="@Model.ProjectDto.Source" alt="">
+        @if (!string.IsNullOrEmpty(Model.ProjectDto.ProjectLink) && !string.IsNullOrEmpty(Model.ProjectDto.ProjectLinkText))
+        {
+            <div class="project-link mt-3">
+                <div class="title">
+                    لینک این پروژه:
+                </div>
+                <div class="link">
+                    <a class="arrow-button-intraction" target="blank" href="@Model.ProjectDto.ProjectLink">
+                        <span>
+                            @Model.ProjectDto.ProjectLinkText
+                        </span>
+                        <img class="button-arrow" src="/Content/Images/Hadi/arrows_green-03.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="first-step">
+    <div class="image @(string.IsNullOrEmpty(Model.ProjectDto.FirstStepImageSource)?"hidden" : "")">
+        <img class="w-100 h-100" src="@Model.ProjectDto.FirstStepImageSource" alt="">
+    </div>
+    <div class="content">
+        <div class="container-fluid">
+            @Html.Raw(@Model.ProjectDto.FirstStepDescription)
+        </div>
+        <div class="empty-part"></div>
+    </div>
+</div>
+<div class="second-step">
+    <div class="content">
+        <div class="container-fluid">
+            @Html.Raw(@Model.ProjectDto.SecondStepDescription)
+        </div>
+        <div class="empty-part"></div>
+    </div>
+</div>
+<div class="slider mt-5">
+    @Html.Action("ProjectSliderImagePartial", "Projects", new { id = Model.ProjectDto.Id })
+</div>
+<div class="slider-text mt-5">
+    <div class="text">
+        @Html.Raw(Model.ProjectDto.FinalStepDescription)
+    </div>
+</div>
+
+@if (Model.ChallengeDto != null)
+{
+    @Html.Partial("_ChallengePartial")
+}
+
+@Html.Action("RelatedProjectPartial", "Projects", new { id = Model.ProjectDto.Id })
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/Hadi/AProject")
+    <script>
+
+        setTimeout(function () {
+            $('.slider').slick({
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                prevArrow: "<img class='a-left control-c prev slick-next' src='/Content/Images/Hadi/Academy/AllAcademies/Arrow_left.svg'>",
+                nextArrow: "<img class='a-left control-c prev slick-prev' src='/Content/Images/Hadi/Academy/AllAcademies/Arrow_right.svg'>"
+            });
+        }, 100);
+    </script>
+}

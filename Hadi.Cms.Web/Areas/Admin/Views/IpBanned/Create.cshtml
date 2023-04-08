@@ -1,0 +1,99 @@
+@using Hadi.Cms.Language.Resources
+@model Hadi.Cms.Model.QueryModels.IpBannedModel
+
+@{
+	ViewBag.Title = Strings.Global_NewIp;
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+	<div class="col-lg-10">
+		<h2>@Strings.Global_NewIp</h2>
+		<ol class="breadcrumb">
+			<li>
+                @if (ViewBag.Success == "1")
+				{
+					<a href="@Url.Action("Create", "IpBanned", new { area = "Admin" })" class="btn btn-primary">
+						@Strings.Global_NewIp
+					</a>
+				}
+			</li>
+			<div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+				<div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+					<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+					@ViewBag.Message
+				</div>
+			</div>
+		</ol>
+	</div>
+	<div class="col-lg-2">
+
+	</div>
+</div>
+
+@using (Html.BeginForm("Create", "IpBanned", FormMethod.Post, new { id = "CreateIpBannedForm", @class = "form-horizontal m-t-md" }))
+{
+	@Html.AntiForgeryToken()
+
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>@Strings.Global_NewIp</h5>
+				</div>
+				<div class="ibox-content">
+					<div class="form-group">
+						@Html.Label(Strings.IpBannedModel_IPAddress)
+						@Html.EditorFor(model => model.IpAddress, new { htmlAttributes = new { @class = "form-control ltr-input" } })
+						@Html.ValidationMessageFor(model => model.IpAddress, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label(Strings.IpBannedModel_IPAddressBanReason)
+						@Html.EditorFor(model => model.IpAddressBanReason, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+						@Html.ValidationMessageFor(model => model.IpAddressBanReason, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label(Strings.IpBannedModel_IsActive)
+						@Html.CheckBoxFor(model => model.IsActive, new { @checked = true })
+					</div>
+					<div class="hr-line-dashed"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-4 col-sm-offset-0">
+			<input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+		</div>
+	</div>
+}
+
+@section scripts{
+	<script>
+		$(function () {
+			$('#CreateIpBannedForm').submit(function () {
+				if ($("#IPAddress").val() == "") {
+					MyAlert('خطا', 'لطفا فیلد آی پی را پر کنید', 4000, 'error');
+					return false;
+				}
+				else if (!ValidateIPaddress($("#IPAddress").val())) {
+					MyAlert('خطا', 'آی پی را با فرمت صحیح وارد کنید', 4000, 'error');
+					return false;
+				}
+			});
+		});
+
+		function ValidateIPaddress(value) {
+			var split = value.split('.');
+			if (split.length != 4)
+				return false;
+
+			for (var i = 0; i < split.length; i++) {
+				var s = split[i];
+				if (s.length == 0 || isNaN(s) || s < 0 || s > 255)
+					return false;
+			}
+			return true;
+		}
+	</script>
+}

@@ -1,0 +1,22 @@
+@model List<Hadi.Cms.Model.Mappings.Interfaces.IEmployerDto>
+
+<div class="carsuol-logo nav">
+    @foreach (var employer in Model)
+    {
+        <div id="@employer.Id" class="image nav-item project-name ">
+            <a href="" class="nav-link" data-toggle="tab" onclick="activeProject(this)">
+                <img src="@employer.LogoSource" alt="@employer.Name">
+            </a>
+        </div>
+    }
+</div>
+
+<div class="carsuol-logo-mobile">
+    @foreach (var employer in Model)
+    {
+        <div id="@employer.Id" class="image">
+            <img src="@employer.LogoSource" alt="@employer.Name">
+        </div>
+    }
+</div>
+

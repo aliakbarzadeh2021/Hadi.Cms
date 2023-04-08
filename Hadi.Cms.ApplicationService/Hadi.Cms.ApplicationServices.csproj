@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{10F7764D-E5DD-48C7-BE62-18569AA0DC27}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hadi.Cms.ApplicationService</RootNamespace>
+    <AssemblyName>Hadi.Cms.ApplicationService</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=2.0.20168.4, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.2.0.0\lib\net46\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.6\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.14.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.14.0\lib\net45\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.6.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.6.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.5.6.0\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.5.6.0\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.6.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Quartz, Version=3.1.0.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.3.1.0\lib\net461\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.6.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandModels\AttachmentFileCreateCommand.cs" />
+    <Compile Include="CommandModels\AuthorCreateCommand.cs" />
+    <Compile Include="CommandModels\AuthorEditCommand.cs" />
+    <Compile Include="CommandModels\CareerOpportunityCreateCommand.cs" />
+    <Compile Include="CommandModels\CareerOpportunityEditCommand.cs" />
+    <Compile Include="CommandModels\ChallengeCreateCommand.cs" />
+    <Compile Include="CommandModels\ChallengeEditCommand.cs" />
+    <Compile Include="CommandModels\CourseCreateCommand.cs" />
+    <Compile Include="CommandModels\CourseEditCommand.cs" />
+    <Compile Include="CommandModels\DepartmentCreateCommand.cs" />
+    <Compile Include="CommandModels\DepartmentSelectionReasonCreateCommand.cs" />
+    <Compile Include="CommandModels\DepartmentSelectionReasonEditCommand.cs" />
+    <Compile Include="CommandModels\EditAttachmentFileTagCommand.cs" />
+    <Compile Include="CommandModels\EmployeeCreateCommand.cs" />
+    <Compile Include="CommandModels\EmployeeEditCommand.cs" />
+    <Compile Include="CommandModels\EmployerEditCommand.cs" />
+    <Compile Include="CommandModels\EmployerCreateCommand.cs" />
+    <Compile Include="CommandModels\EventCreateCommand.cs" />
+    <Compile Include="CommandModels\EventEditCommand.cs" />
+    <Compile Include="CommandModels\FooterCategoryCreateCommand.cs" />
+    <Compile Include="CommandModels\FooterCategoryEditCommand.cs" />
+    <Compile Include="CommandModels\FooterCategoryLinkCreateCommand.cs" />
+    <Compile Include="CommandModels\FooterCategoryLinkEditCommand.cs" />
+    <Compile Include="CommandModels\FormCreateCommand.cs" />
+    <Compile Include="CommandModels\FormEditCommand.cs" />
+    <Compile Include="CommandModels\FormFieldValueCommand.cs" />
+    <Compile Include="CommandModels\MethodologyCreateCommand.cs" />
+    <Compile Include="CommandModels\MethodologyEditCommand.cs" />
+    <Compile Include="CommandModels\NewsCategoryCreateCommand.cs" />
+    <Compile Include="CommandModels\NewsCategoryEditCommand.cs" />
+    <Compile Include="CommandModels\NlEmailCreateCommand.cs" />
+    <Compile Include="CommandModels\NlMessageCreateCommand.cs" />
+    <Compile Include="CommandModels\NlMessageEditCommand.cs" />
+    <Compile Include="CommandModels\NotificationCommand.cs" />
+    <Compile Include="CommandModels\PartnerCreateCommand.cs" />
+    <Compile Include="CommandModels\PartnerEditCommand.cs" />
+    <Compile Include="CommandModels\ProjectCreateCommand.cs" />
+    <Compile Include="CommandModels\ProjectEditCommand.cs" />
+    <Compile Include="CommandModels\ResumeCreateCommand.cs" />
+    <Compile Include="CommandModels\SendEmailCommand.cs" />
+    <Compile Include="CommandModels\ServiceCommentCreateCommand.cs" />
+    <Compile Include="CommandModels\ServiceCommentEditCommand.cs" />
+    <Compile Include="CommandModels\ServiceCreateCommand.cs" />
+    <Compile Include="CommandModels\ServiceEditCommand.cs" />
+    <Compile Include="CommandModels\ServiceReceiverCreateCommand.cs" />
+    <Compile Include="CommandModels\ServiceReceiverEditCommand.cs" />
+    <Compile Include="CommandModels\SliderCreateCommand.cs" />
+    <Compile Include="CommandModels\SliderEditCommand.cs" />
+    <Compile Include="CommandModels\SliderItemCreateCommand.cs" />
+    <Compile Include="CommandModels\SliderItemEditCommand.cs" />
+    <Compile Include="CommandModels\SocialNetworkCreateCommand.cs" />
+    <Compile Include="CommandModels\SocialNetworkEditCommand.cs" />
+    <Compile Include="CommandModels\TeacherCreateCommand.cs" />
+    <Compile Include="CommandModels\TeacherEditCommand.cs" />
+    <Compile Include="CommandModels\TechnologyCreateCommand.cs" />
+    <Compile Include="CommandModels\TechnologyEditCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryModels\AllArticleDto.cs" />
+    <Compile Include="QueryModels\AllCoursesDto.cs" />
+    <Compile Include="QueryModels\AnArticleDto.cs" />
+    <Compile Include="QueryModels\ArticleContainerDto.cs" />
+    <Compile Include="QueryModels\ArticleDto.cs" />
+    <Compile Include="QueryModels\ArticleTagDto.cs" />
+    <Compile Include="QueryModels\AttachmentFileDto.cs" />
+    <Compile Include="QueryModels\AttachmentFileTagDto.cs" />
+    <Compile Include="QueryModels\CareerOpportunityTypeDto.cs" />
+    <Compile Include="QueryModels\ChallengeDetailWithProjectDto.cs" />
+    <Compile Include="QueryModels\CityDto.cs" />
+    <Compile Include="QueryModels\ConfirmKeyDto.cs" />
+    <Compile Include="QueryModels\ContactUsDto.cs" />
+    <Compile Include="CommandModels\DepartmentEditCommand.cs" />
+    <Compile Include="QueryModels\EducationDto.cs" />
+    <Compile Include="QueryModels\EntityHaveReviewCountDto.cs" />
+    <Compile Include="QueryModels\EventLogDto.cs" />
+    <Compile Include="QueryModels\FeatureDto.cs" />
+    <Compile Include="QueryModels\FileDto.cs" />
+    <Compile Include="QueryModels\FooterCategoryWithWithLinkDto.cs" />
+    <Compile Include="QueryModels\FormFieldDto.cs" />
+    <Compile Include="QueryModels\IpBannedDto.cs" />
+    <Compile Include="QueryModels\IpRangeDto.cs" />
+    <Compile Include="QueryModels\LanguageDto.cs" />
+    <Compile Include="QueryModels\LoginHistoryDto.cs" />
+    <Compile Include="QueryModels\MailAttachmentDto.cs" />
+    <Compile Include="QueryModels\MailDto.cs" />
+    <Compile Include="QueryModels\MailUserDto.cs" />
+    <Compile Include="QueryModels\MegaMenuDto.cs" />
+    <Compile Include="QueryModels\MenuDto.cs" />
+    <Compile Include="QueryModels\NewsDto.cs" />
+    <Compile Include="QueryModels\NotificationDto.cs" />
+    <Compile Include="QueryModels\PageDto.cs" />
+    <Compile Include="QueryModels\PageStatisticDto.cs" />
+    <Compile Include="QueryModels\ProjectDetailWithChallengeDto.cs" />
+    <Compile Include="QueryModels\ProjectHomePageSectionDto.cs" />
+    <Compile Include="QueryModels\ProvinceDto.cs" />
+    <Compile Include="QueryModels\RoleDto.cs" />
+    <Compile Include="QueryModels\RoleFeatureDto.cs" />
+    <Compile Include="QueryModels\ServiceDetailDto.cs" />
+    <Compile Include="QueryModels\SettingDto.cs" />
+    <Compile Include="QueryModels\SliderImagePartialDto.cs" />
+    <Compile Include="QueryModels\TagDto.cs" />
+    <Compile Include="QueryModels\TemplateDetailDto.cs" />
+    <Compile Include="QueryModels\TemplateDto.cs" />
+    <Compile Include="QueryModels\AdminHomePageDto.cs" />
+    <Compile Include="QueryModels\UserContactDto.cs" />
+    <Compile Include="QueryModels\UserDto.cs" />
+    <Compile Include="QueryModels\UserProfileDto.cs" />
+    <Compile Include="QueryModels\UserRoleDto.cs" />
+    <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\ArticleTagService.cs" />
+    <Compile Include="Services\AttachmentFileService.cs" />
+    <Compile Include="Services\AttachmentFileTagService.cs" />
+    <Compile Include="Services\AuthorizeService.cs" />
+    <Compile Include="Services\AuthorService.cs" />
+    <Compile Include="Services\CareerOpportunityService.cs" />
+    <Compile Include="Services\ChallengeProjectService.cs" />
+    <Compile Include="Services\ChallengeService.cs" />
+    <Compile Include="Services\CityService.cs" />
+    <Compile Include="Services\ConfirmKeyService.cs" />
+    <Compile Include="Services\ContactUsService.cs" />
+    <Compile Include="Services\CourseAttachmentFileService.cs" />
+    <Compile Include="Services\CourseService.cs" />
+    <Compile Include="Services\CourseTagService.cs" />
+    <Compile Include="Services\CourseTeacherService.cs" />
+    <Compile Include="Services\DepartmentSelectionReasonService.cs" />
+    <Compile Include="Services\DepartmentService.cs" />
+    <Compile Include="Services\DepartmentServiceService.cs" />
+    <Compile Include="Services\EducationService.cs" />
+    <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\EmployerService.cs" />
+    <Compile Include="Services\EventLogService.cs" />
+    <Compile Include="Services\EventService.cs" />
+    <Compile Include="Services\FeatureService.cs" />
+    <Compile Include="Services\FooterCategoryLinkService.cs" />
+    <Compile Include="Services\FooterCategoryService.cs" />
+    <Compile Include="Services\FormFieldService.cs" />
+    <Compile Include="Services\FormFieldValueService.cs" />
+    <Compile Include="Services\FormService.cs" />
+    <Compile Include="Services\IpBannedService.cs" />
+    <Compile Include="Services\IpRangeService.cs" />
+    <Compile Include="Services\LanguageService.cs" />
+    <Compile Include="Services\LoginHistoryService.cs" />
+    <Compile Include="Services\MailAttachmentService.cs" />
+    <Compile Include="Services\MailService.cs" />
+    <Compile Include="Services\MailUserService.cs" />
+    <Compile Include="Services\MenuService.cs" />
+    <Compile Include="Services\MethodologyService.cs" />
+    <Compile Include="Services\NewsCategoryService.cs" />
+    <Compile Include="Services\NewsNewsCategoryService.cs" />
+    <Compile Include="Services\NewsService.cs" />
+    <Compile Include="Services\NlEmailService.cs" />
+    <Compile Include="Services\NlMessageEmailService.cs" />
+    <Compile Include="Services\NlMessageService.cs" />
+    <Compile Include="Services\PageService.cs" />
+    <Compile Include="Services\PageStatisticService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
+    <Compile Include="Services\PartnerService.cs" />
+    <Compile Include="Services\ProjectAttachmentFileService.cs" />
+    <Compile Include="Services\ProjectService.cs" />
+    <Compile Include="Services\ProjectTagService.cs" />
+    <Compile Include="Services\ProjectTechnologyService.cs" />
+    <Compile Include="Services\ProvinceService.cs" />
+    <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\ResumeService.cs" />
+    <Compile Include="Services\RoleFeatureService.cs" />
+    <Compile Include="Services\RoleService.cs" />
+    <Compile Include="Services\ServiceCommentService.cs" />
+    <Compile Include="Services\ServiceReceiverService.cs" />
+    <Compile Include="Services\ServiceReceiverServiceService.cs" />
+    <Compile Include="Services\ServiceService.cs" />
+    <Compile Include="Services\ServiceTagService.cs" />
+    <Compile Include="Services\SettingService.cs" />
+    <Compile Include="Services\SliderItemService.cs" />
+    <Compile Include="Services\SliderService.cs" />
+    <Compile Include="Services\SocialNetworkService.cs" />
+    <Compile Include="Services\StatisticService.cs" />
+    <Compile Include="Services\TagService.cs" />
+    <Compile Include="Services\TeacherService.cs" />
+    <Compile Include="Services\TechnologyService.cs" />
+    <Compile Include="Services\TemplateDetailService.cs" />
+    <Compile Include="Services\TemplateService.cs" />
+    <Compile Include="Services\UserContactService.cs" />
+    <Compile Include="Services\UserProfileService.cs" />
+    <Compile Include="Services\UserRoleService.cs" />
+    <Compile Include="Services\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hadi.Cms.Configuration\Hadi.Cms.Configuration.csproj">
+      <Project>{fbb49361-67c1-4b21-b375-5e3f8f2bf095}</Project>
+      <Name>Hadi.Cms.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hadi.Cms.Infrastructure\Hadi.Cms.Infrastructure.csproj">
+      <Project>{6c92a4d7-dea5-417f-8deb-1f420ae58860}</Project>
+      <Name>Hadi.Cms.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hadi.Cms.Language\Hadi.Cms.Language.csproj">
+      <Project>{C8AF17F6-16FA-4F47-9201-85505F7629A5}</Project>
+      <Name>Hadi.Cms.Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hadi.Cms.Model\Hadi.Cms.Model.csproj">
+      <Project>{9d4ad727-3bd2-4b48-8745-720a50e2d0e1}</Project>
+      <Name>Hadi.Cms.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hadi.Cms.Repository\Hadi.Cms.Repository.csproj">
+      <Project>{5bce79fa-0742-4f2d-b97a-adc2948409d9}</Project>
+      <Name>Hadi.Cms.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.2.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.2.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.2.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.2.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
+  </Target>
+</Project>

@@ -1,0 +1,169 @@
+@using Hadi.Cms.Configuration
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Web.Utilities
+
+@{
+    bool rightToLeft = SessionData.Current.HasRightToLeftUI;
+}
+
+<!DOCTYPE html>
+<html lang="@(rightToLeft? "fa" : "en")" dir="@(rightToLeft?"rtl" : "ltr")">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Settings.Application_CompanyName | @ViewBag.Title</title>
+
+    @RenderSection("style", required: false)
+
+    @Styles.Render("~/Content/RadaTemplate/css-main-rtl")
+    @Scripts.Render("~/bundles/jquery211")
+
+    @RenderSection("topScripts", required: false)
+
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                @Html.Partial("_MenuLayoutPartial")
+            </div>
+        </nav>
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+                            <i class="fa fa-bars">
+                            </i>
+                        </a>
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                            <div class="form-group">
+                                <h4 style="margin-top: 20px; margin-right: 15px;"><a href="@Url.Action("Index", "Home", new { area = "Admin" })">@Settings.Application_CompanyName</a></h4>
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-left">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">
+                                @Strings.Global_WelcomeToAdminPanel
+                            </span>
+                        </li>
+                        @if (Settings.Application_DisplayNotificationTopIcon)
+                        {
+                            @Html.Partial("_NotificationMenuLayoutPartial")
+                        }
+                        <li>
+                            @Html.ActionLink(Strings.Global_LogOff, "LogOff", new { area = "", controller = "User" })
+                        </li>
+                        @if (Settings.Application_DisplaySiteLeftMenuBar)
+                        {
+                            <li>
+                                <a class="left-sidebar-toggle hidden">
+                                    <i class="fa fa-tasks">
+                                    </i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="loader" id="preloader">
+                    <div class="spinner">
+                        <div class="sk-spinner sk-spinner-cube-grid">
+                            <div class="sk-cube"></div>
+                            <div class="sk-cube"></div>
+                            <div class="sk-cube"></div>
+                            <div class="sk-cube"></div>
+                            <div class="sk-cube"></div>
+                            <div class="sk-cube"></div>
+                            <div class="sk-cube"></div>
+                            <div class="sk-cube"></div>
+                            <div class="sk-cube"></div>
+                        </div>
+                    </div>
+                    <p>@Strings.Global_PleaseWait</p>
+                </div>
+                @RenderBody()
+            </div>
+            <div class="footer">
+                <div class="pull-left">
+                    <strong>
+                        @if (Settings.Application_DisplayFooterLanguageChanger)
+                        {
+                            <small>&copy; @DateTime.Now.Year - @Strings.ApplicationName | <a href="/Admin/Users/SetCulture/?culture=en-us&currentUrl=@(Request.Url.AbsolutePath + Request.Url.Query)" onclick="document.cookie='lang=en-us'">English</a> | <a href="/Admin/Users/SetCulture/?culture=fa-ir&currentUrl=@(Request.Url.AbsolutePath + Request.Url.Query)" onclick="document.cookie='lang=fa-ir'">فارسی</a></small> <text>&nbsp; &nbsp;</text>
+                        }
+                        @if (Settings.Application_DisplayFooterVersionText)
+                        {
+                            <small>Version : @ViewContext.Controller.GetType().Assembly.GetName().Version  |  <span>Assembly date : @File.GetCreationTime(ViewContext.Controller.GetType().Assembly.Location)</span></small>
+                        }
+                    </strong>
+                </div>
+                <div>
+                    <strong>
+                        @Settings.Application_PanelFooterText
+                    </strong>
+                    @DateTimeHelper.GetCurrentYear(DateTime.Now) &copy;
+                </div>
+            </div>
+        </div>
+        @if (Settings.Application_DisplaySiteLeftMenuBar)
+        {
+            <div id="left-sidebar">
+                <div class="sidebar-container">
+                    @Html.Partial("_LeftMenuLayoutPartial")
+                </div>
+            </div>
+        }
+    </div>
+    @Scripts.Render("~/bundles/radaJs")
+
+    <script>
+
+        $(function () {
+            //$("select[multiple='multiple']").bsMultiSelect();
+
+            $(".select2").select2({ dir: "rtl", placeholder: " انتخاب کنید   ", allowClear: true });
+            $(".multiselect2").select2({ dir: "rtl", multiple: true, placeholder: "  انتخاب کنید  ", allowClear: true, tags: true });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+            //$('.sourceText').summernote();
+
+        });
+
+        $(window).load(function () {
+            //Animate loader off screen
+            $(".loader").fadeOut("slow");
+        });
+
+        function MyAlert(title, text, time, type) {
+            setTimeout(function () {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    showMethod: 'slideDown',
+                    positionClass: 'toast-top-left',
+                    timeOut: time
+                };
+
+                if (type == "success") {
+                    toastr.success(text, title);
+                } else if (type == "error") {
+                    toastr.error(text, title);
+                } else if (type == "info") {
+                    toastr.info(text, title);
+                } else if (type == "warning") {
+                    toastr.warning(text, title);
+                }
+
+            }, 200);
+        }
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

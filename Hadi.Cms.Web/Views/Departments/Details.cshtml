@@ -1,0 +1,101 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@model Hadi.Cms.Model.Mappings.Interfaces.IDepartmentDto
+
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.IdBody = "develope-department";
+}
+
+    <style>
+        #develope-department main .department-container .service-grid .service-info:hover a {
+            color: @Model.Color;
+        }
+
+        #develope-department main .department-container .service-grid .service-info a {
+            color: #fff;
+        }
+
+        .member-info-container .name{
+            color:@Model.Color!important;
+        }
+
+    </style>
+
+<section class="department-container" style="background-image:  url(@Model.DepartmentBackgroundHeaderAttachmentImageSource)">
+    <div class="info-text mt-5">
+        <div class="image-container">
+            @if (!string.IsNullOrEmpty(Model.Source))
+            {
+                <img src="@Model.Source" alt="">
+            }
+        </div>
+        <div class="text-title mt-5 mb-3">
+            @Model.Title
+        </div>
+        <div class="text-description mb-5">
+            @Model.Slogan
+        </div>
+    </div>
+    @Html.Action("DepartmentServicePartial", "Departments", new { id = Model.Id })
+</section>
+@Html.Action("DepartmentSelectionReasonPartial", "Departments", new { id = Model.Id })
+@Html.Action("DepartmentMethodologyPartial", "Departments", new { id = Model.Id })
+@Html.Action("DepartmentEmployee", "Departments", new { id = Model.Id , structureImageSource = Model.StructureAttachmentImageSource })
+
+
+<section class="join-us-container">
+    <div class="join-us-header" style="background: url(@Model.JoinOurTeamImageAttachmentSource)">
+        <div class="join-us-title">
+            پیوستن به تیم ما
+        </div>
+        <div class="join-us-description mt-4">
+            @Html.Raw(Model.JoinOurTeamDescription)
+        </div>
+    </div>
+    <div class="join-us-footer">
+        @if (Model.RecruitmentButtonIsActive)
+        {
+            <a onclick="sendOpportunityType(0)" href="/Pages/Details?pageAlias=career">
+                استخدام
+            </a>
+        }
+        @if (Model.InternshipButtonIsActive)
+        {
+            <a onclick="sendOpportunityType(1)" href="/Pages/Details?pageAlias=career">
+                کارآموزی
+            </a>
+        }
+    </div>
+</section>
+<section class="mentor-container">
+    <div class="mentor-info">
+        <div class="mentor-title">
+            درخواست مشاوره رایگان
+        </div>
+        <div class="mentor-description mt-4 mb-4">
+            چنانچه می خواهید قرار ملاقاتی جهت مشاوره با کارشناسان ما داشته باشید می توانید از طریق دکمه زیر یک
+            قرار ملاقات تنظیم کنید
+            منتظر شما هستیم....
+        </div>
+        <div class="mentor-link">
+            <a class="link arrow-button-intraction" style="background-color : @Model.Color" href="@Model.ContactUsLink">
+                <span>
+                    تماس باما
+                </span>
+                <img class="mr-2" src="~/Content/Images/Hadi/arrow-left.svg" alt="">
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    function sendOpportunityType(typeValue) {
+        var param = "@Url.Action("SetCareerOpportunityTypeValue", "CareerOpportunities", null, this.Request.Url.Scheme)";
+        var ajaxdata = "typeValue="+typeValue;
+        @Html.Ajax("GET", "", "nowhere", "returnCareer")
+    }
+    function returnCareer(data) {
+        console.log(data.Message);
+    }
+
+</script>

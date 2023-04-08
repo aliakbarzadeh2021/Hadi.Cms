@@ -1,0 +1,327 @@
+#contact-us main .container-fluid {
+    padding-left: 6vw;
+    padding-right: 6vw;
+    color: #515151;
+}
+
+#contact-us main .contact-image {
+    position: relative;
+    background-image: url("/Content/Images/Hadi/ContactUs/F_Slider_map.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 430px;
+}
+
+#contact-us main .contact-image .title-image {
+    position: absolute;
+    top: 43%;
+    right: 10%;
+    color: var(--color-white);
+    font-size: 16px;
+}
+
+#contact-us main .contact-image .title-image .title-font {
+    font-family: Anjoman;
+    font-size: 40px;
+}
+
+#contact-us main .contact-image .pattern-image {
+    position: absolute;
+    top: 31%;
+    right: 45%;
+}
+
+#contact-us main .contact-image .pattern-image img {
+    width: 157px;
+    height: 88px;
+}
+
+#contact-us main .info-form-container {
+    display: flex;
+    margin-top: 5vw;
+    margin-bottom: 10vw;
+
+}
+
+#contact-us main .info-form-container .info-container {
+    flex-basis: 35%;
+    margin-left: 12%;
+}
+
+#contact-us main .info-form-container .form-message {
+    flex-basis: 53%;
+    box-shadow: 0px 0px 5px black;
+    padding-bottom: 50px;
+    border-radius: 4px;
+    margin-top: -26.7%;
+    z-index: 5;
+}
+
+#contact-us main .info-form-container .form-message .container-fluid-form {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+#contact-us main .info-form-container .form-message .message-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#contact-us main .info-form-container .form-message .message-description {
+    font-size: 16px;
+    line-height: 2;
+}
+
+#contact-us main .info-form-container .form-message .form-inputs {
+    margin-top: 3.5vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#contact-us main .info-form-container .form-message .form-inputs .input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-us main .info-form-container .form-message .form-inputs .input-container input {
+    width: 231px;
+    height: 36px;
+    border: 1px solid var(--color-shady-lady);
+    border-radius: 4px;
+    margin-left: 16px;
+    margin-bottom: 1vw;
+}
+
+#contact-us main .info-form-container .form-message .images {
+    display: flex;
+}
+
+#contact-us main .info-form-container .form-message .images .images-container {
+    position: relative;
+}
+
+#contact-us main .info-form-container .form-message .images .images-container .caption {
+    position: absolute;
+    color: var(--color-white);
+    bottom: 0;
+    border-radius: 4px 0px 0px 0px;
+    font-size: 16px;
+    width: 150px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact-us main .info-form-container .form-message .images .images-container .caption.bg-color-Turmeric {
+    background-color: var(--color-Turmeric);
+}
+
+#contact-us main .info-form-container .form-message .images .images-container .caption.bg-color-green {
+    background-color: var(--color-persian-green);
+}
+
+#contact-us main .info-form-container .form-message .images .images-container img {
+    width: 100%;
+    height: 100%;
+}
+
+#contact-us main .info-form-container .form-message .textarea-container {
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-us main .info-form-container .form-message .textarea-container textarea {
+    border: 1px solid var(--color-shady-lady);
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 12px 15px 5px 5px;
+}
+
+#contact-us main .info-form-container .form-message label {
+    font-size: 12px;
+}
+
+#contact-us main .info-form-container .form-message .form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#contact-us main .info-form-container .form-message .form-buttons .send-box {
+    border:none;
+    width: 122px;
+    height: 37px;
+    border-radius: 4px;
+    background-color: var(--color-Turmeric);
+    color: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px 0px 16px;
+}
+
+#contact-us main .info-form-container .form-message .form-buttons .send-box img {
+    width: 13px;
+    height: 9px;
+}
+
+#contact-us main .info-form-container .form-message .form-buttons .upload-box {
+    font-size: 12px;
+}
+
+#contact-us main .info-form-container .form-message .form-buttons .upload-box img {
+    width: 15px;
+    height: 17px;
+}
+
+#contact-us main .info-form-container .info-container .info-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#contact-us main .info-form-container .info-container .text-container {
+    border-right: 1px solid var(--color-shady-lady);
+    padding-right: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#contact-us main .info-form-container .info-container .text-container .text .text-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#contact-us main .info-form-container .info-container .text-container .text .text-description {
+    font-size: 16px;
+}
+
+#contact-us main .info-form-container .info-container .text-container .text .text-description.flex-basis-100 {
+    flex-basis: 100%;
+}
+
+#contact-us main .info-form-container .info-container .text-container .text {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2vw;
+}
+
+#contact-us main .info-form-container .info-container .text-container .text img {
+    width: 20px;
+    height: 20px;
+}
+
+#contact-us main .info-form-container .info-container .media-container {}
+
+#contact-us main .info-form-container .info-container .media-container .media-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#contact-us main .info-form-container .info-container .media-container .media-images img {
+    width: 15px;
+    height: 15px;
+}
+
+
+/*
+320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+1025px — 1200px: Desktops, large screens
+1201px and more — Extra large screens, TV
+*/
+@media only screen and (max-width: 750px) {
+    #contact-us main .info-form-container {
+        flex-wrap: wrap;
+    }
+
+    #contact-us main .info-form-container .info-container {
+        flex-basis: 100%;
+        margin-left: 0%;
+    }
+
+    #contact-us main .info-form-container .info-container .text-container {
+        border-right: none;
+        padding-right: 0px;
+        padding-top: 16px;
+    }
+
+    #contact-us main .info-form-container .form-message {
+        flex-basis: 100%;
+        box-shadow: none;
+        margin-top: 30px;
+        padding-bottom: 100px;
+    }
+
+    #contact-us main .info-form-container .form-message .container-fluid-form {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    #contact-us main .info-form-container .form-message .desktop-images {
+        display: none;
+    }
+
+    #contact-us main .contact-image .pattern-image {
+        display: none;
+    }
+
+    #contact-us main .images.mobile-images {
+        margin-top: 50px;
+    }
+
+    #contact-us main .images.mobile-images .images-container {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    #contact-us main .images.mobile-images .images-container .caption {
+        position: absolute;
+        color: var(--color-white);
+        bottom: 0;
+        border-radius: 4px 0px 0px 0px;
+        font-size: 16px;
+        width: 150px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #contact-us main .images.mobile-images .images-container .caption.bg-color-Turmeric {
+        background-color: var(--color-Turmeric);
+    }
+
+    #contact-us main .images.mobile-images .images-container .caption.bg-color-green {
+        background-color: var(--color-persian-green);
+    }
+
+    #contact-us main .images.mobile-images .images-container img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #contact-us main .info-form-container .form-message .form-buttons .upload-box {
+        align-self: flex-end;
+        margin-bottom: 25px;
+    }
+
+    #contact-us main .info-form-container .form-message .form-buttons {
+        flex-direction: column-reverse;
+    }
+
+    #contact-us main .info-form-container .form-message .form-inputs .input-container {
+        width: 100%;
+    }
+
+    #contact-us main .info-form-container .form-message .form-inputs .input-container input {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 751px) {
+    #contact-us main .images.mobile-images {
+        display: none;
+    }
+}

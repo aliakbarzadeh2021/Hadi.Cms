@@ -1,0 +1,276 @@
+@model Hadi.Cms.ApplicationService.QueryModels.ServiceDetailDto
+
+@{
+    ViewBag.IdBody = "a-service";
+    ViewBag.Title = $"خدمات {Model.ServiceDto.Title}";
+}
+<style>
+    .submit-button button {
+        border: none;
+    }
+</style>
+<section class="a-service-header">
+    @if (!string.IsNullOrEmpty(Model.ServiceDto.AttachmentImageSource))
+    {
+        <img class="background" src="@Model.ServiceDto.AttachmentImageSource" alt="">
+    }
+    <div class="shadow"></div>
+    <div class="container-fluid">
+        <div class="content">
+            <div class="title font-anjoman so-display-h1 mb-4">
+                @Model.ServiceDto.Title
+            </div>
+            <div class="details mb-4">
+                @Html.Raw(@Model.ServiceDto.Description)
+            </div>
+            <a href="#offer-form" class="button-custom mt-5 arrow-button-intraction">
+                <span>
+                    درخواست خدمت
+                </span>
+                <img class="image ml-1 " src="~/Content/Images/Hadi/arrow-left.svg" alt="" srcset="">
+            </a>
+        </div>
+    </div>
+
+</section>
+<section class="service-provid container-fluid">
+    <div class="title font-anjoman so-display-h1 text-center">
+        روند ارائه خدمت
+    </div>
+    <div class="service-provide-way">
+        <div class="step-1">
+            @if (!string.IsNullOrEmpty(Model.ServiceDto.SectionOneDescription))
+            {
+                <div class="grid">
+                    <div class="image-side">
+                        <img src="@Model.ServiceDto.SectionOneImageSource" alt="">
+                    </div>
+                    <div class="middle-side d-flex  align-items-center flex-column ">
+                        <div class="logo-container d-flex justify-content-center">
+                            <img src="@Model.ServiceDto.SectionOneThumbnailImageSource" alt="">
+                        </div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="text-side">
+                        <div class="content ">
+                            @Html.Raw(Model.ServiceDto.SectionOneDescription)
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.ServiceDto.SectionTwoDescription))
+            {
+                <div class="grid">
+                    <div class="text-side">
+                        <div class="content ">
+                            @Html.Raw(Model.ServiceDto.SectionTwoDescription)
+                        </div>
+                    </div>
+                    <div class="middle-side d-flex  align-items-center flex-column ">
+                        <div class="logo-container d-flex justify-content-center">
+                            <img src="@Model.ServiceDto.SectionTwoThumbnailImageSource" alt="">
+                        </div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="image-side">
+                        <img src="@Model.ServiceDto.SectionTwoImageSource" alt="">
+                    </div>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.ServiceDto.SectionThreeDescription))
+            {
+                <div class="grid">
+                    <div class="image-side">
+                        <img src="@Model.ServiceDto.SectionThreeImageSource" alt="">
+                    </div>
+                    <div class="middle-side d-flex  align-items-center flex-column ">
+                        <div class="logo-container d-flex justify-content-center">
+                            <img src="@Model.ServiceDto.SectionThreeThumbnailImageSource" alt="">
+                        </div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="text-side">
+                        <div class="content ">
+                            @Html.Raw(Model.ServiceDto.SectionThreeDescription)
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.ServiceDto.SectionFourDescription))
+            {
+                <div class="grid">
+                    <div class="text-side">
+                        <div class="content ">
+                            @Html.Raw(Model.ServiceDto.SectionFourDescription)
+                        </div>
+                    </div>
+                    <div class="middle-side d-flex  align-items-center flex-column ">
+                        <div class="logo-container d-flex justify-content-center">
+                            <img src="@Model.ServiceDto.SectionFourThumbnailImageSource" alt="">
+                        </div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="image-side">
+                        <img src="@Model.ServiceDto.SectionFourImageSource" alt="">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+@if (Model.TechnologyDto.Count > 0)
+{
+    <section class="technologies-and-tools ">
+        <div class="title so-display-h1 font-anjoman ">
+            تکنولوژی ها و ابزارها
+        </div>
+        <div class="icons">
+            @foreach (var item in Model.TechnologyDto)
+            {
+                <img src="@item.ImageSource" alt="">
+            }
+        </div>
+    </section>
+}
+
+@if (Model.ProjectDto.Count > 0)
+{
+    <section class="projects-of-services">
+        <div class="title so-display-h1 font-anjoman ">
+            پروژه های این <span class="high-light"> خدمت </span>
+        </div>
+        <div class="projects-of-services-container mt-4">
+            @foreach (var item in Model.ProjectDto)
+            {
+                <a href="@Url.Action("Details", "Projects", new { id = item.Id })" class="item text-dark">
+                    <div class="image">
+                        <img class="w-100 h-100" src="@item.Source" alt="">
+                    </div>
+                    <div class="project-category">
+                        @{
+                            string tags = string.Join(" - ", item.ProjectTags.Select(pt => pt.TagDto.Title));
+                        }
+                        @tags
+                    </div>
+                    <div class="project-title">
+                        @item.Title
+                    </div>
+                </a>
+            }
+        </div>
+    </section>
+}
+<section class="service-offer">
+    <div id="offer-form" class="offer-form">
+        <div class="title so-display-h3">
+            درخواست خدمت
+        </div>
+        <div class="text mt-4">
+            چنانچه مایل هستید از هادی، این خدمت را دریافت کنید می توانید از
+            طریق زیر اقدام نماﻳﻴد.
+        </div>
+        <div  id="contactForm">
+            <form class="d-flex row">
+                @Html.Raw(ViewBag.FormDataSource)
+            </form>
+            <div class="submit-button form-buttons mt-4">
+                <button onclick="sendData()" class="send-box arrow-button-intraction">
+                    <span>ارسال</span>
+                    <img src="/Content/Images/Hadi/arrow-left.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="companies-offers-service">
+        <div class="title so-display-h3">
+            شرکت هایی که این خدمت را دریافت نمودند :
+        </div>
+        <div class="image-container">
+            @foreach (var item in Model.ServiceDto.ServiceReceiverServiceDto.Select(sr => sr.ServiceReceiverDto).Where(s
+                 => s.IsActive).ToList())
+            {
+                <img src="@item.AttachmentImageSource" alt="">
+            }
+        </div>
+        @foreach (var item in Model.ServiceDto.ServiceCommentDto)
+        {
+            <div class="company-explane">
+                <div class="title">
+                    @if (!string.IsNullOrEmpty(item.AttachmentImageSource))
+                    {
+                        <img src="@item.AttachmentImageSource" alt="">
+                    }
+                </div>
+                <div class="explane mt-4">
+                    @Html.Raw(item.Text)
+                </div>
+                <div class="company-manager so-subheading-h6 text-center mb-4">
+                    <span class="mt-3">
+                        @item.PersonFullName
+                    </span>
+                    @item.PersonRoleTitle
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<script>
+   function sendData(){
+      var uniqueCode = "";
+   var theForm =$('form');
+   var FormFieldValueCommand = [];
+   var formInputs = document.querySelectorAll('#contactForm input[type="tel"] ,#contactForm input[type="text"] ,#contactForm input[type="email"] , #contactForm input[type="number"]  ,#contactForm input[type="checkbox"] ,#contactForm input[type="radio"] ,  #contactForm textarea , #contactForm select');
+   var formFile = document.querySelector('#contactForm input[type="file"]');
+	var formId = document.querySelector('[data-form-builder]').value;
+   var form = new FormData();
+   for (var i = 0; i < formInputs.length; i++) {
+            FormFieldValueCommand.push({
+	         "FieldName": formInputs[i].name,
+	         "Value": formInputs[i].value
+	      });
+   }
+   /*send form fields (not file) */
+   form = theForm.serialize() + '&' + $.param ({
+       "FormFileValueItemsCommand": FormFieldValueCommand
+   })+ '&' + $.param ({
+       "FormId": formId
+   }); 
+
+   $.ajax({
+      type: "POST",
+      url: "/FormFieldValues/Create",
+      data: form,
+      success: function (result) {
+          console.log("form inputs result");
+          console.log(result);
+          thenSendFile(result.Code);
+      },
+      error: function () {
+          console.log('error');
+      }
+   });
+   
+   function thenSendFile(code){
+          /*send form File */
+   var formData = new FormData();
+        formData.append('File', formFile.files[0], formFile.files[0].name);
+        formData.append('FieldName', formFile.name);
+        formData.append('Code', code);
+        formData.append('FormId', formId );
+        var xhttp;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log('file has been sent');
+            }
+        };
+        xhttp.open("POST", "/FormFieldValues/Create", false);
+        xhttp.send(formData);
+   }
+   }
+</script>

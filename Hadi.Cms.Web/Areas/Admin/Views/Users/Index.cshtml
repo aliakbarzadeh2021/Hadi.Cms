@@ -1,0 +1,246 @@
+@using Hadi.Cms.Infrastructure.Helpers
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Web.Utilities
+@model Hadi.Cms.ApplicationService.QueryModels.UserDto
+
+@{
+    ViewBag.Title = Strings.Global_UserList;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+    <link href="~/Content/RadaTemplate/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="~/Content/RadaTemplate/css/plugins/footable/footable.core.css" rel="stylesheet">
+}
+
+<style>
+    .float-e-margins .btn {
+        margin-left: 4px;
+    }
+
+    .ibox .fa {
+        font-size: 14px !important;
+    }
+
+    .opr table {
+        margin: 0px 0px -7px -90px;
+    }
+</style>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="widget style1 lazur-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-users fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> @Strings.Global_SystemUserCount </span>
+                        <h2 class="font-bold">@ViewBag.AllUserCount</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="widget style1 navy-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-user fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> @Strings.Global_OnlineUserCount </span>
+                        <h2 class="font-bold">@ViewBag.OnlineUserCount</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="widget style1 yellow-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-user fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> @Strings.Global_OfflineUserCount </span>
+                        <h2 class="font-bold">@ViewBag.OfflineUserCount</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="widget style1 red-bg">
+                <div class="row">
+                    <div class="col-xs-4 text-center">
+                        <i class="fa fa-minus-circle fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> @Strings.Global_DisableUserCount </span>
+                        <h2 class="font-bold">@ViewBag.DisableUserCount</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>@Strings.Global_UserList</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up">
+                            </i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-tasks">
+                            </i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="@Url.Action("Create", "Users", new { area = "Admin" })">
+                                    @Strings.Global_NewUser
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <input type="text" class="form-control input-sm m-b-xs" name="search" id="filter" placeholder="@Strings.Global_SearchInTable">
+                    <div class="hr-line-dashed"></div>
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="10" data-filter="#filter">
+                        <thead>
+                            <tr>
+                                <th>@Strings.Table_RowNumber</th>
+                                <th>@Strings.UserMetadata_Username</th>
+                                <th>@Strings.UserMetadata_UserFullName</th>
+                                <th>@Strings.UserMetadata_UserCreateWhen</th>
+                                <th>@Strings.UserMetadata_UserIsEnable</th>
+                                <th>@Strings.Table_UserOperations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.UserListCollctionDto != null)
+                            {
+                                var rowId = 0;
+                                foreach (var item in Model.UserListCollctionDto)
+                                {
+                                    <tr class="gradeX">
+                                        <td class="center">
+                                            @(rowId += 1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.UserName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.FullName)
+                                        </td>
+                                        <td>
+                                            @{ var sUserCreateWhen = item.CreateDate.DateTimeToString(SessionData.Current.HasRightToLeftUI); }
+                                            @Html.DisplayFor(m => sUserCreateWhen)
+                                        </td>
+                                        <td class="center">
+                                            @if (item.IsEnable)
+                                            {
+                                                <strong class="label label-primary">@Strings.Global_Yes</strong>
+                                            }
+                                            else
+                                            {
+                                                <strong class="label label-danger">@Strings.Global_No</strong>
+                                            }
+                                        </td>
+                                        <td class="opr">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <a href="@Url.Action("ChangeStatus", "Users", new { area = "Admin", userId = item.Id })" class="btn btn-primary btn-circle" title="@Strings.Global_ChangeStatus"><i class="fa fa-exchange"></i></a>
+                                                    </th>
+                                                    <th>
+                                                        <a onclick="DeleteUserAlert('@item.Id');" class="btn btn-danger btn-circle" title="@Strings.Global_Delete"><i class="fa fa-remove"></i></a>
+                                                    </th>
+                                                    <th>
+                                                        <a href="@Url.Action("Index", "Profile", new { area = "Admin", userId = item.Id })" class="btn btn-success btn-circle" title="@Strings.Global_Details"><i class="fa fa-eye"></i></a>
+                                                    </th>
+                                                    <th>
+                                                        <a href="@Url.Action("ChangePassword", "Users", new { area = "Admin", userId = item.Id })" class="btn btn-warning btn-circle" title="@Strings.Global_ChangePassword"><i class="fa fa-lock"></i></a>
+                                                    </th>
+                                                    <th>
+                                                        <a href="@Url.Action("UserRoles", "Users", new { area = "Admin", userId = item.Id })" class="btn btn-info btn-circle" title="@Strings.Global_UserRoles"><i class="fa fa-users"></i></a>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <ul class="pagination pull-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Content/RadaTemplate/js/plugins/footable/footable.all.min.js"></script>
+    <script src="~/Content/RadaTemplate/js/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <script>
+		var UserId = -1;
+
+		$(function () {
+			$('.footable').footable();
+		});
+
+		function DeleteUserAlert(Id) {
+			UserId = Id;
+
+			swal({
+				title: '@Strings.Are_You_Sure',
+				text: '@Strings.User_Attention_To_For_Delete',
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: '@Strings.Yes',
+				cancelButtonText: '@Strings.No',
+				closeOnConfirm: false,
+				closeOnCancel: true
+			},
+			function (isConfirm) {
+				if (isConfirm) {
+					DeleteUser(Id);
+				}
+			});
+		}
+
+		function DeleteUser(id) {
+			var param = "@Url.Action("DeleteUser", "Users", null, this.Request.Url.Scheme)";
+			var ajaxdata = "UserId=" + id;
+			@Html.Ajax("POST", "", "nowhere", "ReturnDeleteUser")
+		}
+
+		function ReturnDeleteUser(data) {
+			swal({
+				title: data.Success,
+				text: data.Message,
+				type: "success",
+				showCancelButton: false,
+				confirmButtonColor: "#23c6c8",
+				confirmButtonText: "OK",
+				closeOnConfirm: true
+			}, function () {
+				window.location.reload();
+			});
+		}
+    </script>
+}

@@ -1,0 +1,425 @@
+@using System.Globalization
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Model.Mappings.Interfaces
+@using Hadi.Cms.Model.Enums
+@using Hadi.Cms.ApplicationService.Services
+
+@model Hadi.Cms.Model.QueryModels.ProfileModel
+
+@{
+    ViewBag.Title = Strings.Global_EditProfile;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    string birthDate = "";
+    string checkedMale = "";
+    string checkedFemale = "";
+    string imgSrc = "";
+}
+
+@section style{
+    <link href="~/Content/RadaTemplate/css/plugins/persian-datepicker/persian-datepicker.min.css" rel="stylesheet">
+
+    <link href="~/Content/RadaTemplate/css/plugins/cropper/cropper.min.css" rel="stylesheet">
+
+    <!-- for checkbox and radios -->
+    @Styles.Render("~/Content/RadaTemplate/css/plugins/summernot")
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>@Strings.Global_EditProfile : @ViewBag.FullName</h2>
+        <ol class="breadcrumb">
+            <li>
+
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-4">
+        <div style="float: left; display: @(ViewBag.Success == null ? "none" : "block")">
+            <div class="alert @(ViewBag.Success == "1" ? "alert-success" : "alert-danger") alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                @ViewBag.Message
+            </div>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { id = "EditProfileForm", @class = "form-horizontal m-t-md", @enctype = "multipart/form-data" }))
+{
+    @*@Html.AntiForgeryToken()*@
+
+
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title back-change">
+                    <h5>
+                        @Strings.Global_UserFurtherInformation
+                    </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up">
+                            </i>
+                        </a>
+                    </div>
+                </div>
+
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.UserId)
+                @if (Model != null && Model.ImageAttachmentGuid != null && Model.ImageAttachmentGuid != Guid.Empty)
+                {
+                    @Html.HiddenFor(model => model.ImageAttachmentGuid)
+                }
+
+
+                <div class="ibox-content">
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.ProfileModel_User_FirstName)
+                        </div>
+                        <div class="col-sm-10 input-group">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                            <span class="input-group-addon">
+                                <i class="fa fa-user">
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.ProfileModel_User_LastName)
+                        </div>
+                        <div class="col-sm-10 input-group">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control rtl-input" } })
+                            <span class="input-group-addon">
+                                <i class="fa fa-user">
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.ProfileModel_NationalCode)
+                        </div>
+                        <div class="col-sm-10 input-group">
+                            @Html.EditorFor(model => model.NationalCode, new { htmlAttributes = new { @class = "form-control ltr-input", @maxlength = "10" } })
+                            @Html.ValidationMessageFor(model => model.NationalCode, "", new { @class = "text-danger" })
+                            <span class="input-group-addon">
+                                <i class="fa fa-slack">
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="BirthDateControl">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.ProfileModel_BirthDate)
+                        </div>
+                        <div class="col-sm-10 input-group date">
+                            @if (Model.BirthDate != null && Model.BirthDate is DateTime)
+                            {
+                                birthDate = Convert.ToDateTime(Model.BirthDate).ToString(CultureInfo.InvariantCulture);
+                            }
+                            else
+                            {
+                                birthDate = "";
+                            }
+                            @Html.EditorFor(model => birthDate, new { htmlAttributes = new { @class = "form-control ltr-input" } })
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar">
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.ProfileModel_Gender)
+                        </div>
+                        <div class="col-sm-10 input-group">
+                            <div class="">
+                                @if (Model != null && Model.Gender != null)
+                                {
+                                    checkedMale = (int)Model.Gender == (int)Gender.Male ? "checked" : "";
+
+                                    checkedFemale = (int)Model.Gender == (int)Gender.Female ? "checked" : "";
+                                }
+
+                                <label>
+                                    @Strings.Global_Male
+                                    @Html.RadioButtonFor(m => m.Gender, Gender.Male, new { checkedMale })
+                                </label>
+
+                                <br />
+
+                                <label>
+                                    @Strings.Global_Female
+                                    @Html.RadioButtonFor(m => m.Gender, Gender.Female, new { checkedFemale })
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.ProfileModel_EmailAddress)
+                        </div>
+                        <div class="col-sm-10 input-group">
+                            @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control ltr-input" } })
+                            <span class="input-group-addon">
+                                <i class="fa fa-envelope">
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.ProfileModel_MobileNumber)
+                        </div>
+                        <div class="col-sm-10 input-group">
+                            @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control ltr-input" } })
+                            <span class="input-group-addon">
+                                <i class="fa fa-mobile">
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            @Html.Label(Strings.ProfileModel_PhoneNumber)
+                        </div>
+                        <div class="col-sm-10 input-group">
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control ltr-input", @maxlength = "11" } })
+                            <span class="input-group-addon">
+                                <i class="fa fa-phone">
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="col-sm-4">
+                                    @Html.Label(Strings.ProfileModel_EducationId)
+                                </div>
+                                <div class="col-sm-8 input-group">
+                                    @Html.DropDownListFor(model => model.EducationId, new SelectList(ViewBag.Educations, "Id", "Title"), "انتخاب کنید...", new { @class = "form-control rtl-input select2" })
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-mortar-board">
+                                        </i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="col-sm-4">
+                                    @Html.Label(Strings.ProfileModel_CityId)
+                                </div>
+                                <div class="col-sm-8 input-group">
+                                    @Html.DropDownListFor(model => model.CityId, new SelectList(ViewBag.Cities, "Id", "Name"), "انتخاب کنید...", new { @class = "form-control rtl-input select2" })
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-map-marker">
+                                        </i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            @*<div class="col-md-12">*@
+            <div class="ibox float-e-margins">
+                <div class="ibox-title back-change">
+                    <h5>
+                        @Strings.Global_SelectImage
+                    </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up">
+                            </i>
+                        </a>
+                    </div>
+                </div>
+                <style>
+                    .image-crop {
+                        display: flex;
+                    }
+
+                    .cropper-container {
+                        left: 0 !important;
+                    }
+                </style>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="image-crop">
+                                @{
+                                    imgSrc = new AttachmentFileService().GetAttachmentSourceValue(Model.ImageAttachmentGuid);
+                                }
+
+                                <img alt="user image" class="img-responsive" src="@imgSrc" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            @*<div class="col-md-6">*@
+                            <h4>
+                                @Strings.Global_DisplayImage
+                            </h4>
+                            <div class="img-preview img-preview-sm">
+                            </div>
+                            <div class="btn-group">
+                                <label title="Upload image file" for="inputImage" class="btn btn-primary">
+                                    <input type="file" accept="image/*" name="file" id="inputImage" class="hide">
+                                    @Strings.Global_UploadNewImage
+                                </label>
+                                <label title="Donload image" id="download" class="btn btn-primary" style="width: 61px;">
+                                    @Strings.Global_Download
+                                </label>
+                            </div>
+                            <div class="btn-group hidden">
+                                <button class="btn btn-white" id="zoomIn" type="button">
+                                    @Strings.Global_ZoomIn
+                                </button>
+                                <button class="btn btn-white" id="zoomOut" type="button">
+                                    @Strings.Global_ZoomOut
+                                </button>
+                                <button class="btn btn-white" id="rotateLeft" type="button">
+                                    @Strings.Global_RotateLeft
+                                </button>
+                                <button class="btn btn-white" id="rotateRight" type="button">
+                                    @Strings.Global_RotateRight
+                                </button>
+                                <button class="btn btn-warning" id="setDrag" type="button">
+                                    @Strings.Global_NewCrop
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-0">
+            <input type="submit" value="@Strings.Global_Save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script src="~/Content/RadaTemplate/js/plugins/cropper/cropper.min.js"></script>
+
+    <!-- Data picker -->
+    <script src="~/Content/RadaTemplate/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Content/RadaTemplate/js/plugins/persian-datepicker/persian-date.js"></script>
+    <script src="~/Content/RadaTemplate/js/plugins/persian-datepicker/persian-datepicker.min.js"></script>
+
+    @Scripts.Render("~/Content/RadaTemplate/js/plugins/summernote")
+
+    <script>
+        $(function () {
+
+            $('#EditProfileForm').submit(function () {
+                if (!isValidIranianNationalCode($("#NationalCode").val())) {
+                    MyAlert('@Strings.Global_Error', '@Strings.Profile_National_Code_Required', 4000, 'error');
+                    return false;
+                }
+                else {
+                    var formData = new FormData($(this)[0]);
+                    $.ajax({
+                        url: this.action,
+                        type: this.method,
+                        data: formData,
+                        success: function (result) {
+                            alert(result);
+                        },
+                        error: function () {
+                            alert('error');
+                        }
+                    });
+                    return false;
+                }
+            });
+
+            var $image = $(".image-crop > img")
+            $($image).cropper({
+                aspectRatio: 1.618,
+                preview: ".img-preview",
+                done: function (data) {
+
+                }
+            });
+            var $inputImage = $("#inputImage");
+            if (window.FileReader) {
+                $inputImage.change(function () {
+                    var fileReader = new FileReader(),
+                        files = this.files,
+                        file;
+                    if (!files.length) {
+                        return;
+                    }
+                    file = files[0];
+                    if (/^image\/\w+$/.test(file.type)) {
+                        fileReader.readAsDataURL(file);
+                        fileReader.onload = function () {
+                            //$inputImage.val("");
+                            $image.cropper("reset", true).cropper("replace", this.result);
+                        };
+                    } else {
+                        showMessage("Please choose an image file.");
+                    }
+                });
+            } else {
+                $inputImage.addClass("hide");
+            }
+            $("#download").click(function () {
+                window.open($image.cropper("getDataURL"));
+            });
+            $("#zoomIn").click(function () {
+                $image.cropper("zoom", 0.1);
+            });
+            $("#zoomOut").click(function () {
+                $image.cropper("zoom", -0.1);
+            });
+            $("#rotateLeft").click(function () {
+                $image.cropper("rotate", 45);
+            });
+            $("#rotateRight").click(function () {
+                $image.cropper("rotate", -45);
+            });
+            $("#setDrag").click(function () {
+                $image.cropper("setDragMode", "crop");
+            });
+
+
+            $('#BirthDateControl .input-group.date > input').pDatepicker({
+                viewMode: 'month',
+                format: 'YYYY/MM/DD HH:mm:ss',
+                timePicker: {
+                    enabled: true
+                },
+                autoClose: true
+            });
+
+        });
+
+        function isValidIranianNationalCode(input) {
+            if (!/^\d{10}$/.test(input))
+                return false;
+
+            var check = parseInt(input[9]);
+            var sum = 0;
+            var i;
+            for (i = 0; i < 9; ++i) {
+                sum += parseInt(input[i]) * (10 - i);
+            }
+            sum %= 11;
+
+            return (sum < 2 && check == sum) || (sum >= 2 && check + sum == 11);
+        }
+    </script>
+}

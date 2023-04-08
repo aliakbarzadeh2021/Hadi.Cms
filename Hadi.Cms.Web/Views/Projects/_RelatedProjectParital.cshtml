@@ -1,0 +1,31 @@
+@model List<Hadi.Cms.Model.Mappings.Interfaces.IProjectDto>
+
+@if (Model.Count > 0)
+{
+    <div class="similar-projects container-fluid">
+        <div class="title-container">
+            <div class="title">
+                پروژه های مشابه
+            </div>
+            <div class="line"></div>
+        </div>
+        <div class="similar-projects-container mt-4">
+
+            @foreach (var project in Model)
+            {
+                <a href="@Url.Action("Details","Projects",new { id = project.Id})" class="item">
+                    <div class="image">
+                        <img src="@project.Source" class="w-100 h-100" alt="@project.Title">
+                    </div>
+                    <div class="project-category">
+
+                        @project.ProjectType
+                    </div>
+                    <div class="project-title">
+                        @project.Title
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+}

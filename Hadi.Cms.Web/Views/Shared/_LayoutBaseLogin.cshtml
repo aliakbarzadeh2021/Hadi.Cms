@@ -1,0 +1,42 @@
+@using Hadi.Cms.Configuration
+@using Hadi.Cms.Language.Resources
+@using Hadi.Cms.Web.Utilities
+
+@{
+    bool rightToLeft = SessionData.Current.HasRightToLeftUI;
+}
+
+<!DOCTYPE html>
+
+<html lang="@(rightToLeft? "fa" : "en")" dir="@(rightToLeft?"rtl" : "ltr")" @(rightToLeft ? "" : "style=direction:ltr;")>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Settings.Application_CompanyName | @ViewBag.Title</title>
+    @Styles.Render("~/Content/Stylesheet/css-rtl")
+</head>
+<body class="gray-bg">
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+            @RenderBody()
+        </div>
+        <hr style="margin-top:20%;" />
+        <div class="row">
+            <div class="col-md-6">
+                @Settings.Application_LoginFooterText
+            </div>
+            <div class="col-md-6 text-left">
+                @if (Settings.Application_DisplayFooterLanguageChanger)
+                {
+                    <p>&copy; @DateTime.Now.Year - @Strings.ApplicationName | <a href="/User/SetCulture/?culture=en-us&currentUrl=@(Request.Url.AbsolutePath + Request.Url.Query)" onclick="document.cookie='lang=en-us'">English</a> | <a href="/User/SetCulture/?culture=fa-ir&currentUrl=@(Request.Url.AbsolutePath + Request.Url.Query)" onclick="document.cookie='lang=fa-ir'">فارسی</a></p>
+                }
+                @if (Settings.Application_DisplayFooterVersionText)
+                {
+                    <p>Version : @ViewContext.Controller.GetType().Assembly.GetName().Version  |  <span>Assembly date : @File.GetCreationTime(ViewContext.Controller.GetType().Assembly.Location)</span></p>
+                }
+            </div>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

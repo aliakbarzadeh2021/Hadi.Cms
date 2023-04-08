@@ -1,0 +1,55 @@
+@model List<Hadi.Cms.ApplicationService.QueryModels.AllArticleDto>
+
+@if (Model.Count > 0)
+{
+    <section class="container-fluid articles-information">
+        <div class="title-container mb-3">
+            <div class="so-display-h2  so-display-h2-mobile font-anjoman">
+                <span class="text-Turmeric">مقـــالات</span>
+                <span>برگــزیده</span>
+            </div>
+            <div class="hr-style">
+                <hr>
+            </div>
+        </div>
+        <div class="images-container">
+            @for (var i = 0; i < Model.Count; i++)
+            {
+                <div class="box@(i+1) bottom-layout" onclick="goToAnArticle('@Model[i].Id')">
+                    <img src="@Model[i].ArticleImageSource" alt="">
+                    <div class="filter-black">
+
+                    </div>
+                    <div class="hashtag-container">
+                        @foreach (var tag in Model[i].Tags)
+                        {
+                            <div style="background-color: @tag.Color" class="user-experience-hashtag">
+                                @tag.Title
+                            </div>
+                        }
+                    </div>
+                    <div class="description">
+                        @Model[i].Title
+                    </div>
+                    <hr class="hr-style-white">
+                    <div class="inforamtion-container">
+                        <div class="date">
+                            @Model[i].ShamsiCreatedDate
+                        </div>
+                        <div class="name">
+                            <img src="@Model[i].AuthorImageSource" alt="">
+                            <span>
+                                @Model[i].AuthorName
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="box5  so-display-h2-mobile">
+                <a class="w-100 h-100 text-center pt-1 text-dark" href="@Url.Action("Index","Articles")">
+                    همه مقالات
+                </a>
+            </div>
+        </div>
+    </section>
+}
